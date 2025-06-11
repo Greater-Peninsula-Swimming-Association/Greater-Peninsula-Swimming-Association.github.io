@@ -47,8 +47,8 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
     <header class="gpsa-header p-4 shadow-md flex items-center justify-center">
-        <!-- Logo now references a local path for GitHub Pages hosting -->
-        <img id="logo-display" src="assets/gpsa_logo.png" alt="GPSA Logo" class="h-20 w-20 mr-4 rounded-full" crossorigin="anonymous">
+        <!-- Logo now references the specified URL -->
+        <img id="logo-display" src="https://publicity.gpsaswimming.org/assets/gpsa_logo.png" alt="GPSA Logo" class="h-20 w-20 mr-4 rounded-full" crossorigin="anonymous">
         <h1 class="text-3xl md:text-5xl font-bold">GPSA Meet Publicity Tool</h1>
     </header>
 
@@ -137,9 +137,9 @@
             } else {
                 // Otherwise, wait for it to load.
                 img.onload = encodeLogoToBase64;
-                // Handle cases where the logo fails to load from the relative path
+                // Handle cases where the logo fails to load from the URL
                 img.onerror = () => {
-                    console.error("Failed to load logo from 'assets/gpsa_logo.png'. Please check the path.");
+                    console.error("Failed to load logo from 'https://publicity.gpsaswimming.org/assets/gpsa_logo.png'. Please check the URL.");
                     // Use a placeholder if the logo is missing
                     const placeholder = 'https://placehold.co/100x100/002366/FFFFFF?text=GPSA';
                     logoBase64 = placeholder;
