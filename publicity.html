@@ -87,7 +87,7 @@
             <div id="events-grid" class="space-y-8"></div>
         </div>
         <footer class="text-center mt-10 text-gray-500 text-sm">
-             <p>GPSA Meet Publicity Tool v0.1</p>
+             <p>GPSA Meet Publicity Tool v0.2</p>
         </footer>
     </div>
 
@@ -106,49 +106,14 @@
         const exportButton = document.getElementById('export-button');
 
         let fileContent = '';
-        let logoBase64 = '';
         let parsedData = null;
+        // The logo URL is now a constant since it's always the same.
+        const logoUrl = 'https://publicity.gpsaswimming.org/assets/gpsa_logo.png';
 
-        // Convert the loaded logo to a Base64 string for embedding
-        function encodeLogoToBase64() {
-            const img = document.getElementById('logo-display');
-            // Ensure the image is fully loaded before trying to draw it
-            if (img.complete && img.naturalHeight !== 0) {
-                const canvas = document.createElement('canvas');
-                canvas.width = img.naturalWidth;
-                canvas.height = img.naturalHeight;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0);
-                try {
-                    logoBase64 = canvas.toDataURL('image/png');
-                } catch (e) {
-                    console.error("Could not convert logo to Base64 due to CORS policy. Exported file may have a broken image. Ensure the image is hosted on the same domain or allows cross-origin access.", e);
-                    // Fallback to the original src if encoding fails
-                    logoBase64 = img.src;
-                }
-            } else {
-                 console.error("Logo image not loaded yet. Cannot encode for export.");
-                 logoBase64 = img.src; // Fallback
-            }
-        }
-
-        window.onload = () => {
-            const img = document.getElementById('logo-display');
-            // If the image is already in the cache and loaded, encode it.
-            if (img.complete) {
-                encodeLogoToBase64();
-            } else {
-                // Otherwise, wait for it to load.
-                img.onload = encodeLogoToBase64;
-                // Handle cases where the logo fails to load from the URL
-                img.onerror = () => {
-                    console.error("Failed to load logo from 'https://publicity.gpsaswimming.org/assets/gpsa_logo.png'. Please check the URL.");
-                    // Use a placeholder if the logo is missing
-                    const placeholder = 'https://placehold.co/100x100/002366/FFFFFF?text=GPSA';
-                    logoBase64 = placeholder;
-                    img.src = placeholder;
-                }
-            }
+        // Set an error handler for the main logo on the tool page
+        logoDisplay.onerror = () => {
+            console.error("Failed to load logo from 'https://publicity.gpsaswimming.org/assets/gpsa_logo.png'. Please check the URL.");
+            logoDisplay.src = 'https://placehold.co/100x100/002366/FFFFFF?text=GPSA'; // Fallback placeholder
         };
 
         fileUploadInput.addEventListener('change', (event) => {
@@ -198,7 +163,8 @@
                 fileName = `${formattedDate}_${team1Code}_v_${team2Code}.html`;
             }
 
-            const exportableHtml = generateExportableHtml(parsedData, logoBase64);
+            // Pass the direct URL to the export function
+            const exportableHtml = generateExportableHtml(parsedData, logoUrl);
             const blob = new Blob([exportableHtml], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -395,7 +361,7 @@
             }
         }
         
-        function generateExportableHtml(data, logoDataUrl) {
+        function generateExportableHtml(data, logoUrl) {
             const { meet, teams, events } = data;
 
             // Extract winners
@@ -448,7 +414,7 @@
                 <body>
                     <div class="container">
                         <header>
-                            <img src="${logoDataUrl}" alt="GPSA Logo">
+                            <img src="${logoUrl}" alt="GPSA Logo">
                             <h1>${meet.name || 'Swim Meet Results'}</h1>
                         </header>
                         
@@ -467,7 +433,7 @@
                         </main>
 
                         <footer>
-                            <p>Results generated on ${new Date().toLocaleDateString()} with the GPSA Meet Publicity Tool v0.1</p>
+                            <p>Results generated on ${new Date().toLocaleDateString()} with the GPSA Meet Publicity Tool v0.2</p>
                         </footer>
                     </div>
                 </body>
