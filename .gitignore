@@ -1,0 +1,16 @@
+# General macOS files
+.DS_Store
+.AppleDouble
+._*
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# Thumbnail cache files
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Zipped files
+*.zip

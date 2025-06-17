@@ -6,6 +6,14 @@
     <title>GPSA Meet Publicity Tool</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-16x16.png?1651502535">
+    <link rel="manifest" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/site.webmanifest?1651502732">
+    <link rel="mask-icon" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/safari-pinned-tab.svg?1651502580" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -50,13 +58,6 @@
         <!-- Logo now references the specified URL -->
         <img id="logo-display" src="https://publicity.gpsaswimming.org/assets/gpsa_logo.png" alt="GPSA Logo" class="h-20 w-20 mr-4 rounded-full" crossorigin="anonymous">
         <h1 class="text-3xl md:text-5xl font-bold">GPSA Meet Publicity Tool</h1>
-        <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
-        <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
-        <link rel="icon" type="image/png" sizes="16x16" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-16x16.png?1651502535">
-        <link rel="manifest" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/site.webmanifest?1651502732">
-        <link rel="mask-icon" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/safari-pinned-tab.svg?1651502580" color="#5bbad5">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
     </header>
 
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
@@ -94,7 +95,7 @@
             <div id="events-grid" class="space-y-8"></div>
         </div>
         <footer class="text-center mt-10 text-gray-500 text-sm">
-             <p>GPSA Meet Publicity Tool v1.0</p>
+             <p>GPSA Meet Publicity Tool v1.1</p>
         </footer>
     </div>
 
@@ -221,6 +222,11 @@
                             meet.startDate = line.substring(121, 129).trim(); // MMDDYYYY
                             lastRelayResult = null;
                             break;
+                        case 'B2': // Capture Host Team Name
+                            if (!meet.hostName) { // Only capture the first host listed
+                                meet.hostName = line.substring(11, 41).trim();
+                            }
+                            break;
                         case 'C1':
                             const rawTeamCode = line.substring(11, 17).trim();
                             const teamName = line.substring(17, 47).trim();
@@ -288,6 +294,17 @@
                     console.error(`Error parsing line: ${line}`, e);
                 }
             });
+            
+            // --- New Meet Title Logic ---
+            const teamList = Object.values(teams);
+            if (meet.hostName && meet.startDate && teamList.length === 2) {
+                const year = meet.startDate.substring(4);
+                const awayTeam = teamList.find(team => team.name !== meet.hostName);
+                if (awayTeam) {
+                    meet.name = `${year} ${meet.hostName} v. ${awayTeam.name}`;
+                }
+            }
+
 
             Object.values(events).forEach(event => {
                 event.results.sort((a, b) => a.place - b.place);
@@ -440,7 +457,7 @@
                         </main>
 
                         <footer>
-                            <p>Results generated on ${new Date().toLocaleDateString()} with the GPSA Meet Publicity Tool v1.0</p>
+                            <p>Results generated on ${new Date().toLocaleDateString()} with the GPSA Meet Publicity Tool v1.1</p>
                         </footer>
                     </div>
                 </body>
