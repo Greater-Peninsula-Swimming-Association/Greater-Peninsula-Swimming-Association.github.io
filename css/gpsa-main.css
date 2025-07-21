@@ -1,6 +1,6 @@
-@import url("https://files.gpsaswimming.com/gpsa-roster.css");
-@import url("https://files.gpsaswimming.com/gpsa-roster-contact.css");
-@import url("https://files.gpsaswimming.com/gpsa-roster-officials.css");
+@import url("https://publicity.gpsaswimming.org/css/gpsa-roster.css");
+@import url("https://publicity.gpsaswimming.org/css/gpsa-roster-contact.css");
+@import url("https://publicity.gpsaswimming.org/css/gpsa-roster-officials.css");
 
 /* General styles for the main layout wrapper and header.
   - Consolidated background properties into a single shorthand declaration.
