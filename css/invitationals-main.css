@@ -1,0 +1,61 @@
+@import url("https://files.gpsaswimming.com/invitationals-meets.css");
+@import url("https://files.gpsaswimming.com/invitationals-tables.css");
+@import url("https://files.gpsaswimming.com/invitationals-store.css");
+@import url("https://files.gpsaswimming.com/invitationals-records.css");
+
+#wrapper #header {
+    position: relative;
+    padding: 0;
+    max-height: 229px !important;
+    height: 229px !important;
+    /* Combined background properties for conciseness */
+    background: url(https://d1nmxxg9d5tdo.cloudfront.net/875/snippet_images/c7c4e879162f40d30c2dc819e57220e2029e4623/original/gpsa-logo-header-lettering.png) no-repeat center/cover !important;
+}
+
+#wrapper #header .hgroup h1,
+#wrapper #header .hgroup h2 {
+    visibility: hidden;
+}
+
+#wrapper #navigation {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#wrapper .sm-menu {
+    background: #e00024;
+}
+
+#wrapper #footer li.active {
+    background-color: #d81e2c;
+    color: white;
+}
+
+#wrapper #footer li.inactive {
+    background-color: #007AC3;
+    color: #212121;
+}
+
+#wrapper #footer ul li a {
+    color: white;
+}
+
+.smartphone-only {
+    display: none;
+}
+
+@media all and (max-width: 960px) {
+    #wrapper #header {
+        display: none;
+    }
+
+    #wrapper .sm-menu #sm-navigation:before {
+        background: #0884c7;
+    }
+
+    .smartphone-only {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}

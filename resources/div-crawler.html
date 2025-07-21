@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website ID Crawler</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8">
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">Website ID Reference Crawler</h1>
+            <p class="text-gray-500 mt-2">Enter a starting URL and a div ID to find all references to it across a website.</p>
+        </div>
+
+        <!-- Input Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div>
+                <label for="startUrl" class="block text-sm font-medium text-gray-700 mb-1">Starting URL</label>
+                <input type="url" id="startUrl" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://example.com">
+            </div>
+            <div>
+                <label for="divId" class="block text-sm font-medium text-gray-700 mb-1">Div ID to Find</label>
+                <input type="text" id="divId" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="main-content">
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <button id="crawlButton" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                Start Crawling
+            </button>
+            <button id="stopButton" class="bg-red-600 text-white font-bold py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150 ease-in-out" style="display: none;">
+                Stop Crawling
+            </button>
+            <div id="status" class="text-gray-600 flex items-center gap-2">
+                <!-- Status messages will appear here -->
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold text-gray-800">Results</h2>
+            <div id="resultsContainer" class="mt-4 bg-gray-50 p-4 rounded-lg border border-gray-200 h-96 overflow-y-auto">
+                <p class="text-gray-400">Results will appear here...</p>
+            </div>
+        </div>
+         <div class="mt-4 text-xs text-gray-400">
+            <p><strong>Note:</strong> This tool uses a public CORS proxy to fetch website data. It may be slow or fail for certain websites due to security restrictions (CORS policy). It is intended for development and educational purposes.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Alerts -->
+    <div id="alertModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50" style="display: none;">
+        <div class="relative mx-auto p-5 border w-full max-w-sm shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                    <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mt-3">Input Error</h3>
+                <div class="mt-2 px-7 py-3">
+                    <p id="modalMessage" class="text-sm text-gray-500"></p>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <button id="modalCloseButton" class="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const startUrlInput = document.getElementById('startUrl');
+        const divIdInput = document.getElementById('divId');
+        const crawlButton = document.getElementById('crawlButton');
+        const stopButton = document.getElementById('stopButton');
+        const statusDiv = document.getElementById('status');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const alertModal = document.getElementById('alertModal');
+        const modalMessage = document.getElementById('modalMessage');
+        const modalCloseButton = document.getElementById('modalCloseButton');
+
+        // State variables
+        let urlsToVisit = new Set();
+        let visitedUrls = new Set();
+        let foundReferences = [];
+        let baseUrl = '';
+        let isCrawling = false;
+        let stopCrawling = false;
+        
+        // Using a CORS proxy to bypass browser security restrictions for fetching cross-origin content.
+        const PROXY_URL = 'https://api.allorigins.win/raw?url=';
+
+        // Event Listeners
+        crawlButton.addEventListener('click', startCrawl);
+        stopButton.addEventListener('click', () => {
+            if (isCrawling) {
+                stopCrawling = true;
+                updateStatus('Stopping crawl...', false);
+            }
+        });
+        modalCloseButton.addEventListener('click', () => {
+            alertModal.style.display = 'none';
+        });
+
+        /**
+         * Displays a custom modal alert.
+         * @param {string} message The message to show in the modal.
+         */
+        function showModal(message) {
+            modalMessage.textContent = message;
+            alertModal.style.display = 'flex';
+        }
+
+        /**
+         * Initializes the crawling process.
+         */
+        async function startCrawl() {
+            const startUrl = startUrlInput.value.trim();
+            const searchId = divIdInput.value.trim();
+
+            if (!startUrl || !searchId) {
+                showModal('Please provide both a starting URL and a Div ID.');
+                return;
+            }
+
+            if (isCrawling) {
+                showModal('A crawl is already in progress.');
+                return;
+            }
+
+            try {
+                const urlObject = new URL(startUrl);
+                baseUrl = urlObject.origin;
+            } catch (error) {
+                showModal('Invalid URL provided. Please enter a full URL, including https://');
+                return;
+            }
+
+            // Reset state for a new crawl
+            isCrawling = true;
+            stopCrawling = false;
+            urlsToVisit.clear();
+            visitedUrls.clear();
+            foundReferences = [];
+            urlsToVisit.add(startUrl);
+
+            // Update UI for crawling state
+            crawlButton.style.display = 'none';
+            stopButton.style.display = 'inline-block';
+            resultsContainer.innerHTML = '';
+            updateStatus('Starting crawl...', true);
+
+            // Start the recursive crawl. The completion logic is handled inside crawlNextUrl.
+            await crawlNextUrl(searchId);
+        }
+
+        /**
+         * Crawls the next available URL from the queue, or stops if requested.
+         * @param {string} searchId The ID to search for.
+         */
+        async function crawlNextUrl(searchId) {
+            // Stop conditions: no more URLs to visit, or user clicked "Stop"
+            if (urlsToVisit.size === 0 || stopCrawling) {
+                const finalMessage = stopCrawling 
+                    ? `Crawl stopped by user. Found ${foundReferences.length} references on ${visitedUrls.size} pages.`
+                    : `Crawl complete. Found ${foundReferences.length} references on ${visitedUrls.size} pages.`;
+                
+                updateStatus(finalMessage, false);
+
+                // Reset UI to initial state
+                isCrawling = false;
+                stopCrawling = false;
+                crawlButton.style.display = 'inline-block';
+                stopButton.style.display = 'none';
+
+                if (foundReferences.length === 0 && !finalMessage.includes('stopped')) {
+                     resultsContainer.innerHTML = '<p class="text-gray-500">No references found for the specified ID.</p>';
+                }
+
+                return; // End of crawl process
+            }
+
+            const currentUrl = urlsToVisit.values().next().value;
+            urlsToVisit.delete(currentUrl);
+            
+            if (visitedUrls.has(currentUrl)) {
+                await crawlNextUrl(searchId); // Skip already visited URL and move to the next one
+                return;
+            }
+
+            visitedUrls.add(currentUrl);
+            updateStatus(`Crawling: ${currentUrl}`, true);
+
+            try {
+                // Using the proxy to fetch the page content
+                const response = await fetch(`${PROXY_URL}${encodeURIComponent(currentUrl)}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch (status: ${response.status})`);
+                }
+                const html = await response.text();
+
+                // Process the fetched HTML
+                findIdReferences(html, currentUrl, searchId);
+                findLinks(html, currentUrl);
+                renderResults();
+
+            } catch (error) {
+                console.error(`Error crawling ${currentUrl}:`, error);
+                const errorResult = {
+                    url: currentUrl,
+                    context: `<span class="text-red-500 font-semibold">Error:</span> ${error.message}`
+                };
+                foundReferences.push(errorResult);
+                renderResults();
+            }
+            
+            // Continue to the next URL in the queue
+            await crawlNextUrl(searchId);
+        }
+
+        /**
+         * Finds references to the specified ID in the HTML content.
+         * @param {string} html The HTML content of the page.
+         * @param {string} url The URL of the page.
+         * @param {string} searchId The ID to search for.
+         */
+        function findIdReferences(html, url, searchId) {
+            const regex = new RegExp(`(id\\s*=\\s*|#|getElementById\\s*\\(\\s*)["']${searchId}["']`, 'gi');
+            let match;
+            while ((match = regex.exec(html)) !== null) {
+                const context = getContextSnippet(html, match.index);
+                foundReferences.push({ url, context });
+            }
+        }
+
+        /**
+         * Extracts a snippet of text around a given index for context.
+         * @param {string} text The full text to search within.
+         * @param {number} index The index of the found match.
+         * @returns {string} A snippet of HTML for display.
+         */
+        function getContextSnippet(text, index) {
+            const snippetRadius = 70;
+            const start = Math.max(0, index - snippetRadius);
+            const end = Math.min(text.length, index + snippetRadius);
+            
+            let snippet = text.substring(start, end);
+            
+            snippet = snippet.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            snippet = snippet.replace(new RegExp(divIdInput.value.trim(), 'i'), `<span class="bg-yellow-200 text-black font-bold px-1 rounded">${divIdInput.value.trim()}</span>`);
+
+            return `...${snippet}...`;
+        }
+
+        /**
+         * Finds all valid, on-site links on the page and adds them to the queue.
+         * @param {string} html The HTML content of the page.
+         * @param {string} currentUrl The URL of the page being processed.
+         */
+        function findLinks(html, currentUrl) {
+            const linkRegex = /<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/g;
+            let match;
+            while ((match = linkRegex.exec(html)) !== null) {
+                const link = match[2];
+                try {
+                    const absoluteUrl = new URL(link, currentUrl).href.split('#')[0]; // Ignore fragments
+                    if (absoluteUrl.startsWith(baseUrl) && !visitedUrls.has(absoluteUrl)) {
+                        urlsToVisit.add(absoluteUrl);
+                    }
+                } catch (error) {
+                    console.warn(`Found invalid link: ${link}`);
+                }
+            }
+        }
+
+        /**
+         * Renders the found references into the results container.
+         */
+        function renderResults() {
+            resultsContainer.innerHTML = '';
+            if (foundReferences.length === 0) {
+                resultsContainer.innerHTML = '<p class="text-gray-400">Searching...</p>';
+                return;
+            }
+
+            foundReferences.forEach(ref => {
+                const resultEl = document.createElement('div');
+                resultEl.className = 'p-3 mb-2 bg-white border border-gray-200 rounded-md shadow-sm';
+
+                const urlEl = document.createElement('p');
+                urlEl.className = 'text-sm font-medium text-indigo-600 truncate';
+                urlEl.textContent = ref.url;
+                
+                const contextEl = document.createElement('code');
+                contextEl.className = 'block text-xs text-gray-600 bg-gray-100 p-2 mt-2 rounded font-mono';
+                contextEl.innerHTML = ref.context;
+
+                resultEl.appendChild(urlEl);
+                resultEl.appendChild(contextEl);
+                resultsContainer.appendChild(resultEl);
+            });
+            resultsContainer.scrollTop = resultsContainer.scrollHeight;
+        }
+
+        /**
+         * Updates the status message and shows/hides the loader.
+         * @param {string} message The message to display.
+         * @param {boolean} showLoader Whether to show the loading spinner.
+         */
+        function updateStatus(message, showLoader) {
+            statusDiv.innerHTML = `
+                ${showLoader ? '<div class="loader"></div>' : ''}
+                <p>${message}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

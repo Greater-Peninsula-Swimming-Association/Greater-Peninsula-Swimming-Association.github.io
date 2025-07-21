@@ -1,0 +1,102 @@
+/*
+ * ===================================================================
+ * GPSA Store - Snippet Styles (Self-Contained)
+ * Description: All styles needed for the "Under Construction" snippet.
+ * This file removes the need for Tailwind CSS.
+ * ===================================================================
+ */
+
+/* Google Fonts Import: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.store-snippet-wrapper {
+    font-family: 'Inter', sans-serif;
+    color: #2d3748; /* Default text color (gray-800) */
+}
+
+.store-snippet-container {
+    background-color: #f7fafc; /* gray-100 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem 1rem;
+}
+
+.store-card {
+    background-color: #fff;
+    width: 100%;
+    max-width: 42rem; /* max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+    overflow: hidden;
+    padding: 2rem; /* p-8 */
+    text-align: center;
+}
+
+.store-logo {
+    height: 8rem; /* h-32 */
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.store-headline {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700;
+    letter-spacing: -0.025em; /* tracking-tight */
+}
+
+.store-divider {
+    width: 6rem; /* w-24 */
+    height: 0.375rem; /* h-1.5 */
+    background-color: #D81E2C; /* bg-brand-red */
+    margin: 1.5rem auto; /* mx-auto my-6 */
+    border-radius: 9999px; /* rounded-full */
+}
+
+.store-subheading {
+    font-size: 1.125rem; /* text-lg */
+    color: #718096; /* text-gray-600 */
+    max-width: 28rem; /* max-w-md */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.store-button-container {
+    margin-top: 2.5rem; /* mt-10 */
+}
+
+.store-button {
+    display: inline-block;
+    background-color: #007AC3; /* bg-brand-blue */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.125rem; /* text-lg */
+    padding: 0.75rem 2rem; /* px-8 py-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    text-decoration: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.store-button:hover {
+    background-color: #005a94; /* Darker blue on hover */
+    transform: translateY(-4px);
+}
+
+/* Responsive styles for screens wider than 640px (sm) */
+@media (min-width: 640px) {
+    .store-card {
+        padding: 3rem; /* sm:p-12 */
+    }
+    .store-logo {
+        height: 10rem; /* sm:h-40 */
+    }
+    .store-headline {
+        font-size: 2.25rem; /* sm:text-4xl */
+    }
+}

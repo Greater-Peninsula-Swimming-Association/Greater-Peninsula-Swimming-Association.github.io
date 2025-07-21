@@ -1,0 +1,74 @@
+/* Contact Section CSS Styles */
+/* Add this block to your website's main stylesheet for the contacts section. */
+
+.contacts-main-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1f2937; /* Dark Gray Text */
+}
+
+.contact-section-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin-bottom: 2rem;
+    border: 1px solid #d1d5db; /* Gray Border */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures child elements conform to border-radius */
+}
+
+.contact-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFFFFF; /* White Text */
+    background-color: #003C71; /* GPSA Dark Blue */
+    padding: 0.75rem 1rem;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contact-table th,
+.contact-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb; /* Light gray bottom border for rows */
+}
+
+.contact-table thead th {
+    background-color: #f3f4f6; /* Light Gray */
+    font-weight: 600;
+    color: #1f2937; /* Dark Gray Text */
+}
+
+.contact-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.contact-table tbody tr:nth-child(even) {
+    background-color: #f9fafb; /* Lighter Gray for alternate rows */
+}
+
+.contact-table .contact-name-col {
+    width: 40%;
+}
+
+.contact-table .contact-phone-col {
+    width: 25%;
+}
+
+.contact-table .contact-email-col {
+    width: 35%;
+}
+
+.contact-table a {
+    color: #003C71; /* GPSA Dark Blue */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-table a:hover {
+    text-decoration: underline;
+}

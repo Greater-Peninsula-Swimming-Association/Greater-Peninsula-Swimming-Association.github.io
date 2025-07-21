@@ -1,0 +1,116 @@
+/*
+  Updated CSS to style the div-based record board.
+  This targets the specific classes from the provided HTML,
+  and uses a color palette based on the GPSA logo.
+  Includes box-sizing fix and mobile-friendly styles.
+*/
+
+/* Add box-sizing to all elements for consistent layout calculation */
+.record-snippet__age-range-table,
+.record-snippet__age-range-table * {
+  box-sizing: border-box;
+}
+
+/* Main container for each age-group 'table' */
+.record-snippet__age-range-table {
+  border: 1px solid #ddd;
+  border-bottom: none; /* Avoid double border at the bottom */
+  margin-top: 20px;
+  font-family: sans-serif;
+}
+
+/* Header row styling -- using red from the logo */
+.record-snippet__header {
+  background-color: #d42027; /* Red from logo */
+  color: #fff;
+  font-weight: bold;
+  display: flex; /* Use flexbox for alignment */
+}
+
+/* General styling for 'cells' in the header */
+.record-snippet__header > div {
+  padding: 12px 15px;
+  text-align: center;
+  flex: 1; /* Distribute space */
+}
+
+/* Specific widths for header columns to align with content */
+.record-snippet__header .age-range-gender-group {
+  flex-basis: 43%; /* Corresponds to st-col5 */
+}
+.record-snippet__header .age-range-title {
+  flex-basis: 14%; /* Corresponds to st-col2 */
+}
+
+
+/* Data row styling */
+.record-snippet__event-row {
+  display: flex;
+  border-bottom: 1px solid #ddd; /* Row separator */
+  align-items: stretch; /* Make columns equal height */
+}
+
+/* Styling for all 'cells' in the data rows */
+.record-snippet__event-row > div {
+  padding: 8px 15px;
+  border-left: 1px solid #ddd;
+}
+
+/* Remove left border on the first cell of each row */
+.record-snippet__event-row > div:first-child {
+  border-left: none;
+}
+
+/* Set consistent column widths for the data rows using flex-basis */
+.record-snippet__event-row > .st-col5 {
+    flex-basis: 43%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.record-snippet__event-row > .st-col2 {
+    flex-basis: 14%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+
+/* Zebra-striping for data rows -- using a light blue tint */
+.record-snippet__age-range-table .record-snippet__event-row:nth-of-type(odd) {
+  background-color: #e8f4fb; /* Light blue tint */
+}
+
+/* Hover effect for data rows */
+.record-snippet__event-row:hover {
+  background-color: #d0e9f8; /* Slightly darker blue for hover */
+  cursor: pointer;
+}
+
+/* Styling for the middle 'event' cell, which acts as a sub-header -- using blue from the logo */
+.event-row__event-detail {
+  font-weight: bold;
+  background-color: #007ac9; /* Blue from logo */
+  color: #fff; /* White text for contrast */
+  text-align: center;
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+}
+
+.record_detail__record-row.st-row {
+  text-align: center;
+}
+
+/* --- Mobile Responsive Styles --- */
+@media (max-width: 768px) {
+  /* On smaller screens, reduce padding and font size to keep the table layout */
+  .record-snippet__header > div,
+  .record-snippet__event-row > div {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .record-snippet__age-range-table {
+    font-size: 14px;
+  }
+}

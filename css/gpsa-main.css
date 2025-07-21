@@ -1,0 +1,266 @@
+@import url("https://files.gpsaswimming.com/gpsa-roster.css");
+@import url("https://files.gpsaswimming.com/gpsa-roster-contact.css");
+@import url("https://files.gpsaswimming.com/gpsa-roster-officials.css");
+
+/* General styles for the main layout wrapper and header.
+  - Consolidated background properties into a single shorthand declaration.
+  - Removed units from zero-value properties (e.g., padding: 0).
+*/
+#wrapper #header {
+    position: relative;
+    padding: 0;
+    max-height: 229px !important;
+    height: 229px !important;
+    /* Combined background properties for conciseness */
+    background: url(https://d1nmxxg9d5tdo.cloudfront.net/875/snippet_images/c7c4e879162f40d30c2dc819e57220e2029e4623/original/gpsa-logo-header-lettering.png) no-repeat center/cover !important;
+}
+
+#wrapper #header .hgroup h1,
+#wrapper #header .hgroup h2 {
+    visibility: hidden;
+}
+
+#wrapper #navigation {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#wrapper .sm-menu {
+    background: #e00024;
+}
+
+#wrapper #footer li.active {
+    background-color: #d81e2c;
+    color: white;
+}
+
+#wrapper #footer li.inactive {
+    background-color: #007AC3;
+    color: #212121;
+}
+
+#wrapper #footer ul li a {
+    color: white;
+}
+
+.smartphone-only {
+    display: none;
+}
+
+.bio_snippet {
+    border-bottom: 1px solid #eee;
+}
+
+#snippet_326897 {
+    text-align: center;
+}
+
+/* Media queries for responsive design adjustments.
+  - No syntax errors found, but ensured consistent formatting.
+*/
+@media all and (max-width: 960px) {
+    #wrapper #header {
+        display: none;
+    }
+
+    #wrapper .sm-menu #sm-navigation:before {
+        background: #0884c7;
+    }
+
+    .smartphone-only {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    .bio_image_block {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media all and (min-width: 980px) {
+    #snippet_326897 {
+        display: none;
+    }
+}
+
+/* Button styling for specific snippets.
+  - Grouped selectors for shared styles to reduce redundancy.
+*/
+#snippet_478479 button,
+#snippet_67303 button,
+#snippet_349588 button {
+    background-color: #e00024;
+    margin: auto;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px !important;
+}
+
+#snippet_478479 button:hover,
+#snippet_67303 button:hover,
+#snippet_349588 button:hover {
+    background: #ee6e83;
+}
+
+#snippet_478479 button a,
+#snippet_67303 button a,
+#snippet_349588 button a {
+    color: #fff !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+#snippet_67303 .button-container {
+    text-align: center;
+}
+
+/* swim clinic styling */
+#snippet_329685 {
+    text-align: center;
+}
+
+/* Merged duplicate selectors for #snippet_329521 */
+#snippet_329521 {
+    background-color: #e00024 !important;
+    border-radius: 0 !important;
+}
+
+/* Combined outline properties into shorthand */
+#snippet_329521 .snippet_main {
+    border: 2px solid #fff !important;
+    padding: 5px;
+    outline: 5px solid #e00024;
+}
+
+#snippet_329521 .announcement_snippet h3 {
+    color: #fff !important;
+}
+
+#snippet_329532 .bio_name_block .bio_name {
+    color: #0585c8 !important;
+    font-size: 24px !important;
+}
+
+#snippet_329532 p {
+    font-size: 20px !important;
+}
+
+#snippet_339494,
+#snippet_413386 {
+    text-align: center;
+    background-color: #0884c7 !important;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+
+#snippet_339494 li a,
+#snippet_413386 li a {
+    font-size: 16px;
+    color: #fff !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+/* Table styling */
+#divisions,
+#publicity,
+#contacts,
+#qualifying_times,
+#team_info,
+#meet_schedule {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#divisions th,
+#divisions td,
+#publicity th,
+#publicity td,
+#meet_schedule th,
+#meet_schedule td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#divisions th,
+#publicity th,
+#meet_schedule th {
+    font-size: large;
+}
+
+#publicity th,
+#meet_schedule th {
+    width: fit-content;
+}
+
+#publicity tr,
+#meet_schedule tr {
+    border-bottom: 1px solid black;
+}
+
+#contacts th {
+    text-align: left;
+}
+
+#contacts td,
+#team_info td {
+    vertical-align: middle;
+}
+
+#team_info td {
+    text-align: left;
+}
+
+#qualifying_times,
+#qualifying_times th,
+#qualifying_times td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#qualifying_times tr:nth-child(even) {
+    background-color: #E00225;
+    color: white;
+}
+
+/* Collapsible element styling */
+.collapsible_text {
+    background-color: #dc001e;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Corrected missing value for margin-top */
+    margin-top: 10px;
+}
+
+/* Set margin-top to 0 for the first element to avoid extra space */
+.collapsible_text:first-of-type {
+    margin-top: 0;
+}
+
+.collapsible_icon {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.collapsible_text:hover {
+    background-color: #e000255c;
+}
+
+.collapsible_content {
+    display: none;
+    overflow: hidden;
+    background-color: #F1F1F1;
+    padding: 0 18px;
+}

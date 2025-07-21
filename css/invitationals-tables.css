@@ -1,0 +1,102 @@
+/*
+ * ===================================================================
+ * GPSA Brand-Infused Table Styles
+ * Description: CSS for styling HTML tables with alternating
+ * row colors based on the website's brand palette.
+ * ===================================================================
+ */
+
+/* Main Table Container Styling */
+.custom-table {
+    width: 100%;                  /* Make the table responsive */
+    border-collapse: collapse;    /* Remove space between borders */
+    margin: 2em 0;                /* Add space above and below the table */
+    font-size: 1rem;              /* Set a base font size */
+    color: #212121;               /* Dark text color for readability */
+    background-color: #FFFFFF;    /* Base background color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+    border-radius: 8px;           /* Rounded corners for the container */
+    overflow: hidden;             /* Ensures content respects the border-radius */
+}
+
+/* Table Header Styling (thead) */
+.custom-table thead th {
+    background-color: #f8f9fa;    /* A very light grey for the header */
+    color: #212121;               /* Dark text color for header */
+    text-align: center;           /* Center-align header text */
+    font-weight: 600;             /* Bolder text for headers */
+    padding: 16px 20px;           /* Generous padding */
+    border-bottom: 2px solid #dee2e6; /* Separator line */
+}
+
+/* Row Header Styling (th within tbody) */
+.custom-table tbody th {
+    text-align: center;           /* Center-align the row headers (e.g., "Age") */
+    vertical-align: middle;       /* Vertically align content in merged rows */
+    font-weight: 600;
+}
+
+
+/* Table Cell Styling (for both th and td) */
+.custom-table th,
+.custom-table td {
+    padding: 16px 20px;           /* Consistent padding for all cells */
+    /* Data cells (td) will default to left-aligned */
+}
+
+/*
+ * -------------------------------------------------------------------
+ * Zebra Striping: Alternating Row Colors (Brand-Infused)
+ * -------------------------------------------------------------------
+ */
+
+/* Style for EVEN rows in the table body */
+.custom-table tbody tr:nth-child(even) {
+    background-color: #EBF4FA;    /* The very light, brand-infused blue */
+}
+
+/* Style for ODD rows in the table body */
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;    /* Standard white */
+}
+
+/* Hover Effect for Table Rows */
+.custom-table tbody tr:hover {
+    background-color: #dbeaf5;    /* A slightly darker blue for hover */
+    cursor: pointer;              /* Change cursor to indicate interactivity */
+}
+
+/* Styling for links within the table */
+.custom-table a {
+    color: #007AC3;               /* Use the secondary blue for links */
+    text-decoration: none;        /* Remove underline by default */
+    font-weight: 500;
+}
+
+.custom-table a:hover {
+    text-decoration: underline;   /* Add underline on hover for clarity */
+}
+
+/*
+ * ===================================================================
+ * Utility Classes for Specific Table Styling
+ * ===================================================================
+ */
+
+/* Add this class to a table tag to force all of its cells to be center-aligned. */
+.center-aligned-table th,
+.center-aligned-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Add this class to a cell to force its text to be left-aligned. */
+.text-left {
+    text-align: left !important;
+}
+
+/* Add this class to a table to reduce the padding in all of its cells. */
+.narrow-padding th,
+.narrow-padding td {
+    padding: 8px 12px;
+}

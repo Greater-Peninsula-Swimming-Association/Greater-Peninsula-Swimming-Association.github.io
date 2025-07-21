@@ -1,0 +1,63 @@
+/* style.css
+  This file contains the styles for the Championship Meet page.
+  All styles are scoped to the '.meet-container' class to avoid conflicts.
+*/
+
+/* This acts as the new "body" for your component. 
+  Apply the 'meet-container' class to a parent div in your HTML.
+*/
+.meet-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    /* padding: 20px; Replaces the margin from the old body tag */
+}
+
+/* This wrapper now uses Flexbox to position its children.
+  - 'display: flex' creates the flexible layout.
+  - 'align-items: center' vertically centers the text and the logo.
+  - 'gap' adds space between them.
+*/
+.meet-container .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    max-width: 960px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* This new rule allows the text block to grow and fill available space. */
+.meet-container .text-content {
+    flex-grow: 1;
+}
+
+.meet-container .meet-logo {
+    flex-shrink: 0;
+    width: 200px;
+    height: auto;
+}
+
+/* Styling for headings, scoped to the container, to give them a clear visual hierarchy */
+.meet-container h1, 
+.meet-container h4 {
+    color: #0056b3;
+}
+
+/* --- Responsive Styles for Mobile --- */
+/* On screens 768px wide or less, these styles will override the ones above */
+@media (max-width: 768px) {
+    .meet-container .content-wrapper {
+        /* Change the flex direction to stack items vertically */
+        flex-direction: column;
+    }
+
+    .meet-container .meet-logo {
+        /* Change the visual order to place the logo at the top, above the text */
+        order: -1;
+    }
+}
