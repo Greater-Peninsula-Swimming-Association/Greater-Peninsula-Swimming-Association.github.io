@@ -1,0 +1,70 @@
+/* General Body Styles */
+body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header Styles */
+h1 {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+thead th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Zebra-striping for table rows */
+tbody tr:nth-of-type(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Link Styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Icons for files and directories */
+td a[href$="/"]::before {
+    content: '📁'; /* Folder Icon */
+    margin-right: 10px;
+}
+
+td a[href$=".pdf"]::before {
+    content: '📄'; /* PDF Icon */
+    margin-right: 10px;
+}
+
+td a[href$=".zip"]::before {
+    content: '📦'; /* Zip Icon */
+    margin-right: 10px;
+}
+/* Add more rules for other file types as needed */
