@@ -9,52 +9,54 @@ from datetime import datetime
 
 # Maps team abbreviations to their assigned division.
 DIVISION_ASSIGNMENTS = {
-    'Red': ['COL', 'HW', 'MBKMT', 'POQ', 'RMMR', 'WPPIR'],
-    'White': ['CV', 'GWRA', 'GG', 'WYCC', 'WW', 'WO'],
-    'Blue': ['BLMAR', 'EL', 'JRCC', 'KCD', 'RRST']
+    'Red': ['COL', 'HW', 'MBKMT', 'RMMR', 'WPPIR'],
+    'White': ['CV', 'GWRA', 'KCD', 'POQ', 'WYCC', 'WW', 'WO'],
+    'Blue': ['BLMAR', 'EL', 'GG' , 'JRCC', 'RRST', 'NHM']
 }
 
 # Maps the full team names found in result files to their official abbreviations.
 # This map is crucial for linking results to the correct team for standings.
 TEAM_NAME_MAP = {
+    "Beaconsdale Blue Marlins": "BLMAR",
     "Colony Cudas": "COL",
-    "Hidenwood Tarpons": "HW",
-    "Marlbank Mudtoads": "MBKMT",
-    "Poquoson Barracudas": "POQ",
-    "Running Man Manta Rays": "RMMR",
-    "Windy Point Piranhas": "WPPIR",
     "Coventry Sailfish Swim Team": "CV",
+    "Elizabeth Lake Tideriders": "EL",
     "George Wythe Wahoos": "GWRA",
     "Glendale Gators": "GG",
-    "WYCC Sea Turtles": "WYCC",
-    "Wendwood Wahoos": "WW",
-    "Willow Oaks Stingrays": "WO",
-    "Beaconsdale Blue Marlins": "BLMAR",
-    "Elizabeth Lake Tideriders": "EL",
+    "Hidenwood Tarpons": "HW",
     "James River Country Club": "JRCC",
     "Kiln Creek Dolphins": "KCD",
-    "Riverdale Rays": "RRST"
+    "Marlbank Mudtoads": "MBKMT",
+    "Northampton Marlins": "NHM",
+    "Poquoson Barracudas": "POQ",
+    "Riverdale Rays": "RRST",
+    "Running Man Manta Rays": "RMMR",
+    "Wendwood Wahoos": "WW",
+    "Willow Oaks Stingrays": "WO",
+    "Windy Point Piranhas": "WPPIR",
+    "WYCC Sea Turtles": "WYCC"
 }
 
 # Maps full team names to the shorter names used in the schedule table.
 TEAM_SCHEDULE_NAME_MAP = {
+    "Beaconsdale Blue Marlins": "Beaconsdale",
     "Colony Cudas": "Colony",
-    "Hidenwood Tarpons": "Hidenwood",
-    "Marlbank Mudtoads": "Marlbank",
-    "Poquoson Barracudas": "Poquoson",
-    "Running Man Manta Rays": "Running Man",
-    "Windy Point Piranhas": "Windy Point",
     "Coventry Sailfish Swim Team": "Coventry",
+    "Elizabeth Lake Tideriders": "Elizabeth Lake",
     "George Wythe Wahoos": "George Wythe",
     "Glendale Gators": "Glendale",
-    "WYCC Sea Turtles": "Warwick Yacht",
-    "Wendwood Wahoos": "Wendwood",
-    "Willow Oaks Stingrays": "Willow Oaks",
-    "Beaconsdale Blue Marlins": "Beaconsdale",
-    "Elizabeth Lake Tideriders": "Elizabeth Lake",
+    "Hidenwood Tarpons": "Hidenwood",
     "James River Country Club": "James River",
     "Kiln Creek Dolphins": "Kiln Creek",
-    "Riverdale Rays": "Riverdale"
+    "Marlbank Mudtoads": "Marlbank",
+    "Northampton Marlins": "Northampton",
+    "Poquoson Barracudas": "Poquoson",
+    "Riverdale Rays": "Riverdale",
+    "Running Man Manta Rays": "Running Man",
+    "Wendwood Wahoos": "Wendwood",
+    "Willow Oaks Stingrays": "Willow Oaks",
+    "Windy Point Piranhas": "Windy Point",
+    "WYCC Sea Turtles": "Warwick Yacht"
 }
 
 # Maps truncated filename abbreviations to their official, full-length counterparts.
