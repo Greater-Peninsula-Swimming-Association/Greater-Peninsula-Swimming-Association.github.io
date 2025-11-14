@@ -7,13 +7,31 @@
 .TemporaryItems
 .Trashes
 
+# Claude Code
+.claude/
+
 # Thumbnail cache files
 Icon?
 ehthumbs.db
 Thumbs.db
 
-# Zipped files
-*.zip
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-# Season Archive Source
-assets/season_archive_tool/*.html
+# Bulk processor working directories
+incoming/
+preview/
+temp/
+temp_*/
+
+# Raw meet files (SDIF format)
+*.sd3
+*.SD3
+*.zip
+*.ZIP
+
+# Log files
+*.log

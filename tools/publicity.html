@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPSA Meet Publicity Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-16x16.png?1651502535">
+    <link rel="manifest" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/site.webmanifest?1651502732">
+    <link rel="mask-icon" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/safari-pinned-tab.svg?1651502580" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- GPSA Common Styles -->
+    <link rel="stylesheet" href="../css/gpsa-tools-common.css">
+</head>
+<body>
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto">
+            <header class="gpsa-header p-4 shadow-md flex items-center justify-center no-print mb-6 rounded-lg">
+                <img id="logo-display" src="https://publicity.gpsaswimming.org/assets/gpsa_logo.png" alt="GPSA Logo" class="h-16 w-16 md:h-20 md:w-20 mr-4 rounded-full" onerror="this.onerror=null; this.src='https://placehold.co/100x100/002366/FFFFFF?text=GPSA';">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">GPSA Meet Publicity Tool</h1>
+                    <p class="gpsa-header-subtitle">Generate formatted HTML results from SDIF meet files.</p>
+                </div>
+            </header>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-center mb-6 text-gray-700">Upload Results File</h2>
+            <div class="flex items-center justify-center w-full">
+                <label for="file-upload" class="file-upload-label flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 hover:bg-gray-100">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6 text-center">
+                        <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span></p>
+                        <p id="file-name" class="text-xs text-gray-500">SDIF file (.sd3 or .txt)</p>
+                    </div>
+                    <input id="file-upload" type="file" accept=".txt,.sd3" />
+                </label>
+            </div>
+            <button id="process-button" class="mt-6 w-full btn-primary font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all disabled:opacity-50" disabled>
+                Process Results
+            </button>
+        </div>
+
+        <div id="loading" class="text-center p-10 hidden">
+            <p class="text-lg font-semibold">Parsing swim data and generating results...</p>
+        </div>
+        
+        <div id="export-section" class="text-center my-8 hidden">
+             <button id="export-button" class="btn-secondary font-bold py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                Export to HTML
+            </button>
+        </div>
+
+            <div id="results-container">
+                <!-- Results will be dynamically injected here -->
+                <div id="meet-title" class="text-center mb-8"></div>
+                <div id="team-scores" class="mb-8"></div>
+                <div id="events-grid" class="space-y-8"></div>
+            </div>
+            <footer class="text-center mt-10 text-gray-500 text-sm">
+                 <p>GPSA Meet Publicity Tool v1.1</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <script>
+        // DOM Elements
+        const fileUploadInput = document.getElementById('file-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        const logoDisplay = document.getElementById('logo-display');
+        const processButton = document.getElementById('process-button');
+        const loadingDiv = document.getElementById('loading');
+        const resultsContainer = document.getElementById('results-container');
+        const meetTitleDiv = document.getElementById('meet-title');
+        const teamScoresDiv = document.getElementById('team-scores');
+        const eventsGridDiv = document.getElementById('events-grid');
+        const exportSection = document.getElementById('export-section');
+        const exportButton = document.getElementById('export-button');
+
+        let fileContent = '';
+        let parsedData = null;
+        // The logo URL is now a constant since it's always the same.
+        const logoUrl = 'https://publicity.gpsaswimming.org/assets/gpsa_logo.png';
+
+        // Toast Notification Function
+        function showToast(message, type = 'info', duration = 4000) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+
+            const icons = {
+                success: '✓',
+                error: '✕',
+                warning: '⚠',
+                info: 'ℹ'
+            };
+
+            toast.innerHTML = `
+                <span class="toast-icon" aria-hidden="true">${icons[type]}</span>
+                <span class="toast-message">${escapeHtml(message)}</span>
+                <button class="toast-close" aria-label="Close notification">×</button>
+            `;
+
+            container.appendChild(toast);
+
+            const closeBtn = toast.querySelector('.toast-close');
+            const removeToast = () => {
+                toast.classList.add('toast-exit');
+                setTimeout(() => toast.remove(), 300);
+            };
+
+            closeBtn.addEventListener('click', removeToast);
+
+            if (duration > 0) {
+                setTimeout(removeToast, duration);
+            }
+
+            return toast;
+        }
+
+        // HTML Escape Function
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        fileUploadInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                fileNameDisplay.textContent = file.name;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    fileContent = e.target.result;
+                    processButton.disabled = !fileContent;
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        processButton.addEventListener('click', () => {
+            loadingDiv.classList.remove('hidden');
+            resultsContainer.classList.add('hidden');
+            exportSection.classList.add('hidden');
+
+            setTimeout(() => {
+                parsedData = parseSdif(fileContent);
+                renderResults(parsedData);
+                loadingDiv.classList.add('hidden');
+                resultsContainer.classList.remove('hidden');
+                exportSection.classList.remove('hidden');
+            }, 500);
+        });
+        
+        exportButton.addEventListener('click', () => {
+            if (!parsedData) return;
+            
+            let fileName = `${parsedData.meet.name.replace(/ /g, '_')}_Results.html`; // Default filename
+            const meetDate = parsedData.meet.startDate;
+            const teamList = Object.values(parsedData.teams);
+
+            // Create a more specific filename if it's a dual meet
+            if (meetDate && meetDate.length === 8 && teamList.length === 2) {
+                const year = meetDate.substring(4);
+                const month = meetDate.substring(0, 2);
+                const day = meetDate.substring(2, 4);
+                const formattedDate = `${year}-${month}-${day}`;
+                
+                const team1Code = teamList[0].code;
+                const team2Code = teamList[1].code;
+
+                fileName = `${formattedDate}_${team1Code}_v_${team2Code}.html`;
+            }
+
+            // Pass the direct URL to the export function
+            const exportableHtml = generateExportableHtml(parsedData, logoUrl);
+            const blob = new Blob([exportableHtml], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // --- SDIF Parsing Logic ---
+        function parseSdif(data) {
+            const lines = data.split(/[\r\n]+/);
+            const meet = {};
+            const teams = {};
+            const events = {};
+
+            let currentTeamCode = null;
+            let lastRelayResult = null; 
+
+            const strokeMap = { '1': 'Freestyle', '2': 'Backstroke', '3': 'Breaststroke', '4': 'Butterfly', '5': 'IM', '6': 'Freestyle Relay', '7': 'Medley Relay' };
+            const genderMap = { 'M': 'Boys', 'F': 'Girls', 'X': 'Mixed' };
+
+            function createEventObject(line, type) {
+                const genderCode = type === 'Individual' ? line.substring(66, 67) : line.substring(20, 21);
+                const ageCode = type === 'Individual' ? line.substring(76, 80) : line.substring(30, 34);
+                const distance = type === 'Individual' ? line.substring(67, 71).trim() : line.substring(21, 25).trim();
+                const strokeCode = type === 'Individual' ? line.substring(71, 72) : line.substring(25, 26);
+                const gender = genderMap[genderCode] || 'Unknown';
+                let age = parseAgeCode(ageCode);
+
+                // For relays, if the age group is 'Open', don't include it in the description to save space.
+                if (type === 'Relay' && age === 'Open') {
+                    age = '';
+                }
+                
+                return { description: `${gender} ${age} ${distance}m ${strokeMap[strokeCode] || `Stroke ${strokeCode}`}`.replace(/\s+/g, ' ').trim(), results: [], type };
+            }
+
+            lines.forEach(line => {
+                const code = line.substring(0, 2);
+                try {
+                    switch (code) {
+                        case 'B1':
+                            meet.name = line.substring(11, 41).trim();
+                            meet.startDate = line.substring(121, 129).trim(); // MMDDYYYY
+                            lastRelayResult = null;
+                            break;
+                        case 'B2': // Capture Host Team Name
+                            if (!meet.hostName) { // Only capture the first host listed
+                                meet.hostName = line.substring(11, 41).trim();
+                            }
+                            break;
+                        case 'C1':
+                            const rawTeamCode = line.substring(11, 17).trim();
+                            const teamName = line.substring(17, 47).trim();
+                            currentTeamCode = rawTeamCode;
+                            if (!teams[rawTeamCode]) {
+                                let displayCode = rawTeamCode;
+                                if (displayCode.startsWith('VA')) {
+                                    displayCode = displayCode.substring(2);
+                                }
+                                teams[rawTeamCode] = { name: teamName, score: 0, code: displayCode };
+                            }
+                            lastRelayResult = null;
+                            break;
+                        case 'D0':
+                            lastRelayResult = null;
+                            const eventNumD0 = line.substring(72, 76).trim();
+                            if (eventNumD0 && eventNumD0 !== '0') {
+                                const swimmerName = line.substring(11, 39).trim();
+                                const finalTime = line.substring(115, 123).trim();
+                                const place = parseInt(line.substring(135, 138).trim(), 10);
+                                const points = parseFloat(line.substring(138, 142).trim()) || 0;
+                                if (!events[eventNumD0]) {
+                                   events[eventNumD0] = createEventObject(line, 'Individual');
+                                }
+                                if (place && currentTeamCode) {
+                                    events[eventNumD0].results.push({ place, swimmer: swimmerName, teamCode: teams[currentTeamCode]?.code, time: finalTime, points });
+                                    if (teams[currentTeamCode]) {
+                                      teams[currentTeamCode].score += points;
+                                    }
+                                }
+                            }
+                            break;
+                        case 'E0':
+                            const eventNumE0 = line.substring(26, 30).trim();
+                             if (eventNumE0 && eventNumE0 !== '0') {
+                                const relayTeamChar = line.substring(11, 12).trim();
+                                const relayFinalTime = line.substring(72, 80).trim();
+                                const relayPlace = parseInt(line.substring(92, 95).trim(), 10);
+                                const relayPoints = parseFloat(line.substring(95, 99).trim()) || 0;
+                                if (!events[eventNumE0]) {
+                                    events[eventNumE0] = createEventObject(line, 'Relay');
+                                }
+                                if(relayPlace && currentTeamCode){
+                                    const relayResultObject = { place: relayPlace, swimmer: `${teams[currentTeamCode]?.name || currentTeamCode} '${relayTeamChar}'`, teamCode: teams[currentTeamCode]?.code, time: relayFinalTime, points: relayPoints, swimmers: [] };
+                                    events[eventNumE0].results.push(relayResultObject);
+                                    lastRelayResult = relayResultObject;
+                                    if (teams[currentTeamCode]) {
+                                        teams[currentTeamCode].score += relayPoints;
+                                    }
+                                } else {
+                                    lastRelayResult = null;
+                                }
+                            }
+                            break;
+                        case 'F0':
+                            if (lastRelayResult) {
+                                const swimmerName = line.substring(22, 50).trim();
+                                if(swimmerName) {
+                                    lastRelayResult.swimmers.push(swimmerName);
+                                }
+                            }
+                            break;
+                    }
+                } catch(e) {
+                    console.error(`Error parsing line: ${line}`, e);
+                }
+            });
+            
+            // --- New Meet Title Logic ---
+            const teamList = Object.values(teams);
+            if (meet.hostName && meet.startDate && teamList.length === 2) {
+                const year = meet.startDate.substring(4);
+                const awayTeam = teamList.find(team => team.name !== meet.hostName);
+                if (awayTeam) {
+                    meet.name = `${year} ${meet.hostName} v. ${awayTeam.name}`;
+                }
+            }
+
+
+            Object.values(events).forEach(event => {
+                event.results.sort((a, b) => a.place - b.place);
+            });
+            
+            return { meet, teams, events };
+        }
+        
+        function parseAgeCode(ageCode) {
+            if (!ageCode || ageCode.length < 4) return 'Open';
+            
+            const lowerStr = ageCode.substring(0, 2);
+            const upperStr = ageCode.substring(2, 4);
+
+            if (lowerStr === 'UN' && upperStr === 'OV') return 'Open';
+
+            if (lowerStr === 'UN') {
+                const upperAge = parseInt(upperStr, 10);
+                return isNaN(upperAge) ? 'Open' : `${upperAge} & Under`;
+            }
+
+            if (upperStr === 'OV') {
+                const lowerAge = parseInt(lowerStr, 10);
+                return isNaN(lowerAge) ? 'Open' : `${lowerAge} & Over`;
+            }
+
+            const lowerAge = parseInt(lowerStr, 10);
+            const upperAge = parseInt(upperStr, 10);
+
+            if (isNaN(lowerAge) || isNaN(upperAge)) return 'Open';
+            
+            if (lowerAge === upperAge) return `${lowerAge}`;
+
+            return `${lowerAge}-${upperAge}`;
+        }
+
+        // --- HTML Rendering Logic ---
+        function renderResults(data) {
+            parsedData = data; // Save for export
+            const { meet, teams, events } = data;
+            
+            // Clear previous results
+            meetTitleDiv.innerHTML = '';
+            teamScoresDiv.innerHTML = '';
+            eventsGridDiv.innerHTML = '';
+
+            // Render Meet Title
+            meetTitleDiv.innerHTML = `<h2 class="text-3xl font-bold text-gray-800">${meet.name || 'Swim Meet'}</h2>`;
+
+            // Render Team Scores
+            const sortedTeams = Object.values(teams).sort((a, b) => b.score - a.score);
+            let scoresHtml = `<div class="bg-white p-4 sm:p-6 rounded-xl shadow-md"><h3 class="text-2xl font-semibold mb-4 text-center">Team Scores</h3><div class="overflow-x-auto"><table class="min-w-full"><thead><tr class="border-b"><th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Team</th><th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Score</th></tr></thead><tbody>`;
+            sortedTeams.forEach(team => {
+                scoresHtml += `<tr class="border-t"><td class="px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${team.name}</td><td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500">${team.score.toFixed(1)}</td></tr>`;
+            });
+            scoresHtml += `</tbody></table></div></div>`;
+            teamScoresDiv.innerHTML = scoresHtml;
+
+            // --- RENDER WINNERS TABLE ---
+            const winners = [];
+            Object.keys(events).sort((a,b) => parseInt(a) - parseInt(b)).forEach(eventNum => {
+                const event = events[eventNum];
+                const winner = event.results.find(r => r.place === 1);
+                if (winner) {
+                    winners.push({ eventNum, description: event.description, winnerData: winner, type: event.type });
+                }
+            });
+
+            if (winners.length > 0) {
+                let winnersHtml = `<div class="bg-white p-4 sm:p-6 rounded-xl shadow-md"><h4 class="text-xl font-bold mb-4 text-center">Event Winners</h4><div class="overflow-x-auto"><table class="min-w-full"><thead><tr class="border-b"><th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event</th><th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th><th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Winner(s)</th><th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Team</th><th class="py-2 px-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th></tr></thead><tbody>`;
+                winners.forEach(w => {
+                    const result = w.winnerData;
+                    let winnerCellContent = (w.type === 'Relay' && result.swimmers?.length) ? `<div class="text-xs leading-tight">${result.swimmers.join('<br>')}</div>` : `<span class="font-medium">${result.swimmer}</span>`;
+                    winnersHtml += `<tr class="border-t"><td class="px-3 py-4 align-top">${w.eventNum}</td><td class="px-3 py-4 align-top">${w.description}</td><td class="px-3 py-4 align-top">${winnerCellContent}</td><td class="px-3 py-4 align-top">${result.teamCode || ''}</td><td class="px-3 py-4 align-top">${result.time}</td></tr>`;
+                });
+                winnersHtml += `</tbody></table></div></div>`;
+                eventsGridDiv.innerHTML = winnersHtml;
+            }
+        }
+        
+        function generateExportableHtml(data, logoUrl) {
+            const { meet, teams, events } = data;
+
+            // Extract winners
+            const winners = [];
+            Object.keys(events).sort((a,b) => parseInt(a) - parseInt(b)).forEach(eventNum => {
+                const event = events[eventNum];
+                const winner = event.results.find(r => r.place === 1);
+                if (winner) {
+                    winners.push({ eventNum, description: event.description, winnerData: winner, type: event.type });
+                }
+            });
+
+            // Generate winners table rows
+            const winnersRows = winners.map(w => {
+                const result = w.winnerData;
+                const winnerCellContent = (w.type === 'Relay' && result.swimmers?.length) ? result.swimmers.join('<br>') : result.swimmer;
+                return `<tr><td class="center">${w.eventNum}</td><td>${w.description}</td><td>${winnerCellContent}</td><td class="center">${result.teamCode || ''}</td><td class="center">${result.time}</td></tr>`;
+            }).join('');
+
+            // Generate scores table rows
+            const sortedTeams = Object.values(teams).sort((a, b) => b.score - a.score);
+            const scoresRows = sortedTeams.map(team => `<tr><td>${team.name}</td><td>${team.score.toFixed(1)}</td></tr>`).join('');
+
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${meet.name || 'Swim Meet Results'}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-16x16.png?1651502535">
+    <link rel="manifest" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/site.webmanifest?1651502732">
+    <link rel="mask-icon" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/safari-pinned-tab.svg?1651502580" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #f0f2f5;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background-color: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 0.75rem;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #002366;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 0.75rem 0.75rem 0 0;
+            margin: -1.5rem -1.5rem 2rem -1.5rem;
+        }
+
+        header img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        /* Typography */
+        h2 {
+            color: #002366;
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #d9242b;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        /* Table Styles */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .table-wrapper.narrow {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Center-aligned columns */
+        .center {
+            text-align: center;
+        }
+
+        thead {
+            background-color: #002366;
+            color: white;
+        }
+
+        thead th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        tbody tr {
+            background-color: #ffffff;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f9fafb;
+        }
+
+        tbody tr:hover {
+            background-color: #f3f4f6;
+        }
+
+        tbody td {
+            color: #374151;
+        }
+
+        tbody td:first-child {
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            header {
+                margin: 0 0 2rem 0;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            header {
+                padding: 1.5rem 1rem;
+                margin: -1rem -1rem 1.5rem -1rem;
+            }
+
+            header img {
+                width: 64px;
+                height: 64px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            table {
+                font-size: 0.75rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+
+            thead th {
+                font-size: 0.625rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            header h1 {
+                font-size: 1.875rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+
+            header h1 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="${logoUrl}" alt="GPSA Logo" onerror="this.onerror=null; this.src='https://placehold.co/100x100/002366/FFFFFF?text=GPSA';">
+            <h1>${meet.name || 'Swim Meet Results'}</h1>
+        </header>
+
+        <main>
+            <h2>Team Scores</h2>
+            <div class="table-wrapper narrow">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>${scoresRows}</tbody>
+                </table>
+            </div>
+
+            <h2>Event Winners</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="center">Event</th>
+                            <th>Description</th>
+                            <th>Winner(s)</th>
+                            <th class="center">Team</th>
+                            <th class="center">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>${winnersRows}</tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer>
+            <p>Results generated on ${new Date().toLocaleDateString()} with the GPSA Meet Publicity Tool v1.1</p>
+        </footer>
+    </div>
+</body>
+</html>`;
+        }
+    </script>
+</body>
+</html>

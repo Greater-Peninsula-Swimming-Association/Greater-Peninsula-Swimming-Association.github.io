@@ -1,0 +1,311 @@
+/**
+ * GPSA Tools Common Styles
+ * Shared styling for GPSA web-based tools (Meet Publicity Tool, Roster Formatter, etc.)
+ * Version: 1.0
+ *
+ * IMPORTANT: All new GPSA web tools MUST use this stylesheet for consistency.
+ * See /CLAUDE.md section "Standardized Tool Visual Style (2025)" for complete
+ * documentation on using these styles and the required HTML structure.
+ *
+ * This file provides:
+ * - Base body styles (font, background, text color)
+ * - GPSA brand colors and header styles
+ * - Standardized button styles (primary/secondary)
+ * - Toast notification system with animations
+ * - Modal overlay and container styles
+ * - Print media queries
+ * - File upload styles
+ * - Common utility classes
+ */
+
+/* ===========================
+   Base Styles
+   =========================== */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #1f2937; /* text-gray-800 */
+}
+
+/* ===========================
+   GPSA Branding
+   =========================== */
+
+.gpsa-header {
+    background-color: #002366; /* GPSA Dark Blue */
+    color: white;
+}
+
+.gpsa-red {
+    color: #d9242b; /* GPSA Red */
+}
+
+/* Header Logo Styles */
+.gpsa-header img {
+    border-radius: 50%;
+}
+
+/* Header Subtitle */
+.gpsa-header-subtitle {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    text-align: center;
+    color: #d1d5db; /* Light grey for subtitle */
+}
+
+@media (min-width: 640px) {
+    .gpsa-header-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* ===========================
+   Button Styles
+   =========================== */
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #002366; /* GPSA Dark Blue */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0033a0; /* Slightly lighter blue */
+}
+
+.btn-secondary {
+    background-color: #d9242b; /* GPSA Red */
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #b81e24; /* Darker red */
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===========================
+   Toast Notification Styles
+   =========================== */
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast {
+    min-width: 300px;
+    max-width: 500px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.3s ease-out;
+    pointer-events: auto;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.toast-success {
+    background-color: #10b981;
+    color: white;
+}
+
+.toast-error {
+    background-color: #ef4444;
+    color: white;
+}
+
+.toast-warning {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.toast-info {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.toast-message {
+    flex: 1;
+}
+
+.toast-close {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0.8;
+    padding: 0;
+    margin-left: 8px;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+.toast-exit {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+/* ===========================
+   Modal Styles
+   =========================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-container {
+    position: relative;
+    top: 20px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: white;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.modal-content {
+    padding: 1rem 0;
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body, .container {
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+/* ===========================
+   File Upload Styles
+   =========================== */
+
+.file-upload-label {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* ===========================
+   Utility Classes
+   =========================== */
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* GPSA color utilities */
+.bg-gpsa-blue {
+    background-color: #002366;
+}
+
+.bg-gpsa-red {
+    background-color: #d9242b;
+}
+
+.text-gpsa-blue {
+    color: #002366;
+}
+
+.text-gpsa-red {
+    color: #d9242b;
+}
