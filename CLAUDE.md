@@ -348,6 +348,8 @@ SDIF (Swimming Data Interchange Format) is a standardized format for swim meet d
 - **E0**: Relay team result (includes relay team identifier, time, place, points)
 - **F0**: Individual relay swimmer names (follows E0 record)
 
+**Note on HY3 Format:** The publicity tool does not support HY3/Hy-Tek 3.0 format files. HY3 files are 65-70% larger than SDIF files and use a complex multi-line record structure (D1+E1+E2 for individual events, F1+F2+F3 for relays) requiring athlete ID cross-referencing. Since both formats contain identical meet data and SwimTopia exports SDIF (.sd3) by default, supporting HY3 would add significant parsing complexity (250+ lines of code vs. current 130 lines) without user benefit. Users should export results in SDIF/SD3 format instead.
+
 Team codes starting with "VA" have the prefix stripped for display purposes.
 
 ### File Naming Conventions
