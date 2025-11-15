@@ -6,6 +6,8 @@
     <title>GPSA Meet Publicity Tool</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- JSZip for .zip file extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
     <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
@@ -35,14 +37,51 @@
                     <div class="flex flex-col items-center justify-center pt-5 pb-6 text-center">
                         <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span></p>
-                        <p id="file-name" class="text-xs text-gray-500">SDIF file (.sd3 or .txt)</p>
+                        <p id="file-name" class="text-xs text-gray-500">SDIF file (.sd3, .txt, or .zip)</p>
                     </div>
-                    <input id="file-upload" type="file" accept=".txt,.sd3" />
+                    <input id="file-upload" type="file" accept=".txt,.sd3,.zip" />
                 </label>
             </div>
             <button id="process-button" class="mt-6 w-full btn-primary font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all disabled:opacity-50" disabled>
                 Process Results
             </button>
+        </div>
+
+        <!-- Special Circumstances Section -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mt-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">Special Circumstances (Optional)</h2>
+            <div class="space-y-4">
+                <label class="flex items-center cursor-pointer">
+                    <input type="checkbox" id="override-checkbox" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="ml-3 text-gray-700 font-medium">This meet has special circumstances (forfeit, cancellation, etc.)</span>
+                </label>
+
+                <div id="override-details" class="hidden mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    <p class="text-sm text-gray-600 mb-4">Configure the meet outcome and provide an explanation for the override.</p>
+
+                    <div class="mb-4">
+                        <label for="winning-team-select" class="block text-sm font-medium text-gray-700 mb-2">Winning Team</label>
+                        <select id="winning-team-select" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
+                            <option value="">-- Upload and process file first --</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Forfeit Score</label>
+                        <div class="flex items-center gap-4 text-sm text-gray-600">
+                            <span>Winner: <strong>1.0</strong></span>
+                            <span>•</span>
+                            <span>Loser: <strong>0.0</strong></span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Standard forfeit scoring ensures correct win/loss tracking in season archives.</p>
+                    </div>
+
+                    <div>
+                        <label for="override-reason" class="block text-sm font-medium text-gray-700 mb-2">Reason for Override</label>
+                        <textarea id="override-reason" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Example: Team forfeited due to insufficient swimmers"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="loading" class="text-center p-10 hidden">
@@ -62,7 +101,7 @@
                 <div id="events-grid" class="space-y-8"></div>
             </div>
             <footer class="text-center mt-10 text-gray-500 text-sm">
-                 <p>GPSA Meet Publicity Tool v1.1</p>
+                 <p>GPSA Meet Publicity Tool v1.2</p>
             </footer>
         </div>
     </main>
@@ -83,9 +122,14 @@
         const eventsGridDiv = document.getElementById('events-grid');
         const exportSection = document.getElementById('export-section');
         const exportButton = document.getElementById('export-button');
+        const overrideCheckbox = document.getElementById('override-checkbox');
+        const overrideDetails = document.getElementById('override-details');
+        const winningTeamSelect = document.getElementById('winning-team-select');
+        const overrideReason = document.getElementById('override-reason');
 
         let fileContent = '';
         let parsedData = null;
+        let overrideData = null; // Stores override information
         // The logo URL is now a constant since it's always the same.
         const logoUrl = 'https://publicity.gpsaswimming.org/assets/gpsa_logo.png';
 
@@ -133,16 +177,155 @@
             return div.innerHTML;
         }
 
-        fileUploadInput.addEventListener('change', (event) => {
+        // --- Zip File Extraction ---
+        async function extractSdifFromZip(file) {
+            // Check file size (256KB limit)
+            const maxSize = 256 * 1024; // 256KB in bytes
+            if (file.size > maxSize) {
+                showToast(`Zip file is too large (${(file.size / 1024).toFixed(1)}KB). Maximum size is 256KB.`, 'error', 6000);
+                return null;
+            }
+
+            try {
+                const zip = await JSZip.loadAsync(file);
+                const sdifFiles = [];
+
+                // Find all .sd3 and .txt files in the zip
+                zip.forEach((relativePath, zipEntry) => {
+                    const fileName = relativePath.toLowerCase();
+                    if ((fileName.endsWith('.sd3') || fileName.endsWith('.txt')) && !zipEntry.dir) {
+                        sdifFiles.push({ name: relativePath, entry: zipEntry });
+                    }
+                });
+
+                if (sdifFiles.length === 0) {
+                    showToast('No SDIF files (.sd3 or .txt) found in the zip archive.', 'error', 6000);
+                    return null;
+                }
+
+                if (sdifFiles.length > 1) {
+                    showToast(`Found ${sdifFiles.length} SDIF files in zip. Using: ${sdifFiles[0].name}`, 'info', 6000);
+                }
+
+                // Extract the first SDIF file
+                const sdifContent = await sdifFiles[0].entry.async('text');
+                showToast(`Successfully extracted: ${sdifFiles[0].name}`, 'success');
+                return sdifContent;
+
+            } catch (error) {
+                showToast(`Failed to extract zip file: ${error.message}`, 'error', 6000);
+                return null;
+            }
+        }
+
+        // --- Helper Functions for Override Functionality ---
+        function populateTeamDropdown(data) {
+            const teams = Object.values(data.teams);
+            winningTeamSelect.innerHTML = '<option value="">-- Select winning team --</option>';
+            teams.forEach(team => {
+                const option = document.createElement('option');
+                option.value = team.code;
+                option.textContent = team.name;
+                option.dataset.fullName = team.name;
+                winningTeamSelect.appendChild(option);
+            });
+            winningTeamSelect.disabled = false;
+        }
+
+        function prepareOverrideData(data) {
+            if (!overrideCheckbox.checked) {
+                overrideData = null;
+                return;
+            }
+
+            const winnerCode = winningTeamSelect.value;
+            const reason = overrideReason.value.trim();
+
+            if (!winnerCode) {
+                showToast('Please select a winning team for the override.', 'warning');
+                overrideData = null;
+                return;
+            }
+
+            if (!reason) {
+                showToast('Please provide a reason for the override.', 'warning');
+                overrideData = null;
+                return;
+            }
+
+            const teams = Object.values(data.teams);
+            const winnerTeam = teams.find(t => t.code === winnerCode);
+            const loserTeam = teams.find(t => t.code !== winnerCode);
+
+            if (!winnerTeam || !loserTeam) {
+                showToast('Could not identify teams for override.', 'error');
+                overrideData = null;
+                return;
+            }
+
+            overrideData = {
+                winnerCode: winnerTeam.code,
+                winnerName: winnerTeam.name,
+                loserCode: loserTeam.code,
+                loserName: loserTeam.name,
+                reason: reason
+            };
+        }
+
+        function applyForfeitScores(data) {
+            if (!overrideData) return data;
+
+            // Apply forfeit scores: Winner = 1.0, Loser = 0.0
+            Object.values(data.teams).forEach(team => {
+                if (team.code === overrideData.winnerCode) {
+                    team.score = 1.0;
+                } else if (team.code === overrideData.loserCode) {
+                    team.score = 0.0;
+                }
+            });
+
+            return data;
+        }
+
+        fileUploadInput.addEventListener('change', async (event) => {
             const file = event.target.files[0];
-            if (file) {
-                fileNameDisplay.textContent = file.name;
+            if (!file) return;
+
+            fileNameDisplay.textContent = file.name;
+            fileContent = '';
+            processButton.disabled = true;
+
+            // Check if file is a zip
+            if (file.name.toLowerCase().endsWith('.zip')) {
+                const extractedContent = await extractSdifFromZip(file);
+                if (extractedContent) {
+                    fileContent = extractedContent;
+                    processButton.disabled = false;
+                } else {
+                    fileNameDisplay.textContent = 'SDIF file (.sd3, .txt, or .zip)';
+                    showToast('Please upload a valid SDIF file or zip archive.', 'error');
+                }
+            } else {
+                // Handle regular .sd3 or .txt files
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     fileContent = e.target.result;
                     processButton.disabled = !fileContent;
                 };
+                reader.onerror = () => {
+                    showToast('Failed to read file. Please try again.', 'error');
+                    fileNameDisplay.textContent = 'SDIF file (.sd3, .txt, or .zip)';
+                };
                 reader.readAsText(file);
+            }
+        });
+
+        // Override checkbox toggle
+        overrideCheckbox.addEventListener('change', (event) => {
+            if (event.target.checked) {
+                overrideDetails.classList.remove('hidden');
+            } else {
+                overrideDetails.classList.add('hidden');
             }
         });
 
@@ -153,16 +336,50 @@
 
             setTimeout(() => {
                 parsedData = parseSdif(fileContent);
+
+                // Populate team dropdown for override functionality
+                populateTeamDropdown(parsedData);
+
+                // Prepare override data if checkbox is checked
+                // Note: This validates the override inputs and sets overrideData
+                prepareOverrideData(parsedData);
+
+                // Render results (will apply override if enabled)
                 renderResults(parsedData);
+
                 loadingDiv.classList.add('hidden');
                 resultsContainer.classList.remove('hidden');
                 exportSection.classList.remove('hidden');
             }, 500);
         });
+
+        // Add event listener to re-process when override settings change
+        winningTeamSelect.addEventListener('change', () => {
+            if (parsedData && overrideCheckbox.checked) {
+                prepareOverrideData(parsedData);
+                renderResults(parsedData);
+            }
+        });
+
+        overrideReason.addEventListener('blur', () => {
+            if (parsedData && overrideCheckbox.checked) {
+                prepareOverrideData(parsedData);
+                renderResults(parsedData);
+            }
+        });
         
         exportButton.addEventListener('click', () => {
             if (!parsedData) return;
-            
+
+            // Validate override data if checkbox is checked
+            if (overrideCheckbox.checked) {
+                prepareOverrideData(parsedData);
+                if (!overrideData) {
+                    showToast('Please complete the override settings before exporting.', 'error');
+                    return;
+                }
+            }
+
             let fileName = `${parsedData.meet.name.replace(/ /g, '_')}_Results.html`; // Default filename
             const meetDate = parsedData.meet.startDate;
             const teamList = Object.values(parsedData.teams);
@@ -173,7 +390,7 @@
                 const month = meetDate.substring(0, 2);
                 const day = meetDate.substring(2, 4);
                 const formattedDate = `${year}-${month}-${day}`;
-                
+
                 const team1Code = teamList[0].code;
                 const team2Code = teamList[1].code;
 
@@ -191,6 +408,7 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
+            showToast('Results exported successfully!', 'success');
         });
 
         // --- SDIF Parsing Logic ---
@@ -353,8 +571,14 @@
         // --- HTML Rendering Logic ---
         function renderResults(data) {
             parsedData = data; // Save for export
+
+            // Apply forfeit scores if override is enabled
+            if (overrideData) {
+                applyForfeitScores(data);
+            }
+
             const { meet, teams, events } = data;
-            
+
             // Clear previous results
             meetTitleDiv.innerHTML = '';
             teamScoresDiv.innerHTML = '';
@@ -362,6 +586,29 @@
 
             // Render Meet Title
             meetTitleDiv.innerHTML = `<h2 class="text-3xl font-bold text-gray-800">${meet.name || 'Swim Meet'}</h2>`;
+
+            // Render Override Banner (if applicable)
+            if (overrideData) {
+                const bannerHtml = `
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong class="font-bold">⚠️ MEET RESULTS OVERRIDDEN</strong><br>
+                                    <strong>Winner:</strong> ${escapeHtml(overrideData.winnerName)}<br>
+                                    <strong>Reason:</strong> ${escapeHtml(overrideData.reason)}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                meetTitleDiv.innerHTML += bannerHtml;
+            }
 
             // Render Team Scores
             const sortedTeams = Object.values(teams).sort((a, b) => b.score - a.score);
@@ -663,6 +910,16 @@
         </header>
 
         <main>
+            ${overrideData ? `
+            <div style="background-color: #fefce8; border-left: 4px solid #facc15; padding: 1rem; margin-bottom: 1.5rem; border-radius: 0.375rem;">
+                <p style="color: #854d0e; font-size: 0.875rem; line-height: 1.5;">
+                    <strong style="font-weight: 700;">⚠️ MEET RESULTS OVERRIDDEN</strong><br>
+                    <strong>Winner:</strong> ${escapeHtml(overrideData.winnerName)}<br>
+                    <strong>Reason:</strong> ${escapeHtml(overrideData.reason)}
+                </p>
+            </div>
+            ` : ''}
+
             <h2>Team Scores</h2>
             <div class="table-wrapper narrow">
                 <table>
@@ -694,7 +951,7 @@
         </main>
 
         <footer>
-            <p>Results generated on ${new Date().toLocaleDateString()} with the GPSA Meet Publicity Tool v1.1</p>
+            <p>Results generated on ${new Date().toLocaleDateString()} with the GPSA Meet Publicity Tool v1.2</p>
         </footer>
     </div>
 </body>

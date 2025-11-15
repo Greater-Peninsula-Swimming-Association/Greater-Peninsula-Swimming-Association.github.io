@@ -30,13 +30,50 @@ The site is organized into a clean directory structure with dedicated areas for 
 
 The repository includes several standalone web tools. Each tool is a complete single-file HTML application with embedded JavaScript:
 
-1. **tools/publicity.html** - GPSA Meet Publicity Tool (v1.1)
-   - Parses SDIF format swim meet results files (.sd3 or .txt)
+1. **tools/publicity.html** - GPSA Meet Publicity Tool (v1.2)
+   - Parses SDIF format swim meet results files (.sd3, .txt, or .zip)
    - Generates formatted HTML output with team scores and event winners
    - Auto-generates meet titles for dual meets using host team and date
    - Exports results as standalone HTML files with naming convention: `YYYY-MM-DD_TEAM1_v_TEAM2.html`
    - All SDIF parsing logic is in the `parseSdif()` function
    - Uses Tailwind CDN for styling with GPSA brand colors (#002366 navy, #d9242b red)
+
+   **Recent Enhancements (2025):**
+   - **Zip File Support**:
+     - Accepts `.zip` files containing SDIF data (256KB maximum)
+     - Automatically extracts `.sd3` or `.txt` files from zip archives
+     - Uses JSZip 3.10.1 library for client-side extraction
+     - Handles multi-file zips (uses first SDIF file found)
+     - Toast notifications for extraction status and errors
+
+   - **Forfeit/Override Functionality**:
+     - **Special Circumstances UI**: Optional section to mark forfeits, cancellations, or other overrides
+     - **Winning Team Selection**: Dropdown auto-populated with teams from SDIF file
+     - **Standard Forfeit Scoring**: Winner receives 1.0, Loser receives 0.0
+     - **Reason Documentation**: Free-text field for explanation (e.g., "Team forfeited due to weather")
+     - **Override Banner**: Yellow warning banner appears in exported HTML with winner and reason
+     - **Archive Builder Compatible**: Exported HTML works seamlessly with `build_archive.py`
+       - Team Scores table shows 1.0 vs 0.0 (ensures correct win/loss tracking)
+       - No special processing required in archive generation
+       - Follows standard `YYYY-MM-DD_TEAM1_v_TEAM2.html` naming convention
+     - **Real-time Updates**: Results preview updates as user changes override settings
+     - **Export Validation**: Ensures override is complete before allowing export
+
+   **Implementation Notes:**
+   - Override data stored in `overrideData` global variable
+   - `applyForfeitScores()` function modifies team scores when override is active
+   - `prepareOverrideData()` validates winning team and reason inputs
+   - Override banner uses inline styles in exported HTML for portability
+   - All user inputs sanitized with `escapeHtml()` for XSS protection
+
+   **Forfeit Workflow:**
+   1. Upload SDIF file (.sd3, .txt, or .zip)
+   2. Check "This meet has special circumstances"
+   3. Click "Process Results" (populates team dropdown)
+   4. Select winning team from dropdown
+   5. Enter reason for override
+   6. Review results with override banner
+   7. Export as standard HTML file (compatible with season archives)
 
 2. **tools/roster.html** - Swim Team Roster Formatter (Enhanced 2025)
    - Processes SwimTopia CSV exports to create formatted team rosters
