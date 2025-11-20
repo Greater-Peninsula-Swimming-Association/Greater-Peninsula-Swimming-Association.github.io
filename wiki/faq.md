@@ -160,7 +160,7 @@ If you can't find the answer here:
 
 1. **Ask your team representative** - They're your first resource
 2. **Check the [League Rules](/wiki/league-rules)** - Official rules cover most situations
-3. **Contact league officers** - See [Contact Information](/wiki/contact-info)
+3. **Contact league officers** - See [Contact Information](https://www.gpsaswimming.org/gpsa-contacts)
 
 ---
 

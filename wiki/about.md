@@ -62,7 +62,7 @@ GPSA currently includes teams from across the Virginia Peninsula, representing:
 
 ### Current Member Teams
 
-See the [Contact Information](/wiki/contact-info) page for a complete list of current member teams.
+See the [Contact Information](https://www.gpsaswimming.org/gpsa-contacts) page for a complete list of current member teams.
 
 ## Governance
 
@@ -82,7 +82,7 @@ For more detailed historical information, see the [League History](/wiki/history
 
 For general league inquiries, please contact:
 
-- **League President** - See [Contact Information](/wiki/contact-info)
+- **League President** - See [Contact Information](https://www.gpsaswimming.org/gpsa-contacts)
 - **Your Team Representative** - Contact information available from your pool
 
 ---

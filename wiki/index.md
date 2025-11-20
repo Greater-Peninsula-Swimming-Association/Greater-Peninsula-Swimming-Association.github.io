@@ -35,7 +35,7 @@ The Greater Peninsula Swimming Association is a youth summer swim league serving
 ## Resources
 
 - [Forms & Documents](/wiki/forms-documents) - Download official GPSA forms
-- [Contact Information](/wiki/contact-info) - League officers and team contacts
+- [Contact Information](https://www.gpsaswimming.org/gpsa-contacts) - League officers and team contacts
 - [FAQ](/wiki/faq) - Frequently asked questions
 
 ## Historical Information
