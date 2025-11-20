@@ -24,17 +24,17 @@ Costs vary by team. Contact your local pool or team representative for specific 
 
 ### Can my child join if they can't swim all four strokes?
 
-Yes! GPSA welcomes swimmers of all skill levels. Younger swimmers typically start with freestyle and backstroke, adding breaststroke and butterfly as they develop.
+Membership requirements vary by team. Contact your local pool or team representative for specific registration requirements. Younger swimmers typically start with freestyle and backstroke, adding breaststroke and butterfly as they develop.
 
 ## Meet Information
 
 ### What time do meets start?
 
-Most dual meets begin at 6:00 PM on weekday evenings (Monday or Thursday). Championship and invitational meets may have different start times.
+Most dual meets begin at 6:00 PM on weekday evenings (Monday or Thursday). Invitational and championship meets have different start times which are published in their respective meet invites.
 
 ### How long do meets last?
 
-Dual meets typically last 2-3 hours. Championship meets may run longer depending on the number of participants.
+Dual meets typically last 2-3 hours. Invitational meets run longer depending on the number of participants.
 
 ### What should swimmers bring to a meet?
 
@@ -64,11 +64,11 @@ It's normal to feel nervous! Here are some tips:
 
 ### How are age groups determined?
 
-Age is determined as of June 1st of the current season. For example, if your child turns 11 on July 15th but was 10 on June 1st, they compete in the 8 & Under or 9-10 age group (depending on their age on June 1st).
+Age is determined as of June 1st of the current season. For example, if your child turns 11 on July 15th but was 10 on June 1st, they compete in the 9-10 age group.
 
 ### How many events can my child swim?
 
-Each swimmer may compete in up to 3 individual events plus relays per meet. Coaches manage event assignments to ensure fair participation.
+Each swimmer may compete in up to 3 individual events plus 1 relay per meet. Coaches manage event assignments to ensure fair participation.
 
 ### What are the four competitive strokes?
 
@@ -83,7 +83,7 @@ An IM is a race where the swimmer completes all four strokes in this order: butt
 
 ### What happens if a swimmer is disqualified (DQ)?
 
-A DQ means the swimmer violated a stroke or turn rule. The swimmer receives no points, but it's a learning experience. Officials typically explain the infraction, and coaches use it as a teaching opportunity.
+A DQ means the swimmer violated a stroke or turn rule, resulting in no points. While officials must notate the infraction, coaches can explain the specific violation and use it as a valuable teaching opportunity.
 
 ## Team & Practice
 
@@ -113,7 +113,10 @@ Most teams require parent volunteers for various roles:
 ### Do I need to be certified to volunteer?
 
 **Timers** - No certification required; training provided at each meet
+**Sweeps Judge** - No certification required; training provided at each meet
 **Stroke & Turn Judges** - Certification required; training offered through GPSA
+**Starter** - Certification required; training offered through GPSA
+**Referee** - Certification required; training offered through GPSA
 **Other roles** - No certification needed
 
 ### How do I become a certified official?
@@ -132,7 +135,7 @@ City Meet is typically held on the final weekend of the season. Specific dates a
 
 ### Is there a fee for City Meet?
 
-Some teams may charge a small fee to cover entry costs. Check with your team representative.
+The league does charge a fee per swimmer and per event entered. Some teams may cover these fees, check with your team representative.
 
 ## Technical Questions
 
@@ -144,11 +147,11 @@ SwimTopia is the online platform GPSA uses for:
 - Team rosters
 - Communication
 
-Each team has access to their SwimTopia account.
+Each team has access to their own SwimTopia account.
 
 ### Where can I find meet results?
 
-Results are posted on the [GPSA website](/) typically within 24-48 hours after each meet.
+Results are posted on the [GPSA website](/results) typically within 24-48 hours after each meet.
 
 ### How is scoring calculated?
 
