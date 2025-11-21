@@ -195,7 +195,7 @@ numbersections: true
 
        1. The Timing Equipment Operator shall be responsible for the automatic or semi-automatic timing equipment, including the electronic starting system and scoreboard (if used), and shall advise the Referee or GPSA Representative of any system problems that might affect the accuracy of times. The timing equipment should be placed so that the operator is able to observe the finish of each race.
 
-# ORDER OF EVENTS, AGE GROUPS, AND DISTANCES {#order-of-events,-age-groups,-and-distances}
+# ORDER OF EVENTS, AGE GROUPS, AND DISTANCES {#order-of-events-age-groups-and-distances}
 
 |      BOYS      |           EVENT            | GIRLS |
 | :------------: | :------------------------: | :---: |
