@@ -1,21 +1,19 @@
 services:
   pdf:
-    image: pandoc/latex
+    image: pandoc/extra
     platform: linux/amd64
     volumes:
       - .:/workspace
     working_dir: /workspace
+    entrypoint: ["/bin/sh", "-c"]
     command: >
-      sh -c "
-        mkdir -p /root/.pandoc/templates &&
-        wget -q https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex -O /root/.pandoc/templates/eisvogel.latex &&
-        pandoc rulebook.md
-          --template=eisvogel
-          --listings
-          --toc
-          --toc-depth=4
-          --number-sections
-          --pdf-engine=xelatex
-          -o GPSA_Rulebook.pdf &&
-        echo 'PDF built successfully: GPSA_Rulebook.pdf'
-      "
+      "pandoc rulebook.md
+      --template=eisvogel
+      --include-in-header=header.tex
+      --syntax-highlighting=idiomatic
+      --toc
+      --toc-depth=4
+      --number-sections
+      --pdf-engine=xelatex
+      -o GPSA_Rulebook.pdf &&
+      echo 'PDF built successfully: GPSA_Rulebook.pdf'"

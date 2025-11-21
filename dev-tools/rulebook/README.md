@@ -5,6 +5,7 @@ This directory contains the GPSA official rulebook in Markdown format, which is 
 ## Files
 
 - **`rulebook.md`** - Source rulebook content in Markdown with YAML front matter
+- **`header.tex`** - LaTeX header file that fixes counter compatibility issues
 - **`assets/logo.png`** - GPSA logo used in the PDF titlepage
 - **`compose.yml`** - Docker Compose configuration for local builds (x86_64 only)
 - **`build.sh`** - Convenience script to run local builds
@@ -20,7 +21,7 @@ The rulebook PDF is **automatically generated** whenever changes are pushed to t
 - Manual trigger via [Actions tab](../../actions/workflows/build-pdf.yml)
 
 **Workflow Steps:**
-1. Downloads the Eisvogel LaTeX template
+1. Uses pandoc/extra Docker image (includes Eisvogel template pre-installed)
 2. Runs Pandoc with XeLaTeX engine to convert Markdown → PDF
 3. Uploads PDF as workflow artifact (downloadable for 90 days)
 4. Commits `GPSA_Rulebook.pdf` to repository root (push events only)
@@ -133,12 +134,13 @@ The generated PDF includes:
 
 **Eisvogel LaTeX Template:**
 - Repository: [Wandmalfarbe/pandoc-latex-template](https://github.com/Wandmalfarbe/pandoc-latex-template)
-- Version: Latest (downloaded fresh on each build)
+- Version: Pre-installed in pandoc/extra image
 - License: BSD 3-Clause
 
 **Pandoc:**
-- Docker Image: `pandoc/latex:latest`
+- Docker Image: `pandoc/extra:latest` (includes Eisvogel template and extra fonts)
 - Engine: XeLaTeX (better Unicode support than pdflatex)
+- Syntax Highlighting: Idiomatic (replaces deprecated --listings flag)
 
 ## Workflow File Location
 

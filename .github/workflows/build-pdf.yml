@@ -15,22 +15,34 @@ jobs:
 
       - name: Build GPSA Rulebook PDF
         run: |
+          echo "Building GPSA Rulebook PDF..."
           docker run --rm \
+            --entrypoint sh \
             -v "$(pwd)":/workspace \
-            pandoc/latex:latest \
-            sh -c "
-              mkdir -p /root/.pandoc/templates && \
-              wget https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex -O /root/.pandoc/templates/eisvogel.latex && \
-              cd /workspace/dev-tools/rulebook && \
+            -w /workspace/dev-tools/rulebook \
+            pandoc/extra:latest \
+            -c "
               pandoc rulebook.md \
                 --template=eisvogel \
-                --listings \
+                --include-in-header=header.tex \
+                --syntax-highlighting=idiomatic \
                 --toc \
                 --toc-depth=4 \
                 --number-sections \
                 --pdf-engine=xelatex \
                 -o /workspace/GPSA_Rulebook.pdf
             "
+          echo "Build completed!"
+
+      - name: Verify PDF was created
+        run: |
+          if [ -f "GPSA_Rulebook.pdf" ]; then
+            ls -lh GPSA_Rulebook.pdf
+            echo "✅ PDF successfully generated: GPSA_Rulebook.pdf"
+          else
+            echo "❌ Error: GPSA_Rulebook.pdf was not created"
+            exit 1
+          fi
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
@@ -39,11 +51,24 @@ jobs:
           path: GPSA_Rulebook.pdf
           retention-days: 90
 
-      - name: Commit PDF to repository (optional)
+      - name: Commit PDF to repository
         if: github.event_name == 'push'
         run: |
+          echo "Configuring git..."
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add GPSA_Rulebook.pdf || true
-          git diff --staged --quiet || git commit -m "Update GPSA Rulebook PDF [skip ci]"
-          git push || true
+
+          echo "Staging PDF file..."
+          git add GPSA_Rulebook.pdf
+
+          if git diff --staged --quiet; then
+            echo "✅ No changes to commit (PDF unchanged)"
+          else
+            echo "📝 Committing updated PDF..."
+            git commit -m "Update GPSA Rulebook PDF [skip ci]"
+
+            echo "⬆️  Pushing to repository..."
+            git push
+
+            echo "✅ PDF committed and pushed successfully"
+          fi

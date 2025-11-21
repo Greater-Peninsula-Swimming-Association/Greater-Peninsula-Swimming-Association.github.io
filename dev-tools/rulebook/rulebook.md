@@ -14,29 +14,7 @@ toc-own-page: true
 classoption: twoside
 ---
 
-# Greater Peninsula Swimming Association
-
-# GPSA Rulebook
-
-# Table of Contents {#table-of-contents}
-
-[Table of Contents	2](#table-of-contents)
-
-[I. DEFINITIONS	3](#definitions)
-
-[II. ELIGIBILITY AND ROSTERS	4](#eligibility-and-rosters)
-
-[III. OFFICIALS	4](#officials)
-
-[IV. ORDER OF EVENTS, AGE GROUPS, AND DISTANCES	8](#order-of-events,-age-groups,-and-distances)
-
-[V. CONDUCT OF INTERPOOL MEETS	10](#conduct-of-interpool-meets)
-
-[VI. SCORING	11](#scoring)
-
-[VII. FACILITIES STANDARDS	12](#facilities-standards)
-
-1. # DEFINITIONS {#definitions}
+# DEFINITIONS {#definitions}
 
    1. GPSA
 
@@ -78,7 +56,7 @@ classoption: twoside
 
       2. The GPSA operates three divisions, Red, White, and Blue.
 
-2. # ELIGIBILITY AND ROSTERS {#eligibility-and-rosters}
+# ELIGIBILITY AND ROSTERS {#eligibility-and-rosters}
 
    1. Only a BONA FIDE SWIMMER listed on their TEAM’s posted roster may compete in GPSA-scheduled meets.
 
@@ -108,7 +86,7 @@ classoption: twoside
 
    10. A swimmer determined to be ineligible shall not be allowed to further represent their TEAM. If a swimmer’s ineligibility is extended to previous meets during the current season, those meets shall be rescored to reflect the removal of the swimmer. Division standings and swimmer awards shall also be changed accordingly.
 
-3. # OFFICIALS {#officials}
+# OFFICIALS {#officials}
 
    1. GPSA Representative
 
@@ -216,40 +194,40 @@ classoption: twoside
 
        1. The Timing Equipment Operator shall be responsible for the automatic or semi-automatic timing equipment, including the electronic starting system and scoreboard (if used), and shall advise the Referee or GPSA Representative of any system problems that might affect the accuracy of times. The timing equipment should be placed so that the operator is able to observe the finish of each race.
 
-4. # ORDER OF EVENTS, AGE GROUPS, AND DISTANCES {#order-of-events,-age-groups,-and-distances}
+# ORDER OF EVENTS, AGE GROUPS, AND DISTANCES {#order-of-events,-age-groups,-and-distances}
 
-| BOYS | EVENT | GIRLS |
-| :---: | :---: | :---: |
-| 0 | Mixed 8\&U 100M Free Relay | 0 |
-| 1 | 9-10 100M IM | 2 |
-| 3 | 11-12 100M IM | 4 |
-| 5 | 13-14 100M IM | 6 |
-| 7 | 15-18 100M IM | 8 |
-| 9 | 6\&U 25M Free | 10 |
-| 11 | 7-8 25M Free | 12 |
-| 13 | 9-10 50M Free | 14 |
-| 15 | 11-12 50M Free | 16 |
-| 17 | 13-14 50M Free | 18 |
-| 19 | 15-18 50M Free | 20 |
-| 21 | 8\&U 25M Breast | 22 |
-| 23 | 9-10 50M Breast | 24 |
-| 25 | 11-12 50M Breast | 26 |
-| 27 | 13-14 50M Breast | 28 |
-| 29 | 15-18 50M Breast | 30 |
-| 31 | 6\&U 25M Back | 32 |
-| 33 | 7-8 25M Back | 34 |
-| 35 | 9-10 50M Back | 36 |
-| 37 | 11-12 50M Back | 38 |
-| 39 | 13-14 50M Back | 40 |
-| 41 | 15-18 50M Back | 42 |
-| 43 | 8\&U 25M Butterfly | 44 |
-| 45 | 9-10 50M Butterfly | 46 |
-| 47 | 11-12 50M Butterfly | 48 |
-| 49 | 13-14 50M Butterfly | 50 |
-| 51 | 15-18 50M Butterfly | 52 |
-| 5 Minute Break |  |  |
-| 53 | Open 200M Medley Relay | 54 |
-| 55 | Open 200M Free Relay | 56 |
+|      BOYS      |           EVENT            | GIRLS |
+| :------------: | :------------------------: | :---: |
+|       0        | Mixed 8\&U 100M Free Relay |   0   |
+|       1        |        9-10 100M IM        |   2   |
+|       3        |       11-12 100M IM        |   4   |
+|       5        |       13-14 100M IM        |   6   |
+|       7        |       15-18 100M IM        |   8   |
+|       9        |       6\&U 25M Free        |  10   |
+|       11       |        7-8 25M Free        |  12   |
+|       13       |       9-10 50M Free        |  14   |
+|       15       |       11-12 50M Free       |  16   |
+|       17       |       13-14 50M Free       |  18   |
+|       19       |       15-18 50M Free       |  20   |
+|       21       |      8\&U 25M Breast       |  22   |
+|       23       |      9-10 50M Breast       |  24   |
+|       25       |      11-12 50M Breast      |  26   |
+|       27       |      13-14 50M Breast      |  28   |
+|       29       |      15-18 50M Breast      |  30   |
+|       31       |       6\&U 25M Back        |  32   |
+|       33       |        7-8 25M Back        |  34   |
+|       35       |       9-10 50M Back        |  36   |
+|       37       |       11-12 50M Back       |  38   |
+|       39       |       13-14 50M Back       |  40   |
+|       41       |       15-18 50M Back       |  42   |
+|       43       |     8\&U 25M Butterfly     |  44   |
+|       45       |     9-10 50M Butterfly     |  46   |
+|       47       |    11-12 50M Butterfly     |  48   |
+|       49       |    13-14 50M Butterfly     |  50   |
+|       51       |    15-18 50M Butterfly     |  52   |
+| 5 Minute Break |                            |       |
+|       53       |   Open 200M Medley Relay   |  54   |
+|       55       |    Open 200M Free Relay    |  56   |
 
    1. General Rules for swimming strokes shall be those contained in Articles 101.2-101.7 of the USA Swimming Rules and Regulations in effect for the current year for all ages.
 
@@ -261,7 +239,7 @@ classoption: twoside
 
    5. Exhibition lanes should be used, if available. A minimum of 5 exhibition heats per team must be allowed. For more than 5 heats, both GPSA Representatives must concur.
 
-5. # CONDUCT OF INTERPOOL MEETS {#conduct-of-interpool-meets}
+# CONDUCT OF INTERPOOL MEETS {#conduct-of-interpool-meets}
 
    1. League scheduled meets must be held as scheduled and will start at 6:00 pm unless postponed due to inclement weather, failure of equipment or pool facilities, or mutually agreed upon by both GPSA Representatives.
 
@@ -283,30 +261,30 @@ classoption: twoside
 
    5. Each team shall furnish the following officials and equipment:
 
-| Home Team | Visitors |
-| :---: | :---: |
-| One referee | One timer per assigned lane |
-| One starter | Two S\&T judges |
-| Two S\&T judges | One sweep judge |
-| One timer per assigned lane | One scorekeeper |
-| One Head timer | Ribbon writer |
-| One sweep judge | One stopwatch per assigned lane |
-| One scorekeeper | One stand-by starting horn / whistle |
-| Ribbon writer |  |
-| Two runners |  |
-| One stopwatch per assigned lane |  |
-| One additional stopwatch |  |
-| One starting horn / whistle |  |
-| Certified Lifeguard |  |
-| Marshal (optional) |  |
-| Table for scorekeepers |  |
-| Chairs for sweep judges |  |
+|            Home Team            |               Visitors               |
+| :-----------------------------: | :----------------------------------: |
+|           One referee           |     One timer per assigned lane      |
+|           One starter           |           Two S\&T judges            |
+|         Two S\&T judges         |           One sweep judge            |
+|   One timer per assigned lane   |           One scorekeeper            |
+|         One Head timer          |            Ribbon writer             |
+|         One sweep judge         |   One stopwatch per assigned lane    |
+|         One scorekeeper         | One stand-by starting horn / whistle |
+|          Ribbon writer          |                                      |
+|           Two runners           |                                      |
+| One stopwatch per assigned lane |                                      |
+|    One additional stopwatch     |                                      |
+|   One starting horn / whistle   |                                      |
+|       Certified Lifeguard       |                                      |
+|       Marshal (optional)        |                                      |
+|     Table for scorekeepers      |                                      |
+|     Chairs for sweep judges     |                                      |
 
 *\*stopwatches are recommended as backup even if using a timing system such as Time Drops*
 
-6. Any swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition). If any swimmer is found to have participated in more than the above number of events, he/she shall be disqualified in all events in which he/she was an entrant, and team scores and awards shall be adjusted accordingly.
+   6. Any swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition). If any swimmer is found to have participated in more than the above number of events, he/she shall be disqualified in all events in which he/she was an entrant, and team scores and awards shall be adjusted accordingly.
 
-   1. For a team with fewer than 64 swimmers on the official roster, only swimmers in age/gender groups that have three (3) or fewer swimmers in that bracket would be allowed to compete in four (4) individual events and one (1) relay event (not including exhibition).
+      1. For a team with fewer than 64 swimmers on the official roster, only swimmers in age/gender groups that have three (3) or fewer swimmers in that bracket would be allowed to compete in four (4) individual events and one (1) relay event (not including exhibition).
 
       2. Event 0 shall not count against a swimmers relay entry limit.
 
@@ -348,7 +326,7 @@ classoption: twoside
 
       3. A banner will be awarded to the winning team in each division and the team winning the Championship Meet. The banners will be presented at the Championship Meet to the respective coaches. Teams winning the banners will bring them to the GPSA Board Meeting following the Championship Meet and turn them in for embroidering. The banners will be returned to the respective teams at the following meeting. All banners will be turned in to GPSA at least one week before the Championship Meet so that they are available for presentation at the meet. Lost or damaged banners will be replaced by the team having possession. Banners will be replaced and old banners retired by GPSA every 10 years.
 
-8. # FACILITIES STANDARDS {#facilities-standards}
+# FACILITIES STANDARDS {#facilities-standards}
 
    1. The pool shall be 25 meters in length. If not, an appropriate correction factor shall be applied to times swum in the non-conforming pool.
 
