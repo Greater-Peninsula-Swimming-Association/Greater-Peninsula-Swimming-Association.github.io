@@ -4,14 +4,16 @@ subtitle: "Official Rules"
 author: "GPSA Rules Committee"
 date: "November 2025"
 titlepage: true
-titlepage-color: "003366"          # navy
+titlepage-color: "002366"          # GPSA navy blue
 titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "FFCC00"     # gold accent
-titlepage-rule-height: 6
-logo: "assets/logo.png"            # put your real logo here
+titlepage-rule-color: "d9242b"     # GPSA red accent
+titlepage-rule-height: 4
+logo: "assets/logo.png"
+logo-width: 100
 book: true
 toc-own-page: true
 classoption: twoside
+numbersections: true
 ---
 
 # DEFINITIONS {#definitions}
