@@ -13,39 +13,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Install Eisvogel template correctly so Pandoc can find all its resources
+      # Download and install the Eisvogel template into the shared Pandoc data dir
       - name: Install Eisvogel template
         run: |
-          mkdir -p ~/.pandoc/templates
+          mkdir -p /tmp/pandoc/templates
           curl -Ls https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex \
-            -o ~/.pandoc/templates/eisvogel.latex
+            -o /tmp/pandoc/templates/eisvogel.latex
 
-      # Build the PDF from your exact folder and with your exact filename
+      # Build the PDF using the official pandoc/latex Docker image
       - name: Build GPSA Rulebook PDF
         run: |
-          cd dev-tools/rulebook
-          pandoc rulebook.md \
-            --template=eisvogel \
+          docker run --rm \
+            -v "$(pwd)":/data \
+            -w /data \
+            pandoc/latex:latest \
+            dev-tools/rulebook/rulebook.md \
+            --template=/tmp/pandoc/templates/eisvogel.latex \
             --listings \
             --toc \
             --toc-depth=4 \
             --number-sections \
             --pdf-engine=xelatex \
-            -o "../../GPSA Rulebook.pdf"
+            -o "GPSA Rulebook.pdf"
 
-      # Upload the final PDF as an artifact (appears at the top of the run page)
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: GPSA-Rulebook
           path: GPSA Rulebook.pdf
           retention-days: 90
-
-      # Optional: automatically commit the PDF back into the repo (uncomment if you want this)
-      # - name: Commit PDF back to repo
-      #   run: |
-      #     git config user.name "github-actions[bot]"
-      #     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      #     git add "GPSA Rulebook.pdf"
-      #     git commit -m "Update GPSA Rulebook.pdf $(date '+%Y-%m-%d %H:%M')" || echo "No changes"
-      #     git push
