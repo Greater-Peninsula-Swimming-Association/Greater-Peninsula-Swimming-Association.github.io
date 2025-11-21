@@ -13,28 +13,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Download and install the Eisvogel template into the shared Pandoc data dir
-      - name: Install Eisvogel template
-        run: |
-          mkdir -p /tmp/pandoc/templates
-          curl -Ls https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex \
-            -o /tmp/pandoc/templates/eisvogel.latex
-
-      # Build the PDF using the official pandoc/latex Docker image
+      # No separate install step — we do everything inside one Docker run
       - name: Build GPSA Rulebook PDF
         run: |
           docker run --rm \
             -v "$(pwd)":/data \
             -w /data \
             pandoc/latex:latest \
-            dev-tools/rulebook/rulebook.md \
-            --template=/tmp/pandoc/templates/eisvogel.latex \
-            --listings \
-            --toc \
-            --toc-depth=4 \
-            --number-sections \
-            --pdf-engine=xelatex \
-            -o "GPSA Rulebook.pdf"
+            sh -c "\
+              mkdir -p ~/.pandoc/templates && \
+              curl -Ls https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex -o ~/.pandoc/templates/eisvogel.latex && \
+              pandoc dev-tools/rulebook/rulebook.md \
+                --template=eisvogel \
+                --listings \
+                --toc \
+                --toc-depth=4 \
+                --number-sections \
+                --pdf-engine=xelatex \
+                -o 'GPSA Rulebook.pdf' \
+            "
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
