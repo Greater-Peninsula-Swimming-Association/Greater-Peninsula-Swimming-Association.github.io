@@ -26,11 +26,14 @@ exclude:
   - .gitignore
   - .DS_Store
 
-# Collections (for future expansion)
+# Collections
 collections:
   wiki:
     output: true
     permalink: /wiki/:name
+  sample-wiki:
+    output: true
+    permalink: /sample-wiki/:name
 
 # Defaults
 defaults:
@@ -43,6 +46,15 @@ defaults:
       path: "_wiki"
     values:
       layout: "wiki"
+  - scope:
+      path: "sample-wiki"
+      type: "pages"
+    values:
+      layout: "sample-wiki"
+  - scope:
+      path: "_sample-wiki"
+    values:
+      layout: "sample-wiki"
 
 # Plugin settings (GitHub Pages safe plugins only)
 plugins:

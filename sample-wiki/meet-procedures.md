@@ -1,5 +1,5 @@
 ---
-layout: wiki
+layout: sample-wiki
 title: Meet Procedures
 category: Rules & Regulations
 toc: true

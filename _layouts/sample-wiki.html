@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - GPSA Sample Wiki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-16x16.png?1651502535">
+    <link rel="manifest" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/site.webmanifest?1651502732">
+    <link rel="mask-icon" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/safari-pinned-tab.svg?1651502580" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- GPSA Common Styles -->
+    <link rel="stylesheet" href="/css/gpsa-tools-common.css">
+
+    <!-- Wiki-specific styles -->
+    <style>
+        /* Wiki content styling */
+        .wiki-content {
+            line-height: 1.7;
+        }
+
+        .wiki-content h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #002366;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #d9242b;
+        }
+
+        .wiki-content h1:first-child {
+            margin-top: 0;
+        }
+
+        .wiki-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #002366;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .wiki-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #374151;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wiki-content h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wiki-content p {
+            margin-bottom: 1rem;
+        }
+
+        .wiki-content ul, .wiki-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .wiki-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .wiki-content a {
+            color: #0033a0;
+            text-decoration: underline;
+        }
+
+        .wiki-content a:hover {
+            color: #d9242b;
+        }
+
+        .wiki-content code {
+            background-color: #f3f4f6;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+            font-family: 'Courier New', monospace;
+        }
+
+        .wiki-content pre {
+            background-color: #1f2937;
+            color: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .wiki-content pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .wiki-content blockquote {
+            border-left: 4px solid #d9242b;
+            padding-left: 1rem;
+            margin-left: 0;
+            margin-bottom: 1rem;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .wiki-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        .wiki-content table th,
+        .wiki-content table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .wiki-content table th {
+            background-color: #002366;
+            color: white;
+            font-weight: 600;
+        }
+
+        .wiki-content table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        /* Sidebar navigation */
+        .wiki-nav {
+            position: sticky;
+            top: 1rem;
+            max-height: calc(100vh - 2rem);
+            overflow-y: auto;
+        }
+
+        .wiki-nav-item {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+        }
+
+        .wiki-nav-item:hover {
+            background-color: #f3f4f6;
+            color: #002366;
+        }
+
+        .wiki-nav-item.active {
+            background-color: #002366;
+            color: white;
+            font-weight: 600;
+        }
+
+        .wiki-nav-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            padding-left: 0.75rem;
+        }
+
+        .wiki-nav-category:first-child {
+            margin-top: 0;
+        }
+
+        /* Table of contents */
+        .wiki-toc {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .wiki-toc-title {
+            font-weight: 700;
+            color: #002366;
+            margin-bottom: 0.5rem;
+        }
+
+        .wiki-toc ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .wiki-toc li {
+            margin-bottom: 0.25rem;
+        }
+
+        .wiki-toc a {
+            color: #374151;
+            text-decoration: none;
+        }
+
+        .wiki-toc a:hover {
+            color: #002366;
+            text-decoration: underline;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #0033a0;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: #9ca3af;
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-button {
+            display: none;
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 40;
+            background-color: #002366;
+            color: white;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-button:hover {
+            background-color: #0033a0;
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Mobile sidebar overlay */
+        .wiki-sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 45;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .wiki-sidebar-overlay.active {
+            opacity: 1;
+        }
+
+        /* Responsive sidebar */
+        @media (max-width: 1024px) {
+            .mobile-menu-button {
+                display: flex;
+            }
+
+            .wiki-sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100vh;
+                overflow-y: auto;
+                z-index: 50;
+                transition: left 0.3s ease;
+                background-color: #f9fafb;
+                padding: 1rem;
+            }
+
+            .wiki-sidebar.active {
+                left: 0;
+            }
+
+            .wiki-sidebar .bg-white {
+                box-shadow: none;
+            }
+
+            .wiki-main {
+                max-width: 100% !important;
+            }
+
+            .mobile-menu-close {
+                display: block;
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+                text-align: right;
+            }
+
+            .mobile-menu-close button {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #6b7280;
+                cursor: pointer;
+                padding: 0.25rem 0.5rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-menu-close {
+                display: none;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .wiki-sidebar,
+            .breadcrumb,
+            .mobile-menu-button {
+                display: none;
+            }
+
+            .wiki-main {
+                max-width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto">
+            <header class="gpsa-header p-4 shadow-md flex items-center justify-center no-print mb-6 rounded-lg">
+                <img src="https://publicity.gpsaswimming.org/assets/gpsa_logo.png"
+                     alt="GPSA Logo"
+                     class="h-16 w-16 md:h-20 md:w-20 mr-4 rounded-full"
+                     onerror="this.onerror=null; this.src='https://placehold.co/100x100/002366/FFFFFF?text=GPSA';">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">GPSA Sample Wiki</h1>
+                    <p class="gpsa-header-subtitle">Example Wiki Structure & Templates</p>
+                </div>
+            </header>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button no-print" id="mobile-menu-button" aria-label="Open navigation menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile Sidebar Overlay -->
+            <div class="wiki-sidebar-overlay no-print" id="sidebar-overlay"></div>
+
+            <div class="flex gap-8">
+                <!-- Sidebar Navigation -->
+                <aside class="wiki-sidebar w-64 flex-shrink-0" id="wiki-sidebar">
+                    <div class="mobile-menu-close">
+                        <button id="mobile-menu-close" aria-label="Close navigation menu">✕</button>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-4">
+                        <div class="wiki-nav">
+                            {% include sample-wiki-nav.html %}
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <article class="wiki-main flex-1 max-w-4xl">
+                    <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+                        <!-- Breadcrumbs -->
+                        <nav class="breadcrumb no-print">
+                            <a href="/">Home</a>
+                            <span class="breadcrumb-separator">/</span>
+                            <a href="/sample-wiki/">Sample Wiki</a>
+                            {% if page.category %}
+                            <span class="breadcrumb-separator">/</span>
+                            <span>{{ page.category }}</span>
+                            {% endif %}
+                            <span class="breadcrumb-separator">/</span>
+                            <span class="font-semibold">{{ page.title }}</span>
+                        </nav>
+
+                        <!-- Page Title -->
+                        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">{{ page.title }}</h1>
+
+                        <!-- Table of Contents (if enabled) -->
+                        {% if page.toc %}
+                        <div class="wiki-toc no-print">
+                            <div class="wiki-toc-title">Table of Contents</div>
+                            <div id="toc-container"></div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Page Content (Markdown rendered here) -->
+                        <div class="wiki-content">
+                            {{ content }}
+                        </div>
+
+                        <!-- Last Updated (if available) -->
+                        {% if page.last_updated %}
+                        <div class="mt-8 pt-4 border-t border-gray-200 text-sm text-gray-500">
+                            Last updated: {{ page.last_updated }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </article>
+            </div>
+
+            <footer class="text-center mt-10 text-gray-500 text-sm">
+                <p>&copy; {{ 'now' | date: "%Y" }} Greater Peninsula Swimming Association</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- Table of Contents Generator (if enabled) -->
+    {% if page.toc %}
+    <script>
+        // Auto-generate table of contents from H2 and H3 headings
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.querySelector('.wiki-content');
+            const tocContainer = document.getElementById('toc-container');
+
+            if (!content || !tocContainer) return;
+
+            const headings = content.querySelectorAll('h2, h3');
+            if (headings.length === 0) {
+                document.querySelector('.wiki-toc').style.display = 'none';
+                return;
+            }
+
+            const ul = document.createElement('ul');
+
+            headings.forEach((heading, index) => {
+                // Add ID to heading if it doesn't have one
+                if (!heading.id) {
+                    heading.id = 'heading-' + index;
+                }
+
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#' + heading.id;
+                a.textContent = heading.textContent;
+
+                if (heading.tagName === 'H3') {
+                    li.style.paddingLeft = '1rem';
+                    li.style.fontSize = '0.875rem';
+                }
+
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+
+            tocContainer.appendChild(ul);
+        });
+    </script>
+    {% endif %}
+
+    <!-- Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const menuClose = document.getElementById('mobile-menu-close');
+            const sidebar = document.getElementById('wiki-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+
+            function openMenu() {
+                sidebar.classList.add('active');
+                overlay.style.display = 'block';
+                // Trigger reflow to enable transition
+                setTimeout(() => {
+                    overlay.classList.add('active');
+                }, 10);
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                // Wait for transition to complete before hiding
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 300);
+                // Restore body scroll
+                document.body.style.overflow = '';
+            }
+
+            // Open menu button
+            if (menuButton) {
+                menuButton.addEventListener('click', openMenu);
+            }
+
+            // Close button
+            if (menuClose) {
+                menuClose.addEventListener('click', closeMenu);
+            }
+
+            // Overlay click to close
+            if (overlay) {
+                overlay.addEventListener('click', closeMenu);
+            }
+
+            // Close menu when clicking a navigation link
+            const navLinks = sidebar.querySelectorAll('.wiki-nav-item');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Only close on mobile (when overlay is visible)
+                    if (window.innerWidth <= 1024) {
+                        closeMenu();
+                    }
+                });
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
