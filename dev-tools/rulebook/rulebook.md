@@ -8,7 +8,7 @@ titlepage-color: "003366"          # navy
 titlepage-text-color: "FFFFFF"
 titlepage-rule-color: "FFCC00"     # gold accent
 titlepage-rule-height: 6
-logo: "../../assets/gpsa_logo.png"            # put your real logo here
+logo: "assets/logo.png"            # put your real logo here
 book: true
 toc-own-page: true
 classoption: twoside
