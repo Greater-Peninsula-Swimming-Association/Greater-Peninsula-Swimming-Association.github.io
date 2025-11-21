@@ -294,7 +294,7 @@ numbersections: true
 
    8. Starts shall be conducted in accordance with Article 101.1 of the current year USA Swimming Rulebook.
 
-6. # SCORING {#scoring}
+# SCORING {#scoring}
 
    1. For all individual events, five (5) points shall be awarded for first place, three (3) points for second place, and one (1) point for third place.
 
@@ -306,7 +306,7 @@ numbersections: true
 
    4. When an individual or relay is disqualified, the following places will move up accordingly and points awarded to them.
 
-7. # AWARDS
+# AWARDS {#awards}
 
    1. Meet Ribbons
 
