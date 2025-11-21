@@ -1,30 +1,39 @@
-name: Build Rulebook PDF
+# .github/workflows/build-pdf.yml
+name: Build GPSA Rulebook PDF
 
 on:
   push:
     paths:
       - 'dev-tools/rulebook/**'
       - 'rulebook.md'
+  workflow_dispatch:    # lets you trigger manually any time
 
 jobs:
-  build:
+  build-pdf:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - name: Download Eisvogel template
+        run: |
+          curl -Ls https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/eisvogel.tex -o eisvogel.tex
+
       - name: Build PDF with Pandoc + Eisvogel
-        uses: docker://pandoc/latex
+        uses: docker://pandoc/latex:latest
         with:
           args: >-
             rulebook/rulebook.md
-            --template=eisvogel
-            --toc --toc-depth=4
+            --template=eisvogel.tex
+            --listings
+            --toc
+            --toc-depth=4
             --number-sections
             --pdf-engine=xelatex
-            -o "GPSA Rulebook.pdf"
+            -o "GPSA Rulebook 2026.pdf"
 
-      - name: Upload PDF artifact
+      - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Rulebook-PDF
-          path: "GPSA Rulebook.pdf"
+          name: GPSA-Rulebook
+          path: GPSA Rulebook.pdf
+          retention-days: 90
