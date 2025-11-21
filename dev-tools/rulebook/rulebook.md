@@ -226,7 +226,7 @@ numbersections: true
 |       47       |    11-12 50M Butterfly     |  48   |
 |       49       |    13-14 50M Butterfly     |  50   |
 |       51       |    15-18 50M Butterfly     |  52   |
-| 5 Minute Break |                            |       |
+|                |      5 Minute Break        |       |
 |       53       |   Open 200M Medley Relay   |  54   |
 |       55       |    Open 200M Free Relay    |  56   |
 
