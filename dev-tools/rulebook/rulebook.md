@@ -14,8 +14,6 @@ toc-own-page: true
 classoption: twoside
 ---
 
-
-
 # Greater Peninsula Swimming Association
 
 # GPSA Rulebook

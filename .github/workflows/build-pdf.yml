@@ -22,14 +22,14 @@ jobs:
         uses: docker://pandoc/latex:latest
         with:
           args: >-
-            rulebook/rulebook.md
+            dev-tools/rulebook/rulebook.md
             --template=eisvogel.tex
             --listings
             --toc
             --toc-depth=4
             --number-sections
             --pdf-engine=xelatex
-            -o "GPSA Rulebook 2026.pdf"
+            -o "GPSA Rulebook.pdf"
 
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
