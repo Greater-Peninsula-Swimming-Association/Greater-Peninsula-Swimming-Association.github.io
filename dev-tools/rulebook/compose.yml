@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  pdf:
+    image: pandoc/latex
+    volumes:
+      - .:/data
+    user: "${UID:-1000}:${GID:-1000}"
+    command: >
+      sh -c "
+        pandoc rulebook.md
+          --template=eisvogel
+          --listings
+          --toc
+          --toc-depth=4
+          --number-sections
+          --pdf-engine=xelatex
+          -o 'Summer Swim League Rules 2026.pdf' &&
+        echo 'PDF built!'
+      "

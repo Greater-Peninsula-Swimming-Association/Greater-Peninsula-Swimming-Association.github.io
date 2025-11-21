@@ -1,0 +1,30 @@
+name: Build Rulebook PDF
+
+on:
+  push:
+    paths:
+      - 'dev-tools/rulebook/**'
+      - 'rulebook.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build PDF with Pandoc + Eisvogel
+        uses: docker://pandoc/latex
+        with:
+          args: >-
+            rulebook/rulebook.md
+            --template=eisvogel
+            --toc --toc-depth=4
+            --number-sections
+            --pdf-engine=xelatex
+            -o "GPSA Rulebook.pdf"
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Rulebook-PDF
+          path: "GPSA Rulebook.pdf"
