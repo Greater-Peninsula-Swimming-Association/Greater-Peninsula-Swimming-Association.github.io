@@ -35,3 +35,6 @@ temp_*/
 
 # Log files
 *.log
+
+# Rulebook local builds (root-level GPSA_Rulebook.pdf is committed by GitHub Actions)
+dev-tools/rulebook/*.pdf

@@ -1,12 +1,14 @@
-version: '3.8'
 services:
   pdf:
     image: pandoc/latex
+    platform: linux/amd64
     volumes:
-      - .:/data
-    user: "${UID:-1000}:${GID:-1000}"
+      - .:/workspace
+    working_dir: /workspace
     command: >
       sh -c "
+        mkdir -p /root/.pandoc/templates &&
+        wget -q https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex -O /root/.pandoc/templates/eisvogel.latex &&
         pandoc rulebook.md
           --template=eisvogel
           --listings
@@ -14,6 +16,6 @@ services:
           --toc-depth=4
           --number-sections
           --pdf-engine=xelatex
-          -o 'Summer Swim League Rules 2026.pdf' &&
-        echo 'PDF built!'
+          -o GPSA_Rulebook.pdf &&
+        echo 'PDF built successfully: GPSA_Rulebook.pdf'
       "
