@@ -8,8 +8,8 @@ titlepage-color: "002366"          # GPSA navy blue
 titlepage-text-color: "FFFFFF"
 titlepage-rule-color: "d9242b"     # GPSA red accent
 titlepage-rule-height: 4
-logo: "assets/logo.png"
-logo-width: 100
+titlepage-logo: "assets/logo.png"
+logo-width: 100mm
 toc-own-page: true
 classoption: twoside
 numbersections: true
