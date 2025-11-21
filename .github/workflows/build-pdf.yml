@@ -16,12 +16,12 @@ jobs:
       - name: Build GPSA Rulebook PDF
         run: |
           docker run --rm \
-            -v "$(pwd)":/data \
-            -w /data/dev-tools/rulebook \
+            -v "$(pwd)":/workspace \
             pandoc/latex:latest \
             sh -c "
               mkdir -p /root/.pandoc/templates && \
               wget https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex -O /root/.pandoc/templates/eisvogel.latex && \
+              cd /workspace/dev-tools/rulebook && \
               pandoc rulebook.md \
                 --template=eisvogel \
                 --listings \
@@ -29,7 +29,7 @@ jobs:
                 --toc-depth=4 \
                 --number-sections \
                 --pdf-engine=xelatex \
-                -o '../../GPSA_Rulebook.pdf'
+                -o /workspace/GPSA_Rulebook.pdf
             "
 
       - name: Upload PDF artifact
