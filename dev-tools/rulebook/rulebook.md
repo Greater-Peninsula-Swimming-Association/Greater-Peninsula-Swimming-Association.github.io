@@ -10,7 +10,6 @@ titlepage-rule-color: "d9242b"     # GPSA red accent
 titlepage-rule-height: 4
 logo: "assets/logo.png"
 logo-width: 100
-book: true
 toc-own-page: true
 classoption: twoside
 numbersections: true
