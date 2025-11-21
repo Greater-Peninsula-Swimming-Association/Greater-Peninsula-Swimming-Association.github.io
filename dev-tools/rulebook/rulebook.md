@@ -331,13 +331,13 @@ classoption: twoside
    1. Meet Ribbons
 
       1. The home pool shall award first (blue), second (red), and third (white) place ribbons for all individual events, and first place ribbons (blue) to all participants on winning relay teams.
-
+      
       2. The design of these ribbons will be at the discretion of the home pool.
-
+      
       3. Such awards shall be given to the Coaches or GPSA Representatives after the meet or mailed to the GPSA Representative the following day.
-
+      
       4. Additional ribbons for 4th place or participation may be awarded at the discretion of the home pool.
-
+      
       5. Any awards referencing disqualifications shall be given directly to the respective coach along with the disqualification slip and shall not be included with the regular meet awards.
 
    2. Division Awards

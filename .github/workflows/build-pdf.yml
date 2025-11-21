@@ -5,8 +5,7 @@ on:
   push:
     paths:
       - 'dev-tools/rulebook/**'
-      - 'rulebook.md'
-  workflow_dispatch:    # lets you trigger manually any time
+  workflow_dispatch:
 
 jobs:
   build-pdf:
@@ -14,26 +13,39 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download Eisvogel template
+      # Install Eisvogel template correctly so Pandoc can find all its resources
+      - name: Install Eisvogel template
         run: |
-          curl -Ls https://github.com/Wandmalfarbe/pandoc-latex-template/raw/master/eisvogel.tex -o eisvogel.tex
+          mkdir -p ~/.pandoc/templates
+          curl -Ls https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex \
+            -o ~/.pandoc/templates/eisvogel.latex
 
-      - name: Build PDF with Pandoc + Eisvogel
-        uses: docker://pandoc/latex:latest
-        with:
-          args: >-
-            dev-tools/rulebook/rulebook.md
-            --template=eisvogel.tex
-            --listings
-            --toc
-            --toc-depth=4
-            --number-sections
-            --pdf-engine=xelatex
-            -o "GPSA Rulebook.pdf"
+      # Build the PDF from your exact folder and with your exact filename
+      - name: Build GPSA Rulebook PDF
+        run: |
+          cd dev-tools/rulebook
+          pandoc rulebook.md \
+            --template=eisvogel \
+            --listings \
+            --toc \
+            --toc-depth=4 \
+            --number-sections \
+            --pdf-engine=xelatex \
+            -o "../../GPSA Rulebook.pdf"
 
-      - name: Upload PDF as artifact
+      # Upload the final PDF as an artifact (appears at the top of the run page)
+      - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: GPSA-Rulebook
           path: GPSA Rulebook.pdf
           retention-days: 90
+
+      # Optional: automatically commit the PDF back into the repo (uncomment if you want this)
+      # - name: Commit PDF back to repo
+      #   run: |
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git add "GPSA Rulebook.pdf"
+      #     git commit -m "Update GPSA Rulebook.pdf $(date '+%Y-%m-%d %H:%M')" || echo "No changes"
+      #     git push
