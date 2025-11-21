@@ -13,7 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # No separate install step — we do everything inside one Docker run
       - name: Build GPSA Rulebook PDF
         run: |
           docker run --rm \
@@ -23,14 +22,15 @@ jobs:
             sh -c "\
               mkdir -p ~/.pandoc/templates && \
               curl -Ls https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex -o ~/.pandoc/templates/eisvogel.latex && \
-              pandoc dev-tools/rulebook/rulebook.md \
+              cd dev-tools/rulebook && \
+              pandoc rulebook.md \
                 --template=eisvogel \
                 --listings \
                 --toc \
                 --toc-depth=4 \
                 --number-sections \
                 --pdf-engine=xelatex \
-                -o 'GPSA Rulebook.pdf' \
+                -o '../../GPSA Rulebook.pdf' \
             "
 
       - name: Upload PDF artifact
