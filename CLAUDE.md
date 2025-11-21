@@ -25,6 +25,74 @@ The site is organized into a clean directory structure with dedicated areas for 
   - `generate_index.py` - Automated directory index page generator
   - `README.md` - Comprehensive documentation for all dev tools (see this file for detailed usage)
 - **Resources Directory** (`resources/`): Additional utility HTML tools for website management
+- **Wiki Directory** (`wiki/`): Jekyll-powered documentation wiki with GPSA branding containing:
+  - `index.md` - Wiki home page with navigation to all wiki pages
+  - `about.md` - Information about GPSA league structure and mission
+  - `faq.md` - Frequently asked questions
+  - `scorekeeper.md` - Complete guide to running meet scoring with Meet Maestro (includes award/participation label printing)
+  - `time-drops.md` - Comprehensive guide to Time Drops wireless timing system
+  - `meet-schedule-generator.md` - Documentation for the meet schedule formatting tool
+  - `roster-formatter.md` - Documentation for the team roster formatter tool
+  - `publicity-processor.md` - Documentation for the SDIF results processor tool
+  - `README.md` - Guide for creating and editing wiki pages with Markdown
+
+### Wiki Documentation System
+
+The GPSA Wiki uses **Jekyll** (built into GitHub Pages) to convert Markdown files into styled HTML pages:
+
+**Features:**
+- **Markdown Authoring** - Write content in simple Markdown syntax
+- **Automatic GPSA Styling** - Brand colors, fonts, and layout applied automatically
+- **Table of Contents** - Auto-generated from page headings (enabled with `toc: true` in front matter)
+- **Navigation Sidebar** - Left sidebar with categories and page links
+- **Breadcrumb Navigation** - Shows current location in wiki structure
+- **Version Control** - All content tracked in Git
+- **GitHub Pages Deployment** - Automatic publishing on push to main branch
+
+**File Structure:**
+- **`/wiki/*.md`** - Individual wiki page content files
+- **`/_layouts/wiki.html`** - Jekyll template for wiki pages
+- **`/_includes/wiki-nav.html`** - Sidebar navigation component
+- **`/_config.yml`** - Jekyll configuration (root directory)
+- **`/css/wiki.css`** - Wiki-specific styles (GPSA branding)
+
+**Front Matter Format:**
+```yaml
+---
+layout: wiki              # Always use "wiki" for wiki pages
+title: Page Title         # Shown at top of page and in browser tab
+category: Category Name   # Used in breadcrumbs (optional)
+toc: true                # Auto-generate table of contents (optional)
+last_updated: Month YYYY # Display last update date (optional)
+---
+```
+
+**Current Wiki Pages:**
+
+| Page | Category | Purpose |
+|------|----------|---------|
+| **index.md** | Home | Wiki landing page with links to all sections |
+| **about.md** | About GPSA | League structure, history, and mission |
+| **faq.md** | About GPSA | Frequently asked questions |
+| **scorekeeper.md** | Meet Management | Complete scorekeeper guide for Meet Maestro including time entry, order of finish, DQ processing, meet changes, award labels, and participation labels |
+| **time-drops.md** | Meet Management | Time Drops wireless timing system documentation including hardware setup, software configuration, Meet Maestro integration, troubleshooting, and best practices |
+| **meet-schedule-generator.md** | Web Tools | Documentation for division schedule formatter tool |
+| **roster-formatter.md** | Web Tools | Documentation for team roster and contact list generator |
+| **publicity-processor.md** | Web Tools | Documentation for SDIF to HTML results converter |
+
+**Adding New Wiki Pages:**
+
+1. Create new `.md` file in `/wiki/` directory
+2. Add front matter with required fields (`layout: wiki`, `title`)
+3. Write content using Markdown syntax
+4. Update `/wiki/index.md` to link to the new page
+5. Update `/_includes/wiki-nav.html` to add sidebar link (if needed)
+6. Commit and push to GitHub (auto-publishes in 1-2 minutes)
+
+**Cross-References:**
+- See `wiki/README.md` for complete Markdown authoring guide
+- Wiki pages link to live tools (e.g., `/tools/publicity.html`, `/tools/roster.html`)
+- Tool documentation pages explain the corresponding wiki pages
 
 ### Key Tools (Self-Contained HTML Applications)
 

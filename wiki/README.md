@@ -403,18 +403,40 @@ git push origin main
 
 ```
 /
-├── _config.yml              # Jekyll configuration
+├── _config.yml                      # Jekyll configuration
 ├── _layouts/
-│   └── wiki.html            # Wiki page template
+│   └── wiki.html                    # Wiki page template
 ├── _includes/
-│   └── wiki-nav.html        # Sidebar navigation
+│   └── wiki-nav.html                # Sidebar navigation
+├── css/
+│   └── wiki.css                     # Wiki styling (GPSA branding)
 └── wiki/
-    ├── README.md            # This file
-    ├── index.md             # Wiki home page
-    ├── about.md             # Sample page
-    ├── faq.md               # Sample page
-    └── meet-procedures.md   # Sample page
+    ├── README.md                    # This file (authoring guide)
+    ├── index.md                     # Wiki home page
+    │
+    ├── about.md                     # About GPSA (league info)
+    ├── faq.md                       # Frequently asked questions
+    │
+    ├── scorekeeper.md               # Meet Management: Scorekeeper guide
+    ├── time-drops.md                # Meet Management: Time Drops timing system
+    │
+    ├── meet-schedule-generator.md   # Web Tools: Schedule formatter
+    ├── roster-formatter.md          # Web Tools: Roster formatter
+    └── publicity-processor.md       # Web Tools: Results processor
 ```
+
+**Current Wiki Pages (November 2025):**
+
+| Page | Category | Description |
+|------|----------|-------------|
+| `index.md` | Home | Wiki landing page with navigation |
+| `about.md` | About GPSA | League structure, history, mission |
+| `faq.md` | About GPSA | Frequently asked questions |
+| `scorekeeper.md` | Meet Management | Complete scorekeeper guide (Meet Maestro, labels) |
+| `time-drops.md` | Meet Management | Time Drops wireless timing system guide |
+| `meet-schedule-generator.md` | Web Tools | Division schedule formatter documentation |
+| `roster-formatter.md` | Web Tools | Team roster formatter documentation |
+| `publicity-processor.md` | Web Tools | SDIF results processor documentation |
 
 ## Markdown Editors
 
