@@ -4,12 +4,12 @@ subtitle: "Official Rules"
 author: "GPSA Rules Committee"
 date: "2026"
 titlepage: true
-titlepage-color: "FFFFFF"          # White background (professional inverse design)
+titlepage-color: "FFFFFF"          # White background (professional design)
 titlepage-text-color: "002366"     # GPSA navy blue text
-titlepage-rule-color: "d9242b"     # GPSA red accent line
-titlepage-rule-height: 2
+titlepage-rule-color: "002366"     # Navy accent line (matches text)
+titlepage-rule-height: 1           # Very subtle 1pt line
 titlepage-logo: "assets/logo.png"
-logo-width: 80mm
+logo-width: 90mm                   # Medium logo size for balance
 toc-own-page: true
 classoption: twoside
 numbersections: true
