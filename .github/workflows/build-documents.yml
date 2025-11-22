@@ -1,0 +1,110 @@
+# .github/workflows/build-documents.yml
+name: Build GPSA Documents
+
+on:
+  push:
+    paths:
+      - 'dev-docs/rulebook/**'
+      - 'dev-docs/constitution/**'
+      - 'dev-docs/_template/**'
+  workflow_dispatch:
+
+jobs:
+  build-pdfs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          echo "Building custom Docker image..."
+          docker build -t gpsa-doc-builder dev-docs/
+
+      - name: Build GPSA Rulebook PDF
+        run: |
+          echo "Building GPSA Rulebook PDF..."
+          docker run --rm \
+            -v "$(pwd)":/work \
+            --workdir /work \
+            gpsa-doc-builder /bin/sh -c "
+              pandoc --template=dev-docs/_template/template.tex \
+                -s dev-docs/rulebook/rulebook.md \
+                -o dev-docs/rulebook/GPSA_Rulebook.pdf \
+                --number-sections \
+                --toc
+            "
+          echo "✅ Rulebook build completed!"
+
+      - name: Build GPSA Constitution PDF
+        run: |
+          echo "Building GPSA Constitution PDF..."
+          docker run --rm \
+            -v "$(pwd)":/work \
+            --workdir /work \
+            gpsa-doc-builder /bin/sh -c "
+              pandoc --template=dev-docs/_template/template.tex \
+                -s dev-docs/constitution/constitution.md \
+                -o dev-docs/constitution/GPSA_Constitution.pdf \
+                --number-sections \
+                --toc
+            "
+          echo "✅ Constitution build completed!"
+
+      - name: Verify PDFs were created
+        run: |
+          echo "Verifying generated PDFs..."
+
+          if [ -f "dev-docs/rulebook/GPSA_Rulebook.pdf" ]; then
+            ls -lh dev-docs/rulebook/GPSA_Rulebook.pdf
+            echo "✅ Rulebook PDF successfully generated"
+          else
+            echo "❌ Error: GPSA_Rulebook.pdf was not created"
+            exit 1
+          fi
+
+          if [ -f "dev-docs/constitution/GPSA_Constitution.pdf" ]; then
+            ls -lh dev-docs/constitution/GPSA_Constitution.pdf
+            echo "✅ Constitution PDF successfully generated"
+          else
+            echo "❌ Error: GPSA_Constitution.pdf was not created"
+            exit 1
+          fi
+
+      - name: Upload Rulebook PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GPSA-Rulebook
+          path: dev-docs/rulebook/GPSA_Rulebook.pdf
+          retention-days: 90
+
+      - name: Upload Constitution PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GPSA-Constitution
+          path: dev-docs/constitution/GPSA_Constitution.pdf
+          retention-days: 90
+
+      - name: Commit PDFs to repository
+        if: github.event_name == 'push'
+        run: |
+          echo "Configuring git..."
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          echo "Staging PDF files..."
+          git add dev-docs/rulebook/GPSA_Rulebook.pdf
+          git add dev-docs/constitution/GPSA_Constitution.pdf
+
+          if git diff --staged --quiet; then
+            echo "✅ No changes to commit (PDFs unchanged)"
+          else
+            echo "📝 Committing updated PDFs..."
+            git commit -m "Update GPSA Documents PDFs [skip ci]"
+
+            echo "⬆️  Pushing to repository..."
+            git push
+
+            echo "✅ PDFs committed and pushed successfully"
+          fi
