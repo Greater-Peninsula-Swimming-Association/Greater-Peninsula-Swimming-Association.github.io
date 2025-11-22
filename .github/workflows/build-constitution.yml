@@ -1,0 +1,72 @@
+# .github/workflows/build-constitution.yml
+name: Build GPSA Constitution PDF
+
+on:
+  push:
+    paths:
+      - 'dev-docs/constitution/**'
+      - 'dev-docs/_template/**'
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build GPSA Constitution PDF
+        run: |
+          echo "Building GPSA Constitution PDF..."
+          docker run --rm \
+            --entrypoint sh \
+            -v "$(pwd)":/workspace \
+            -w /workspace/dev-docs/constitution \
+            pandoc/extra:latest \
+            -c "
+              pandoc constitution.md \
+                --template=/workspace/dev-docs/_template/template.tex \
+                --pdf-engine=xelatex \
+                -o GPSA_Constitution.pdf
+            "
+          echo "Build completed!"
+
+      - name: Verify PDF was created
+        run: |
+          if [ -f "dev-docs/constitution/GPSA_Constitution.pdf" ]; then
+            ls -lh dev-docs/constitution/GPSA_Constitution.pdf
+            echo "✅ PDF successfully generated: dev-docs/constitution/GPSA_Constitution.pdf"
+          else
+            echo "❌ Error: dev-docs/constitution/GPSA_Constitution.pdf was not created"
+            exit 1
+          fi
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GPSA-Constitution
+          path: dev-docs/constitution/GPSA_Constitution.pdf
+          retention-days: 90
+
+      - name: Commit PDF to repository
+        if: github.event_name == 'push'
+        run: |
+          echo "Configuring git..."
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          echo "Staging PDF file..."
+          git add dev-docs/constitution/GPSA_Constitution.pdf
+
+          if git diff --staged --quiet; then
+            echo "✅ No changes to commit (PDF unchanged)"
+          else
+            echo "📝 Committing updated PDF..."
+            git commit -m "Update GPSA Constitution PDF [skip ci]"
+
+            echo "⬆️  Pushing to repository..."
+            git push
+
+            echo "✅ PDF committed and pushed successfully"
+          fi

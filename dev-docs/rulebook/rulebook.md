@@ -1,13 +1,14 @@
 ---
 title: "GPSA Rulebook"
-date: "November 2026"
+date: "November 2025"
+draft: true
 titlepage: true
-titlepage-color: "FFFFFF"          # White background (professional design)
-titlepage-text-color: "002366"     # GPSA navy blue text
-titlepage-rule-color: "002366"     # Navy accent line (matches text)
-titlepage-rule-height: 1           # Very subtle 1pt line
+titlepage-color: "FFFFFF"
+titlepage-text-color: "002366"
+titlepage-rule-color: "002366"
+titlepage-rule-height: 1
 titlepage-logo: "assets/gpsa_logo.png"
-logo-width: 90mm                   # Medium logo size for balance
+logo-width: 120mm
 toc-own-page: true
 classoption: twoside
 numbersections: true

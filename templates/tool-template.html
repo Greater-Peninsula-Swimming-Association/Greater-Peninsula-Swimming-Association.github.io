@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPSA Tool Name</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-16x16.png?1651502535">
+
+    <!-- GPSA Common Styles -->
+    <link rel="stylesheet" href="../css/gpsa-tools-common.css">
+
+    <!-- Tool-specific styles (if needed) -->
+    <style>
+        /* Only tool-specific overrides here */
+    </style>
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- GPSA Header (Standardized) -->
+            <header class="gpsa-header p-4 shadow-md flex items-center justify-center no-print mb-6 rounded-lg">
+                <img src="https://publicity.gpsaswimming.org/assets/gpsa_logo.png"
+                     alt="GPSA Logo"
+                     class="h-16 w-16 md:h-20 md:w-20 mr-4 rounded-full"
+                     onerror="this.onerror=null; this.src='https://placehold.co/100x100/002366/FFFFFF?text=GPSA';">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">Tool Name</h1>
+                    <p class="gpsa-header-subtitle">Brief tool description (5-10 words)</p>
+                </div>
+            </header>
+
+            <!-- Tool Content -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+
+                <!-- File Upload Example -->
+                <div class="mb-6">
+                    <input type="file" id="file-upload" accept=".csv,.txt" class="hidden">
+                    <label for="file-upload" class="file-upload-label flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg bg-gray-50 hover:bg-gray-100 cursor-pointer transition-colors">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6 text-center">
+                            <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500">
+                                <span class="font-semibold">Click to upload</span>
+                            </p>
+                            <p class="text-xs text-gray-500">Accepted file types: CSV, TXT</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Button Examples -->
+                <div class="flex gap-4">
+                    <button class="btn btn-primary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Primary Action
+                    </button>
+                    <button class="btn btn-secondary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Secondary Action
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Results Section Example -->
+            <div id="results" class="bg-white rounded-xl shadow-lg p-6 hidden">
+                <h2 class="text-xl font-bold mb-4">Results</h2>
+                <div id="results-content">
+                    <!-- Results displayed here -->
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // ================================================================
+        // REQUIRED HELPER FUNCTIONS
+        // ================================================================
+
+        /**
+         * Escapes HTML to prevent XSS attacks
+         * ALWAYS use this for user-generated content
+         */
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        /**
+         * Shows toast notification
+         * @param {string} message - Message to display
+         * @param {string} type - Type: 'success', 'error', 'warning', 'info'
+         * @param {number} duration - Auto-dismiss time in ms (0 = manual close only)
+         */
+        function showToast(message, type = 'info', duration = 4000) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+
+            const icons = {
+                success: '✓',
+                error: '✕',
+                warning: '⚠',
+                info: 'ℹ'
+            };
+
+            toast.innerHTML = `
+                <span class="toast-icon" aria-hidden="true">${icons[type]}</span>
+                <span class="toast-message">${escapeHtml(message)}</span>
+                <button class="toast-close" aria-label="Close notification">×</button>
+            `;
+
+            container.appendChild(toast);
+
+            const closeBtn = toast.querySelector('.toast-close');
+            const removeToast = () => {
+                toast.classList.add('toast-exit');
+                setTimeout(() => toast.remove(), 300);
+            };
+
+            closeBtn.addEventListener('click', removeToast);
+
+            if (duration > 0) {
+                setTimeout(removeToast, duration);
+            }
+
+            return toast;
+        }
+
+        // ================================================================
+        // TOOL-SPECIFIC CODE
+        // ================================================================
+
+        // File upload handler example
+        document.getElementById('file-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const content = event.target.result;
+                    // Process file content here
+                    showToast('File uploaded successfully!', 'success');
+                } catch (error) {
+                    showToast('Error processing file: ' + error.message, 'error');
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        // Add your tool-specific JavaScript here
+
+    </script>
+</body>
+</html>
