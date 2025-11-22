@@ -13,6 +13,7 @@ logo-width: 100mm
 toc-own-page: true
 classoption: twoside
 numbersections: true
+watermark: "DRAFT"
 ---
 
 # DEFINITIONS {#definitions}
