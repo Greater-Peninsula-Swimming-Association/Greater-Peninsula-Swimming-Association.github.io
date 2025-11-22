@@ -16,19 +16,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Build Docker image
+        run: |
+          echo "Building custom Docker image..."
+          docker build -t gpsa-doc-builder dev-docs/
+
       - name: Build GPSA Rulebook PDF
         run: |
           echo "Building GPSA Rulebook PDF..."
           docker run --rm \
-            --entrypoint sh \
-            -v "$(pwd)":/workspace \
-            -w /workspace/dev-docs/rulebook \
-            pandoc/extra:latest \
-            -c "
-              pandoc rulebook.md \
-                --template=/workspace/dev-docs/_template/template.tex \
-                --pdf-engine=xelatex \
-                -o GPSA_Rulebook.pdf
+            -v "$(pwd)":/work \
+            --workdir /work \
+            gpsa-doc-builder /bin/sh -c "
+              pandoc --template=dev-docs/_template/template.tex \
+                -s dev-docs/rulebook/rulebook.md \
+                -o dev-docs/rulebook/GPSA_Rulebook.pdf \
+                --number-sections \
+                --toc
             "
           echo "Build completed!"
 
