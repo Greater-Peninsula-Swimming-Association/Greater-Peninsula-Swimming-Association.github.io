@@ -2,18 +2,17 @@
 title: "GPSA Rulebook"
 subtitle: "Official Rules"
 author: "GPSA Rules Committee"
-date: "November 2025"
+date: "2026"
 titlepage: true
-titlepage-color: "002366"          # GPSA navy blue
-titlepage-text-color: "FFFFFF"
-titlepage-rule-color: "d9242b"     # GPSA red accent
-titlepage-rule-height: 4
+titlepage-color: "FFFFFF"          # White background (professional inverse design)
+titlepage-text-color: "002366"     # GPSA navy blue text
+titlepage-rule-color: "d9242b"     # GPSA red accent line
+titlepage-rule-height: 2
 titlepage-logo: "assets/logo.png"
-logo-width: 100mm
+logo-width: 80mm
 toc-own-page: true
 classoption: twoside
 numbersections: true
-watermark: "DRAFT"
 ---
 
 # DEFINITIONS {#definitions}
