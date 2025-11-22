@@ -47,5 +47,4 @@ temp_*/
 *.synctex.gz
 
 # Rulebook local builds (generated PDFs should not be committed)
-dev-docs/rulebook/*.pdf
 dev-docs/*.pdf
