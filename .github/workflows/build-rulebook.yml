@@ -1,10 +1,11 @@
-# .github/workflows/build-pdf.yml
+# .github/workflows/build-rulebook.yml
 name: Build GPSA Rulebook PDF
 
 on:
   push:
     paths:
-      - 'dev-tools/rulebook/**'
+      - 'dev-docs/rulebook/**'
+      - 'dev-docs/_template/**'
   workflow_dispatch:
 
 jobs:
@@ -15,34 +16,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Build Docker image
+        run: |
+          echo "Building custom Docker image..."
+          docker build -t gpsa-doc-builder dev-docs/
+
       - name: Build GPSA Rulebook PDF
         run: |
           echo "Building GPSA Rulebook PDF..."
           docker run --rm \
-            --entrypoint sh \
-            -v "$(pwd)":/workspace \
-            -w /workspace/dev-tools/rulebook \
-            pandoc/extra:latest \
-            -c "
-              pandoc rulebook.md \
-                --template=eisvogel \
-                --include-in-header=header.tex \
-                --syntax-highlighting=idiomatic \
-                --toc \
-                --toc-depth=4 \
+            -v "$(pwd)":/work \
+            --workdir /work \
+            gpsa-doc-builder /bin/sh -c "
+              pandoc --template=dev-docs/_template/template.tex \
+                -s dev-docs/rulebook/rulebook.md \
+                -o dev-docs/rulebook/GPSA_Rulebook.pdf \
                 --number-sections \
-                --pdf-engine=xelatex \
-                -o /workspace/GPSA_Rulebook.pdf
+                --toc
             "
           echo "Build completed!"
 
       - name: Verify PDF was created
         run: |
-          if [ -f "GPSA_Rulebook.pdf" ]; then
-            ls -lh GPSA_Rulebook.pdf
-            echo "✅ PDF successfully generated: GPSA_Rulebook.pdf"
+          if [ -f "dev-docs/rulebook/GPSA_Rulebook.pdf" ]; then
+            ls -lh dev-docs/rulebook/GPSA_Rulebook.pdf
+            echo "✅ PDF successfully generated: dev-docs/rulebook/GPSA_Rulebook.pdf"
           else
-            echo "❌ Error: GPSA_Rulebook.pdf was not created"
+            echo "❌ Error: dev-docs/rulebook/GPSA_Rulebook.pdf was not created"
             exit 1
           fi
 
@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: GPSA-Rulebook
-          path: GPSA_Rulebook.pdf
+          path: dev-docs/rulebook/GPSA_Rulebook.pdf
           retention-days: 90
 
       - name: Commit PDF to repository
@@ -61,7 +61,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           echo "Staging PDF file..."
-          git add GPSA_Rulebook.pdf
+          git add dev-docs/rulebook/GPSA_Rulebook.pdf
 
           if git diff --staged --quiet; then
             echo "✅ No changes to commit (PDF unchanged)"

@@ -36,5 +36,16 @@ temp_*/
 # Log files
 *.log
 
-# Rulebook local builds (root-level GPSA_Rulebook.pdf is committed by GitHub Actions)
-dev-tools/rulebook/*.pdf
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Rulebook local builds (generated PDFs should not be committed)
+dev-docs/rulebook/*.pdf
+dev-docs/*.pdf
