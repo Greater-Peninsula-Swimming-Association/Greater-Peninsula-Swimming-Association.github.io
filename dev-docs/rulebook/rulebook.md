@@ -88,6 +88,8 @@ numbersections: true
 
 # OFFICIALS {#officials}
 
+## Roles and Responsibilities
+
 1. **GPSA Representative**
 
 2. **Referee**
@@ -99,20 +101,42 @@ numbersections: true
    3. Shall signal the Starter before each race that all officials are in position, that the course is clear, and that the competition can begin.
 
    4. He/she shall assign marshals as needed with specific instructions.
+   
+   5. He/she may assign a Chief Judge to aid in the following areas:
+      
+      1. Discuss DQs with Stroke & Turn Judges and provide a recommendation of accepting or rejecting
+      
+      2. Aid in the recording of the order of finish
+      
+      3. more to go here
 
-   5. Shall give a decision on any point where the opinions of the judges differ; and shall have authority to intercede in competition at any stage, to ensure that the appropriate racing conditions are observed.
+   6. Shall give a decision on any point where the opinions of the judges differ; and shall have authority to intercede in competition at any stage, to ensure that the appropriate racing conditions are observed.
 
-   6. Shall independently record the order of finish of all non-exhibition swimmers.
+   7. Shall independently record the order of finish of all non-exhibition swimmers.
 
-   7. Shall confirm the order of finish for each scoring heat which the Sweep Judges differ. If the order of finish was observed by the referee and it confirms one of the Sweep Judges, that order of finish shall be documented on the Place Judge Form. If the Referee is unable to confirm one of the Sweep Judges' order of finish, the result shall be a tie between the differing swimmers.
+   8. Shall confirm the order of finish for each scoring heat which the Sweep Judges differ. If the order of finish was observed by the referee and it confirms one of the Sweep Judges, that order of finish shall be documented on the Place Judge Form. If the Referee is unable to confirm one of the Sweep Judges' order of finish, the result shall be a tie between the differing swimmers.
 
-   8. Shall control any abusive language or actions used by any swimmer or spectator that is generally made aware to the attendees of the meet. The offender shall be warned by the referee to desist. On continuing, the referee shall request the home-team GPSA Representative, with assistance from the home pool manager, to have the offender ejected.
+   9.  Shall control any abusive language or actions used by any swimmer or spectator that is generally made aware to the attendees of the meet. The offender shall be warned by the referee to desist. On continuing, the referee shall request the home-team GPSA Representative, with assistance from the home pool manager, to have the offender ejected.
 
-   9. Shall resolve any protest arising from the competition itself immediately. Only GPSA Representatives, or their duly appointed representatives, or coaches can raise an official protest to the referee.
+   10. Shall resolve any protest arising from the competition itself immediately. Only GPSA Representatives, or their duly appointed representatives, or coaches can raise an official protest to the referee.
 
-   10. Before the competition begins, the Referee shall determine the respective areas of stroke and turn responsibility and jurisdiction, which may include joint, concurrent, and coordinated responsibility and jurisdiction. The Referee shall ensure that all swimmers shall have fair, equitable, and uniform conditions of judging.
+   11. Before the competition begins, the Referee shall determine the respective areas of stroke and turn responsibility and jurisdiction, which may include joint, concurrent, and coordinated responsibility and jurisdiction. The Referee shall ensure that all swimmers shall have fair, equitable, and uniform conditions of judging.
+   
+   12. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
 
-3. **Starter**
+3.  **Chief Judge** (optional)
+    
+    1. Shall be positioned on deck so they can see the stroke and turn officials.
+    
+    2. When an infraction is signaled by a stroke and turn judge, typically by a raised hand, the chief judge will approach the official and gather the necessary information via a series of questions.
+    
+    3. This process culminates in a recommendation to the deck referee as to whether the call is recommended for acceptance or if further discussion is required.
+    
+    4. Shall act as mentor to the stroke and turn officials, observing, instructing, and correcting their protocol (the procedures governing movement and positioning on deck) and answering all questions regarding the rules.
+    
+    5. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
+    
+4. **Starter**
 
    1. The Starter shall stand on the side of the pool within approximately five meters of the starting end of the pool and, upon signal from the Referee, shall assume control of the swimmers until a fair start has been achieved.
 
@@ -123,14 +147,18 @@ numbersections: true
       2) For backstroke starts, give the command, "Place your feet."
 
       3) Use a "stand" command in accordance with USA Swimming Rules 101.1.2 D, 101.1.3 A, and 101.1.3 D.
+   
+   3. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
 
-4. **Stroke and Turn Judges**
+5. **Stroke and Turn Judges**
 
    1. Shall ensure that the rules relating to the style of swimming designated for the event are being observed; and shall report any violations to the Referee on signed slips detailing the event, the heat number, the lane number and the infraction.
 
    2. Shall ensure that after the start and when turning or finishing, the swimmer complies with the rules applicable to the stroke used; and shall report any violations to the Referee on signed slips detailing the event, the heat number, lane number and infraction observed.
+   
+   3. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
 
-5. **Sweep Judges**
+6. **Sweep Judges**
 
    1. Two sweep judges (one from each TEAM) shall be positioned on the side of the course near the finish and shall judge the order of finish of all non-exhibition swimmers.They shall independently record the order of finish of all non-exhibition swimmers. A sweep judge shall record a tie if a place distinction cannot be made.
 
@@ -138,7 +166,7 @@ numbersections: true
 
    3. The sweep judges shall notify the Referee in the event that their independent recorded orders of finish do not match.
 
-6. **Timers**
+7. **Timers**
 
    1. Head Timer — Assure the assignment of Lane Timers to lanes. On the starting signal, start a watch(es) on every race. The time of this watch shall be used if a Lane Timer's watch fails.
 
@@ -150,7 +178,7 @@ numbersections: true
 
       3) Report the watch time to the Head Lane Timer or the designated recorder, report if a late or missed pad touch is observed; and, if requested, present the watch for inspection. Lane Timers shall not clear their watches until a command to "clear watches" is given or the Referee signals that the next heat is ready to start.
 
-7. **Scorekeepers**
+8. **Scorekeepers**
 
    1. Sit at the scorekeepers' table and record on Meet Maestro the finish times of each swimmer, order of finish, disqualifications (as noted by signed DQ slips), and maintain a running record of the score.
 
@@ -166,7 +194,7 @@ numbersections: true
 
    5. All Lane Slips (if used), Place Judge Forms, Sweep Judge sheets, Meet Referee Sheet and the white copy of Disqualification Slips shall be retained and turned over to the home GPSA Representative at the end of the meet. The yellow copy of Disqualification Slips shall be given to the appropriate team's coach at the end of the meet.
 
-8. **Coaches**
+9. **Coaches**
 
    1. Shall stay in the area designated for his/her team and help to ensure that swim team members do not crowd the course or disrupt the officiating.
 
@@ -182,52 +210,65 @@ numbersections: true
 
    7. Will not interfere with the officiating of the meet.
 
-9. **Relay Take-Off Judges**
+10. **Relay Take-Off Judges**
 
-   1. Relay take-off judges shall be assigned by the Referee (one from each TEAM) and shall stand so that they can clearly see both the feet of the departing swimmer(s) as they leave the starting platform and the touch of the incoming swimmer(s), and shall judge whether the swimmer is in contact with the platform when the incoming swimmer touches the end of the pool. The judges shall independently report infractions in writing without the use of the infraction hand signal. A relay will be disqualified only if the same infraction has been confirmed by both judges.
+    1. Relay take-off judges shall be assigned by the Referee (one from each TEAM) and shall stand so that they can clearly see both the feet of the departing swimmer(s) as they leave the starting platform and the touch of the incoming swimmer(s), and shall judge whether the swimmer is in contact with the platform when the incoming swimmer touches the end of the pool. The judges shall independently report infractions in writing without the use of the infraction hand signal. A relay will be disqualified only if the same infraction has been confirmed by both judges.
 
-10. **Marshal(s) (Optional)**
+11. **Marshal(s) (Optional)**
 
     1. Shall wear identifying attire and enforce warm-up procedures and maintain order in the swimming venue. The Marshal shall have full authority to warn or order to cease and desist, and, with the concurrence of the Referee, to remove, or have removed from the swimming venue anyone behaving in an unsafe manner or using profane or abusive language, or whose actions are disrupting the orderly conduct of the meet.
 
-11. **Timing Equipment Operator (Optional)**
+12. **Timing Equipment Operator (Optional)**
 
     1. The Timing Equipment Operator shall be responsible for the automatic or semi-automatic timing equipment, including the electronic starting system and scoreboard (if used), and shall advise the Referee or GPSA Representative of any system problems that might affect the accuracy of times. The timing equipment should be placed so that the operator is able to observe the finish of each race.
 
+## Certification
+
+   1. General Certification Requirements
+      1. The following roles require certification:
+         1. Referee
+         2. Starter
+         3. Stroke & Turn Judges
+      2. 
+   2. Certification Process
+      1. The GPSA shall hold 
+      2. Officials holding a current USA Swimming certification 
+   3. Role-Specific Certification Requirements
+
 # ORDER OF EVENTS, AGE GROUPS, AND DISTANCES {#order-of-events-age-groups-and-distances}
 
-|      BOYS      |           EVENT            | GIRLS |
-| :------------: | :------------------------: | :---: |
-|       0        | Mixed 8\&U 100M Free Relay |   0   |
-|       1        |        9-10 100M IM        |   2   |
-|       3        |       11-12 100M IM        |   4   |
-|       5        |       13-14 100M IM        |   6   |
-|       7        |       15-18 100M IM        |   8   |
-|       9        |       6\&U 25M Free        |  10   |
-|       11       |        7-8 25M Free        |  12   |
-|       13       |       9-10 50M Free        |  14   |
-|       15       |       11-12 50M Free       |  16   |
-|       17       |       13-14 50M Free       |  18   |
-|       19       |       15-18 50M Free       |  20   |
-|       21       |      8\&U 25M Breast       |  22   |
-|       23       |      9-10 50M Breast       |  24   |
-|       25       |      11-12 50M Breast      |  26   |
-|       27       |      13-14 50M Breast      |  28   |
-|       29       |      15-18 50M Breast      |  30   |
-|       31       |       6\&U 25M Back        |  32   |
-|       33       |        7-8 25M Back        |  34   |
-|       35       |       9-10 50M Back        |  36   |
-|       37       |       11-12 50M Back       |  38   |
-|       39       |       13-14 50M Back       |  40   |
-|       41       |       15-18 50M Back       |  42   |
-|       43       |     8\&U 25M Butterfly     |  44   |
-|       45       |     9-10 50M Butterfly     |  46   |
-|       47       |    11-12 50M Butterfly     |  48   |
-|       49       |    13-14 50M Butterfly     |  50   |
-|       51       |    15-18 50M Butterfly     |  52   |
-|                |      5 Minute Break        |       |
-|       53       |   Open 200M Medley Relay   |  54   |
-|       55       |    Open 200M Free Relay    |  56   |
+| BOYS  |           EVENT            | GIRLS |
+| :---: | :------------------------: | :---: |
+|   0   | Mixed 8\&U 100M Free Relay |   0   |
+|   1   |        9-10 100M IM        |   2   |
+|   3   |       11-12 100M IM        |   4   |
+|   5   |       13-14 100M IM        |   6   |
+|   7   |       15-18 100M IM        |   8   |
+|   9   |       6\&U 25M Free        |  10   |
+|  11   |        7-8 25M Free        |  12   |
+|  13   |       9-10 50M Free        |  14   |
+|  15   |       11-12 50M Free       |  16   |
+|  17   |       13-14 50M Free       |  18   |
+|  19   |       15-18 50M Free       |  20   |
+|  21   |      8\&U 25M Breast       |  22   |
+|  23   |      9-10 50M Breast       |  24   |
+|  25   |      11-12 50M Breast      |  26   |
+|  27   |      13-14 50M Breast      |  28   |
+|  29   |      15-18 50M Breast      |  30   |
+|  31   |       6\&U 25M Back        |  32   |
+|  33   |        7-8 25M Back        |  34   |
+|  35   |       9-10 50M Back        |  36   |
+|  37   |       11-12 50M Back       |  38   |
+|  39   |       13-14 50M Back       |  40   |
+|  41   |       15-18 50M Back       |  42   |
+|  43   |     8\&U 25M Butterfly     |  44   |
+|  45   |     9-10 50M Butterfly     |  46   |
+|  47   |    11-12 50M Butterfly     |  48   |
+|  49   |    13-14 50M Butterfly     |  50   |
+|  51   |    15-18 50M Butterfly     |  52   |
+|       |       5 Minute Break       |       |
+|  53   |   Open 200M Medley Relay   |  54   |
+|  55   |    Open 200M Free Relay    |  56   |
 
 1. General Rules for swimming strokes shall be those contained in Articles 101.2-101.7 of the USA Swimming Rules and Regulations in effect for the current year for all ages.
 
@@ -241,56 +282,58 @@ numbersections: true
 
 # CONDUCT OF INTERPOOL MEETS {#conduct-of-interpool-meets}
 
-1. League scheduled meets must be held as scheduled and will start at 6:00 pm unless postponed due to inclement weather, failure of equipment or pool facilities, or mutually agreed upon by both GPSA Representatives.
+## Scheduling and Postponements
 
-   1. Inclement weather or failure of equipment/pool facilities
+1.  League scheduled meets must be held as scheduled and will start at 6:00 pm unless postponed.
+2.  A meet may be postponed for the following reasons:
+    1.  **Inclement Weather or Facility Failure:**
+        1.  If weather is a concern, the home team must notify the visiting team's GPSA Representative and the GPSA Publicity Committee no later than 4:00 pm if the meet is to be postponed.
+        2.  A meet shall be considered completed if all events through event 30 have been swum and at least two attempts to reschedule have failed, or if the GPSA Representatives mutually agree the meet is complete. If they do not agree, it will be counted as a loss for both teams.
+    2.  **Mutual Agreement:**
+        1.  A meet may be rescheduled with the unanimous agreement of both teams' GPSA Representatives.
 
-      1) If weather is a concern, the home team must notify the away team GPSA Representative and the GPSA Publicity Committee no later than 4:00 pm if the meet is to be postponed due to pool closure due to weather.
+## Venue and Code of Conduct
 
-      2) A meet shall be considered completed if all events have been swum or if at least the first 30 events have been swum and there have been at least 2 attempts to reschedule the meet, or if the respective GPSA Reps mutually agree that the meet is complete. If the 2 GPSA reps do not agree it will be counted as a loss for both teams.
+1.  Neither smoking nor the consumption of alcoholic beverages will be allowed in the pool area during swim meets. The exact boundaries of this area will be determined by the Referee and both GPSA representatives.
+2.  Profanity, vulgarity, or disruptive behavior will not be allowed.
+3.  The use of any audio or visual recording devices, including cell phones, is strictly prohibited in changing areas, rest rooms, locker rooms, or behind the starting blocks.
 
-   2. Mutually agreed upon postponement
+## Team Responsibilities
 
-      1) League scheduled meets may be rescheduled at the discretion of and unanimous agreement of the two GPSA Representatives.
+1.  Each team shall furnish the following officials and equipment:
 
-2. Neither smoking nor consumption of alcoholic beverages will be allowed in the pool area for swim meets. The area affected is to be determined by the referee with the concurrence of both GPSA representatives.
+|            Home Team            |               Visitors               |
+| :-----------------------------: | :----------------------------------: |
+|           One referee           |     One timer per assigned lane      |
+|           One starter           |           Two S\&T judges            |
+|         Two S\&T judges         |           One sweep judge            |
+|   One timer per assigned lane   |           One scorekeeper            |
+|         One Head timer          |            Ribbon writer             |
+|         One sweep judge         |   One stopwatch per assigned lane    |
+|         One scorekeeper         | One stand-by starting horn / whistle |
+|          Ribbon writer          |                                      |
+|           Two runners           |                                      |
+| One stopwatch per assigned lane |                                      |
+|    One additional stopwatch     |                                      |
+|   One starting horn / whistle   |                                      |
+|       Certified Lifeguard       |                                      |
+|       Marshal (optional)        |                                      |
+|     Table for scorekeepers      |                                      |
+|     Chairs for sweep judges     |                                      |
+| Laptop/Tablet for Meet Maestro  |                                      |
 
-3. Profanity, vulgarity, or disruptions during the meet will not be allowed.
+   *\*stopwatches are recommended as backup even if using a timing system*
+   
+   *\*it is recommended for the visiting team to also bring a laptop/tablet for their scorekeeper to use Meet Maestro*
 
-4. Use of audio or visual recording devices, including cell phones, is not permitted in changing areas, rest rooms, locker rooms, or behind the blocks.
+## Swimmer Participation and Entries
 
-5. Each team shall furnish the following officials and equipment:
-
-   |            Home Team            |               Visitors               |
-   | :-----------------------------: | :----------------------------------: |
-   |           One referee           |     One timer per assigned lane      |
-   |           One starter           |           Two S\&T judges            |
-   |         Two S\&T judges         |           One sweep judge            |
-   |   One timer per assigned lane   |           One scorekeeper            |
-   |         One Head timer          |            Ribbon writer             |
-   |         One sweep judge         |   One stopwatch per assigned lane    |
-   |         One scorekeeper         | One stand-by starting horn / whistle |
-   |          Ribbon writer          |                                      |
-   |           Two runners           |                                      |
-   | One stopwatch per assigned lane |                                      |
-   |    One additional stopwatch     |                                      |
-   |   One starting horn / whistle   |                                      |
-   |       Certified Lifeguard       |                                      |
-   |       Marshal (optional)        |                                      |
-   |     Table for scorekeepers      |                                      |
-   |     Chairs for sweep judges     |                                      |
-
-   *\*stopwatches are recommended as backup even if using a timing system such as Time Drops*
-
-6. Any swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition). If any swimmer is found to have participated in more than the above number of events, he/she shall be disqualified in all events in which he/she was an entrant, and team scores and awards shall be adjusted accordingly.
-
-   1. For a team with fewer than 64 swimmers on the official roster, only swimmers in age/gender groups that have three (3) or fewer swimmers in that bracket would be allowed to compete in four (4) individual events and one (1) relay event (not including exhibition).
-
-   2. Event 0 shall not count against a swimmers relay entry limit.
-
-7. Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any one relay event. All other entrants from a team for a particular individual event or relay shall be marked as exhibition.
-
-8. Starts shall be conducted in accordance with Article 101.1 of the current year USA Swimming Rulebook.
+1.  A swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition).
+    1.  Event 0 (Mixed 8\&U 100M Free Relay) does not count against a swimmer's event limits.
+    2.  For a team with fewer than 64 swimmers on its official roster, swimmers in an age/gender group with three (3) or fewer swimmers may compete in up to four (4) individual events.
+    3.  If a swimmer is found to have exceeded these limits, they shall be disqualified from all events in which they were entered, and scores shall be adjusted.
+2.  Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team must be marked as exhibition.
+3.  Starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
 
 # SCORING {#scoring}
 
@@ -306,7 +349,7 @@ numbersections: true
 
 # AWARDS {#awards}
 
-1. **Meet Ribbons**
+## Meet Awards
 
    1. The home pool shall award first (blue), second (red), and third (white) place ribbons for all individual events, and first place ribbons (blue) to all participants on winning relay teams.
 
@@ -318,7 +361,7 @@ numbersections: true
 
    5. Any awards referencing disqualifications shall be given directly to the respective coach along with the disqualification slip and shall not be included with the regular meet awards.
 
-2. **Division Awards**
+## Division Awards
 
    1. Trophies shall be awarded to the teams finishing 1st, 2nd, and 3rd in each division.
 
