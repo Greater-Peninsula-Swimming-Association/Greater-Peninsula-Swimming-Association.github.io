@@ -1,0 +1,36 @@
+{
+  // Show whitespace characters to see indentation issues
+  "editor.renderWhitespace": "boundary",
+
+  // Use spaces instead of tabs
+  "editor.insertSpaces": true,
+
+  // Markdown-specific settings
+  "[markdown]": {
+    "editor.tabSize": 3,
+    "editor.insertSpaces": true,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": false,
+      "strings": false,
+      "other": false
+    },
+    // Rulers to help visualize indentation
+    "editor.rulers": [80, 120]
+  },
+
+  // markdownlint settings (if extension is installed)
+  "markdownlint.config": {
+    "MD007": {
+      "indent": 3  // Enforces 3-space indentation for nested lists
+    },
+    "MD013": false,  // Disable line length rule (can be too strict)
+    "MD033": false,  // Allow inline HTML (useful for tables, etc.)
+    "MD041": false   // Allow first line to not be a heading
+  },
+
+  // Files settings
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true
+}
