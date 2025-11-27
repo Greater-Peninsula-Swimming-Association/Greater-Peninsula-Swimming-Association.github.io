@@ -33,11 +33,11 @@ toc: 'heading=false'
 
 3. **CHAMPIONSHIP MEET**
 
-   1. Is a swim meet that is open to all qualifying swimmers from any GPSA TEAM.
+   1. Is a swim meet that is open to all qualifying swimmers from any GPSA **Team**.
 
    2. Also referred to as CITY MEET.
 
-4. **LAST SPLASH INVITATIONAL MEET**
+4. **SUMMER SPLASH INVITATIONAL MEET**
 
    1. Is a swim meet that is open to swimmers not qualified for the Championship Meet.
 
@@ -53,27 +53,27 @@ toc: 'heading=false'
 
 7. **DIVISION**
 
-   1. A grouping of TEAMs who compete in GPSA-Scheduled swim meets in order to identify a DIVISION champion.
+   1. A grouping of **Team**s who compete in GPSA-Scheduled swim meets in order to identify a DIVISION champion.
 
    2. The GPSA operates three divisions, Red, White, and Blue.
 
 # ELIGIBILITY AND ROSTERS {#eligibility-and-rosters}
 
-1. Only a BONA FIDE SWIMMER listed on their TEAM's posted roster may compete in GPSA-scheduled meets.
+1. Only a **Bona Fide Swimmer** listed on their **Team**'s posted roster may compete in GPSA-scheduled meets.
 
-2. Proof of a swimmer's eligibility must be provided by the TEAM's GPSA Representative upon request by the Rules Committee.
+2. Proof of a swimmer's eligibility must be provided by the **Team**'s GPSA Representative upon request by the Rules Committee.
 
-3. Each TEAM must maintain an up-to-date roster of swimmers, coaches, and certified officials. This roster serves as the official record of certification and must list each official's name and their specific, current certification(s) (e.g., Referee, Starter, S&T Judge).
+3. Each **Team** must maintain an up-to-date roster of swimmers, coaches, and certified officials. This roster serves as the official record of certification and must list each official's name and their specific, current certification(s) (e.g., Referee, Starter, S&T Judge).
 
-4. TEAM rosters must be submitted no later than one week prior to the start of the GPSA season. Failure to comply will result in a $25 fine payable to the GPSA.
+4. **Team** rosters must be submitted no later than one week prior to the start of the GPSA season. Failure to comply will result in a $25 fine payable to the GPSA.
 
-5. No swimmer may appear on the roster of more than one TEAM simultaneously.
+5. No swimmer may appear on the roster of more than one **Team** simultaneously.
 
-6. After the season begins, swimmers may only change TEAMs if they:
+6. After the season begins, swimmers may only change **Team**s if they:
 
    1. Change permanent residence.
 
-   2. Meet the eligibility requirements as a **BONA FIDE SWIMMER** for the new TEAM.
+   2. Meet the eligibility requirements as a **Bona Fide Swimmer** for the new **Team**.
 
 7. A swimmer's competition age is determined based on their age as of June 1st of the current season. Swimmers born on June 1st are considered to have reached the older age for competition purposes.
 
@@ -85,13 +85,27 @@ toc: 'heading=false'
 
 9. GPSA Representatives may challenge the eligibility of any swimmer by submitting a written request to the Rules Committee. The Rules Committee shall render all decisions promptly in writing to the President of the GPSA and to the GPSA Representative(s) involved. An appeal of an eligibility decision may be made by the GPSA Representative involved to the Rules Committee Chairman within seven (7) days of the date of the decision letter. The Rules Committee shall render the final decision on all questions concerning eligibility.
 
-10. A swimmer determined to be ineligible shall not be allowed to further represent their TEAM. If a swimmer's ineligibility is extended to previous meets during the current season, those meets shall be rescored to reflect the removal of the swimmer. Division standings and swimmer awards shall also be changed accordingly.
+10. A swimmer determined to be ineligible shall not be allowed to further represent their **Team**. If a swimmer's ineligibility is extended to previous meets during the current season, those meets shall be rescored to reflect the removal of the swimmer. Division standings and swimmer awards shall also be changed accordingly.
 
 # OFFICIALS {#officials}
 
 ## Roles and Responsibilities
 
 ### GPSA Representative
+
+   1. Each team must designate a GPSA Representative who serves as the official point of contact and primary authority for that team before, during, and after a meet. The representative must be a bona fide member of the pool they represent.
+
+   2. The Representative shall act as their team's voting member on the GPSA Board of Directors and is responsible for attending and participating in all league meetings.
+
+   3. Shall possess a thorough knowledge of all GPSA rules and be empowered to make binding decisions for their team on matters of rule interpretation and meet procedures, including agreeing with the opposing Representative and Meet Referee on any pre-meet rule modifications.
+
+   4. Is the sole representative of their team authorized to file a protest with the Meet Referee (during the meet) or the Rules Committee (after the meet).
+
+   5. Is responsible for ensuring their team provides its required complement of certified officials for each meet. This includes encouraging attendance at training clinics and appointing volunteers to fill empty positions at their discretion.
+
+   6. Is responsible for the overall conduct of their team's swimmers, coaches, and spectators. They shall assist the Meet Referee in resolving disciplinary issues as requested.
+
+   7. If a GPSA Representative serves in another official capacity during a meet (e.g., as a Starter or Stroke & Turn Judge), they must designate an alternate to handle the responsibilities of the Representative for the duration of the meet. The coach may not be designated as the alternate.
 
 ### Meet Referee
 
@@ -175,7 +189,7 @@ toc: 'heading=false'
 
 ### Sweep Judges
 
-   1. Two sweep judges (one from each TEAM) shall be positioned on the side of the course near the finish and shall judge the order of finish of all non-exhibition swimmers.They shall independently record the order of finish of all non-exhibition swimmers. A sweep judge shall record a tie if a place distinction cannot be made.
+   1. Two sweep judges (one from each **Team**) shall be positioned on the side of the course near the finish and shall judge the order of finish of all non-exhibition swimmers.They shall independently record the order of finish of all non-exhibition swimmers. A sweep judge shall record a tie if a place distinction cannot be made.
 
    2. If both sweep judges' independent record of the order of finish agree, the order of finish shall be entered onto the Place Judge Form to be delivered to the scorekeeper.
 
@@ -227,7 +241,7 @@ toc: 'heading=false'
 
 ### Relay Take-Off Judges
 
-   1. Relay take-off judges shall be assigned by the Referee (one from each TEAM) and shall stand so that they can clearly see both the feet of the departing swimmer(s) as they leave the starting platform and the touch of the incoming swimmer(s), and shall judge whether the swimmer is in contact with the platform when the incoming swimmer touches the end of the pool. The judges shall independently report infractions in writing without the use of the infraction hand signal. A relay will be disqualified only if the same infraction has been confirmed by both judges.
+   1. Relay take-off judges shall be assigned by the Referee (one from each **Team**) and shall stand so that they can clearly see both the feet of the departing swimmer(s) as they leave the starting platform and the touch of the incoming swimmer(s), and shall judge whether the swimmer is in contact with the platform when the incoming swimmer touches the end of the pool. The judges shall independently report infractions in writing without the use of the infraction hand signal. A relay will be disqualified only if the same infraction has been confirmed by both judges.
 
 ### Marshal(s) (Optional)
 
@@ -311,7 +325,7 @@ An individual may obtain or renew their certification through one of the followi
 
 4. Relay teams for events 53 \- 56 will be composed of four (4) swimmers, one (1) each for age groups 10 and under, 11 \- 12, 13 \- 14, and 15 \- 18\.
 
-5. Exhibition lanes should be used, if available. A minimum of 5 exhibition heats per team must be allowed. For more than 5 heats, both GPSA Representatives must concur.
+5. Exhibition lanes should be used, if available. A minimum of 5 exhibition heats per **Team** must be allowed. For more than 5 heats, both GPSA Representatives must concur.
 
 # CONDUCT OF INTERPOOL MEETS {#conduct-of-interpool-meets}
 
