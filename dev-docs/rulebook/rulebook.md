@@ -92,7 +92,7 @@ numbersections: true
 
 ### GPSA Representative
 
-### Referee
+### Meet Referee
 
    1. Shall have full authority over all officials on deck, shall assign and instruct them in order to provide fair and adequate coverage of the pool, enforce all rules and shall assure a fair and friendly meet under the rules of GPSA. He/she can overrule any meet official on a judgment decision. He/she has responsibility to address any question raised by either GPSA Representative or their duly appointed alternate with regard to the conduct of the meet. On a point of rule modification the referee shall defer to the judgment of both GPSA Representatives.
 
@@ -102,37 +102,47 @@ numbersections: true
 
    4. He/she shall assign marshals as needed with specific instructions.
 
-   5. He/she may assign a Chief Judge to aid in the following areas:
+   5. Shall give a decision on any point where the opinions of the judges differ; and shall have authority to intercede in competition at any stage, to ensure that the appropriate racing conditions are observed.
 
-      1. Discuss DQs with Stroke & Turn Judges and provide a recommendation of accepting or rejecting
+   6. Shall independently record the order of finish of all non-exhibition swimmers.
 
-      2. Aid in the recording of the order of finish
+   7. Shall confirm the order of finish for each scoring heat which the Sweep Judges differ. If the order of finish was observed by the referee and it confirms one of the Sweep Judges, that order of finish shall be documented on the Place Judge Form. If the Referee is unable to confirm one of the Sweep Judges' order of finish, the result shall be a tie between the differing swimmers.
 
-      3. more to go here
+   8. Shall control any abusive language or actions used by any swimmer or spectator that is generally made aware to the attendees of the meet. The offender shall be warned by the referee to desist. On continuing, the referee shall request the home-team GPSA Representative, with assistance from the home pool manager, to have the offender ejected.
 
-   6. Shall give a decision on any point where the opinions of the judges differ; and shall have authority to intercede in competition at any stage, to ensure that the appropriate racing conditions are observed.
+   9. Shall resolve any protest arising from the competition itself immediately. Only GPSA Representatives, or their duly appointed representatives, or coaches can raise an official protest to the referee.
 
-   7. Shall independently record the order of finish of all non-exhibition swimmers.
+   10. Before the competition begins, the Referee shall determine the respective areas of stroke and turn responsibility and jurisdiction, which may include joint, concurrent, and coordinated responsibility and jurisdiction. The Referee shall ensure that all swimmers shall have fair, equitable, and uniform conditions of judging.
 
-   8. Shall confirm the order of finish for each scoring heat which the Sweep Judges differ. If the order of finish was observed by the referee and it confirms one of the Sweep Judges, that order of finish shall be documented on the Place Judge Form. If the Referee is unable to confirm one of the Sweep Judges' order of finish, the result shall be a tie between the differing swimmers.
+   11. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
 
-   9. Shall control any abusive language or actions used by any swimmer or spectator that is generally made aware to the attendees of the meet. The offender shall be warned by the referee to desist. On continuing, the referee shall request the home-team GPSA Representative, with assistance from the home pool manager, to have the offender ejected.
+### Admin Referee (optional)
 
-   10. Shall resolve any protest arising from the competition itself immediately. Only GPSA Representatives, or their duly appointed representatives, or coaches can raise an official protest to the referee.
+   1. The Admin Referee is a certified Referee who acts as a deputy to the Meet Referee, assisting with administrative duties to ensure the meet runs efficiently. While the Meet Referee retains ultimate authority, the Admin Referee is empowered to manage specific tasks.
 
-   11. Before the competition begins, the Referee shall determine the respective areas of stroke and turn responsibility and jurisdiction, which may include joint, concurrent, and coordinated responsibility and jurisdiction. The Referee shall ensure that all swimmers shall have fair, equitable, and uniform conditions of judging.
+   2. Shall serve as the primary point of contact for the Scorekeepers. They shall field any questions regarding times, places, or disqualifications and work with the Meet Referee to resolve discrepancies.
 
-   12. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
+   3. Shall receive, approve, and process all legal swimmer substitutions made by coaches after the meet has begun. They are responsible for ensuring these changes are communicated promptly to the Scorekeepers.
+
+   4. Shall be responsible for the processing of Disqualification (DQ) slips. This includes:
+      1) Receiving infraction reports from the Stroke and Turn Judges.
+      2) Reviewing the report with the official to ensure it is clear and correct.
+      3) Signing the DQ slip to finalize the disqualification. Any questionable or unusual infractions should be discussed with the Meet Referee before a final decision is made.
+      4) Ensuring DQ slips are delivered to the Scorekeepers for recording and to the appropriate coaches.
+
+   5. May be requested by the Meet Referee to independently observe the order of finish to assist the Sweep Judges or serve as a tie-breaker.
+
+   6. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
 
 ### Chief Judge (optional)
 
-   1. Shall be positioned on deck so they can see the stroke and turn officials.
+   1. Shall supervise, instruct, and mentor the Stroke and Turn Judges. They are the primary resource for Stroke and Turn Judges for rule clarifications and protocol.
 
-   2. When an infraction is signaled by a stroke and turn judge, typically by a raised hand, the chief judge will approach the official and gather the necessary information via a series of questions.
+   2. Shall be positioned on deck to observe the Stroke and Turn Judges.
 
-   3. This process culminates in a recommendation to the deck referee as to whether the call is recommended for acceptance or if further discussion is required.
+   3. When an infraction is signaled by a Stroke and Turn Judge, the Chief Judge shall confer with that official to confirm the observation and ensure the infraction report is written clearly and correctly.
 
-   4. Shall act as mentor to the stroke and turn officials, observing, instructing, and correcting their protocol (the procedures governing movement and positioning on deck) and answering all questions regarding the rules.
+   4. Shall work with the Meet Referee and Admin Referee to ensure fair and consistent judging across the pool.
 
    5. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
 
@@ -248,6 +258,10 @@ An individual may obtain or renew their certification through one of the followi
 ### Role-Specific Requirements
 
 1. **Starter:** In addition to the general certification requirements, Starters must be familiar with whistle start procedures as defined by USA Swimming, either through attendance at the GPSA clinic or by watching the specific USA Swimming video for Starters.
+
+2. **Admin Referee:** Must hold a current GPSA Referee certification.
+
+3. **Chief Judge:** Must have held a GPSA Stroke & Turn certification for at least two (2) seasons.
 
 # ORDER OF EVENTS, AGE GROUPS, AND DISTANCES {#order-of-events-age-groups-and-distances}
 
