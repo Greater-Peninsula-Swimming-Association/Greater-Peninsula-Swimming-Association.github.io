@@ -1,6 +1,6 @@
 ---
 title: "GPSA Rulebook"
-date: "November 2025"
+date: "December 2025"
 draft: true
 titlepage: true
 titlepage-color: "FFFFFF"
@@ -12,6 +12,7 @@ logo-width: 120mm
 toc-own-page: true
 classoption: twoside
 numbersections: true
+toc: 'heading=false'
 ---
 
 # DEFINITIONS {#definitions}
@@ -125,9 +126,13 @@ numbersections: true
    3. Shall receive, approve, and process all legal swimmer substitutions made by coaches after the meet has begun. They are responsible for ensuring these changes are communicated promptly to the Scorekeepers.
 
    4. Shall be responsible for the processing of Disqualification (DQ) slips. This includes:
+
       1) Receiving infraction reports from the Stroke and Turn Judges.
+
       2) Reviewing the report with the official to ensure it is clear and correct.
+
       3) Signing the DQ slip to finalize the disqualification. Any questionable or unusual infractions should be discussed with the Meet Referee before a final decision is made.
+
       4) Ensuring DQ slips are delivered to the Scorekeepers for recording and to the appropriate coaches.
 
    5. May be requested by the Meet Referee to independently observe the order of finish to assist the Sweep Judges or serve as a tie-breaker.
