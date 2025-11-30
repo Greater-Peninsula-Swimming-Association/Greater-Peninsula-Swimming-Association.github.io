@@ -99,13 +99,11 @@ toc: 'heading=false'
 
    3. Shall possess a thorough knowledge of all GPSA rules and be empowered to make binding decisions for their team on matters of rule interpretation and meet procedures, including agreeing with the opposing Representative and Meet Referee on any pre-meet rule modifications.
 
-   4. Is the sole representative of their team authorized to file a protest with the Meet Referee (during the meet) or the Rules Committee (after the meet).
+   4. Is responsible for ensuring their team provides its required complement of certified officials for each meet. This includes encouraging attendance at training clinics and appointing volunteers to fill empty positions at their discretion.
 
-   5. Is responsible for ensuring their team provides its required complement of certified officials for each meet. This includes encouraging attendance at training clinics and appointing volunteers to fill empty positions at their discretion.
+   5. Is responsible for the overall conduct of their team's swimmers, coaches, and spectators. They shall assist the Meet Referee in resolving disciplinary issues as requested.
 
-   6. Is responsible for the overall conduct of their team's swimmers, coaches, and spectators. They shall assist the Meet Referee in resolving disciplinary issues as requested.
-
-   7. If a GPSA Representative serves in another official capacity during a meet (e.g., as a Starter or Stroke & Turn Judge), they must designate an alternate to handle the responsibilities of the Representative for the duration of the meet. The coach may not be designated as the alternate.
+   6. If a GPSA Representative serves in another official capacity during a meet (e.g., as a Starter or Stroke & Turn Judge), they must designate an alternate to handle the responsibilities of the Representative for the duration of the meet. The coach may not be designated as the alternate.
 
 ### Meet Referee
 
@@ -407,6 +405,10 @@ An individual may obtain or renew their certification through one of the followi
    3. If a swimmer is found to have exceeded these limits, they shall be disqualified from all events in which they were entered, and scores shall be adjusted.
 2. Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team must be marked as exhibition.
 3. Starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
+
+## Protests
+
+1. The GPSA Representative is the sole representative of their team authorized to file a protest with the Meet Referee (during the meet) or the Rules Committee (after the meet).
 
 # SCORING {#scoring}
 
