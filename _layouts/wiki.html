@@ -347,7 +347,13 @@
             opacity: 1;
         }
 
-        /* Responsive layout */
+        /* Responsive layout
+         * Breakpoints:
+         * - <1024px: Mobile/Tablet - Both sidebars hidden, hamburger for left nav
+         * - 1024-1535px: Laptop - Left nav behind hamburger, no TOC
+         * - 1536-1999px: Desktop - Left nav behind hamburger, TOC visible
+         * - 2000px+: Large Monitor - Both sidebars visible and sticky
+         */
         @media (max-width: 1536px) {
             /* Hide floating TOC on smaller screens */
             .wiki-toc-right {
@@ -355,7 +361,8 @@
             }
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1999px) {
+            /* Hide left nav behind hamburger until very large screens */
             .mobile-menu-button {
                 display: flex;
             }
@@ -381,10 +388,6 @@
                 box-shadow: none;
             }
 
-            .wiki-main {
-                max-width: 100% !important;
-            }
-
             .mobile-menu-close {
                 display: block;
                 margin-bottom: 1rem;
@@ -402,7 +405,8 @@
             }
         }
 
-        @media (min-width: 1025px) {
+        @media (min-width: 2000px) {
+            /* Show both sidebars on very large screens */
             .mobile-menu-close {
                 display: none;
             }
