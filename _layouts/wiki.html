@@ -152,9 +152,13 @@
         }
 
         /* Sidebar navigation */
-        .wiki-nav {
+        .wiki-sidebar {
             position: sticky;
             top: 1rem;
+            align-self: flex-start;
+        }
+
+        .wiki-nav {
             max-height: calc(100vh - 2rem);
             overflow-y: auto;
         }
@@ -194,9 +198,13 @@
         }
 
         /* Floating TOC Sidebar */
-        .wiki-toc-sidebar {
+        .wiki-toc-right {
             position: sticky;
             top: 1rem;
+            align-self: flex-start;
+        }
+
+        .wiki-toc-sidebar {
             max-height: calc(100vh - 2rem);
             overflow-y: auto;
         }
