@@ -143,6 +143,14 @@
             background-color: #f9fafb;
         }
 
+        .wiki-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
         /* Sidebar navigation */
         .wiki-nav {
             position: sticky;
@@ -185,39 +193,80 @@
             margin-top: 0;
         }
 
-        /* Table of contents */
-        .wiki-toc {
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-bottom: 2rem;
+        /* Floating TOC Sidebar */
+        .wiki-toc-sidebar {
+            position: sticky;
+            top: 1rem;
+            max-height: calc(100vh - 2rem);
+            overflow-y: auto;
         }
 
-        .wiki-toc-title {
+        .wiki-toc-sidebar-title {
+            font-size: 0.875rem;
             font-weight: 700;
+            text-transform: uppercase;
             color: #002366;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #d9242b;
         }
 
-        .wiki-toc ul {
+        .wiki-toc-sidebar ul {
             list-style: none;
             padding-left: 0;
             margin: 0;
         }
 
-        .wiki-toc li {
-            margin-bottom: 0.25rem;
+        .wiki-toc-sidebar li {
+            margin-bottom: 0;
         }
 
-        .wiki-toc a {
-            color: #374151;
+        .wiki-toc-sidebar a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: #6b7280;
             text-decoration: none;
+            font-size: 0.875rem;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            line-height: 1.4;
         }
 
-        .wiki-toc a:hover {
+        .wiki-toc-sidebar a:hover {
             color: #002366;
-            text-decoration: underline;
+            background-color: #f3f4f6;
+            border-left-color: #d9242b;
+        }
+
+        .wiki-toc-sidebar a.active {
+            color: #002366;
+            font-weight: 600;
+            background-color: #f0f4ff;
+            border-left-color: #002366;
+        }
+
+        .wiki-toc-sidebar .toc-h3 {
+            padding-left: 1.5rem;
+            font-size: 0.8125rem;
+        }
+
+        /* Scrollbar styling for TOC */
+        .wiki-toc-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .wiki-toc-sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+
+        .wiki-toc-sidebar::-webkit-scrollbar-thumb {
+            background: #d9242b;
+            border-radius: 2px;
+        }
+
+        .wiki-toc-sidebar::-webkit-scrollbar-thumb:hover {
+            background: #b81e24;
         }
 
         /* Breadcrumbs */
@@ -290,7 +339,14 @@
             opacity: 1;
         }
 
-        /* Responsive sidebar */
+        /* Responsive layout */
+        @media (max-width: 1536px) {
+            /* Hide floating TOC on smaller screens */
+            .wiki-toc-right {
+                display: none;
+            }
+        }
+
         @media (max-width: 1024px) {
             .mobile-menu-button {
                 display: flex;
@@ -347,6 +403,7 @@
         /* Print styles */
         @media print {
             .wiki-sidebar,
+            .wiki-toc-right,
             .breadcrumb,
             .mobile-menu-button {
                 display: none;
@@ -383,7 +440,7 @@
             <div class="wiki-sidebar-overlay no-print" id="sidebar-overlay"></div>
 
             <div class="flex gap-8">
-                <!-- Sidebar Navigation -->
+                <!-- Left Sidebar Navigation -->
                 <aside class="wiki-sidebar w-64 flex-shrink-0" id="wiki-sidebar">
                     <div class="mobile-menu-close">
                         <button id="mobile-menu-close" aria-label="Close navigation menu">✕</button>
@@ -414,14 +471,6 @@
                         <!-- Page Title -->
                         <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">{{ page.title }}</h1>
 
-                        <!-- Table of Contents (if enabled) -->
-                        {% if page.toc %}
-                        <div class="wiki-toc no-print">
-                            <div class="wiki-toc-title">Table of Contents</div>
-                            <div id="toc-container"></div>
-                        </div>
-                        {% endif %}
-
                         <!-- Page Content (Markdown rendered here) -->
                         <div class="wiki-content">
                             {{ content }}
@@ -435,6 +484,18 @@
                         {% endif %}
                     </div>
                 </article>
+
+                <!-- Right Floating TOC Sidebar (for pages with toc enabled, only on large screens) -->
+                {% if page.toc %}
+                <aside class="wiki-toc-right w-64 flex-shrink-0 no-print" id="wiki-toc-right">
+                    <div class="bg-white rounded-xl shadow-lg p-4">
+                        <div class="wiki-toc-sidebar">
+                            <div class="wiki-toc-sidebar-title">On This Page</div>
+                            <div id="toc-container"></div>
+                        </div>
+                    </div>
+                </aside>
+                {% endif %}
             </div>
 
             <footer class="text-center mt-10 text-gray-500 text-sm">
@@ -446,10 +507,10 @@
     <!-- Toast Notification Container -->
     <div id="toast-container"></div>
 
-    <!-- Table of Contents Generator (if enabled) -->
+    <!-- Table of Contents Generator with Active Link Tracking -->
     {% if page.toc %}
     <script>
-        // Auto-generate table of contents from H2 and H3 headings
+        // Auto-generate table of contents from H2 and H3 headings with active link tracking
         document.addEventListener('DOMContentLoaded', function() {
             const content = document.querySelector('.wiki-content');
             const tocContainer = document.getElementById('toc-container');
@@ -458,33 +519,117 @@
 
             const headings = content.querySelectorAll('h2, h3');
             if (headings.length === 0) {
-                document.querySelector('.wiki-toc').style.display = 'none';
+                const tocRight = document.getElementById('wiki-toc-right');
+                if (tocRight) tocRight.style.display = 'none';
                 return;
             }
 
             const ul = document.createElement('ul');
+            const headingElements = [];
 
             headings.forEach((heading, index) => {
                 // Add ID to heading if it doesn't have one
                 if (!heading.id) {
-                    heading.id = 'heading-' + index;
+                    const id = heading.textContent
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, '-')
+                        .replace(/(^-|-$)/g, '');
+                    heading.id = id || 'heading-' + index;
                 }
 
                 const li = document.createElement('li');
                 const a = document.createElement('a');
                 a.href = '#' + heading.id;
                 a.textContent = heading.textContent;
+                a.classList.add('toc-link');
+                a.dataset.target = heading.id;
 
                 if (heading.tagName === 'H3') {
-                    li.style.paddingLeft = '1rem';
-                    li.style.fontSize = '0.875rem';
+                    a.classList.add('toc-h3');
                 }
+
+                // Smooth scroll on click
+                a.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Update URL without jumping
+                    history.pushState(null, null, '#' + heading.id);
+                });
 
                 li.appendChild(a);
                 ul.appendChild(li);
+
+                headingElements.push({
+                    id: heading.id,
+                    element: heading,
+                    link: a
+                });
             });
 
             tocContainer.appendChild(ul);
+
+            // Active link tracking on scroll
+            let activeLink = null;
+
+            function updateActiveLink() {
+                const scrollPosition = window.scrollY + 100; // Offset for better UX
+
+                let currentHeading = null;
+                for (let i = headingElements.length - 1; i >= 0; i--) {
+                    const heading = headingElements[i];
+                    if (heading.element.offsetTop <= scrollPosition) {
+                        currentHeading = heading;
+                        break;
+                    }
+                }
+
+                if (currentHeading && currentHeading.link !== activeLink) {
+                    // Remove active class from previous link
+                    if (activeLink) {
+                        activeLink.classList.remove('active');
+                    }
+                    // Add active class to current link
+                    currentHeading.link.classList.add('active');
+                    activeLink = currentHeading.link;
+
+                    // Scroll TOC to keep active link visible
+                    const tocSidebar = document.querySelector('.wiki-toc-sidebar');
+                    if (tocSidebar && activeLink) {
+                        const linkTop = activeLink.offsetTop;
+                        const linkHeight = activeLink.offsetHeight;
+                        const sidebarHeight = tocSidebar.clientHeight;
+                        const scrollTop = tocSidebar.scrollTop;
+
+                        if (linkTop < scrollTop || linkTop + linkHeight > scrollTop + sidebarHeight) {
+                            activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    }
+                }
+            }
+
+            // Throttle scroll events for performance
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                if (scrollTimeout) {
+                    window.cancelAnimationFrame(scrollTimeout);
+                }
+                scrollTimeout = window.requestAnimationFrame(updateActiveLink);
+            });
+
+            // Initial update
+            updateActiveLink();
+
+            // Update on hash change (browser back/forward)
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    const heading = headingElements.find(h => h.id === hash);
+                    if (heading) {
+                        heading.link.classList.add('active');
+                        activeLink = heading.link;
+                    }
+                }
+            });
         });
     </script>
     {% endif %}
