@@ -36,7 +36,7 @@ book:
     contents: auto
     tools:
       - icon: file-pdf
-        href: GPSA_Rulebook.pdf
+        href: GPSA-Rulebook.pdf
         text: "Download PDF"
 
 # Format configurations
