@@ -28,17 +28,17 @@ $navbar-fg: white;
 // ============================================================================
 
 // Ensure the index page always shows in sidebar navigation (even when active)
-.sidebar-navigation {
-  .sidebar-item {
-    display: block !important;
+// .sidebar-navigation {
+//   .sidebar-item {
+//     display: block !important;
 
-    a.sidebar-link {
-      display: block !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-  }
-}
+//     a.sidebar-link {
+//       display: block !important;
+//       opacity: 1 !important;
+//       visibility: visible !important;
+//     }
+//   }
+// }
 
 // ============================================================================
 // Navigation and Header
@@ -236,35 +236,35 @@ table {
 // Table of Contents (Sidebar)
 // ============================================================================
 
-.sidebar nav[role="doc-toc"] {
-  ul {
-    padding-left: 0;
+// .sidebar nav[role="doc-toc"] {
+//   ul {
+//     padding-left: 0;
 
-    li {
-      margin: 0.25rem 0;
+//     li {
+//       margin: 0.25rem 0;
 
-      a {
-        color: $navy-blue;
-        padding: 0.25rem 0.5rem;
-        display: block;
-        border-left: 3px solid transparent;
-        transition: all 0.2s ease;
+//       a {
+//         color: $navy-blue;
+//         padding: 0.25rem 0.5rem;
+//         display: block;
+//         border-left: 3px solid transparent;
+//         transition: all 0.2s ease;
 
-        &:hover {
-          background-color: $light-gray;
-          border-left-color: $red;
-          text-decoration: none;
-        }
+//         &:hover {
+//           background-color: $light-gray;
+//           border-left-color: $red;
+//           text-decoration: none;
+//         }
 
-        &.active {
-          background-color: lighten($navy-blue, 55%);
-          border-left-color: $red;
-          font-weight: 600;
-        }
-      }
-    }
-  }
-}
+//         &.active {
+//           background-color: lighten($navy-blue, 55%);
+//           border-left-color: $red;
+//           font-weight: 600;
+//         }
+//       }
+//     }
+//   }
+// }
 
 // ============================================================================
 // Callouts and Admonitions
