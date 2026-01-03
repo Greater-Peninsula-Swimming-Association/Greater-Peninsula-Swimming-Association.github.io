@@ -84,10 +84,8 @@ $navbar-fg: white;
 }
 
 // ============================================================================
-// GPSA Branding Styles (LIGHT MODE ONLY)
+// GPSA Branding Styles
 // ============================================================================
-
-:root:not([data-bs-theme="dark"]) {
 
 .navbar {
   background-color: $navy-blue !important;
@@ -393,10 +391,8 @@ pre {
   }
 }
 
-} // End :root:not([data-bs-theme="dark"]) - GPSA branding for light mode only
-
 // ============================================================================
-// Responsive Adjustments (applies to both modes)
+// Responsive Adjustments
 // ============================================================================
 
 @media (max-width: 768px) {
