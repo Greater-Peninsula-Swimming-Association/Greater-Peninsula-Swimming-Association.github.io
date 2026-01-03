@@ -2,14 +2,17 @@ project:
   type: book
   output-dir: ../../docs/rulebook
 
+# Filters - applied in order listed
+filters:
+  - filters/draft-watermark.lua
+
 book:
   title: "GPSA Rulebook"
   subtitle: "Greater Peninsula Swimming Association"
-  author: "GPSA"
+  author: "GPSA Rules Committee"
   date: "December 2025"
 
-  # Cover page customization
-  cover-image: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
+  page-navigation: true
 
   # Book structure - chapters in order
   chapters:
