@@ -435,3 +435,164 @@ pre {
     page-break-inside: avoid;
   }
 }
+
+// ============================================================================
+// Dark Mode Overrides
+// ============================================================================
+
+html[data-bs-theme="dark"] {
+
+  // Typography and Headings
+  h1, h2, h3, h4, h5, h6 {
+    color: lighten($light-blue, 25%); // Lighter blue for better contrast
+  }
+
+  h1 {
+    border-bottom-color: $red;
+  }
+
+  h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+
+  // Links
+  a {
+    color: lighten($light-blue, 20%);
+
+    &:hover {
+      color: lighten($red, 10%);
+    }
+  }
+
+  // Strong text
+  strong {
+    color: lighten($light-blue, 25%);
+  }
+
+  // Tables
+  table {
+    thead {
+      background-color: darken($navy-blue, 5%);
+      color: white;
+
+      th {
+        border-color: darken($navy-blue, 10%);
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        &:hover {
+          background-color: rgba($light-blue, 0.15);
+        }
+      }
+
+      td {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  // Callouts
+  .callout {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left-color: $red;
+
+    .callout-header {
+      color: lighten($light-blue, 25%);
+    }
+  }
+
+  .callout.callout-note {
+    border-left-color: lighten($light-blue, 20%);
+    background-color: rgba($light-blue, 0.1);
+  }
+
+  .callout.callout-important {
+    border-left-color: lighten($red, 10%);
+    background-color: rgba($red, 0.1);
+  }
+
+  .callout.callout-warning {
+    border-left-color: #ffc107;
+    background-color: rgba(#ffc107, 0.1);
+  }
+
+  // Code blocks
+  code {
+    color: lighten($red, 15%);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  pre {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left-color: lighten($light-blue, 20%);
+  }
+
+  // Navbar (keep dark in dark mode)
+  .navbar {
+    background-color: darken($navy-blue, 3%) !important;
+    border-bottom-color: $red;
+  }
+
+  // Footer (keep dark in dark mode)
+  .nav-footer {
+    background-color: darken($navy-blue, 3%);
+    border-top-color: $red;
+  }
+
+  // Draft alert
+  #quarto-draft-alert {
+    background-color: rgba($red, 0.2) !important;
+    color: lighten($red, 20%) !important;
+  }
+
+  // Search
+  #quarto-search {
+    .aa-Form {
+      border-color: rgba($light-blue, 0.5);
+      background-color: rgba(255, 255, 255, 0.05);
+
+      &:focus-within {
+        border-color: $red;
+        box-shadow: 0 0 0 3px rgba($red, 0.2);
+      }
+    }
+  }
+
+  // Breadcrumbs
+  .breadcrumb {
+    .breadcrumb-item {
+      color: lighten($light-blue, 25%);
+
+      + .breadcrumb-item::before {
+        color: $red;
+      }
+
+      &.active {
+        color: lighten($red, 10%);
+      }
+    }
+  }
+
+  // Sidebar navigation
+  .sidebar-navigation {
+    .sidebar-item {
+      a.sidebar-link {
+        color: rgba(255, 255, 255, 0.8);
+
+        &:hover {
+          color: lighten($light-blue, 20%);
+        }
+
+        &.active {
+          color: lighten($red, 10%);
+        }
+      }
+    }
+  }
+}
