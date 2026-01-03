@@ -17,14 +17,14 @@ This rulebook establishes the standards and regulations for:
 
 ## Quick Navigation
 
-- [Definitions](docs/definitions.md) - Key terms and their meanings
-- [Eligibility and Rosters](docs/eligibility-and-rosters.md) - Swimmer qualification requirements
-- [Officials](docs/officials.md) - Roles, responsibilities, and certification
-- [Order of Events](docs/order-of-events.md) - Event sequence, age groups, and distances
-- [Conduct of Meets](docs/conduct-of-meets.md) - Meet procedures and requirements
-- [Scoring](docs/scoring.md) - Point system for individual and team events
-- [Awards](docs/awards.md) - Ribbons, trophies, and recognition
-- [Facilities Standards](docs/facilities.md) - Pool and equipment requirements
+- [Definitions](definitions.md) - Key terms and their meanings
+- [Eligibility and Rosters](eligibility-and-rosters.md) - Swimmer qualification requirements
+- [Officials](officials.md) - Roles, responsibilities, and certification
+- [Order of Events](order-of-events.md) - Event sequence, age groups, and distances
+- [Conduct of Meets](conduct-of-meets.md) - Meet procedures and requirements
+- [Scoring](scoring.md) - Point system for individual and team events
+- [Awards](awards.md) - Ribbons, trophies, and recognition
+- [Facilities Standards](facilities.md) - Pool and equipment requirements
 
 ## GPSA Divisions
 

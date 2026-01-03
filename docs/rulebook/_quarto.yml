@@ -18,14 +18,14 @@ book:
   # Book structure - chapters in order
   chapters:
     - index.qmd
-    - docs/definitions.md
-    - docs/eligibility-and-rosters.md
-    - docs/officials.md
-    - docs/order-of-events.md
-    - docs/conduct-of-meets.md
-    - docs/scoring.md
-    - docs/awards.md
-    - docs/facilities.md
+    - definitions.md
+    - eligibility-and-rosters.md
+    - officials.md
+    - order-of-events.md
+    - conduct-of-meets.md
+    - scoring.md
+    - awards.md
+    - facilities.md
 
   # Navigation
   sidebar:
