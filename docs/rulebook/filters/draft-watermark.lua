@@ -1,17 +1,17 @@
 --[[
-  Lua filter to add draft watermark to PDF output when draft: true
+  Lua filter to add draft watermark to PDF output using custom field
 
-  This filter checks the document metadata for draft: true and automatically
+  This filter checks the document metadata for gpsa_draft: true and automatically
   injects a LaTeX watermark package to add "DRAFT" to every page of the PDF.
 
-  This mirrors the automatic draft banner behavior in HTML output.
+  Uses a custom field instead of Quarto's native 'draft' to avoid breaking sidebar navigation.
 ]]--
 
 function Meta(meta)
   -- Only process for PDF output
   if quarto.doc.isFormat("pdf") then
-    -- Check if draft metadata is set to true
-    if meta.draft == true then
+    -- Check if gpsa_draft metadata is set to true
+    if meta.gpsa_draft == true then
       -- Add LaTeX packages and watermark configuration
       local header = [[
 \usepackage{draftwatermark}
@@ -30,7 +30,7 @@ function Meta(meta)
         meta['header-includes'] = pandoc.MetaList{pandoc.RawBlock('latex', header)}
       end
 
-      quarto.log.output("Draft mode enabled - adding watermark to PDF")
+      quarto.log.output("GPSA Draft mode enabled - adding watermark to PDF")
     end
   end
 
