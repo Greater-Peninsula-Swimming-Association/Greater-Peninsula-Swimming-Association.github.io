@@ -12,6 +12,7 @@ book:
   author: "GPSA Rules Committee"
   date: today
   date-format: "MMMM YYYY"
+  site-url: https://draft.rulebook.gpsaswimming.org/rulebook
 
   page-navigation: true
 
@@ -32,6 +33,7 @@ book:
     title: "GPSA Rulebook"
     logo: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
     search: true
+    contents: auto
 
 # Format configurations
 format:
