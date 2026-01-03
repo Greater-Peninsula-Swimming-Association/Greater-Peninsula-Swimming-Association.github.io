@@ -24,6 +24,32 @@ $navbar-fg: white;
 /*-- scss:rules --*/
 
 // ============================================================================
+// Title Block
+// ============================================================================
+
+// Hide the title block header (title-block: none doesn't work for books)
+// #title-block-header {
+//   display: none !important;
+// }
+
+// ============================================================================
+// Sidebar Navigation
+// ============================================================================
+
+// Ensure the index page always shows in sidebar navigation (even when active)
+.sidebar-navigation {
+  .sidebar-item {
+    display: block !important;
+
+    a.sidebar-link {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  }
+}
+
+// ============================================================================
 // Navigation and Header
 // ============================================================================
 

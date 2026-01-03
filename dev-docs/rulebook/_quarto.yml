@@ -10,13 +10,14 @@ book:
   title: "GPSA Rulebook"
   subtitle: "Greater Peninsula Swimming Association"
   author: "GPSA Rules Committee"
-  date: "December 2025"
+  date: today
+  date-format: "MMMM YYYY"
 
   page-navigation: true
 
   # Book structure - chapters in order
   chapters:
-    - index.md
+    - index.qmd
     - docs/definitions.md
     - docs/eligibility-and-rosters.md
     - docs/officials.md
@@ -32,11 +33,6 @@ book:
     logo: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
     search: true
 
-  # Page footer
-  page-footer:
-    left: "Greater Peninsula Swimming Association"
-    right: "December 2025"
-
 # Format configurations
 format:
   # HTML output (website)
@@ -49,6 +45,11 @@ format:
     number-sections: true
     link-external-newwindow: true
     code-link: true
+
+    # Page footer (HTML only)
+    page-footer:
+      left: "Greater Peninsula Swimming Association"
+      right: "{{< meta date >}}"
 
   # PDF output
   pdf:
@@ -173,7 +174,7 @@ format:
 
         % Footers - same on all pages
         \fancyfoot[C]{\small\thepage}
-        \fancyfoot[R]{\small\color{gray}December 2025}
+        \fancyfoot[R]{\small\color{gray}{{< meta date >}}}
 
         % Header rule color
         \renewcommand{\headrulewidth}{0.4pt}
