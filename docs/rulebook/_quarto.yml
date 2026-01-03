@@ -33,7 +33,6 @@ book:
     title: "GPSA Rulebook"
     logo: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
     search: true
-    style: "docked"
     collapse-level: 1
     contents:
       - index.qmd
