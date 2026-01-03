@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mkdocs:
+    build: .
+    container_name: gpsa-rulebook
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the current directory to /docs in the container
+      # This allows live reloading when you edit markdown files
+      - .:/docs
+    stdin_open: true
+    tty: true

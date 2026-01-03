@@ -24,6 +24,7 @@ docker build -t $DOCKER_IMAGE_NAME "$DEV_DOCS_DIR"
 echo "Running pandoc compilation in Docker..."
 docker run --rm -v "$PROJECT_ROOT:/work" --workdir /work "$DOCKER_IMAGE_NAME" /bin/sh -c "
     pandoc --template=dev-docs/_template/template.tex \
+           --lua-filter=dev-docs/rulebook/pandoc-filter.lua \
            -s dev-docs/$DOC_NAME/$DOC_NAME.md \
            -o dev-docs/$DOC_NAME.pdf \
            --number-sections \
