@@ -24,34 +24,8 @@ $navbar-fg: white;
 /*-- scss:rules --*/
 
 // ============================================================================
-// Title Block
-// ============================================================================
-
-// Hide the title block header (title-block: none doesn't work for books)
-// #title-block-header {
-//   display: none !important;
-// }
-
-// ============================================================================
 // Sidebar Navigation
 // ============================================================================
-
-// Force sidebar to be visible on larger screens (992px+)
-@media (min-width: 992px) {
-  #quarto-sidebar {
-    display: block !important;
-    visibility: visible !important;
-  }
-
-  // Override Bootstrap collapse behavior for larger screens
-  .sidebar.collapse:not(.show) {
-    display: block !important;
-  }
-
-  .sidebar.collapsing {
-    display: block !important;
-  }
-}
 
 // Ensure the index page always shows in sidebar navigation (even when active)
 .sidebar-navigation {
