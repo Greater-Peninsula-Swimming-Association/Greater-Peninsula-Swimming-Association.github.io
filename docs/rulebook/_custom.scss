@@ -24,6 +24,200 @@ $navbar-fg: white;
 /*-- scss:rules --*/
 
 // ============================================================================
+// Dark Mode Overrides
+// ============================================================================
+// Place dark mode styles first so they can be overridden by specific rules if needed
+
+html[data-bs-theme="dark"] {
+  // Dark mode specific color palette for readability
+  $dm-heading-blue: #66b3ff;     // Bright, readable blue for headings
+  $dm-link-blue: #5599ff;        // Slightly darker blue for links
+  $dm-accent-red: #ff6b6b;       // Softer red for accents
+  $dm-text-light: #e8e8e8;       // Light text color
+
+  // Typography and Headings - use bright blue for visibility
+  h1, h2, h3, h4, h5, h6 {
+    color: $dm-heading-blue;
+  }
+
+  h1 {
+    border-bottom-color: $dm-accent-red;
+  }
+
+  h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+
+  // Links - bright and readable
+  a {
+    color: $dm-link-blue;
+
+    &:hover {
+      color: $dm-accent-red;
+    }
+  }
+
+  // Strong text - use heading color for emphasis
+  strong {
+    color: $dm-heading-blue;
+  }
+
+  // Tables - maintain brand but with better contrast
+  table {
+    thead {
+      background-color: #001a4d; // Slightly lighter than navy for dark mode
+      color: white;
+
+      th {
+        border-color: #000f33;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        &:hover {
+          background-color: rgba(85, 153, 255, 0.1); // Subtle blue highlight
+        }
+      }
+
+      td {
+        border-color: rgba(255, 255, 255, 0.1);
+        color: $dm-text-light;
+      }
+    }
+  }
+
+  // Callouts - subtle backgrounds with visible borders
+  .callout {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left-color: $dm-accent-red;
+
+    .callout-header {
+      color: $dm-heading-blue;
+    }
+  }
+
+  .callout.callout-note {
+    border-left-color: $dm-link-blue;
+    background-color: rgba(85, 153, 255, 0.08);
+  }
+
+  .callout.callout-important {
+    border-left-color: $dm-accent-red;
+    background-color: rgba(255, 107, 107, 0.08);
+  }
+
+  .callout.callout-warning {
+    border-left-color: #ffcc00;
+    background-color: rgba(255, 204, 0, 0.08);
+  }
+
+  // Code blocks - readable inline and block code
+  code {
+    color: #ff9999; // Light coral for code
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  pre {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left-color: $dm-link-blue;
+
+    code {
+      color: $dm-text-light;
+    }
+  }
+
+  // Navbar - maintain dark appearance
+  .navbar {
+    background-color: #001447 !important;
+    border-bottom-color: $dm-accent-red;
+
+    .navbar-brand {
+      color: white !important;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.85) !important;
+
+      &:hover {
+        color: $dm-accent-red !important;
+      }
+
+      &.active {
+        color: $dm-accent-red !important;
+      }
+    }
+  }
+
+  // Footer - maintain dark appearance
+  .nav-footer {
+    background-color: #001447;
+    border-top-color: $dm-accent-red;
+  }
+
+  // Draft alert - visible but not harsh
+  #quarto-draft-alert {
+    background-color: rgba(255, 107, 107, 0.15) !important;
+    color: #ffb3b3 !important;
+    border-color: $dm-accent-red !important;
+
+    i {
+      color: $dm-accent-red;
+    }
+  }
+
+  // Search box
+  #quarto-search {
+    .aa-Form {
+      border-color: rgba(85, 153, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.03);
+
+      &:focus-within {
+        border-color: $dm-link-blue;
+        box-shadow: 0 0 0 3px rgba(85, 153, 255, 0.15);
+      }
+    }
+  }
+
+  // Breadcrumbs
+  .breadcrumb {
+    .breadcrumb-item {
+      color: $dm-heading-blue;
+
+      + .breadcrumb-item::before {
+        color: $dm-accent-red;
+      }
+
+      &.active {
+        color: $dm-accent-red;
+      }
+    }
+  }
+
+  // Sidebar navigation links
+  .sidebar-navigation {
+    .sidebar-item {
+      a.sidebar-link {
+        color: rgba(255, 255, 255, 0.75);
+
+        &:hover {
+          color: $dm-link-blue;
+        }
+
+        &.active {
+          color: $dm-accent-red;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+// ============================================================================
 // Sidebar Navigation
 // ============================================================================
 
@@ -433,166 +627,5 @@ pre {
 
   table {
     page-break-inside: avoid;
-  }
-}
-
-// ============================================================================
-// Dark Mode Overrides
-// ============================================================================
-
-html[data-bs-theme="dark"] {
-
-  // Typography and Headings
-  h1, h2, h3, h4, h5, h6 {
-    color: lighten($light-blue, 25%); // Lighter blue for better contrast
-  }
-
-  h1 {
-    border-bottom-color: $red;
-  }
-
-  h2 {
-    border-bottom-color: rgba(255, 255, 255, 0.15);
-  }
-
-  // Links
-  a {
-    color: lighten($light-blue, 20%);
-
-    &:hover {
-      color: lighten($red, 10%);
-    }
-  }
-
-  // Strong text
-  strong {
-    color: lighten($light-blue, 25%);
-  }
-
-  // Tables
-  table {
-    thead {
-      background-color: darken($navy-blue, 5%);
-      color: white;
-
-      th {
-        border-color: darken($navy-blue, 10%);
-      }
-    }
-
-    tbody {
-      tr {
-        &:nth-child(even) {
-          background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        &:hover {
-          background-color: rgba($light-blue, 0.15);
-        }
-      }
-
-      td {
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-    }
-  }
-
-  // Callouts
-  .callout {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left-color: $red;
-
-    .callout-header {
-      color: lighten($light-blue, 25%);
-    }
-  }
-
-  .callout.callout-note {
-    border-left-color: lighten($light-blue, 20%);
-    background-color: rgba($light-blue, 0.1);
-  }
-
-  .callout.callout-important {
-    border-left-color: lighten($red, 10%);
-    background-color: rgba($red, 0.1);
-  }
-
-  .callout.callout-warning {
-    border-left-color: #ffc107;
-    background-color: rgba(#ffc107, 0.1);
-  }
-
-  // Code blocks
-  code {
-    color: lighten($red, 15%);
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-
-  pre {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left-color: lighten($light-blue, 20%);
-  }
-
-  // Navbar (keep dark in dark mode)
-  .navbar {
-    background-color: darken($navy-blue, 3%) !important;
-    border-bottom-color: $red;
-  }
-
-  // Footer (keep dark in dark mode)
-  .nav-footer {
-    background-color: darken($navy-blue, 3%);
-    border-top-color: $red;
-  }
-
-  // Draft alert
-  #quarto-draft-alert {
-    background-color: rgba($red, 0.2) !important;
-    color: lighten($red, 20%) !important;
-  }
-
-  // Search
-  #quarto-search {
-    .aa-Form {
-      border-color: rgba($light-blue, 0.5);
-      background-color: rgba(255, 255, 255, 0.05);
-
-      &:focus-within {
-        border-color: $red;
-        box-shadow: 0 0 0 3px rgba($red, 0.2);
-      }
-    }
-  }
-
-  // Breadcrumbs
-  .breadcrumb {
-    .breadcrumb-item {
-      color: lighten($light-blue, 25%);
-
-      + .breadcrumb-item::before {
-        color: $red;
-      }
-
-      &.active {
-        color: lighten($red, 10%);
-      }
-    }
-  }
-
-  // Sidebar navigation
-  .sidebar-navigation {
-    .sidebar-item {
-      a.sidebar-link {
-        color: rgba(255, 255, 255, 0.8);
-
-        &:hover {
-          color: lighten($light-blue, 20%);
-        }
-
-        &.active {
-          color: lighten($red, 10%);
-        }
-      }
-    }
   }
 }
