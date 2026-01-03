@@ -24,7 +24,7 @@ $navbar-fg: white;
 /*-- scss:rules --*/
 
 // ============================================================================
-// Sidebar Navigation
+// Sidebar Navigation (applies to both light and dark mode)
 // ============================================================================
 
 // Ensure the index page always shows in sidebar navigation (even when active)
@@ -41,7 +41,7 @@ $navbar-fg: white;
 }
 
 // ============================================================================
-// Navigation and Header
+// Navigation and Header (structural - applies to both modes)
 // ============================================================================
 
 // Override Headroom.js - keep header always visible and sticky
@@ -82,6 +82,12 @@ $navbar-fg: white;
 .sidebar.sidebar-navigation {
   top: 10px !important;
 }
+
+// ============================================================================
+// GPSA Branding Styles (LIGHT MODE ONLY)
+// ============================================================================
+
+:root:not([data-bs-theme="dark"]) {
 
 .navbar {
   background-color: $navy-blue !important;
@@ -387,8 +393,10 @@ pre {
   }
 }
 
+} // End :root:not([data-bs-theme="dark"]) - GPSA branding for light mode only
+
 // ============================================================================
-// Responsive Adjustments
+// Responsive Adjustments (applies to both modes)
 // ============================================================================
 
 @media (max-width: 768px) {
