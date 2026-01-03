@@ -51,8 +51,8 @@ This section establishes the procedures and requirements for conducting GPSA dua
 |            Home Team            |               Visitors               |
 | :-----------------------------: | :----------------------------------: |
 |           One referee           |     One timer per assigned lane      |
-|           One starter           |           Two S&T judges            |
-|         Two S&T judges         |           One sweep judge            |
+|           One starter           |           Two S&T judges             |
+|         Two S&T judges          |           One sweep judge            |
 |   One timer per assigned lane   |           One scorekeeper            |
 |         One Head timer          |            Ribbon writer             |
 |         One sweep judge         |   One stopwatch per assigned lane    |
