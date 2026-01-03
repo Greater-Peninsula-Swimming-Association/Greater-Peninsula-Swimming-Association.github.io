@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: ../../docs/rulebook
+  output-dir: pub
 
 # Filters - applied in order listed
 filters:
