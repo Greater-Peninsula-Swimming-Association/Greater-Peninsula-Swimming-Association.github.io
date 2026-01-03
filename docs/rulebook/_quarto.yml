@@ -33,17 +33,7 @@ book:
     title: "GPSA Rulebook"
     logo: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
     search: true
-    collapse-level: 1
-    contents:
-      - index.qmd
-      - definitions.md
-      - eligibility-and-rosters.md
-      - officials.md
-      - order-of-events.md
-      - conduct-of-meets.md
-      - scoring.md
-      - awards.md
-      - facilities.md
+    contents: auto
 
 # Format configurations
 format:
