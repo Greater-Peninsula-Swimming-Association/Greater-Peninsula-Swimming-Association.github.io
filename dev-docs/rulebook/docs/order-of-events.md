@@ -4,11 +4,6 @@ This section defines the standard order of events for GPSA dual meets, including
 
 ## Event Schedule
 
-```latex
-\begin{minipage}{\textwidth}
-\small
-```
-
 | BOYS  |           EVENT            | GIRLS |       | BOYS  |           EVENT            | GIRLS |
 | :---: | :------------------------: | :---: | :---: | :---: | :------------------------: | :---: |
 |   0   | Mixed 8\&U 100M Free Relay |   0   |       |  31   |       6\&U 25M Back        |  32   |
@@ -27,11 +22,6 @@ This section defines the standard order of events for GPSA dual meets, including
 |  25   |      11-12 50M Breast      |  26   |       |  55   |    Open 200M Free Relay    |  56   |
 |  27   |      13-14 50M Breast      |  28   |       |       |                            |       |
 |  29   |      15-18 50M Breast      |  30   |       |       |                            |       |
-
-```latex
-\normalsize
-\end{minipage}
-```
 
 ## General Rules
 

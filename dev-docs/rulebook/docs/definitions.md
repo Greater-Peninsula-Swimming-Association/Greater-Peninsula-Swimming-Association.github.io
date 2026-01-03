@@ -6,7 +6,7 @@ This section defines key terms used throughout the GPSA Rulebook.
 
 Greater Peninsula Swimming Association.
 
-## 2. BONA FIDE SWIMMER
+## BONA FIDE SWIMMER
 
 A swimmer who meets all of the following criteria:
 
@@ -18,27 +18,27 @@ A swimmer who meets all of the following criteria:
 
 4. A swimmer that is a member of a pool that has not sponsored a team for the season may swim for another team for a period of 1 year.
 
-## 3. CHAMPIONSHIP MEET
+## CHAMPIONSHIP MEET
 
 1. Is a swim meet that is open to all qualifying swimmers from any GPSA **Team**.
 
 2. Also referred to as CITY MEET.
 
-## 4. SUMMER SPLASH INVITATIONAL MEET
+## SUMMER SPLASH INVITATIONAL MEET
 
 1. Is a swim meet that is open to swimmers not qualified for the Championship Meet.
 
 2. Also referred to as MINI MEET.
 
-## 5. INTERPOOL MEET
+## INTERPOOL MEET
 
 Also known as a dual meet, shall mean a swim meet swum between two pools.
 
-## 6. TEAM
+## TEAM
 
 Is a recognized member of the GPSA that has access to a pool capable of hosting swimming competitions.
 
-## 7. DIVISION
+## DIVISION
 
 1. A grouping of **Team**s who compete in GPSA-Scheduled swim meets in order to identify a DIVISION champion.
 

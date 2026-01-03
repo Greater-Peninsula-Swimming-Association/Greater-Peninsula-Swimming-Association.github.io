@@ -16,7 +16,7 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 ## Changing Teams
 
-6. After the season begins, swimmers may only change **Team**s if they:
+1. After the season begins, swimmers may only change **Team**s if they:
 
     1. Change permanent residence.
 
@@ -24,11 +24,11 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 ## Age Determination
 
-7. A swimmer's competition age is determined based on their age as of June 1st of the current season. Swimmers born on June 1st are considered to have reached the older age for competition purposes.
+1. A swimmer's competition age is determined based on their age as of June 1st of the current season. Swimmers born on June 1st are considered to have reached the older age for competition purposes.
 
 ## Roster Revisions
 
-8. Roster revisions are allowed at any time during the season, provided they are:
+1. Roster revisions are allowed at any time during the season, provided they are:
 
     1. Submitted at least 24 hours prior to the start of a meet and is sent to the Rules Committee and the DIVISION email distribution list.
 
@@ -36,8 +36,8 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 ## Eligibility Challenges
 
-9. GPSA Representatives may challenge the eligibility of any swimmer by submitting a written request to the Rules Committee. The Rules Committee shall render all decisions promptly in writing to the President of the GPSA and to the GPSA Representative(s) involved. An appeal of an eligibility decision may be made by the GPSA Representative involved to the Rules Committee Chairman within seven (7) days of the date of the decision letter. The Rules Committee shall render the final decision on all questions concerning eligibility.
+1. GPSA Representatives may challenge the eligibility of any swimmer by submitting a written request to the Rules Committee. The Rules Committee shall render all decisions promptly in writing to the President of the GPSA and to the GPSA Representative(s) involved. An appeal of an eligibility decision may be made by the GPSA Representative involved to the Rules Committee Chairman within seven (7) days of the date of the decision letter. The Rules Committee shall render the final decision on all questions concerning eligibility.
 
 ## Ineligible Swimmers
 
-10. A swimmer determined to be ineligible shall not be allowed to further represent their **Team**. If a swimmer's ineligibility is extended to previous meets during the current season, those meets shall be rescored to reflect the removal of the swimmer. Division standings and swimmer awards shall also be changed accordingly.
+1. A swimmer determined to be ineligible shall not be allowed to further represent their **Team**. If a swimmer's ineligibility is extended to previous meets during the current season, those meets shall be rescored to reflect the removal of the swimmer. Division standings and swimmer awards shall also be changed accordingly.

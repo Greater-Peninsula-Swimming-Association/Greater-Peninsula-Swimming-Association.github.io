@@ -8,14 +8,14 @@ This section defines the point system for GPSA dual meets.
 
 ## Relay Events
 
-2. The winning relay team shall be awarded seven (7) points, the losing team none.
+1. The winning relay team shall be awarded seven (7) points, the losing team none.
 
     1. With exception for Event 0, this is a non-scored event.
 
 ## Ties
 
-3. In case of ties, points for the tying and next position(s) will be added and divided equally between the tying swimmers.
+1. In case of ties, points for the tying and next position(s) will be added and divided equally between the tying swimmers.
 
 ## Disqualifications
 
-4. When an individual or relay is disqualified, the following places will move up accordingly and points awarded to them.
+1. When an individual or relay is disqualified, the following places will move up accordingly and points awarded to them.

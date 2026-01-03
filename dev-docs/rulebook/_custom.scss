@@ -1,0 +1,67 @@
+/*-- scss:defaults --*/
+
+// GPSA Brand Colors
+$navy-blue: #002366;
+$light-blue: #0033a0;
+$red: #d9242b;
+$dark-red: #b81e24;
+
+// Primary color scheme using GPSA navy
+$primary: $navy-blue;
+$secondary: $red;
+$link-color: $light-blue;
+
+// Header styling
+$headings-color: $navy-blue;
+
+/*-- scss:rules --*/
+
+// Custom styling for GPSA branding
+.sidebar-logo {
+  max-width: 100px;
+  margin: 1rem auto;
+}
+
+// Table styling for event schedules
+table {
+  margin: 1.5rem 0;
+
+  thead {
+    background-color: $navy-blue;
+    color: white;
+
+    th {
+      padding: 0.75rem;
+      text-align: center;
+    }
+  }
+
+  tbody {
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    td {
+      padding: 0.5rem;
+      text-align: center;
+    }
+  }
+}
+
+// Emphasis on key terms (bold text in definitions)
+strong {
+  color: $navy-blue;
+}
+
+// Custom callouts/admonitions styling
+.callout {
+  border-left: 4px solid $red;
+}
+
+.callout.callout-note {
+  border-left-color: $light-blue;
+}
+
+.callout.callout-important {
+  border-left-color: $red;
+}

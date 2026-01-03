@@ -12,8 +12,8 @@ This section establishes the minimum standards for pools hosting GPSA-sanctioned
 
 ## Required Equipment
 
-2. All pools must have lane markings on the bottom, targets on the end walls in the center of each lane, lane ropes and backstroke flags in accordance with current USA Swimming Rules.
+1. All pools must have lane markings on the bottom, targets on the end walls in the center of each lane, lane ropes and backstroke flags in accordance with current USA Swimming Rules.
 
 ## Backstroke Flags
 
-3. Backstroke flags shall be 5 meters or 5 yards (+/- 1 foot) from the end of the pool. Failure to have appropriately located backstroke flags will result in the home team forfeiting all Backstroke, Individual Medley, and Medley Relay events.
+1. Backstroke flags shall be 5 meters or 5 yards (+/- 1 foot) from the end of the pool. Failure to have appropriately located backstroke flags will result in the home team forfeiting all Backstroke, Individual Medley, and Medley Relay events.

@@ -1,0 +1,10 @@
+# Quarto build artifacts
+/.quarto/
+_freeze/
+*.tex
+
+# Keep the output directories - they need to be committed for GitHub Pages
+# ../../docs/rulebook/ (HTML output - KEEP in git)
+# ../rulebook.pdf (PDF output - KEEP in git)
+
+**/*.quarto_ipynb

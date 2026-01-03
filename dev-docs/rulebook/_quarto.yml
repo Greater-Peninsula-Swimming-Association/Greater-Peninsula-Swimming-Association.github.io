@@ -1,0 +1,71 @@
+project:
+  type: book
+  output-dir: ../../docs/rulebook
+
+book:
+  title: "GPSA Rulebook"
+  subtitle: "Greater Peninsula Swimming Association"
+  author: "GPSA"
+  date: "December 2025"
+
+  # Cover page customization
+  cover-image: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
+
+  # Book structure - chapters in order
+  chapters:
+    - index.md
+    - docs/definitions.md
+    - docs/eligibility-and-rosters.md
+    - docs/officials.md
+    - docs/order-of-events.md
+    - docs/conduct-of-meets.md
+    - docs/scoring.md
+    - docs/awards.md
+    - docs/facilities.md
+
+  # Navigation
+  sidebar:
+    title: "GPSA Rulebook"
+    logo: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
+    search: true
+
+  # Page footer
+  page-footer:
+    left: "Greater Peninsula Swimming Association"
+    right: "December 2025"
+
+# Format configurations
+format:
+  # HTML output (website)
+  html:
+    theme:
+      light: [cosmo, _custom.scss]
+      dark: [darkly, _custom.scss]
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    link-external-newwindow: true
+    code-link: true
+
+  # PDF output
+  pdf:
+    documentclass: book
+    classoption: [twoside]
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    geometry:
+      - margin=1in
+    colorlinks: true
+    papersize: letter
+    fig-pos: 'H'
+    # PDF metadata
+    pdf-engine: pdflatex
+    keep-tex: false
+
+# Execution - don't execute code blocks by default
+execute:
+  enabled: false
+
+# Metadata
+lang: en

@@ -1,13 +1,15 @@
-# GPSA Rulebook - Build System
+# GPSA Rulebook - Quarto Build System
 
-This directory contains the source files and build system for the GPSA Rulebook, which is published in both **PDF** and **web** formats.
+This directory contains the source files and build system for the GPSA Rulebook, which is published in both **PDF** and **HTML** formats using [Quarto](https://quarto.org).
 
 ## Directory Structure
 
 ```
 rulebook/
-├── docs/                    # Modular markdown source files (edit these!)
-│   ├── index.md            # Web home page
+├── _quarto.yml             # Quarto configuration (replaces mkdocs.yml + assembly scripts)
+├── _custom.scss            # GPSA brand styling (navy #002366, red #d9242b)
+├── docs/                   # Modular markdown source files (edit these!)
+│   ├── index.md           # Web home page
 │   ├── definitions.md
 │   ├── eligibility-and-rosters.md
 │   ├── officials.md
@@ -15,160 +17,262 @@ rulebook/
 │   ├── conduct-of-meets.md
 │   ├── scoring.md
 │   ├── awards.md
-│   ├── facilities.md
-│   └── stylesheets/        # Custom CSS for web version
-├── mkdocs.yml              # MkDocs configuration for web version
-├── rulebook.md             # AUTO-GENERATED - Combined file for PDF
-├── assemble-rulebook.sh    # Script to build rulebook.md from docs/
-├── build-all.sh            # Master build script (PDF + Web)
-├── Dockerfile              # Docker config for MkDocs preview
-└── docker-compose.yml      # Docker Compose for easy MkDocs server
+│   └── facilities.md
+└── build-quarto.sh         # Build script for both PDF and HTML
+
+# Output directories (auto-generated):
+../../docs/rulebook/         # HTML output (GitHub Pages)
+../rulebook.pdf             # PDF output
 ```
 
 ## Quick Start
 
-### Editing Content
+### Prerequisites
 
-1. **Edit the modular files** in `docs/` directory
-2. DO NOT edit `rulebook.md` directly - it's auto-generated!
+**Install Quarto:**
+
+**macOS (Homebrew):**
+```bash
+brew install quarto
+```
+
+**Alternative:**
+Download from https://quarto.org/docs/get-started/
+
+**Verify installation:**
+```bash
+quarto --version
+```
 
 ### Building Both Formats
 
-Run the master build script from anywhere in the project:
+Run the build script from anywhere in the project:
 
 ```bash
-./dev-docs/rulebook/build-all.sh
+./dev-docs/rulebook/build-quarto.sh
 ```
 
-This will:
-1. ✅ Assemble `docs/*.md` files into `rulebook.md`
-2. ✅ Generate PDF → `dev-docs/rulebook.pdf`
-3. ✅ Build web version → `../../docs/rulebook/`
+This single command will:
+1. ✅ Generate PDF → `dev-docs/rulebook.pdf`
+2. ✅ Build HTML website → `docs/rulebook/`
 
-### Building Just the PDF
-
+**Or build manually from the rulebook directory:**
 ```bash
-# From project root
-./dev-docs/build.sh rulebook
-```
-
-### Building Just the Web Version
-
-```bash
-# From rulebook directory
 cd dev-docs/rulebook
-mkdocs build
+quarto render
+```
+
+### Building Individual Formats
+
+**PDF only:**
+```bash
+cd dev-docs/rulebook
+quarto render --to pdf
+```
+
+**HTML only:**
+```bash
+cd dev-docs/rulebook
+quarto render --to html
 ```
 
 ## Development Workflow
 
-### Preview Web Version Locally
+### Editing Content
 
-**Option 1: Using MkDocs directly** (requires Python + mkdocs)
+1. **Edit files in `docs/` directory** (NOT the auto-generated outputs)
+2. Preview changes (see below)
+3. Build final outputs when ready
+4. Commit changes to Git
+
+### Preview While Editing
+
+**Live preview with auto-reload:**
 ```bash
 cd dev-docs/rulebook
-mkdocs serve
-# Open http://localhost:8000
+quarto preview
 ```
 
-**Option 2: Using Docker Compose** (no local dependencies)
-```bash
-cd dev-docs/rulebook
-docker-compose up
-# Open http://localhost:8000
-# Note: This is for preview only. For building, use build-all.sh
-```
+This opens a browser window that automatically updates when you save changes. Press `Ctrl+C` to stop.
 
 ### Making Changes
 
-1. Edit files in `docs/` directory
-2. Preview changes:
-   - Web: MkDocs auto-reloads on save
-   - PDF: Re-run `./build-all.sh` to regenerate
-3. Commit changes to Git
-4. GitHub Pages will automatically publish the web version
+The workflow is simpler than the old MkDocs+Pandoc system:
 
-## File Order for PDF
+**Old system:** Edit docs → Run assembly script → Build PDF → Build HTML (3 steps)
+**Quarto system:** Edit docs → `quarto render` (1 step)
 
-The PDF is assembled from `docs/` files in this order (defined in `mkdocs.yml` nav):
+## Configuration
 
-1. definitions.md
-2. eligibility-and-rosters.md
-3. officials.md
-4. order-of-events.md
-5. conduct-of-meets.md
-6. scoring.md
-7. awards.md
-8. facilities.md
+### Book Metadata
 
-Note: `index.md` is excluded from PDF (web-only intro page)
+Edit `_quarto.yml` to change:
+- Title, subtitle, author, date
+- Cover image
+- Chapter order
+- Theme settings
 
-## YAML Front Matter
+### Styling
 
-The `assemble-rulebook.sh` script automatically adds this front matter to `rulebook.md`:
+**GPSA Brand Colors** (defined in `_custom.scss`):
+- **Navy Blue:** `#002366` (primary color, headings)
+- **Light Blue:** `#0033a0` (links)
+- **Red:** `#d9242b` (secondary/accent)
+- **Dark Red:** `#b81e24` (hover states)
 
+**To customize styling:**
+- Edit `_custom.scss` for global changes
+- HTML themes: Set in `_quarto.yml` under `format.html.theme`
+- PDF layout: Set in `_quarto.yml` under `format.pdf`
+
+### Chapter Order
+
+Chapters are listed in `_quarto.yml` under `book.chapters`:
 ```yaml
----
-title: "GPSA Rulebook"
-date: "December 2025"
-draft: true
-titlepage: true
-titlepage-logo: "assets/gpsa_logo.png"
-logo-width: 120mm
-toc-own-page: true
-numbersections: true
----
+chapters:
+  - index: docs/index.md
+  - docs/definitions.md
+  - docs/eligibility-and-rosters.md
+  # ... etc
 ```
 
-To update the cover page:
-- Edit these values in `assemble-rulebook.sh`
-- DO NOT edit `rulebook.md` (changes will be overwritten)
+To add a new chapter:
+1. Create `.md` file in `docs/`
+2. Add to `chapters` list in `_quarto.yml`
+3. Run `quarto render`
 
-## Technical Details
+## Output Details
 
-### PDF Generation
-- Uses Pandoc with custom LaTeX template (`dev-docs/_template/template.tex`)
-- Runs in Docker container (`texlive/texlive:latest`)
-- Configured for GPSA branding (logo, colors, formatting)
+### HTML Website
+- **Location:** `../../docs/rulebook/` (served by GitHub Pages)
+- **Theme:** Cosmo (light) / Darkly (dark) with GPSA customization
+- **Features:**
+  - Responsive navigation
+  - Automatic table of contents
+  - Full-text search
+  - Dark mode toggle
+  - Mobile-friendly
 
-### Web Generation
-- Uses MkDocs with Material theme
-- Custom CSS for GPSA branding (`docs/stylesheets/gpsa-custom.css`)
-- Configured to output to `../../docs/rulebook/` (repo root `/docs/rulebook/`)
-- When building with Docker, the entire repo is mounted to ensure relative paths work correctly
-- Output is served by GitHub Pages from `/docs/rulebook/`
+### PDF Document
+- **Location:** `../rulebook.pdf`
+- **Format:** Letter size, book class, two-sided
+- **Features:**
+  - Numbered sections
+  - Table of contents
+  - Professional typesetting
+  - GPSA logo on cover
+
+## Advantages Over MkDocs+Pandoc
+
+**Simpler:**
+- ✅ One config file instead of multiple
+- ✅ One build command instead of chained scripts
+- ✅ No assembly step needed
+- ✅ Native multi-file support
+
+**More Powerful:**
+- ✅ Better cross-references: `@sec-officials` syntax
+- ✅ Native callouts: `:::{.callout-note}` for important info
+- ✅ Code execution support (if needed for calculations)
+- ✅ Publication-quality PDF by default
+- ✅ Better table handling
+
+**Easier Maintenance:**
+- ✅ Single source of truth
+- ✅ Industry-standard tool (used by RStudio, Observable, academic publishers)
+- ✅ Active development and community support
 
 ## Troubleshooting
 
+**Quarto not found:**
+- Install Quarto: `brew install quarto` (macOS)
+- Or download: https://quarto.org/docs/get-started/
+
 **PDF won't build:**
-- Ensure Docker is running
-- Check that `assemble-rulebook.sh` ran successfully
-- Verify `rulebook.md` was generated
+- Ensure LaTeX is installed (Quarto will prompt to install TinyTeX if needed)
+- Run: `quarto install tinytex`
 
-**Web version not updating:**
-- Run `mkdocs build` manually
-- Check `mkdocs.yml` for syntax errors
-- Ensure files in `docs/` are valid Markdown
+**HTML output location wrong:**
+- Check `output-dir` in `_quarto.yml`
+- Should be: `../../docs/rulebook`
 
-**Content out of sync:**
-- Always run `./build-all.sh` to rebuild both formats
-- Check Git status to ensure all changes are committed
+**Changes not appearing:**
+- Clear cache: `quarto render --cache-refresh`
+- Check you're editing files in `docs/`, not the output directories
 
-## CI/CD Integration
+**Styling issues:**
+- Check `_custom.scss` for syntax errors
+- Verify SCSS variables are defined before use
 
-The build process can be automated in GitHub Actions:
+## GitHub Pages Integration
 
-```yaml
-- name: Build Rulebook
-  run: |
-    ./dev-docs/rulebook/build-all.sh
+The HTML output is automatically generated to `docs/rulebook/`, which is served by GitHub Pages.
 
-- name: Commit generated files
-  run: |
-    git add dev-docs/rulebook.pdf docs/rulebook/
-    git commit -m "Update rulebook PDF and web version"
+**Workflow:**
+1. Edit markdown files in `docs/`
+2. Run `quarto render`
+3. Commit changes (including generated HTML in `docs/rulebook/`)
+4. Push to GitHub
+5. GitHub Pages auto-updates in 1-2 minutes
+
+**Note:** Unlike the old MkDocs system, you need to commit the generated HTML files in `docs/rulebook/` to Git.
+
+## Advanced Features
+
+### Cross-References
+
+Reference sections by ID:
+```markdown
+See @sec-officials for details.
 ```
+
+Add IDs to sections:
+```markdown
+## Officials {#sec-officials}
+```
+
+### Callouts
+
+Add styled callout boxes:
+```markdown
+:::{.callout-note}
+This is an important note.
+:::
+
+:::{.callout-important}
+Critical information here.
+:::
+```
+
+### Custom Divs
+
+Add custom HTML classes:
+```markdown
+:::{.custom-class}
+Content here
+:::
+```
+
+## Migration Notes
+
+**From MkDocs+Pandoc system:**
+- ✅ Markdown files unchanged (except removed LaTeX wrappers)
+- ✅ GPSA branding preserved
+- ✅ Same output locations for GitHub Pages
+- ⚠️ Navigation structure slightly different (book vs material theme)
+- ⚠️ Need to commit generated HTML files
+
+**Old files (can be removed after successful transition):**
+- `mkdocs.yml` → replaced by `_quarto.yml`
+- `assemble-rulebook.sh` → not needed (Quarto handles assembly)
+- `build-all.sh` → replaced by `build-quarto.sh`
+- `Dockerfile` (MkDocs) → not needed
+- `docker-compose.yml` → not needed
+- `rulebook.md` (assembled file) → not needed
+- `pandoc-filter.lua` → not needed
 
 ## Questions?
 
-See the main project documentation at `/DOCUMENTATION.md` or contact the GPSA webmaster.
+**Quarto Documentation:** https://quarto.org/docs/guide/
+**Quarto Books:** https://quarto.org/docs/books/
+**GPSA Webmaster:** Contact through your GPSA Representative
