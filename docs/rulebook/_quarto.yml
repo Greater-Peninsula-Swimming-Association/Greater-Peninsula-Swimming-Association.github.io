@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: pub
+  output-dir: public-html
 
 # Filters - applied in order listed
 filters:
