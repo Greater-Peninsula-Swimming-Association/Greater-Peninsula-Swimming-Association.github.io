@@ -6,9 +6,9 @@ This section establishes the minimum standards for pools hosting GPSA-sanctioned
 
 1. The pool shall be 25 meters in length. If not, an appropriate correction factor shall be applied to times swum in the non-conforming pool.
 
-    1. 25 yard pools shall use a conversion factor of 1.09.
+    a. 25 yard pools shall use a conversion factor of 1.09.
 
-    2. Colony pool shall use a conversion factor of 1.07.
+    b. Colony pool shall use a conversion factor of 1.07.
 
 ## Required Equipment
 

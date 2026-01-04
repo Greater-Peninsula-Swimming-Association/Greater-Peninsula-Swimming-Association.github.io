@@ -10,7 +10,7 @@ This section defines the point system for GPSA dual meets.
 
 1. The winning relay team shall be awarded seven (7) points, the losing team none.
 
-    1. With exception for Event 0, this is a non-scored event.
+    a. With exception for Event 0, this is a non-scored event.
 
 ## Ties
 

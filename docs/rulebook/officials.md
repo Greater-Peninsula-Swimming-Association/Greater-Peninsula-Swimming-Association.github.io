@@ -167,9 +167,9 @@ This section outlines the roles, responsibilities, and certification requirement
 ### General Certification Requirements
 
 1. The following officials are required to hold a current GPSA certification:
-    1. Referee
-    2. Starter
-    3. Stroke & Turn Judge
+    a. Referee
+    b. Starter
+    c. Stroke & Turn Judge
 2. All certifications must be renewed annually to remain valid for the current season.
 3. A lack of certified officials shall not be grounds for the forfeiture of a meet. Uncertified individuals may volunteer to fill positions at the discretion of the GPSA Representative.
 

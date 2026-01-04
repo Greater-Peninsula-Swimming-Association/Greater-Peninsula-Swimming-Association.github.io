@@ -18,9 +18,9 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 1. After the season begins, swimmers may only change **Team**s if they:
 
-    1. Change permanent residence.
+    a. Change permanent residence.
 
-    2. Meet the eligibility requirements as a **Bona Fide Swimmer** for the new **Team**.
+    b. Meet the eligibility requirements as a **Bona Fide Swimmer** for the new **Team**.
 
 ## Age Determination
 
@@ -30,9 +30,9 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 1. Roster revisions are allowed at any time during the season, provided they are:
 
-    1. Submitted at least 24 hours prior to the start of a meet and is sent to the Rules Committee and the DIVISION email distribution list.
+    a. Submitted at least 24 hours prior to the start of a meet and is sent to the Rules Committee and the DIVISION email distribution list.
 
-    2. Any swimmer removed from the roster after the roster deadline cannot be reinstated for the remainder of the season.
+    b. Any swimmer removed from the roster after the roster deadline cannot be reinstated for the remainder of the season.
 
 ## Eligibility Challenges
 
