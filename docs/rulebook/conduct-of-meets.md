@@ -19,23 +19,18 @@ This section establishes the procedures and requirements for conducting GPSA dua
 5. **Rescheduling Process:**
 
     a. Upon postponement, the GPSA Representatives' first priority is to agree on a date to hold the meet as soon as reasonably possible (e.g., the next day).
-
     b. If an immediate alternative date cannot be mutually agreed upon, the meet shall be held on the next available official league rain date.
-
     c. A final, rescheduled date **must** be confirmed by both Representatives within 24 hours of the initial postponement.
 
 6. **Defining a Completed Meet:**
 
     a. A meet that is stopped and cannot be resumed is considered **complete** if all events through event 30 (15-18 50M Breast) have been swum.
-
     b. If a meet is stopped before the completion of event 30, it is considered a **suspended meet** and must be rescheduled and completed at a later date.
-
     c. Notwithstanding the above, the two GPSA Representatives may mutually agree that a meet is complete at any point after it has begun.
 
 7. **Failure to Reschedule:**
 
     a. The collaborative rescheduling of a suspended meet is a primary responsibility of both GPSA Representatives, who are expected to begin discussions on the night of the postponement.
-
     b. If the Representatives fail to agree on a reschedule date within the 24-hour period required by rule 5.c, the meet shall be declared a **loss for both teams.**
 
 ## Venue and Code of Conduct
@@ -67,19 +62,68 @@ This section establishes the procedures and requirements for conducting GPSA dua
 |     Table for scorekeepers      |                                      |
 |     Chairs for sweep judges     |                                      |
 | Laptop/Tablet for Meet Maestro  |                                      |
+|   Six (6) printed heat sheets   |                                      |
 
 *\*stopwatches are recommended as backup even if using a timing system*
 
 *\*it is recommended for the visiting team to also bring a laptop/tablet for their scorekeeper to use Meet Maestro*
 
+## Meet Operations
+
+### Swimmer Readiness
+
+1. It shall be the coaches' responsibility to keep the swimmers for the next two consecutive events or heats behind the starting blocks or in the designated locations.
+
+### Time Recording
+
+1. **Recording Method:** Swimmer times shall be recorded using one of the following methods:
+    - **Electronic Timing System (Time Drops):** Times are automatically captured and transmitted to Meet Maestro.
+    - **Lane Slips:** Written cards containing team name, swimmer name, lane number, and event number.
+    - **Lane Timer Sheets:** Timing forms that may be used in lieu of lane slips or as backup with electronic timing systems.
+
+2. **Time Collection Process:**
+    1. When using lane slips, the swimmer must have a lane slip when taking their place behind the blocks. Names shall match the team roster, though initials may be used. The swimmer gives the lane slip to the lane timer.
+    2. When using lane timer sheets, the lane timers already have the necessary forms.
+    3. Upon completion of the event, the timer records the swimmer's time to hundredths of a second using the designated method.
+    4. The runner collects all time records for the event and delivers them to the scorekeeper to be entered into Meet Maestro.
+
+### Place Recording
+
+1. **Sweep Judge Determination:** The sweep judges shall independently observe and determine the order of finish for each scoring heat.
+
+2. **Place Judge Form:**
+    1. The scorekeeper shall print a Place Judge Form from Meet Maestro for each heat of Heat 1 of all scored events (events 1-56).
+    2. If the sweep judges concur on the order of finish, they shall record the order on the Place Judge Form.
+
+3. **Referee Review:**
+    1. The sweep judges deliver the Place Judge Form to the referee (directly or via runner).
+    2. The referee reviews the order of finish and adjusts for any disqualifications.
+    3. The referee initials the Place Judge Form to confirm accuracy.
+
+4. **Final Recording:**
+    1. A runner delivers the initialed Place Judge Form to the scorekeeper.
+    2. The scorekeeper enters the order of finish into Meet Maestro for Heat 1 of all scored events (events 1-56).
+
 ## Swimmer Participation and Entries
 
-1. A swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition).
+1. **Age Group Flexibility:** Swimmers are allowed to participate in any event in age groups older than their actual age.
+2. A swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition).
     a. Event 0 (Mixed 8&U 100M Free Relay) does not count against a swimmer's event limits.
     b. For a team with fewer than 64 swimmers on its official roster, swimmers in an age/gender group with three (3) or fewer swimmers may compete in up to four (4) individual events.
     c. If a swimmer is found to have exceeded these limits, they shall be disqualified from all events in which they were entered, and scores shall be adjusted.
-2. Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team must be marked as exhibition.
-3. Starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
+3. Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team shall be marked as exhibition.
+4. Starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
+
+## Substitutions
+
+1. **Three-Event Rule:** No substitutions will be allowed for the next three events after an event is in the water.
+    - *Example: If event 1 is in the water, no substitutions can be made in events 2, 3, and 4.*
+
+2. **Submission Process:** Only the coach or coach's designated representative may approach the scoring table and present a written note bearing the event number, lane number, and name of the swimmer for the desired substitution.
+
+3. **Postponed Meet Exception:** In the event of a postponed swim meet, substitutions may be made at the beginning of the restarted meet for all events not previously swum, in which case the three-event rule does not apply.
+
+4. **Injury/Illness Exception:** The referee may allow substitution for an injured or sick swimmer outside the three-event window. In this case, the event counts as an event swum for both the original swimmer and the substituted swimmer.
 
 ## Protests
 
