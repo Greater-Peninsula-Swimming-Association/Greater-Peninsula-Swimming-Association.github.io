@@ -12,7 +12,7 @@ This section outlines the roles, responsibilities, and certification requirement
 
 3. Shall possess a thorough knowledge of all GPSA rules and be empowered to make binding decisions for their team on matters of rule interpretation and meet procedures, including agreeing with the opposing Representative and Meet Referee on any pre-meet rule modifications.
 
-4. Is responsible for ensuring their team provides its required complement of certified officials for each meet. This includes encouraging attendance at training clinics and appointing volunteers to fill empty positions at their discretion.
+4. Is responsible for ensuring their team provides its required complement of certified officials for each meet. This includes encouraging attendance at training clinics, verifying the certification status of officials (by checking clinic attendance or reviewing USA Swimming certification status), and appointing volunteers to fill empty positions at their discretion.
 
 5. Is responsible for the overall conduct of their team's swimmers, coaches, and spectators. They shall assist the Meet Referee in resolving disciplinary issues as requested.
 
@@ -166,12 +166,14 @@ This section outlines the roles, responsibilities, and certification requirement
 
 ### General Certification Requirements
 
-1. The following officials are required to hold a current GPSA certification:
+1. All GPSA officials represent the league and have a duty to ensure fair and equitable competition.
+2. The following officials are required to hold a current GPSA certification:
     a. Referee
     b. Starter
     c. Stroke & Turn Judge
-2. All certifications must be renewed annually to remain valid for the current season.
-3. A lack of certified officials shall not be grounds for the forfeiture of a meet. Uncertified individuals may volunteer to fill positions at the discretion of the GPSA Representative.
+3. All certifications must be renewed annually to remain valid for the current season.
+4. All certified officials are expected to be familiar with current GPSA rules.
+5. A lack of certified officials shall not be grounds for the forfeiture of a meet. Uncertified individuals may volunteer to fill positions at the discretion of the GPSA Representative.
 
 ### Certification and Recertification Process
 
@@ -184,6 +186,8 @@ An individual may obtain or renew their certification through one of the followi
 3. **USA Swimming Online Course:** Complete the official USA Swimming online course for the desired position (Stroke & Turn, Referee, Starter), which includes training material and an integrated test. Proof of completion (e.g., a certificate) is sufficient for certification.
 
     * **Note:** A fee is required by USA Swimming to access and complete this online course.
+
+4. **Rules Committee Certification:** The Rules Committee may certify any official at their discretion.
 
 ### Role-Specific Requirements
 

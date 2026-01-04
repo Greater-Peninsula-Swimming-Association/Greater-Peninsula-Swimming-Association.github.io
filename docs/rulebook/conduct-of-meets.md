@@ -77,9 +77,9 @@ This section establishes the procedures and requirements for conducting GPSA dua
 ### Time Recording
 
 1. **Recording Method:** Swimmer times shall be recorded using one of the following methods:
-    - **Electronic Timing System (Time Drops):** Times are automatically captured and transmitted to Meet Maestro.
-    - **Lane Slips:** Written cards containing team name, swimmer name, lane number, and event number.
-    - **Lane Timer Sheets:** Timing forms that may be used in lieu of lane slips or as backup with electronic timing systems.
+    a. **Electronic Timing System (Time Drops):** Times are automatically captured and transmitted to Meet Maestro.
+    b. **Lane Slips:** Written cards containing team name, swimmer name, lane number, and event number.
+    c. **Lane Timer Sheets:** Timing forms that may be used in lieu of lane slips or as backup with electronic timing systems.
 
 2. **Time Collection Process:**
     1. When using lane slips, the swimmer must have a lane slip when taking their place behind the blocks. Names shall match the team roster, though initials may be used. The swimmer gives the lane slip to the lane timer.
@@ -112,12 +112,15 @@ This section establishes the procedures and requirements for conducting GPSA dua
     b. For a team with fewer than 64 swimmers on its official roster, swimmers in an age/gender group with three (3) or fewer swimmers may compete in up to four (4) individual events.
     c. If a swimmer is found to have exceeded these limits, they shall be disqualified from all events in which they were entered, and scores shall be adjusted.
 3. Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team shall be marked as exhibition.
-4. Starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
+4. Unless otherwise specified, starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
+5. Towels may not be used at the starting end for backstroke events.
+6. A swimmer who is not present when the starter takes command of an event shall not be allowed to swim that event at the discretion of the referee.
+7. Two false starts by the same swimmer in any one event disqualifies that swimmer. A swimmer may be disqualified after one false start if, in the opinion of the starter and referee, the swimmer deliberately false started.
 
 ## Substitutions
 
 1. **Three-Event Rule:** No substitutions will be allowed for the next three events after an event is in the water.
-    - *Example: If event 1 is in the water, no substitutions can be made in events 2, 3, and 4.*
+    a. *Example: If event 1 is in the water, no substitutions can be made in events 2, 3, and 4.*
 
 2. **Submission Process:** Only the coach or coach's designated representative may approach the scoring table and present a written note bearing the event number, lane number, and name of the swimmer for the desired substitution.
 
@@ -127,4 +130,31 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
 ## Protests
 
-1. The GPSA Representative is the sole representative of their team authorized to file a protest with the Meet Referee (during the meet) or the Rules Committee (after the meet).
+### Authority to Protest
+
+1. The GPSA Representative is the sole representative authorized to file a protest on behalf of their team.
+
+### During-Meet Protests
+
+1. **Competition Protests:** Protests arising from events during the meet shall be filed with the Meet Referee within 30 minutes of the alleged infraction.
+
+2. **Immediate Resolution:** The referee shall resolve the protest immediately and may stop the meet to do so.
+
+### Post-Meet Protests
+
+1. **Appeal to Rules Committee:** Any protest resolved by the referee may be appealed to the Rules Committee if:
+    a. The protest determined the winning team of the meet, or
+    b. The GPSA Representative believes the referee's decision warrants further review.
+    c. Such appeals must be submitted in writing to the Rules Committee within three (3) days of the meet.
+
+2. **Swimmer Eligibility:** Protests concerning the eligibility of any swimmer to compete in an event shall be submitted to the Rules Committee within three (3) days of the meet.
+
+3. **Post-Meet Review:** Protests arising from review of meet results after the meet has concluded shall be submitted to the Rules Committee as follows:
+    a. Initial notification to the Rules Committee within 24 hours of meet completion.
+    b. Formal written protest within three (3) days of meet completion.
+
+### Rules Committee Authority
+
+1. All rulings made by the Rules Committee shall be final.
+
+2. If the Rules Committee sustains a protest, meet scores and awards shall be adjusted accordingly.
