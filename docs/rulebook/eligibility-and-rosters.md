@@ -8,9 +8,11 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 2. Proof of a swimmer's eligibility must be provided by the **Team**'s GPSA Representative upon request by the Rules Committee.
 
-3. Each **Team** must maintain an up-to-date roster of swimmers, coaches, and certified officials. This roster serves as the official record of certification and must list each official's name and their specific, current certification(s) (e.g., Referee, Starter, S&T Judge).
+3. Each **Team** must maintain an up-to-date roster of swimmers, coaches, and certified officials. This roster serves as the official record of certification and must list each official's name and their specific, current certification(s) (e.g., Referee, Starter, S&T Judge). The GPSA Representative is responsible for keeping the roster current throughout the season.
 
 4. **Team** rosters must be submitted no later than one week prior to the start of the GPSA season. Failure to comply will result in a $25 fine payable to the GPSA.
+
+   **Note:** Specific roster submission format and email requirements are under review and will be updated in a future revision.
 
 5. No swimmer may appear on the roster of more than one **Team** simultaneously.
 
@@ -21,6 +23,8 @@ This section establishes the requirements for swimmer eligibility and team roste
     a. Change permanent residence.
 
     b. Meet the eligibility requirements as a **Bona Fide Swimmer** for the new **Team**.
+
+2. **Exception for Disbanded Teams:** A swimmer who is a bona fide member of a pool that has not fielded a team for the current season may swim for another **Team** for a grace period of one (1) year. If, after the one-year period, the home pool still does not have a team, the swimmer must meet the eligibility requirements as a **Bona Fide Swimmer** for the new **Team**.
 
 ## Age Determination
 
@@ -33,6 +37,8 @@ This section establishes the requirements for swimmer eligibility and team roste
     a. Submitted at least 24 hours prior to the start of a meet and is sent to the Rules Committee and the DIVISION email distribution list.
 
     b. Any swimmer removed from the roster after the roster deadline cannot be reinstated for the remainder of the season.
+
+   **Note:** The specific method and timestamp reference for roster revision submissions are under review and will be updated in a future revision.
 
 ## Eligibility Challenges
 

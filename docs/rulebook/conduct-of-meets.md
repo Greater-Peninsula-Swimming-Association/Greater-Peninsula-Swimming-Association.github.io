@@ -4,9 +4,9 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
 ## Scheduling and Postponements
 
-1. **Start Time:** League scheduled meets are to be held as scheduled and will start at 6:00 pm.
+1. **Start Time:** League scheduled meets are to be held as scheduled and will start at 6:00 pm. The meet is considered to have officially begun when the Referee signals the start of the first event.
 
-2. **Warm-up Times:** Both teams shall be given the same amount of time for warm-ups prior to the meet. The home team shall warm-up first, followed by the visiting team.
+2. **Warm-up Times:** Both teams shall be given equal warm-up time prior to the meet, with a minimum of 20 minutes per team. The home team shall warm-up first, followed by the visiting team. The Referee and both GPSA Representatives may agree to shorter warm-up periods when necessary.
 
 3. **Meet Delays:** In the event of inclement weather or minor facility issues that arise before or during a meet, every effort should be made to run the meet as planned. The Referee and both GPSA Representatives shall confer and may temporarily delay the start or suspend the meet (e.g., in 30-minute increments) to await safe, competitive conditions.
 
@@ -32,6 +32,8 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
     a. The collaborative rescheduling of a suspended meet is a primary responsibility of both GPSA Representatives, who are expected to begin discussions on the night of the postponement.
     b. If the Representatives fail to agree on a reschedule date within the 24-hour period required by rule 5.c, the meet shall be declared a **loss for both teams.**
+
+8. **Postponed Meet Entries:** In the event of a postponed swim meet, each team's entries shall remain unchanged and saved in Meet Maestro until the resumption of the meet. Changes may be made in accordance with the substitution rules.
 
 ## Venue and Code of Conduct
 
@@ -67,6 +69,10 @@ This section establishes the procedures and requirements for conducting GPSA dua
 *\*stopwatches are recommended as backup even if using a timing system*
 
 *\*it is recommended for the visiting team to also bring a laptop/tablet for their scorekeeper to use Meet Maestro*
+
+2. **Alternative Official Assignments:** By mutual agreement of both GPSA Representatives, teams may share qualified officials across home and visiting team positions to meet operational needs.
+
+3. **Timer Configuration:** By mutual agreement of both GPSA Representatives, teams may use two or three timers per lane instead of the standard one timer per lane.
 
 ## Meet Operations
 
@@ -158,3 +164,5 @@ This section establishes the procedures and requirements for conducting GPSA dua
 1. All rulings made by the Rules Committee shall be final.
 
 2. If the Rules Committee sustains a protest, meet scores and awards shall be adjusted accordingly.
+
+3. No Rules Committee member may vote on a decision involving a team with which they are affiliated.

@@ -12,11 +12,15 @@ This section outlines the roles, responsibilities, and certification requirement
 
 3. Shall possess a thorough knowledge of all GPSA rules and be empowered to make binding decisions for their team on matters of rule interpretation and meet procedures, including agreeing with the opposing Representative and Meet Referee on any pre-meet rule modifications.
 
-4. Is responsible for ensuring their team provides its required complement of certified officials for each meet. This includes encouraging attendance at training clinics, verifying the certification status of officials (by checking clinic attendance or reviewing USA Swimming certification status), and appointing volunteers to fill empty positions at their discretion.
+4. Has primary responsibility for their team's roster and the eligibility of all swimmers. This includes maintaining an accurate roster and ensuring all swimmers meet eligibility requirements.
 
-5. Is responsible for the overall conduct of their team's swimmers, coaches, and spectators. They shall assist the Meet Referee in resolving disciplinary issues as requested.
+5. Is responsible for ensuring their team provides its required complement of certified officials for each meet. This includes encouraging attendance at training clinics, verifying the certification status of officials (by checking clinic attendance or reviewing USA Swimming certification status), and appointing volunteers to fill empty positions at their discretion.
 
-6. If a GPSA Representative serves in another official capacity during a meet (e.g., as a Starter or Stroke & Turn Judge), they must designate an alternate to handle the responsibilities of the Representative for the duration of the meet. The coach may not be designated as the alternate.
+6. Is responsible for the overall conduct of their team's swimmers, coaches, and spectators. They shall assist the Meet Referee in resolving disciplinary issues as requested.
+
+7. If a GPSA Representative serves in another official capacity during a meet (e.g., as a Starter or Stroke & Turn Judge), they must designate an alternate to handle the responsibilities of the Representative for the duration of the meet. The coach may not be designated as the alternate.
+
+8. When serving as the host team, the GPSA Representative shall submit meet results to the GPSA Publicity Committee within 24 hours of meet completion. Failure to submit results within this deadline may result in penalties at the discretion of the Rules Committee.
 
 ### Meet Referee
 
@@ -134,6 +138,8 @@ This section outlines the roles, responsibilities, and certification requirement
 
 5. All Lane Slips (if used), Place Judge Forms, Sweep Judge sheets, Meet Referee Sheet and the white copy of Disqualification Slips shall be retained and turned over to the home GPSA Representative at the end of the meet. The yellow copy of Disqualification Slips shall be given to the appropriate team's coach at the end of the meet.
 
+6. The home team GPSA Representative shall retain all official meet artifacts (including lane slips, Place Judge Forms, Sweep Judge sheets, Meet Referee sheets, and DQ slips) for the duration of the current season.
+
 ### Coaches
 
 1. Shall stay in the area designated for his/her team and help to ensure that swim team members do not crowd the course or disrupt the officiating.
@@ -172,7 +178,7 @@ This section outlines the roles, responsibilities, and certification requirement
     b. Starter
     c. Stroke & Turn Judge
 3. All certifications must be renewed annually to remain valid for the current season.
-4. All certified officials are expected to be familiar with current GPSA rules.
+4. All certified officials are expected to be familiar with current GPSA rules. Each official should be given a copy of the rules and encouraged to review them before each meet.
 5. A lack of certified officials shall not be grounds for the forfeiture of a meet. Uncertified individuals may volunteer to fill positions at the discretion of the GPSA Representative.
 
 ### Certification and Recertification Process
