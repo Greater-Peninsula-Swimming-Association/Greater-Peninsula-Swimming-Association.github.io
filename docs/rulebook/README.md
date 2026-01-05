@@ -32,18 +32,20 @@ rulebook/
 **IMPORTANT:** The draft status is controlled by `_metadata.yml`:
 
 ```yaml
-draft: true   # Document is a DRAFT (shows banner, blocks merge to main)
-draft: false  # Document is FINAL (no banner, ready for production)
+gpsa_draft: true   # Document is a DRAFT (shows banner, blocks merge to main)
+gpsa_draft: false  # Document is FINAL (no banner, ready for production)
 ```
 
 ### How Draft Mode Works
 
 **When `draft: true`:**
+
 - ✅ HTML: Automatic draft banner at top of every page
 - ✅ GitHub Actions: Prevents merging to `main` branch
 - ✅ Clear visual indicator that content is not final
 
 **When `draft: false`:**
+
 - ✅ No draft banners
 - ✅ Can merge to `main` branch
 - ✅ Production-ready
@@ -51,12 +53,14 @@ draft: false  # Document is FINAL (no banner, ready for production)
 ### Changing Draft Status
 
 **To mark as draft:**
+
 ```bash
 # Edit _metadata.yml
 draft: true
 ```
 
 **To mark as final:**
+
 ```bash
 # Edit _metadata.yml
 draft: false
@@ -71,6 +75,7 @@ draft: false
 **Install Quarto:**
 
 **macOS (Homebrew):**
+
 ```bash
 brew install quarto
 ```
@@ -79,11 +84,13 @@ brew install quarto
 Download from https://quarto.org/docs/get-started/
 
 **Install TinyTeX (for PDF):**
+
 ```bash
 quarto install tinytex
 ```
 
 **Verify installation:**
+
 ```bash
 quarto --version
 ```
@@ -97,10 +104,12 @@ Run the build script from anywhere in the project:
 ```
 
 This single command will:
+
 1. ✅ Generate PDF → `docs/rulebook/GPSA-Rulebook.pdf`
 2. ✅ Build HTML website → `docs/rulebook/`
 
 **Or build manually from the rulebook directory:**
+
 ```bash
 cd dev-docs/rulebook
 quarto render
@@ -109,12 +118,14 @@ quarto render
 ### Building Individual Formats
 
 **PDF only:**
+
 ```bash
 cd dev-docs/rulebook
 quarto render --to pdf
 ```
 
 **HTML only:**
+
 ```bash
 cd dev-docs/rulebook
 quarto render --to html
@@ -132,6 +143,7 @@ quarto render --to html
 ### Preview While Editing
 
 **Live preview with auto-reload:**
+
 ```bash
 cd dev-docs/rulebook
 quarto preview
@@ -151,6 +163,7 @@ The workflow is simpler than the old MkDocs+Pandoc system:
 ### Book Metadata
 
 Edit `_quarto.yml` to change:
+
 - Title, subtitle, author, date
 - Chapter order
 - Theme settings
@@ -159,6 +172,7 @@ Edit `_quarto.yml` to change:
 ### Draft Status
 
 Edit `_metadata.yml`:
+
 ```yaml
 draft: true   # or false
 ```
@@ -166,12 +180,14 @@ draft: true   # or false
 ### Styling
 
 **GPSA Brand Colors** (defined in `_custom.scss`):
+
 - **Navy Blue:** `#002366` (primary color, headings)
 - **Light Blue:** `#0033a0` (links)
 - **Red:** `#d9242b` (secondary/accent)
 - **Dark Red:** `#b81e24` (hover states)
 
 **To customize styling:**
+
 - Edit `_custom.scss` for global changes
 - HTML themes: Set in `_quarto.yml` under `format.html.theme`
 - PDF layout: Set in `_quarto.yml` under `format.pdf`
@@ -179,6 +195,7 @@ draft: true   # or false
 ### Chapter Order
 
 Chapters are listed in `_quarto.yml` under `book.chapters`:
+
 ```yaml
 chapters:
   - index.md
@@ -188,6 +205,7 @@ chapters:
 ```
 
 To add a new chapter:
+
 1. Create `.md` file in `docs/`
 2. Add to `chapters` list in `_quarto.yml`
 3. Run `quarto render`
@@ -195,27 +213,29 @@ To add a new chapter:
 ## Output Details
 
 ### HTML Website
+
 - **Location:** `../../docs/rulebook/` (served by GitHub Pages)
 - **Theme:** Cosmo (light) / Darkly (dark) with GPSA customization
 - **Features:**
-  - Responsive navigation
-  - Automatic table of contents
-  - Full-text search
-  - Dark mode toggle
-  - Mobile-friendly
-  - Sticky header with breadcrumbs
-  - GPSA branded colors throughout
+   - Responsive navigation
+   - Automatic table of contents
+   - Full-text search
+   - Dark mode toggle
+   - Mobile-friendly
+   - Sticky header with breadcrumbs
+   - GPSA branded colors throughout
 
 ### PDF Document
+
 - **Location:** `../../docs/rulebook/GPSA-Rulebook.pdf`
 - **Format:** Letter size, report class, single-sided
 - **Features:**
-  - Custom GPSA-branded cover page with logo
-  - Numbered sections (no "Chapter" labels)
-  - Navy blue section headings with red underlines
-  - Professional headers and footers
-  - GPSA colors throughout
-  - Optimized for digital viewing and printing
+   - Custom GPSA-branded cover page with logo
+   - Numbered sections (no "Chapter" labels)
+   - Navy blue section headings with red underlines
+   - Professional headers and footers
+   - GPSA colors throughout
+   - Optimized for digital viewing and printing
 
 ## GitHub Actions
 
@@ -226,6 +246,7 @@ A workflow (`.github/workflows/check-drafts.yml`) automatically:
 - ✅ Displays helpful error messages
 
 **To merge to main:**
+
 1. Ensure `_metadata.yml` has `draft: false`
 2. Build and verify outputs
 3. Commit and push
@@ -235,30 +256,37 @@ A workflow (`.github/workflows/check-drafts.yml`) automatically:
 ## Troubleshooting
 
 **Quarto not found:**
+
 - Install Quarto: `brew install quarto` (macOS)
 - Or download: https://quarto.org/docs/get-started/
 
 **PDF won't build:**
+
 - Ensure TinyTeX is installed: `quarto install tinytex`
 - Check for LaTeX errors in console output
 
 **HTML output location wrong:**
+
 - Check `output-dir` in `_quarto.yml`
 - Should be: `../../docs/rulebook`
 
 **Changes not appearing:**
+
 - Clear cache: `quarto render --cache-refresh`
 - Check you're editing files in `docs/`, not the output directories
 
 **Styling issues:**
+
 - Check `_custom.scss` for syntax errors
 - Verify SCSS variables are defined before use
 
 **Draft banner not appearing:**
+
 - Check `_metadata.yml` has `draft: true`
 - Rebuild with `quarto render`
 
 **Can't merge to main:**
+
 - Check `_metadata.yml` - must be `draft: false`
 - GitHub Actions will block merge if draft is true
 
@@ -267,6 +295,7 @@ A workflow (`.github/workflows/check-drafts.yml`) automatically:
 The HTML output is automatically generated to `docs/rulebook/`, which is served by GitHub Pages.
 
 **Workflow:**
+
 1. Edit markdown files in `docs/`
 2. Run `quarto render`
 3. Commit changes (including generated HTML in `docs/rulebook/`)
@@ -278,12 +307,14 @@ The HTML output is automatically generated to `docs/rulebook/`, which is served 
 ## Advantages Over MkDocs+Pandoc
 
 **Simpler:**
+
 - ✅ One config file instead of multiple
 - ✅ One build command instead of chained scripts
 - ✅ No assembly step needed
 - ✅ Native multi-file support
 
 **More Powerful:**
+
 - ✅ Better cross-references: `@sec-officials` syntax
 - ✅ Native callouts: `:::{.callout-note}` for important info
 - ✅ Built-in draft mode
@@ -292,6 +323,7 @@ The HTML output is automatically generated to `docs/rulebook/`, which is served 
 - ✅ Better table handling
 
 **Easier Maintenance:**
+
 - ✅ Single source of truth
 - ✅ Industry-standard tool (used by RStudio, Observable, academic publishers)
 - ✅ Active development and community support
