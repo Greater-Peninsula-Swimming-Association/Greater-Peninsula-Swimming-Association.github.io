@@ -6,17 +6,17 @@ This section defines key terms used throughout the GPSA Rulebook.
 
 Greater Peninsula Swimming Association.
 
-## BONA FIDE SWIMMER
+## BONA FIDE MEMBER
 
-A swimmer who meets all of the following criteria:
+An individual who meets all of the following criteria:
 
-1. The swimmer shall be a member in good standing of the GPSA pool to be represented. For swimmers on a team representing two or more pools, the swimmer need only be a member of one of the represented pools.
+1. The individual shall be a member in good standing of the GPSA pool to be represented. For members representing a team composed of two or more pools, the individual need only be a member of one of the represented pools.
 
-2. Satisfies the age requirements for participation.
+2. For competitive swimmers: Satisfies the age requirements for participation as specified in this rulebook.
 
-3. Has a GPSA liability waiver signed by a legally appropriate representative of such swimmer.
+3. Has a GPSA liability waiver signed by a legally appropriate representative, or by the individual themselves if of legal age.
 
-4. A swimmer that is a member of a pool that has not sponsored a team for the season may swim for another team for a period of 1 year.
+4. An individual who is a member of a pool that has not sponsored a team for the season may represent another team for a period of 1 year.
 
 ## CHAMPIONSHIP MEET
 

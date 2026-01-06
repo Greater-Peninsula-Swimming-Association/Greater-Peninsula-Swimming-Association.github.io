@@ -4,7 +4,7 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 ## Roster Requirements
 
-1. Only a **Bona Fide Swimmer** listed on their **Team**'s posted roster may compete in GPSA-scheduled meets.
+1. Only a **Bona Fide Member** listed on their **Team**'s posted roster may compete in GPSA-scheduled meets.
 
 2. Proof of a swimmer's eligibility must be provided by the **Team**'s GPSA Representative upon request by the Rules Committee.
 
@@ -22,9 +22,9 @@ This section establishes the requirements for swimmer eligibility and team roste
 
     a. Change permanent residence.
 
-    b. Meet the eligibility requirements as a **Bona Fide Swimmer** for the new **Team**.
+    b. Meet the eligibility requirements as a **Bona Fide Member** for the new **Team**.
 
-2. **Exception for Disbanded Teams:** A swimmer who is a bona fide member of a pool that has not fielded a team for the current season may swim for another **Team** for a grace period of one (1) year. If, after the one-year period, the home pool still does not have a team, the swimmer must meet the eligibility requirements as a **Bona Fide Swimmer** for the new **Team**.
+2. **Exception for Disbanded Teams:** A swimmer who is a **Bona Fide Member** of a pool that has not fielded a team for the current season may swim for another **Team** for a grace period of one (1) year. If, after the one-year period, the home pool still does not have a team, the swimmer must meet the eligibility requirements as a **Bona Fide Member** for the new **Team**.
 
 ## Age Determination
 

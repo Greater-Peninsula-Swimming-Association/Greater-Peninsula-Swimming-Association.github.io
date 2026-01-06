@@ -6,7 +6,7 @@ This section outlines the roles, responsibilities, and certification requirement
 
 ### GPSA Representative
 
-1. Each team must designate a GPSA Representative who serves as the official point of contact and primary authority for that team before, during, and after a meet. The representative must be a bona fide member of the pool they represent.
+1. Each team must designate a GPSA Representative who serves as the official point of contact and primary authority for that team before, during, and after a meet. The representative must be a **Bona Fide Member** of the pool they represent.
 
 2. The Representative shall act as their team's voting member on the GPSA Board of Directors and is responsible for attending and participating in all league meetings.
 
