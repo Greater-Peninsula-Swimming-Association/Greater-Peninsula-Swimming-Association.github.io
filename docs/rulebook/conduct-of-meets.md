@@ -76,6 +76,19 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
 ## Meet Operations
 
+### Pre-Meet Setup
+
+1. Teams shall be marked as **Ready to Merge** no later than 12pm on the day of the meet.
+2. The Home GPSA Rep shall merge the meet at 12pm.
+3. After merging the meet and consolidating heats, the home GPSA Rep shall prepare the following:
+    a. Heat Sheets for each official
+    b. Place Judge Forms
+    c. Sweep Judge Sheet for the home Sweep Judge
+    d. Meet Referee Sheet
+    e. Meet Referee Verification of Scores
+    f. Relay Takeoff Sheet
+4. The Away GPSA Rep shall prepare the following:
+
 ### Swimmer Readiness
 
 1. It shall be the coaches' responsibility to keep the swimmers for the next two consecutive events or heats behind the starting blocks or in the designated locations.
