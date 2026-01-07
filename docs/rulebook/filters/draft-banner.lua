@@ -24,6 +24,8 @@ function Meta(meta)
     display: none;
     position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 9999;
     background: linear-gradient(135deg, #d9242b 0%, #b81e24 100%);
     color: white;
@@ -33,10 +35,12 @@ function Meta(meta)
     font-size: 1.125rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-bottom: 3px solid #8b1519;
+    margin: 0;
 }
 body[data-gpsa-draft="true"] #gpsa-draft-banner {
     display: block;
 }
+
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,10 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   -- Add banner div before body
   local banner_html = [[
 <div id="gpsa-draft-banner">
-    ⚠️ DRAFT DOCUMENT - NOT FOR OFFICIAL USE ⚠️
-    <div style="font-size: 0.875rem; font-weight: normal; margin-top: 0.25rem; opacity: 0.95;">
-        This is a draft version under review. Do not rely on this content for official league operations.
-    </div>
+    ⚠️ DRAFT DOCUMENT ⚠️
 </div>
 ]]
 
