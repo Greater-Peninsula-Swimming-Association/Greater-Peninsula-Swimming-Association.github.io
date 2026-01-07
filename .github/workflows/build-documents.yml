@@ -24,6 +24,9 @@ jobs:
         with:
           version: '1.8.26'
 
+      - name: Install TinyTeX
+        run: quarto install tinytex
+
       - name: Build GPSA Rulebook
         run: |
           echo "Building GPSA Rulebook with Quarto..."
