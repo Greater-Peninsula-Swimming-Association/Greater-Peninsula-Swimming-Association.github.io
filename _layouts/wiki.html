@@ -350,9 +350,8 @@
         /* Responsive layout
          * Breakpoints:
          * - <1024px: Mobile/Tablet - Both sidebars hidden, hamburger for left nav
-         * - 1024-1535px: Laptop - Left nav behind hamburger, no TOC
-         * - 1536-1999px: Desktop - Left nav behind hamburger, TOC visible
-         * - 2000px+: Large Monitor - Both sidebars visible and sticky
+         * - 1024-1535px: Laptop - Left nav visible, no TOC
+         * - 1536px+: Desktop/Large - Both sidebars visible and sticky
          */
         @media (max-width: 1536px) {
             /* Hide floating TOC on smaller screens */
@@ -361,8 +360,8 @@
             }
         }
 
-        @media (max-width: 1999px) {
-            /* Hide left nav behind hamburger until very large screens */
+        @media (max-width: 1023px) {
+            /* Hide left nav behind hamburger on mobile/tablet */
             .mobile-menu-button {
                 display: flex;
             }
@@ -405,8 +404,8 @@
             }
         }
 
-        @media (min-width: 2000px) {
-            /* Show both sidebars on very large screens */
+        @media (min-width: 1024px) {
+            /* Show left sidebar on laptops and up */
             .mobile-menu-close {
                 display: none;
             }
