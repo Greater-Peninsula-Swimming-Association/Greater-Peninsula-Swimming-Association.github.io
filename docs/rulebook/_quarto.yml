@@ -13,7 +13,7 @@ book:
   date: today
   date-format: "MMMM YYYY"
   site-url: https://draft.rulebook.gpsaswimming.org/rulebook
-  favicon: https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547
+  favicon: "favicon-32x32.png"
 
   page-navigation: true
 
