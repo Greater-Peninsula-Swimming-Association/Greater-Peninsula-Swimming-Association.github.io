@@ -5,6 +5,7 @@ project:
 # Filters - applied in order listed
 filters:
   - filters/draft-watermark.lua
+  - filters/draft-banner.lua
 
 book:
   title: "GPSA Rulebook"
