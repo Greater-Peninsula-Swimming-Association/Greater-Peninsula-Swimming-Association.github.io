@@ -42,6 +42,17 @@ The scorekeeper works primarily in the **Results Entry Interface** (also called 
 
 Almost all scorekeeper tasks during the meet happen in this primary screen without switching tabs.
 
+### Access Restrictions
+
+**Important:** Per GPSA rules, only the following individuals may access Meet Maestro after the meet has begun:
+
+- Meet Referee
+- GPSA Representatives (from both teams)
+- Scorekeepers
+- Timing Equipment Operator (if using a digital timing system like Time Drops)
+
+This restriction ensures data integrity and prevents unauthorized changes to meet results during competition.
+
 ## Pre-Meet Setup
 
 ### Step 1: Verify Meet Settings

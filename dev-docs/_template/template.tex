@@ -3,8 +3,8 @@
 % Packages
 \usepackage{graphicx}
 \usepackage{fancyhdr}
-\usepackage[margin=0.75in]{geometry}
-\usepackage{tocbibind}
+\usepackage[margin=1in]{geometry}
+\usepackage[nottoc]{tocbibind}
 \usepackage{enumitem}
 \usepackage{sectsty}
 \usepackage{xcolor}
@@ -19,6 +19,52 @@
 \usepackage{hyperref}
 
 \providecommand{\tightlist}{}
+
+% Prevent orphaned headings (headings at bottom of page with content on next page)
+\usepackage{needspace}
+
+% Widow and orphan penalties
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Hyphenation controls - reduce word splitting across lines
+\hyphenpenalty=5000        % Penalty for hyphenating words (default: 50)
+\exhyphenpenalty=5000      % Penalty for hyphenating after explicit hyphens
+\tolerance=1000            % Flexibility for word spacing (default: 200, max: 10000)
+\emergencystretch=3em      % Extra stretch to avoid overfull boxes
+\setlength{\rightskip}{0pt plus 2em}  % Allow some flexibility on right margin
+
+% Keep tables on same page - prevent page breaks within tables
+\usepackage{float}
+
+% Longtable spacing
+\setlength{\LTpre}{2\baselineskip}    % Space before longtable
+\setlength{\LTpost}{2\baselineskip}   % Space after longtable
+
+% Prevent longtable breaks - simple and safe approach
+% Process entire table in one chunk (max 10000 rows)
+\setcounter{LTchunksize}{10000}
+
+% Add penalties to discourage breaking (but allow if absolutely necessary)
+\makeatletter
+\patchcmd{\LT@array}
+  {\par}
+  {\par\penalty10000 }
+  {}{}
+\makeatother
+
+% For regular tables
+\AtBeginEnvironment{tabular}{\par\nopagebreak\vspace{\baselineskip}}
+\AtEndEnvironment{tabular}{\par}
+
+% Discourage page breaks after section headings
+\usepackage{etoolbox}
+\makeatletter
+% Require at least 4 lines after a section heading before allowing a page break
+\patchcmd{\section}{\@afterheading}{\@afterheading\needspace{4\baselineskip}}{}{}
+\patchcmd{\subsection}{\@afterheading}{\@afterheading\needspace{3\baselineskip}}{}{}
+\patchcmd{\subsubsection}{\@afterheading}{\@afterheading\needspace{2\baselineskip}}{}{}
+\makeatother
 
 % Font - Helvetica
 \usepackage{helvet}

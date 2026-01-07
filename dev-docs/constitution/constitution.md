@@ -13,6 +13,7 @@ toc-own-page: true
 classoption: twoside
 numbersections: true
 article_style: true
+toc: 'heading=false'
 ---
 
 # Name {#name}
@@ -43,7 +44,7 @@ article_style: true
 
       4. The Board of Directors may, at its discretion, limit the membership.
 
-      5. Two or more teams representing the same pool may hold membership in GPSA. Each team shall be treated as a totally separate entity with one exception. Notwithstanding any other provisions in the Constitution or Rules for Interpool Meets, under NO CIRCUMSTANCES will a swimmer be allowed to move from one team roster to another from the same pool once his or her name is submitted in accordance with the provisions of the eligibility requirements of the Rules for Interpool Meets. 
+      5. Two or more teams representing the same pool may hold membership in GPSA. Each team shall be treated as a totally separate entity with one exception. Notwithstanding any other provisions in the Constitution or Rules for Interpool Meets, under NO CIRCUMSTANCES will a swimmer be allowed to move from one team roster to another from the same pool once his or her name is submitted in accordance with the provisions of the eligibility requirements of the Rules for Interpool Meets.
 
       6. One team representing two or more pools may hold membership in the GPSA. The pools will adopt one name and shall be treated as one entity. The guidelines for new membership listed herein apply to both new pools and pools that are already members of the GPSA and desire to form one club.
 
@@ -53,7 +54,7 @@ article_style: true
 
       1. After the end of each swimming season, the President shall appoint an Alignment and Schedule Committee to review the previous season's results. Based on this review, the committee shall present for the board's approval at its November meeting any adjustments in alignment deemed necessary.  The alignment consideration shall include any new team(s) accepted into the association.
 
-      2. Based on the approved alignment, the Alignment and Schedule Committee shall prepare and present for the Board's approval at its March meeting a schedule for official competition during the forthcoming season. This schedule shall include as a minimum: 
+      2. Based on the approved alignment, the Alignment and Schedule Committee shall prepare and present for the Board's approval at its March meeting a schedule for official competition during the forthcoming season. This schedule shall include as a minimum:
 
          1) At least one dual meet for each team against all other teams within its division.
 
@@ -97,7 +98,7 @@ article_style: true
 
    3. The term of office shall be one year and all shall be eligible for reelection.
 
-   4. Committees \- The President shall appoint any committee necessary for the operation of the Association in addition to: 
+   4. Committees \- The President shall appoint any committee necessary for the operation of the Association in addition to:
 
       1. Rules Committee \- of three plus two alternates appointed by the President shall handle protests and keep GPSA Rules current with United States Swimming, when practical
 

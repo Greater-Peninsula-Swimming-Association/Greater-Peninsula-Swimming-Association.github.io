@@ -1,0 +1,42 @@
+name: Check for Draft Documents
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  check-drafts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for draft markers
+        run: |
+          echo "🔍 Checking for draft documents in docs/ directory..."
+
+          # Check _metadata.yml files in docs/ for draft: true or gpsa_draft: true
+          DRAFT_FILES=$(find docs/ -name "_metadata.yml" -exec grep -l "draft: true\|gpsa_draft: true" {} \; 2>/dev/null || true)
+
+          if [ -n "$DRAFT_FILES" ]; then
+            echo "❌ ERROR: Draft documents found!"
+            echo ""
+            echo "The following documents are marked as drafts:"
+            echo "$DRAFT_FILES"
+            echo ""
+            echo "Please set 'draft: false' and 'gpsa_draft: false' in _metadata.yml before merging to main."
+            exit 1
+          fi
+
+          echo "✅ No draft documents found. Safe to merge!"
+
+      - name: Summary
+        if: success()
+        run: |
+          echo "### ✅ Draft Check Passed" >> $GITHUB_STEP_SUMMARY
+          echo "No draft documents detected in this PR." >> $GITHUB_STEP_SUMMARY
