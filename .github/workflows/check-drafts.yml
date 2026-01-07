@@ -18,10 +18,10 @@ jobs:
 
       - name: Check for draft markers
         run: |
-          echo "🔍 Checking for draft documents..."
+          echo "🔍 Checking for draft documents in docs/ directory..."
 
-          # Check _metadata.yml files for draft: true
-          DRAFT_FILES=$(find . -name "_metadata.yml" -exec grep -l "draft: true" {} \;)
+          # Check _metadata.yml files in docs/ for draft: true or gpsa_draft: true
+          DRAFT_FILES=$(find docs/ -name "_metadata.yml" -exec grep -l "draft: true\|gpsa_draft: true" {} \; 2>/dev/null || true)
 
           if [ -n "$DRAFT_FILES" ]; then
             echo "❌ ERROR: Draft documents found!"
@@ -29,7 +29,7 @@ jobs:
             echo "The following documents are marked as drafts:"
             echo "$DRAFT_FILES"
             echo ""
-            echo "Please set 'draft: false' in _metadata.yml before merging to main."
+            echo "Please set 'draft: false' and 'gpsa_draft: false' in _metadata.yml before merging to main."
             exit 1
           fi
 

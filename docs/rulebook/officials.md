@@ -134,7 +134,7 @@ This section outlines the roles, responsibilities, and certification requirement
 
 3. Only the Referee, GPSA Representatives, Scorekeepers, and Timing Equipment Operator (if using a digital timing system) shall have access to Meet Maestro after the meet has begun.
 
-4. After the meet has begun, the scorekeeper shall accept changes only in accordance with XXX.
+4. After the meet has begun, the scorekeeper shall accept changes only in accordance with the substitution rules outlined in the Conduct of Interpool Meets section.
 
 5. All Lane Slips (if used), Place Judge Forms, Sweep Judge sheets, Meet Referee Sheet and the white copy of Disqualification Slips shall be retained and turned over to the home GPSA Representative at the end of the meet. The yellow copy of Disqualification Slips shall be given to the appropriate team's coach at the end of the meet.
 

@@ -4,107 +4,109 @@ name: Build GPSA Documents
 on:
   push:
     paths:
-      - 'dev-docs/rulebook/**'
-      - 'dev-docs/constitution/**'
-      - 'dev-docs/_template/**'
+      - 'docs/rulebook/**'
+      - 'docs/constitution/**'
+    branches:
+      - main
+      - rulebook-development
   workflow_dispatch:
 
 jobs:
-  build-pdfs:
+  build-documents:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: |
-          echo "Building custom Docker image..."
-          docker build -t gpsa-doc-builder dev-docs/
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.8.26'
 
-      - name: Build GPSA Rulebook PDF
+      - name: Build GPSA Rulebook
         run: |
-          echo "Building GPSA Rulebook PDF..."
-          docker run --rm \
-            -v "$(pwd)":/work \
-            --workdir /work \
-            gpsa-doc-builder /bin/sh -c "
-              pandoc --template=dev-docs/_template/template.tex \
-                -s dev-docs/rulebook/rulebook.md \
-                -o dev-docs/rulebook/GPSA_Rulebook.pdf \
-                --number-sections \
-                --toc
-            "
+          echo "Building GPSA Rulebook with Quarto..."
+          cd docs/rulebook
+          quarto render
           echo "✅ Rulebook build completed!"
 
-      - name: Build GPSA Constitution PDF
+      - name: Build GPSA Constitution
         run: |
-          echo "Building GPSA Constitution PDF..."
-          docker run --rm \
-            -v "$(pwd)":/work \
-            --workdir /work \
-            gpsa-doc-builder /bin/sh -c "
-              pandoc --template=dev-docs/_template/template.tex \
-                -s dev-docs/constitution/constitution.md \
-                -o dev-docs/constitution/GPSA_Constitution.pdf \
-                --number-sections \
-                --toc
-            "
+          echo "Building GPSA Constitution with Quarto..."
+          cd docs/constitution
+          quarto render
           echo "✅ Constitution build completed!"
 
-      - name: Verify PDFs were created
+      - name: Verify outputs were created
         run: |
-          echo "Verifying generated PDFs..."
+          echo "Verifying generated files..."
 
-          if [ -f "dev-docs/rulebook/GPSA_Rulebook.pdf" ]; then
-            ls -lh dev-docs/rulebook/GPSA_Rulebook.pdf
+          if [ -f "docs/rulebook/public-html/index.html" ]; then
+            ls -lh docs/rulebook/public-html/index.html
+            echo "✅ Rulebook HTML successfully generated"
+          else
+            echo "❌ Error: Rulebook HTML was not created"
+            exit 1
+          fi
+
+          if [ -f "docs/rulebook/public-html/GPSA-Rulebook.pdf" ]; then
+            ls -lh docs/rulebook/public-html/GPSA-Rulebook.pdf
             echo "✅ Rulebook PDF successfully generated"
           else
-            echo "❌ Error: GPSA_Rulebook.pdf was not created"
+            echo "❌ Error: Rulebook PDF was not created"
             exit 1
           fi
 
-          if [ -f "dev-docs/constitution/GPSA_Constitution.pdf" ]; then
-            ls -lh dev-docs/constitution/GPSA_Constitution.pdf
+          if [ -f "docs/constitution/public-html/index.html" ]; then
+            ls -lh docs/constitution/public-html/index.html
+            echo "✅ Constitution HTML successfully generated"
+          else
+            echo "❌ Error: Constitution HTML was not created"
+            exit 1
+          fi
+
+          if [ -f "docs/constitution/public-html/GPSA-Constitution.pdf" ]; then
+            ls -lh docs/constitution/public-html/GPSA-Constitution.pdf
             echo "✅ Constitution PDF successfully generated"
           else
-            echo "❌ Error: GPSA_Constitution.pdf was not created"
+            echo "❌ Error: Constitution PDF was not created"
             exit 1
           fi
 
-      - name: Upload Rulebook PDF artifact
+      - name: Upload Rulebook artifacts
         uses: actions/upload-artifact@v4
         with:
           name: GPSA-Rulebook
-          path: dev-docs/rulebook/GPSA_Rulebook.pdf
+          path: docs/rulebook/public-html/
           retention-days: 90
 
-      - name: Upload Constitution PDF artifact
+      - name: Upload Constitution artifacts
         uses: actions/upload-artifact@v4
         with:
           name: GPSA-Constitution
-          path: dev-docs/constitution/GPSA_Constitution.pdf
+          path: docs/constitution/public-html/
           retention-days: 90
 
-      - name: Commit PDFs to repository
+      - name: Commit generated files to repository
         if: github.event_name == 'push'
         run: |
           echo "Configuring git..."
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          echo "Staging PDF files..."
-          git add dev-docs/rulebook/GPSA_Rulebook.pdf
-          git add dev-docs/constitution/GPSA_Constitution.pdf
+          echo "Staging generated files..."
+          git add docs/rulebook/public-html/
+          git add docs/constitution/public-html/
 
           if git diff --staged --quiet; then
-            echo "✅ No changes to commit (PDFs unchanged)"
+            echo "✅ No changes to commit (outputs unchanged)"
           else
-            echo "📝 Committing updated PDFs..."
-            git commit -m "Update GPSA Documents PDFs [skip ci]"
+            echo "📝 Committing updated documents..."
+            git commit -m "Build GPSA Documents (HTML + PDF) [skip ci]"
 
             echo "⬆️  Pushing to repository..."
             git push
 
-            echo "✅ PDFs committed and pushed successfully"
+            echo "✅ Documents committed and pushed successfully"
           fi
