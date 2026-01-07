@@ -34,9 +34,12 @@ book:
   sidebar:
     title: "GPSA Rulebook"
     logo: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
+    logo-href: https://gpsaswimming.org
     search: true
-    contents: auto
     tools:
+      - icon: house
+        href: https://gpsaswimming.org
+        text: "GPSA Home"
       - icon: file-pdf
         href: GPSA-Rulebook.pdf
         text: "Download PDF"
@@ -51,11 +54,6 @@ format:
     number-sections: true
     link-external-newwindow: true
     code-link: true
-
-    # Page footer (HTML only)
-    page-footer:
-      left: "Greater Peninsula Swimming Association"
-      right: "{{< meta date >}}"
 
   # PDF output
   pdf:
