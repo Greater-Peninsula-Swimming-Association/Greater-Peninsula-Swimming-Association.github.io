@@ -82,7 +82,7 @@ This section establishes the procedures and requirements for conducting GPSA dua
 2. The Home GPSA Rep shall merge the meet at 12pm.
 3. After merging the meet and consolidating heats, the home GPSA Rep shall prepare the following:
     a. Heat Sheets for each official
-    b. Place Judge Forms
+    b. Place Judge Form from Meet Maestro for each heat of Heat 1 of all scored events (events 1-56)
     c. Sweep Judge Sheet for the home Sweep Judge
     d. Meet Referee Sheet
     e. Meet Referee Verification of Scores
