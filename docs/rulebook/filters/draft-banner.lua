@@ -39,9 +39,9 @@ body[data-gpsa-draft="true"] #gpsa-draft-banner {
 }
 </style>
 <script>
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
     document.body.setAttribute('data-gpsa-draft', 'true');
-})();
+});
 </script>
 ]]
 
