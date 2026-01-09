@@ -192,6 +192,15 @@ format:
         \let\ps@plain\ps@fancy
         \makeatother
 
+  # EPUB output
+  epub:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    cover-image: ePub_Cover.png
+    title-page: false
+    css: epub-styles.css
+
 # Execution - don't execute code blocks by default
 execute:
   enabled: false

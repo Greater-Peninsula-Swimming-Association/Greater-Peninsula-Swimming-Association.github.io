@@ -22,6 +22,7 @@ The Greater Peninsula Swimming Association is a youth summer swim league serving
 - [Publicity Processor](/wiki/publicity-processor) - Convert SDIF results to HTML meet reports
 
 ### Meet Management
+- [Meet Preparation Guide](/wiki/meet-preparation) - Pre-meet checklist and materials preparation for GPSA Representatives
 - [Scorekeeper Guide](/wiki/scorekeeper) - Complete guide to running meet scoring with Meet Maestro
 - [Time Drops Timing System](/wiki/time-drops) - Digital timing system used by over half of GPSA teams
 
