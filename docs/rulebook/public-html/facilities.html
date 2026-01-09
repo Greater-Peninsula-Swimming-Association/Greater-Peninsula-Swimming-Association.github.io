@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="gpsa-draft" content="true">
-<style>
-#gpsa-draft-banner {
-    display: none;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    background: linear-gradient(135deg, #d9242b 0%, #b81e24 100%);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-weight: bold;
-    font-size: 1.125rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #8b1519;
-    margin: 0;
-}
-body[data-gpsa-draft="true"] #gpsa-draft-banner {
-    display: block;
-}
-
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.body.setAttribute('data-gpsa-draft', 'true');
-});
-</script>
 
 
 </head>
@@ -132,9 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">GPSA Rulebook</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://gpsaswimming.org" title="GPSA Home" class="quarto-navigation-tool px-1" aria-label="GPSA Home"><i class="bi bi-house"></i></a>
     <a href="./GPSA-Rulebook.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./GPSA-Rulebook.epub" title="Download ePub" class="quarto-navigation-tool px-1" aria-label="Download ePub"><i class="bi bi-book"></i></a>
 </div>
     </div>
       </div>
@@ -222,9 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<div id="gpsa-draft-banner">
-    ⚠️ DRAFT DOCUMENT ⚠️
-</div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
