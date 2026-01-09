@@ -5,6 +5,7 @@ project:
 # Filters - applied in order listed
 filters:
   - filters/draft-watermark.lua
+  - filters/draft-banner.lua
 
 book:
   title: "GPSA Rulebook"
@@ -33,12 +34,18 @@ book:
   sidebar:
     title: "GPSA Rulebook"
     logo: https://publicity.gpsaswimming.org/assets/gpsa_logo.png
+    logo-href: https://gpsaswimming.org
     search: true
-    contents: auto
     tools:
+      - icon: house
+        href: https://gpsaswimming.org
+        text: "GPSA Home"
       - icon: file-pdf
         href: GPSA-Rulebook.pdf
         text: "Download PDF"
+      - icon: book
+        href: GPSA-Rulebook.epub
+        text: "Download ePub"
 
 # Format configurations
 format:
@@ -50,11 +57,6 @@ format:
     number-sections: true
     link-external-newwindow: true
     code-link: true
-
-    # Page footer (HTML only)
-    page-footer:
-      left: "Greater Peninsula Swimming Association"
-      right: "{{< meta date >}}"
 
   # PDF output
   pdf:
@@ -192,6 +194,15 @@ format:
         \makeatletter
         \let\ps@plain\ps@fancy
         \makeatother
+
+  # EPUB output
+  epub:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    cover-image: ePub_Cover.png
+    title-page: false
+    css: epub-styles.css
 
 # Execution - don't execute code blocks by default
 execute:

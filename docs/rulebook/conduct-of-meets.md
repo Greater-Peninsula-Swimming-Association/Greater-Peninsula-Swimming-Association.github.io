@@ -37,13 +37,13 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
 ## Venue and Code of Conduct
 
-1. Neither smoking nor the consumption of alcoholic beverages will be allowed in the pool area during swim meets. The exact boundaries of this area will be determined by the Referee and both GPSA representatives.
-2. Profanity, vulgarity, or disruptive behavior will not be allowed.
-3. The use of any audio or visual recording devices, including cell phones, is strictly prohibited in changing areas, rest rooms, locker rooms, or behind the starting blocks.
+1. **Smoking and Alcohol Prohibition:** Neither smoking nor the consumption of alcoholic beverages will be allowed in the pool area during swim meets. The exact boundaries of this area will be determined by the Referee and both GPSA representatives.
+2. **Behavioral Standards:** Profanity, vulgarity, or disruptive behavior will not be allowed.
+3. **Recording Device Restrictions:** The use of any audio or visual recording devices, including cell phones, is strictly prohibited in changing areas, rest rooms, locker rooms, or behind the starting blocks.
 
 ## Team Responsibilities
 
-1. Each team shall furnish the following officials and equipment:
+1. **Officials and Equipment:** Each team shall furnish the following officials and equipment:
 
 |            Home Team            |               Visitors               |
 | :-----------------------------: | :----------------------------------: |
@@ -74,67 +74,18 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
 3. **Timer Configuration:** By mutual agreement of both GPSA Representatives, teams may use two or three timers per lane instead of the standard one timer per lane.
 
-## Meet Operations
-
-### Pre-Meet Setup
-
-1. Teams shall be marked as **Ready to Merge** no later than 12pm on the day of the meet.
-2. The Home GPSA Rep shall merge the meet at 12pm.
-3. After merging the meet and consolidating heats, the home GPSA Rep shall prepare the following:
-    a. Heat Sheets for each official
-    b. Place Judge Form from Meet Maestro for each heat of Heat 1 of all scored events (events 1-56)
-    c. Sweep Judge Sheet for the home Sweep Judge
-    d. Meet Referee Sheet
-    e. Meet Referee Verification of Scores
-    f. Relay Takeoff Sheet
-4. The Away GPSA Rep shall prepare the following:
-
-### Swimmer Readiness
-
-1. It shall be the coaches' responsibility to keep the swimmers for the next two consecutive events or heats behind the starting blocks or in the designated locations.
-
-### Time Recording
-
-1. **Recording Method:** Swimmer times shall be recorded using one of the following methods:
-    a. **Electronic Timing System (Time Drops):** Times are automatically captured and transmitted to Meet Maestro.
-    b. **Lane Slips:** Written cards containing team name, swimmer name, lane number, and event number.
-    c. **Lane Timer Sheets:** Timing forms that may be used in lieu of lane slips or as backup with electronic timing systems.
-
-2. **Time Collection Process:**
-    1. When using lane slips, the swimmer must have a lane slip when taking their place behind the blocks. Names shall match the team roster, though initials may be used. The swimmer gives the lane slip to the lane timer.
-    2. When using lane timer sheets, the lane timers already have the necessary forms.
-    3. Upon completion of the event, the timer records the swimmer's time to hundredths of a second using the designated method.
-    4. The runner collects all time records for the event and delivers them to the scorekeeper to be entered into Meet Maestro.
-
-### Place Recording
-
-1. **Sweep Judge Determination:** The sweep judges shall independently observe and determine the order of finish for each scoring heat.
-
-2. **Place Judge Form:**
-    1. The scorekeeper shall print a Place Judge Form from Meet Maestro for each heat of Heat 1 of all scored events (events 1-56).
-    2. If the sweep judges concur on the order of finish, they shall record the order on the Place Judge Form.
-
-3. **Referee Review:**
-    1. The sweep judges deliver the Place Judge Form to the referee (directly or via runner).
-    2. The referee reviews the order of finish and adjusts for any disqualifications.
-    3. The referee initials the Place Judge Form to confirm accuracy.
-
-4. **Final Recording:**
-    1. A runner delivers the initialed Place Judge Form to the scorekeeper.
-    2. The scorekeeper enters the order of finish into Meet Maestro for Heat 1 of all scored events (events 1-56).
-
 ## Swimmer Participation and Entries
 
 1. **Age Group Flexibility:** Swimmers are allowed to participate in any event in age groups older than their actual age.
-2. A swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition).
+2. **Individual Event Limits:** A swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition).
     a. Event 0 (Mixed 8&U 100M Free Relay) does not count against a swimmer's event limits.
     b. For a team with fewer than 64 swimmers on its official roster, swimmers in an age/gender group with three (3) or fewer swimmers may compete in up to four (4) individual events.
     c. If a swimmer is found to have exceeded these limits, they shall be disqualified from all events in which they were entered, and scores shall be adjusted.
-3. Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team shall be marked as exhibition.
-4. Unless otherwise specified, starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
-5. Towels may not be used at the starting end for backstroke events.
-6. A swimmer who is not present when the starter takes command of an event shall not be allowed to swim that event at the discretion of the referee.
-7. Two false starts by the same swimmer in any one event disqualifies that swimmer. A swimmer may be disqualified after one false start if, in the opinion of the starter and referee, the swimmer deliberately false started.
+3. **Maximum Scoring Entrants:** Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team shall be marked as exhibition.
+4. **Starting Procedures:** Unless otherwise specified, starts shall be conducted in accordance with Article 101.1 of the current year's USA Swimming Rulebook.
+5. **Backstroke Equipment Restrictions:** Towels may not be used at the starting end for backstroke events.
+6. **Swimmer Absence:** A swimmer who is not present when the starter takes command of an event shall not be allowed to swim that event at the discretion of the referee.
+7. **False Start Disqualifications:** Two false starts by the same swimmer in any one event disqualifies that swimmer. A swimmer may be disqualified after one false start if, in the opinion of the starter and referee, the swimmer deliberately false started.
 
 ## Substitutions
 
@@ -147,11 +98,77 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
 4. **Injury/Illness Exception:** The referee may allow substitution for an injured or sick swimmer outside the three-event window. In this case, the event counts as an event swum for both the original swimmer and the substituted swimmer.
 
+## Meet Operations
+
+### Pre-Meet Requirements
+
+1. **Entry Deadline:** Teams shall be marked as "Ready to Merge" no later than 12:00 PM on the day of the meet.
+2. **Meet Preparation:** The home team GPSA Representative shall merge entries at 12:00 PM on the day of the meet.
+3. **Meet Review and Optimization:** After merging entries, the home team GPSA Representative shall:
+    a. Review the meet for accuracy and proper event seeding.
+    b. Work with both teams' coaches to consolidate heats and/or relocate exhibition swimmers where possible.
+4. **Required Materials:** Both teams shall prepare all necessary heat sheets, place judge forms, scoring materials, and official documentation as specified in the [GPSA Meet Preparation Guide](https://publicity.gpsaswimming.org/wiki/meet-preparation).
+
+### Swimmer Readiness
+
+1. **Coach Responsibility:** It shall be the coaches' responsibility to keep the swimmers for the next two consecutive events or heats behind the starting blocks or in the designated locations.
+2. **Lane Slip Submission:** When using lane slips, the swimmer shall provide the lane slip to the lane timer when taking their place behind the blocks.
+3. **Lane Timer Sheets:** When using lane timer sheets, the lane timers shall have the necessary forms with swimmer information ready.
+4. **Identity Verification:** Timers shall verify the swimmer's identity matches the documentation provided (lane slip, lane timer sheet, or heat sheet). Names shall match the documentation, though initials may be used.
+
+### Event Procedures
+
+1. **Referee Signals:** The Referee shall signal the commencement of each event in accordance with USA Swimming Article 101.1.2:
+    a. A short series of whistles inviting swimmers to get ready at the starting end.
+    b. One long whistle indicating swimmers should take and maintain their positions on the starting platform or deck.
+    c. For backstroke and medley relay events, a first long whistle for swimmers to enter the water, followed by a second long whistle to return to the wall and assume starting position.
+    d. An outstretched arm signal to the Starter indicating the swimmers are under the Starter's control.
+
+2. **Starter Commands:** When the swimmers and officials are ready, the Starter shall:
+    a. Issue the command "take your marks" in a clear, conversational tone.
+    b. Allow swimmers to assume their starting position and become stationary.
+    c. Give the starting signal (horn or whistle) when all swimmers are stationary.
+    d. Issue the command "stand up" if any swimmer does not respond promptly, releasing all swimmers to step off the blocks.
+
+3. **Recall Procedure:** If a false start or other starting infraction occurs:
+    a. The Starter shall observe and identify any swimmer(s) who started before the starting signal.
+    b. The Referee shall independently observe to confirm the Starter's observation.
+    c. The heat may be recalled by mutual agreement of both the Starter and Referee if they determine a fair start was not possible.
+    d. If the heat is recalled, the Referee shall determine an appropriate rest period before restarting the heat, based on the distance the swimmers covered.
+
+### Time Recording
+
+1. **Recording Method:** Swimmer times shall be recorded using one of the following methods:
+    a. **Electronic Timing System (Time Drops):** Times are automatically captured and transmitted to Meet Maestro.
+    b. **Lane Slips:** Written cards containing team name, swimmer name, lane number, and event number.
+    c. **Lane Timer Sheets:** Timing forms that may be used in lieu of lane slips or as backup with electronic timing systems.
+
+2. **Time Collection Process:**
+    a. Upon completion of the event, the timer records the swimmer's time to hundredths of a second using the designated method.
+    b. The runner collects all time records for the event and delivers them to the scorekeeper to be entered into Meet Maestro.
+
+### Place Recording
+
+1. **Sweep Judge Determination:** The sweep judges shall independently observe and determine the order of finish for each scoring heat.
+
+2. **Place Judge Form:**
+    a. The scorekeeper shall print a Place Judge Form from Meet Maestro for each heat of Heat 1 of all scored events (events 1-56).
+    b. If the sweep judges concur on the order of finish, they shall record the order on the Place Judge Form.
+
+3. **Referee Review:**
+    a. The sweep judges deliver the Place Judge Form to the referee (directly or via runner).
+    b. The referee reviews the order of finish and adjusts for any disqualifications.
+    c. The referee initials the Place Judge Form to confirm accuracy.
+
+4. **Final Recording:**
+    a. A runner delivers the initialed Place Judge Form to the scorekeeper.
+    b. The scorekeeper enters the order of finish into Meet Maestro for Heat 1 of all scored events (events 1-56).
+
 ## Protests
 
 ### Authority to Protest
 
-1. The GPSA Representative is the sole representative authorized to file a protest on behalf of their team.
+1. **GPSA Representative Authority:** The GPSA Representative is the sole representative authorized to file a protest on behalf of their team.
 
 ### During-Meet Protests
 
@@ -174,8 +191,8 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
 ### Rules Committee Authority
 
-1. All rulings made by the Rules Committee shall be final.
+1. **Final Rulings:** All rulings made by the Rules Committee shall be final.
 
-2. If the Rules Committee sustains a protest, meet scores and awards shall be adjusted accordingly.
+2. **Score Adjustments:** If the Rules Committee sustains a protest, meet scores and awards shall be adjusted accordingly.
 
-3. No Rules Committee member may vote on a decision involving a team with which they are affiliated.
+3. **Conflict of Interest:** No Rules Committee member may vote on a decision involving a team with which they are affiliated.
