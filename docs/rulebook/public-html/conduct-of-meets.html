@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="gpsa-draft" content="true">
-<style>
-#gpsa-draft-banner {
-    display: none;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    background: linear-gradient(135deg, #d9242b 0%, #b81e24 100%);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-weight: bold;
-    font-size: 1.125rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #8b1519;
-    margin: 0;
-}
-body[data-gpsa-draft="true"] #gpsa-draft-banner {
-    display: block;
-}
-
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.body.setAttribute('data-gpsa-draft', 'true');
-});
-</script>
 
 
 </head>
@@ -133,9 +104,10 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">GPSA Rulebook</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://gpsaswimming.org" title="GPSA Home" class="quarto-navigation-tool px-1" aria-label="GPSA Home"><i class="bi bi-house"></i></a>
     <a href="./GPSA-Rulebook.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./GPSA-Rulebook.epub" title="Download ePub" class="quarto-navigation-tool px-1" aria-label="Download ePub"><i class="bi bi-book"></i></a>
 </div>
     </div>
       </div>
@@ -213,15 +185,16 @@ document.addEventListener('DOMContentLoaded', function() {
   <li><a href="#scheduling-and-postponements" id="toc-scheduling-and-postponements" class="nav-link active" data-scroll-target="#scheduling-and-postponements"><span class="header-section-number">6.1</span> Scheduling and Postponements</a></li>
   <li><a href="#venue-and-code-of-conduct" id="toc-venue-and-code-of-conduct" class="nav-link" data-scroll-target="#venue-and-code-of-conduct"><span class="header-section-number">6.2</span> Venue and Code of Conduct</a></li>
   <li><a href="#team-responsibilities" id="toc-team-responsibilities" class="nav-link" data-scroll-target="#team-responsibilities"><span class="header-section-number">6.3</span> Team Responsibilities</a></li>
-  <li><a href="#meet-operations" id="toc-meet-operations" class="nav-link" data-scroll-target="#meet-operations"><span class="header-section-number">6.4</span> Meet Operations</a>
+  <li><a href="#swimmer-participation-and-entries" id="toc-swimmer-participation-and-entries" class="nav-link" data-scroll-target="#swimmer-participation-and-entries"><span class="header-section-number">6.4</span> Swimmer Participation and Entries</a></li>
+  <li><a href="#substitutions" id="toc-substitutions" class="nav-link" data-scroll-target="#substitutions"><span class="header-section-number">6.5</span> Substitutions</a></li>
+  <li><a href="#meet-operations" id="toc-meet-operations" class="nav-link" data-scroll-target="#meet-operations"><span class="header-section-number">6.6</span> Meet Operations</a>
   <ul class="collapse">
-  <li><a href="#pre-meet-requirements" id="toc-pre-meet-requirements" class="nav-link" data-scroll-target="#pre-meet-requirements"><span class="header-section-number">6.4.1</span> Pre-Meet Requirements</a></li>
-  <li><a href="#swimmer-readiness" id="toc-swimmer-readiness" class="nav-link" data-scroll-target="#swimmer-readiness"><span class="header-section-number">6.4.2</span> Swimmer Readiness</a></li>
-  <li><a href="#time-recording" id="toc-time-recording" class="nav-link" data-scroll-target="#time-recording"><span class="header-section-number">6.4.3</span> Time Recording</a></li>
-  <li><a href="#place-recording" id="toc-place-recording" class="nav-link" data-scroll-target="#place-recording"><span class="header-section-number">6.4.4</span> Place Recording</a></li>
+  <li><a href="#pre-meet-requirements" id="toc-pre-meet-requirements" class="nav-link" data-scroll-target="#pre-meet-requirements"><span class="header-section-number">6.6.1</span> Pre-Meet Requirements</a></li>
+  <li><a href="#swimmer-readiness" id="toc-swimmer-readiness" class="nav-link" data-scroll-target="#swimmer-readiness"><span class="header-section-number">6.6.2</span> Swimmer Readiness</a></li>
+  <li><a href="#event-procedures" id="toc-event-procedures" class="nav-link" data-scroll-target="#event-procedures"><span class="header-section-number">6.6.3</span> Event Procedures</a></li>
+  <li><a href="#time-recording" id="toc-time-recording" class="nav-link" data-scroll-target="#time-recording"><span class="header-section-number">6.6.4</span> Time Recording</a></li>
+  <li><a href="#place-recording" id="toc-place-recording" class="nav-link" data-scroll-target="#place-recording"><span class="header-section-number">6.6.5</span> Place Recording</a></li>
   </ul></li>
-  <li><a href="#swimmer-participation-and-entries" id="toc-swimmer-participation-and-entries" class="nav-link" data-scroll-target="#swimmer-participation-and-entries"><span class="header-section-number">6.5</span> Swimmer Participation and Entries</a></li>
-  <li><a href="#substitutions" id="toc-substitutions" class="nav-link" data-scroll-target="#substitutions"><span class="header-section-number">6.6</span> Substitutions</a></li>
   <li><a href="#protests" id="toc-protests" class="nav-link" data-scroll-target="#protests"><span class="header-section-number">6.7</span> Protests</a>
   <ul class="collapse">
   <li><a href="#authority-to-protest" id="toc-authority-to-protest" class="nav-link" data-scroll-target="#authority-to-protest"><span class="header-section-number">6.7.1</span> Authority to Protest</a></li>
@@ -234,9 +207,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<div id="gpsa-draft-banner">
-    ⚠️ DRAFT DOCUMENT ⚠️
-</div>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -292,15 +262,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="venue-and-code-of-conduct" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="venue-and-code-of-conduct"><span class="header-section-number">6.2</span> Venue and Code of Conduct</h2>
 <ol type="1">
-<li>Neither smoking nor the consumption of alcoholic beverages will be allowed in the pool area during swim meets. The exact boundaries of this area will be determined by the Referee and both GPSA representatives.</li>
-<li>Profanity, vulgarity, or disruptive behavior will not be allowed.</li>
-<li>The use of any audio or visual recording devices, including cell phones, is strictly prohibited in changing areas, rest rooms, locker rooms, or behind the starting blocks.</li>
+<li><strong>Smoking and Alcohol Prohibition:</strong> Neither smoking nor the consumption of alcoholic beverages will be allowed in the pool area during swim meets. The exact boundaries of this area will be determined by the Referee and both GPSA representatives.</li>
+<li><strong>Behavioral Standards:</strong> Profanity, vulgarity, or disruptive behavior will not be allowed.</li>
+<li><strong>Recording Device Restrictions:</strong> The use of any audio or visual recording devices, including cell phones, is strictly prohibited in changing areas, rest rooms, locker rooms, or behind the starting blocks.</li>
 </ol>
 </section>
 <section id="team-responsibilities" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="team-responsibilities"><span class="header-section-number">6.3</span> Team Responsibilities</h2>
 <ol type="1">
-<li>Each team shall furnish the following officials and equipment:</li>
+<li><strong>Officials and Equipment:</strong> Each team shall furnish the following officials and equipment:</li>
 </ol>
 <table class="caption-top table">
 <colgroup>
@@ -395,82 +365,25 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><p><strong>Timer Configuration:</strong> By mutual agreement of both GPSA Representatives, teams may use two or three timers per lane instead of the standard one timer per lane.</p></li>
 </ol>
 </section>
-<section id="meet-operations" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="meet-operations"><span class="header-section-number">6.4</span> Meet Operations</h2>
-<section id="pre-meet-requirements" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="pre-meet-requirements"><span class="header-section-number">6.4.1</span> Pre-Meet Requirements</h3>
-<ol type="1">
-<li><p><strong>Entry Deadline:</strong> Teams shall be marked as “Ready to Merge” no later than 12:00 PM on the day of the meet.</p></li>
-<li><p><strong>Meet Preparation:</strong> The home team GPSA Representative shall merge entries at 12:00 PM on the day of the meet.</p></li>
-<li><p><strong>Required Materials:</strong> Both teams shall prepare all necessary heat sheets, place judge forms, scoring materials, and official documentation as specified in the GPSA Meet Preparation Guide.</p></li>
-</ol>
-</section>
-<section id="swimmer-readiness" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="swimmer-readiness"><span class="header-section-number">6.4.2</span> Swimmer Readiness</h3>
-<ol type="1">
-<li>It shall be the coaches’ responsibility to keep the swimmers for the next two consecutive events or heats behind the starting blocks or in the designated locations.</li>
-</ol>
-</section>
-<section id="time-recording" class="level3" data-number="6.4.3">
-<h3 data-number="6.4.3" class="anchored" data-anchor-id="time-recording"><span class="header-section-number">6.4.3</span> Time Recording</h3>
-<ol type="1">
-<li><strong>Recording Method:</strong> Swimmer times shall be recorded using one of the following methods:
-<ol type="a">
-<li><strong>Electronic Timing System (Time Drops):</strong> Times are automatically captured and transmitted to Meet Maestro.</li>
-<li><strong>Lane Slips:</strong> Written cards containing team name, swimmer name, lane number, and event number.</li>
-<li><strong>Lane Timer Sheets:</strong> Timing forms that may be used in lieu of lane slips or as backup with electronic timing systems.</li>
-</ol></li>
-<li><strong>Time Collection Process:</strong>
-<ol type="1">
-<li>When using lane slips, the swimmer must have a lane slip when taking their place behind the blocks. Names shall match the team roster, though initials may be used. The swimmer gives the lane slip to the lane timer.</li>
-<li>When using lane timer sheets, the lane timers already have the necessary forms.</li>
-<li>Upon completion of the event, the timer records the swimmer’s time to hundredths of a second using the designated method.</li>
-<li>The runner collects all time records for the event and delivers them to the scorekeeper to be entered into Meet Maestro.</li>
-</ol></li>
-</ol>
-</section>
-<section id="place-recording" class="level3" data-number="6.4.4">
-<h3 data-number="6.4.4" class="anchored" data-anchor-id="place-recording"><span class="header-section-number">6.4.4</span> Place Recording</h3>
-<ol type="1">
-<li><p><strong>Sweep Judge Determination:</strong> The sweep judges shall independently observe and determine the order of finish for each scoring heat.</p></li>
-<li><p><strong>Place Judge Form:</strong></p>
-<ol type="1">
-<li>The scorekeeper shall print a Place Judge Form from Meet Maestro for each heat of Heat 1 of all scored events (events 1-56).</li>
-<li>If the sweep judges concur on the order of finish, they shall record the order on the Place Judge Form.</li>
-</ol></li>
-<li><p><strong>Referee Review:</strong></p>
-<ol type="1">
-<li>The sweep judges deliver the Place Judge Form to the referee (directly or via runner).</li>
-<li>The referee reviews the order of finish and adjusts for any disqualifications.</li>
-<li>The referee initials the Place Judge Form to confirm accuracy.</li>
-</ol></li>
-<li><p><strong>Final Recording:</strong></p>
-<ol type="1">
-<li>A runner delivers the initialed Place Judge Form to the scorekeeper.</li>
-<li>The scorekeeper enters the order of finish into Meet Maestro for Heat 1 of all scored events (events 1-56).</li>
-</ol></li>
-</ol>
-</section>
-</section>
-<section id="swimmer-participation-and-entries" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="swimmer-participation-and-entries"><span class="header-section-number">6.5</span> Swimmer Participation and Entries</h2>
+<section id="swimmer-participation-and-entries" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="swimmer-participation-and-entries"><span class="header-section-number">6.4</span> Swimmer Participation and Entries</h2>
 <ol type="1">
 <li><strong>Age Group Flexibility:</strong> Swimmers are allowed to participate in any event in age groups older than their actual age.</li>
-<li>A swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition).
+<li><strong>Individual Event Limits:</strong> A swimmer is allowed to participate in no more than three (3) individual events and one (1) relay event (not including exhibition).
 <ol type="a">
 <li>Event 0 (Mixed 8&amp;U 100M Free Relay) does not count against a swimmer’s event limits.</li>
 <li>For a team with fewer than 64 swimmers on its official roster, swimmers in an age/gender group with three (3) or fewer swimmers may compete in up to four (4) individual events.</li>
 <li>If a swimmer is found to have exceeded these limits, they shall be disqualified from all events in which they were entered, and scores shall be adjusted.</li>
 </ol></li>
-<li>Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team shall be marked as exhibition.</li>
-<li>Unless otherwise specified, starts shall be conducted in accordance with Article 101.1 of the current year’s USA Swimming Rulebook.</li>
-<li>Towels may not be used at the starting end for backstroke events.</li>
-<li>A swimmer who is not present when the starter takes command of an event shall not be allowed to swim that event at the discretion of the referee.</li>
-<li>Two false starts by the same swimmer in any one event disqualifies that swimmer. A swimmer may be disqualified after one false start if, in the opinion of the starter and referee, the swimmer deliberately false started.</li>
+<li><strong>Maximum Scoring Entrants:</strong> Each team is allowed a maximum of two (2) entrants in any individual event and one (1) relay team in any relay event to be eligible for scoring. All other entrants from a team shall be marked as exhibition.</li>
+<li><strong>Starting Procedures:</strong> Unless otherwise specified, starts shall be conducted in accordance with Article 101.1 of the current year’s USA Swimming Rulebook.</li>
+<li><strong>Backstroke Equipment Restrictions:</strong> Towels may not be used at the starting end for backstroke events.</li>
+<li><strong>Swimmer Absence:</strong> A swimmer who is not present when the starter takes command of an event shall not be allowed to swim that event at the discretion of the referee.</li>
+<li><strong>False Start Disqualifications:</strong> Two false starts by the same swimmer in any one event disqualifies that swimmer. A swimmer may be disqualified after one false start if, in the opinion of the starter and referee, the swimmer deliberately false started.</li>
 </ol>
 </section>
-<section id="substitutions" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="substitutions"><span class="header-section-number">6.6</span> Substitutions</h2>
+<section id="substitutions" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="substitutions"><span class="header-section-number">6.5</span> Substitutions</h2>
 <ol type="1">
 <li><p><strong>Three-Event Rule:</strong> No substitutions will be allowed for the next three events after an event is in the water.</p>
 <ol type="a">
@@ -481,12 +394,101 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><p><strong>Injury/Illness Exception:</strong> The referee may allow substitution for an injured or sick swimmer outside the three-event window. In this case, the event counts as an event swum for both the original swimmer and the substituted swimmer.</p></li>
 </ol>
 </section>
+<section id="meet-operations" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="meet-operations"><span class="header-section-number">6.6</span> Meet Operations</h2>
+<section id="pre-meet-requirements" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="pre-meet-requirements"><span class="header-section-number">6.6.1</span> Pre-Meet Requirements</h3>
+<ol type="1">
+<li><strong>Entry Deadline:</strong> Teams shall be marked as “Ready to Merge” no later than 12:00 PM on the day of the meet.</li>
+<li><strong>Meet Preparation:</strong> The home team GPSA Representative shall merge entries at 12:00 PM on the day of the meet.</li>
+<li><strong>Meet Review and Optimization:</strong> After merging entries, the home team GPSA Representative shall:
+<ol type="a">
+<li>Review the meet for accuracy and proper event seeding.</li>
+<li>Work with both teams’ coaches to consolidate heats and/or relocate exhibition swimmers where possible.</li>
+</ol></li>
+<li><strong>Required Materials:</strong> Both teams shall prepare all necessary heat sheets, place judge forms, scoring materials, and official documentation as specified in the <a href="https://publicity.gpsaswimming.org/wiki/meet-preparation">GPSA Meet Preparation Guide</a>.</li>
+</ol>
+</section>
+<section id="swimmer-readiness" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="swimmer-readiness"><span class="header-section-number">6.6.2</span> Swimmer Readiness</h3>
+<ol type="1">
+<li><strong>Coach Responsibility:</strong> It shall be the coaches’ responsibility to keep the swimmers for the next two consecutive events or heats behind the starting blocks or in the designated locations.</li>
+<li><strong>Lane Slip Submission:</strong> When using lane slips, the swimmer shall provide the lane slip to the lane timer when taking their place behind the blocks.</li>
+<li><strong>Lane Timer Sheets:</strong> When using lane timer sheets, the lane timers shall have the necessary forms with swimmer information ready.</li>
+<li><strong>Identity Verification:</strong> Timers shall verify the swimmer’s identity matches the documentation provided (lane slip, lane timer sheet, or heat sheet). Names shall match the documentation, though initials may be used.</li>
+</ol>
+</section>
+<section id="event-procedures" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="event-procedures"><span class="header-section-number">6.6.3</span> Event Procedures</h3>
+<ol type="1">
+<li><strong>Referee Signals:</strong> The Referee shall signal the commencement of each event in accordance with USA Swimming Article 101.1.2:
+<ol type="a">
+<li>A short series of whistles inviting swimmers to get ready at the starting end.</li>
+<li>One long whistle indicating swimmers should take and maintain their positions on the starting platform or deck.</li>
+<li>For backstroke and medley relay events, a first long whistle for swimmers to enter the water, followed by a second long whistle to return to the wall and assume starting position.</li>
+<li>An outstretched arm signal to the Starter indicating the swimmers are under the Starter’s control.</li>
+</ol></li>
+<li><strong>Starter Commands:</strong> When the swimmers and officials are ready, the Starter shall:
+<ol type="a">
+<li>Issue the command “take your marks” in a clear, conversational tone.</li>
+<li>Allow swimmers to assume their starting position and become stationary.</li>
+<li>Give the starting signal (horn or whistle) when all swimmers are stationary.</li>
+<li>Issue the command “stand up” if any swimmer does not respond promptly, releasing all swimmers to step off the blocks.</li>
+</ol></li>
+<li><strong>Recall Procedure:</strong> If a false start or other starting infraction occurs:
+<ol type="a">
+<li>The Starter shall observe and identify any swimmer(s) who started before the starting signal.</li>
+<li>The Referee shall independently observe to confirm the Starter’s observation.</li>
+<li>The heat may be recalled by mutual agreement of both the Starter and Referee if they determine a fair start was not possible.</li>
+<li>If the heat is recalled, the Referee shall determine an appropriate rest period before restarting the heat, based on the distance the swimmers covered.</li>
+</ol></li>
+</ol>
+</section>
+<section id="time-recording" class="level3" data-number="6.6.4">
+<h3 data-number="6.6.4" class="anchored" data-anchor-id="time-recording"><span class="header-section-number">6.6.4</span> Time Recording</h3>
+<ol type="1">
+<li><strong>Recording Method:</strong> Swimmer times shall be recorded using one of the following methods:
+<ol type="a">
+<li><strong>Electronic Timing System (Time Drops):</strong> Times are automatically captured and transmitted to Meet Maestro.</li>
+<li><strong>Lane Slips:</strong> Written cards containing team name, swimmer name, lane number, and event number.</li>
+<li><strong>Lane Timer Sheets:</strong> Timing forms that may be used in lieu of lane slips or as backup with electronic timing systems.</li>
+</ol></li>
+<li><strong>Time Collection Process:</strong>
+<ol type="a">
+<li>Upon completion of the event, the timer records the swimmer’s time to hundredths of a second using the designated method.</li>
+<li>The runner collects all time records for the event and delivers them to the scorekeeper to be entered into Meet Maestro.</li>
+</ol></li>
+</ol>
+</section>
+<section id="place-recording" class="level3" data-number="6.6.5">
+<h3 data-number="6.6.5" class="anchored" data-anchor-id="place-recording"><span class="header-section-number">6.6.5</span> Place Recording</h3>
+<ol type="1">
+<li><p><strong>Sweep Judge Determination:</strong> The sweep judges shall independently observe and determine the order of finish for each scoring heat.</p></li>
+<li><p><strong>Place Judge Form:</strong></p>
+<ol type="a">
+<li>The scorekeeper shall print a Place Judge Form from Meet Maestro for each heat of Heat 1 of all scored events (events 1-56).</li>
+<li>If the sweep judges concur on the order of finish, they shall record the order on the Place Judge Form.</li>
+</ol></li>
+<li><p><strong>Referee Review:</strong></p>
+<ol type="a">
+<li>The sweep judges deliver the Place Judge Form to the referee (directly or via runner).</li>
+<li>The referee reviews the order of finish and adjusts for any disqualifications.</li>
+<li>The referee initials the Place Judge Form to confirm accuracy.</li>
+</ol></li>
+<li><p><strong>Final Recording:</strong></p>
+<ol type="a">
+<li>A runner delivers the initialed Place Judge Form to the scorekeeper.</li>
+<li>The scorekeeper enters the order of finish into Meet Maestro for Heat 1 of all scored events (events 1-56).</li>
+</ol></li>
+</ol>
+</section>
+</section>
 <section id="protests" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="protests"><span class="header-section-number">6.7</span> Protests</h2>
 <section id="authority-to-protest" class="level3" data-number="6.7.1">
 <h3 data-number="6.7.1" class="anchored" data-anchor-id="authority-to-protest"><span class="header-section-number">6.7.1</span> Authority to Protest</h3>
 <ol type="1">
-<li>The GPSA Representative is the sole representative authorized to file a protest on behalf of their team.</li>
+<li><strong>GPSA Representative Authority:</strong> The GPSA Representative is the sole representative authorized to file a protest on behalf of their team.</li>
 </ol>
 </section>
 <section id="during-meet-protests" class="level3" data-number="6.7.2">
@@ -516,9 +518,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="rules-committee-authority" class="level3" data-number="6.7.4">
 <h3 data-number="6.7.4" class="anchored" data-anchor-id="rules-committee-authority"><span class="header-section-number">6.7.4</span> Rules Committee Authority</h3>
 <ol type="1">
-<li><p>All rulings made by the Rules Committee shall be final.</p></li>
-<li><p>If the Rules Committee sustains a protest, meet scores and awards shall be adjusted accordingly.</p></li>
-<li><p>No Rules Committee member may vote on a decision involving a team with which they are affiliated.</p></li>
+<li><p><strong>Final Rulings:</strong> All rulings made by the Rules Committee shall be final.</p></li>
+<li><p><strong>Score Adjustments:</strong> If the Rules Committee sustains a protest, meet scores and awards shall be adjusted accordingly.</p></li>
+<li><p><strong>Conflict of Interest:</strong> No Rules Committee member may vote on a decision involving a team with which they are affiliated.</p></li>
 </ol>
 
 
