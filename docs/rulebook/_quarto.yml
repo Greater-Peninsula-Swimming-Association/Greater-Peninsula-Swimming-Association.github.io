@@ -43,6 +43,9 @@ book:
       - icon: file-pdf
         href: GPSA-Rulebook.pdf
         text: "Download PDF"
+      - icon: book
+        href: GPSA-Rulebook.epub
+        text: "Download ePub"
 
 # Format configurations
 format:
