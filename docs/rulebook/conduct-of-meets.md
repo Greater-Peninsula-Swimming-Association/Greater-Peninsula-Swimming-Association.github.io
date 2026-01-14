@@ -16,6 +16,8 @@ This section establishes the procedures and requirements for conducting GPSA dua
 
     b. **Mutual Agreement:** A meet may be postponed at any time with the unanimous agreement of both teams' GPSA Representatives.
 
+    c. **Referee Authority:** Once the meet has begun, the Referee may postpone the meet if, in their judgment, conditions are unsafe for competition.
+
 5. **Rescheduling Process:**
 
     a. Upon postponement, the GPSA Representatives' first priority is to agree on a date to hold the meet as soon as reasonably possible (e.g., the next day).
@@ -40,6 +42,14 @@ This section establishes the procedures and requirements for conducting GPSA dua
 1. **Smoking and Alcohol Prohibition:** Neither smoking nor the consumption of alcoholic beverages will be allowed in the pool area during swim meets. The exact boundaries of this area will be determined by the Referee and both GPSA representatives.
 2. **Behavioral Standards:** Profanity, vulgarity, or disruptive behavior will not be allowed.
 3. **Recording Device Restrictions:** The use of any audio or visual recording devices, including cell phones, is strictly prohibited in changing areas, rest rooms, locker rooms, or behind the starting blocks.
+
+4. **Suspended or Banned Individuals:** If an individual who is currently suspended or banned from GPSA activities attends a meet:
+
+    a. The GPSA Representatives from both teams shall approach the individual and respectfully request that they leave the venue (beyond sight and sound of the meet).
+
+    b. If the individual leaves voluntarily, the meet shall proceed normally.
+
+    c. If the individual refuses to leave, the team to which the suspended or banned individual belongs shall forfeit the meet. Times recorded for swimmers from the forfeiting team shall not stand.
 
 ## Team Responsibilities
 
@@ -105,9 +115,15 @@ This section establishes the procedures and requirements for conducting GPSA dua
 1. **Entry Deadline:** Teams shall be marked as "Ready to Merge" no later than 12:00 PM on the day of the meet.
 2. **Meet Preparation:** The home team GPSA Representative shall merge entries at 12:00 PM on the day of the meet.
 3. **Meet Review and Optimization:** After merging entries, the home team GPSA Representative shall:
-    a. Review the meet for accuracy and proper event seeding.
+    a. Verify that all entries comply with GPSA participation rules (event limits, exhibition requirements, and maximum scoring entrants) and review proper event seeding.
     b. Work with both teams' coaches to consolidate heats and/or relocate exhibition swimmers where possible.
 4. **Required Materials:** Both teams shall prepare all necessary heat sheets, place judge forms, scoring materials, and official documentation as specified in the [GPSA Meet Preparation Guide](https://publicity.gpsaswimming.org/wiki/meet-preparation).
+
+5. **Heat Sheet and Score Publication:**
+
+    a. Enabling heat sheet access on the SwimTopia Mobile App, or distributing heat sheets to parents (whether printed or electronic), requires the mutual agreement of both GPSA Representatives. Any disagreement shall default to not publishing or distributing.
+
+    b. Live meet scores shall not be published to the SwimTopia Mobile App or announced during the meet.
 
 ### Swimmer Readiness
 
