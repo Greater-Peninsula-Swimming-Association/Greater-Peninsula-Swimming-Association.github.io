@@ -502,101 +502,158 @@ Many GPSA Representative operational duties were identified as better suited for
 
 ---
 
-## 13. Items Pending Decision
+## 13. Items Resolved (2026-01-13)
 
-The following items were identified but require further discussion before final decision:
+The following items were previously pending and have now been resolved:
 
 ### Code of Conduct Enforcement
 
-**Status:** Documented in `DUTIES-OF-OFFICIALS-TODO.md` Section 1.A
+**Status:** ADDED to rulebook
 
-**Questions to Resolve:**
-1. Does a GPSA Code of Conduct document exist?
-2. Are these enforcement rules still current?
-3. Should Code of Conduct be an appendix or separate document?
-4. Are the suspended/banned individual protocols still in effect?
+**Resolution:**
 
-**Action Required:** Review and decide whether to add to rulebook
+- GPSA Code of Conduct document exists and is actively enforced
+- Two-tier system: physical signed forms for GPSA Reps/Coaches, SwimTopia registration clause for parents/guardians
+- Filing requirements, forfeit penalties, and re-filing requirements added
+
+**New Rulebook Coverage:**
+
+- officials.md items 9-10 (GPSA Representative Code of Conduct duties)
+- conduct-of-meets.md item 4 under "Venue and Code of Conduct" (suspended/banned individual protocol)
 
 ---
 
-### Meet Maestro Heat Sheet Publishing Rules
+### Heat Sheet and Score Publication Rules
 
-**Status:** Documented in `DUTIES-OF-OFFICIALS-TODO.md` Section 1.E
+**Status:** ADDED to rulebook (modernized language)
 
 **Legacy Text:**
 > "Both reps must mutually agree to the publication of Heat Sheets to the Mobile App. Any disagreement will default to not publishing. Live publishing of scoring shall not be enabled or announced during the meet."
 
-**Questions to Resolve:**
-1. Are these restrictions still needed?
-2. What's the reasoning behind no live scoring?
-3. Should this be in rulebook or operational guidelines?
-4. Where should it be placed if added?
+**Resolution:**
 
-**Action Required:** Review and decide whether to add to rulebook
+- Rules still enforced to preserve GPSA's "blind meet" tradition
+- Language updated to reference SwimTopia Mobile App and modern distribution methods
+- Placed in Pre-Meet Requirements section
+
+**New Rulebook Coverage:** conduct-of-meets.md item 5 under "Pre-Meet Requirements"
 
 ---
 
-### Referee Check Meet Entries Before Start
+### Entry Verification Before Meet
 
-**Status:** Documented in `DUTIES-OF-OFFICIALS-TODO.md` Section 1.C
+**Status:** ADDED to rulebook (reassigned to GPSA Representative)
 
 **Legacy Text:**
 > "Shall check to see that meet entries are completely filled according to rule XIII. C. before the meet begins."
 
-**Decision Leaning:** ADD to rulebook
+**Resolution:**
 
-**Rationale:**
-- Good practice for referee to verify entries
-- Prevents issues during meet
-- Straightforward addition
+- Determined this is a GPSA Representative duty, not Referee duty
+- Home team GPSA Rep verifies entries after merging
+- Strengthened existing language in Pre-Meet Requirements
 
-**Action Required:** Confirm and add
+**New Rulebook Coverage:** conduct-of-meets.md item 3.a under "Pre-Meet Requirements"
 
 ---
 
 ### Stroke & Turn Judge Hand Signal Requirement
 
-**Status:** Documented in `DUTIES-OF-OFFICIALS-TODO.md` Section 1.B
+**Status:** ADDED to rulebook
 
 **Legacy Text:**
 > "Must raise their hand with the palm open at the time of observing a rule infraction in order for the disqualification to be considered valid."
 
-**Decision Leaning:** ADD to rulebook
+**Resolution:**
 
-**Rationale:**
-- Procedural requirement for valid DQs
-- Makes infractions visible
-- Standard USA Swimming practice
+- Added with specific timing (3-5 seconds)
+- Hand signal is a requirement for valid DQs
 
-**Action Required:** Confirm and add
+**New Rulebook Coverage:** officials.md item 3 under "Stroke and Turn Judges"
 
 ---
 
 ### Referee Postponement Authority
 
-**Status:** Documented in `DUTIES-OF-OFFICIALS-TODO.md` Section 1.D
+**Status:** ADDED to rulebook
 
 **Legacy Text:**
 > "Shall have authority to postpone the meet or any part of the meet if in his/her opinion it is desirable because of weather."
 
-**Decision Leaning:** ADD to rulebook
+**Resolution:**
 
-**Rationale:**
-- Complements existing postponement rules
-- Clarifies referee's role in weather decisions
-- Should be in consultation with GPSA Reps
+- Referee has equal authority with GPSA Reps to postpone once the meet has begun
+- No consultation required - Referee's judgment is sufficient for safety decisions
+- Added as new sub-item under Postponement rules
 
-**Action Required:** Confirm and add
+**New Rulebook Coverage:** conduct-of-meets.md item 4.c under "Postponement"
+
+---
+
+### Roster Submission Format and Email
+
+**Status:** RESOLVED - Deferred to wiki
+
+**Legacy Text:**
+> "An Athlete Roster report from SwimTopia in Team Manager format must be submitted by each GPSA team to `rosters@gpsaswimming.org`."
+
+**Resolution:**
+
+- Rulebook focuses on the rule (what must be done): rosters must be submitted one week prior to season start
+- Operational details (format, email address) deferred to wiki documentation
+- This keeps the rulebook stable while allowing operational procedures to evolve
+
+**New Rulebook Coverage:** eligibility-and-rosters.md item 4 under "Roster Requirements" (placeholder note removed)
+
+---
+
+### Roster Revision Timestamp Reference
+
+**Status:** RESOLVED - Clarified in rulebook
+
+**Legacy Text:**
+> "twenty-four hours (reference point is the email timestamp)"
+
+**Resolution:**
+
+- Changed "Submitted" to "Published" to reflect modern workflow
+- The 24-hour deadline is now measured from when the revision is published (made publicly available)
+- Notification to Rules Committee and division email list is still required
+- This modernizes the language while preserving the intent
+
+**New Rulebook Coverage:** eligibility-and-rosters.md item 1.a under "Roster Revisions"
+
+---
+
+### Rules Committee Section
+
+**Status:** ADDED to rulebook
+
+**Legacy Text:**
+> "A Rules Committee shall consist of three members and two alternates: a chairman, two members, and two alternates who shall be appointed by the GPSA President. If possible, have a member from each division. This committee shall review the rules before each swimming season and recommend changes needed. Such recommendations shall be voted on by the GPSA Board of Directors and if approved, shall be incorporated into the existing rules. Recommended rules changes shall be submitted to the Rules Committee for consideration and recommendation to the GPSA Board of Directors. This committee shall have authority over any protest and shall render their resolution promptly, in writing, to the GPSA Representative involved and to the President of the GPSA. Such resolutions will be final. For the purpose of resolving any protest, a vote shall be taken of three members, none of whom shall be affiliated with the teams in question."
+
+**Resolution:**
+
+- Added new "Rules Committee" section to officials.md with Composition and Duties subsections
+- All legacy content preserved: committee structure, appointment by President, division representation goal, annual review duty, rules change process, protest authority, conflict of interest
+- Protest authority items were already partially covered in conduct-of-meets.md; this addition provides the governance context
+
+**New Rulebook Coverage:** officials.md "Rules Committee" section (Composition and Duties)
+
+---
+
+## 14. RULES COMMITTEE Section
+
+**Decision:** 100% coverage achieved - All items added to rulebook
 
 ---
 
 ## Summary Statistics
 
-**Sections Reviewed:** 12
+**Sections Reviewed:** 13
 **Items Intentionally Skipped/Ignored:** ~25
-**Items Deferred for Future Discussion:** 4
-**Items Pending Decision:** 4
+**Items Deferred for Future Discussion:** 2 *(roster submission format deferred to wiki)*
+**Items Resolved (Added to Rulebook):** 8
 **Items Modernized/Improved:** 5
 
 **Primary Reasons for Skipping:**
@@ -612,13 +669,13 @@ The following items were identified but require further discussion before final 
 ## Document Maintenance
 
 **When to Update This Document:**
-- When decisions are made on pending items
+
 - When additional legacy sections are reviewed
 - When rationale needs clarification or revision
 - When follow-up actions are completed
 
 **Related Documents:**
-- `DUTIES-OF-OFFICIALS-TODO.md` - Pending items for officials section
+
 - Wiki documentation (to be created) - Operational procedures
 
 ---

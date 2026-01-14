@@ -12,8 +12,6 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 4. **Team** rosters must be submitted no later than one week prior to the start of the GPSA season. Failure to comply will result in a $25 fine payable to the GPSA.
 
-   **Note:** Specific roster submission format and email requirements are under review and will be updated in a future revision.
-
 5. No swimmer may appear on the roster of more than one **Team** simultaneously.
 
 ## Changing Teams
@@ -34,11 +32,9 @@ This section establishes the requirements for swimmer eligibility and team roste
 
 1. Roster revisions are allowed at any time during the season, provided they are:
 
-    a. Submitted at least 24 hours prior to the start of a meet and is sent to the Rules Committee and the DIVISION email distribution list.
+    a. Published at least 24 hours prior to the start of a meet and notification is sent to the Rules Committee and the division email distribution list.
 
     b. Any swimmer removed from the roster after the roster deadline cannot be reinstated for the remainder of the season.
-
-   **Note:** The specific method and timestamp reference for roster revision submissions are under review and will be updated in a future revision.
 
 ## Eligibility Challenges
 

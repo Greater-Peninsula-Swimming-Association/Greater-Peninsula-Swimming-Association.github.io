@@ -22,6 +22,14 @@ This section outlines the roles, responsibilities, and certification requirement
 
 8. When serving as the host team, the GPSA Representative shall submit meet results to the GPSA Publicity Committee within 24 hours of meet completion. Failure to submit results within this deadline may result in penalties at the discretion of the Rules Committee.
 
+9. Shall sign and submit the GPSA Code of Conduct acknowledgment form, and ensure that all coaches sign the form. Signed forms must be submitted to the Rules Committee no later than seven (7) days before the team's first scheduled meet.
+
+    a. Teams that fail to submit signed Code of Conduct forms by the deadline shall forfeit all scheduled meets until the required forms are received by the Rules Committee.
+
+    b. A new Code of Conduct acknowledgment form must be submitted if the GPSA Representative changes or new coaches are added during the season.
+
+10. Shall ensure that the team's SwimTopia registration includes the GPSA Code of Conduct agreement clause as a required element for parents and guardians.
+
 ### Meet Referee
 
 1. Shall have full authority over all officials on deck, shall assign and instruct them in order to provide fair and adequate coverage of the pool, enforce all rules and shall assure a fair and friendly meet under the rules of GPSA. He/she can overrule any meet official on a judgment decision. He/she has responsibility to address any question raised by either GPSA Representative or their duly appointed alternate with regard to the conduct of the meet. On a point of rule modification the referee shall defer to the judgment of both GPSA Representatives.
@@ -100,7 +108,9 @@ This section outlines the roles, responsibilities, and certification requirement
 
 2. Shall ensure that after the start and when turning or finishing, the swimmer complies with the rules applicable to the stroke used; and shall report any violations to the Referee on signed slips detailing the event, the heat number, lane number and infraction observed.
 
-3. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
+3. Shall raise their hand with palm open for 3-5 seconds at the time of observing a rule infraction. This signal is required for a disqualification to be considered valid.
+
+4. Shall wear a predominantly white shirt and dark shorts/pants/skirt. Their attire should not identify any team affiliation.
 
 ### Sweep Judges
 
@@ -202,3 +212,21 @@ An individual may obtain or renew their certification through one of the followi
 2. **Admin Referee:** Must hold a current GPSA Referee certification.
 
 3. **Chief Judge:** Must have held a GPSA Stroke & Turn certification for at least two (2) seasons.
+
+## Rules Committee
+
+### Composition
+
+1. The Rules Committee shall consist of three (3) members and two (2) alternates: a Chairman, two members, and two alternates, all appointed by the GPSA President.
+
+2. When possible, membership should include representation from each division.
+
+### Duties
+
+1. **Annual Rules Review:** The Rules Committee shall review the GPSA rules before each swimming season and recommend changes as needed.
+
+2. **Rules Changes:** Recommended rules changes shall be submitted to the Rules Committee for consideration. The Committee shall present recommendations to the GPSA Board of Directors for a vote. Approved changes shall be incorporated into the existing rules.
+
+3. **Protest Authority:** The Rules Committee has authority over any protest and shall render their resolution promptly, in writing, to the GPSA Representative involved and to the President of the GPSA. Such resolutions are final.
+
+4. **Conflict of Interest:** For the purpose of resolving any protest, a vote shall be taken of three members, none of whom shall be affiliated with the teams in question.
