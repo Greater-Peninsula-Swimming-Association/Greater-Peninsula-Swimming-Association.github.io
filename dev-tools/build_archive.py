@@ -646,7 +646,7 @@ The script automatically detects:
     final_html = generate_html(meets_by_division, division_assignments, year)
 
     # Step 7: Save output file
-    output_filename = f"gpsa_{year}_season_archive.html"
+    output_filename = "index.html"
     output_path = os.path.join(args.output_dir, output_filename)
 
     logging.info(f"Writing output to: {output_path}")
