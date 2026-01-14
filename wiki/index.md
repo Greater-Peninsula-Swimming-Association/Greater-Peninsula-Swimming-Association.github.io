@@ -27,6 +27,7 @@ The Greater Peninsula Swimming Association is a youth summer swim league serving
 - [Time Drops Timing System](/wiki/time-drops) - Digital timing system used by over half of GPSA teams
 
 ### Team Administration
+- [Roster Submittal Process](/wiki/roster-submittal) - End-to-end guide for publishing team rosters using the Roster Formatter
 - [SwimTopia Guidelines](/wiki/swimtopia-guidelines) - Comprehensive guide for team administrators on using SwimTopia
 
 ## Additional Resources
