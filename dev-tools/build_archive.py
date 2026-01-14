@@ -1,4 +1,5 @@
 import argparse
+import csv
 import os
 import logging
 import sys
@@ -60,6 +61,97 @@ FILENAME_ABBR_MAP = {
     "WPPI": "WPPIR",
     "BLMA": "BLMAR"
 }
+
+
+# --- CSV Division Loading ---
+def load_divisions_from_csv(csv_path, filename_abbr_map):
+    """
+    Load division assignments from a CSV file.
+
+    CSV format:
+        season,team_code,division
+        2025,WPPI,red
+        2025,WO,red
+        ...
+
+    Args:
+        csv_path: Path to the divisions.csv file
+        filename_abbr_map: Map to translate filename abbreviations to official codes
+
+    Returns:
+        Dict mapping division names (capitalized) to lists of team abbreviations,
+        or None if file doesn't exist or is invalid.
+    """
+    if not os.path.exists(csv_path):
+        logging.debug(f"divisions.csv not found at: {csv_path}")
+        return None
+
+    try:
+        division_assignments = {'Red': [], 'White': [], 'Blue': []}
+
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+
+            for row in reader:
+                team_code = row.get('team_code', '').strip()
+                division = row.get('division', '').strip().lower()
+
+                if not team_code or not division:
+                    continue
+
+                # Translate filename abbreviation to official abbreviation
+                official_abbr = filename_abbr_map.get(team_code, team_code)
+
+                # Capitalize division name for internal use
+                division_cap = division.capitalize()
+
+                if division_cap in division_assignments:
+                    division_assignments[division_cap].append(official_abbr)
+                else:
+                    logging.warning(f"Unknown division '{division}' for team {team_code}")
+
+        # Validate we have teams in each division
+        empty_divisions = [d for d, teams in division_assignments.items() if not teams]
+        if empty_divisions:
+            logging.warning(f"Empty divisions in CSV: {empty_divisions}")
+
+        total_teams = sum(len(teams) for teams in division_assignments.values())
+        logging.info(f"Loaded {total_teams} team assignments from divisions.csv")
+
+        for div_name, teams in division_assignments.items():
+            logging.debug(f"  {div_name}: {teams}")
+
+        return division_assignments
+
+    except Exception as e:
+        logging.error(f"Error reading divisions.csv: {e}")
+        return None
+
+
+def validate_divisions_against_teams(division_assignments, detected_teams):
+    """
+    Validate that all teams detected in results have division assignments.
+
+    Args:
+        division_assignments: Dict from load_divisions_from_csv()
+        detected_teams: Set of team abbreviations detected from result files
+
+    Returns:
+        Tuple (is_valid: bool, missing_teams: set, extra_teams: set)
+        - missing_teams: Teams in results but not in CSV (critical)
+        - extra_teams: Teams in CSV but not in results (warning only)
+    """
+    # Flatten all teams from division assignments
+    csv_teams = set()
+    for teams in division_assignments.values():
+        csv_teams.update(teams)
+
+    missing_teams = detected_teams - csv_teams
+    extra_teams = csv_teams - detected_teams
+
+    is_valid = len(missing_teams) == 0
+
+    return is_valid, missing_teams, extra_teams
 
 
 # --- Logging Setup ---
@@ -562,6 +654,8 @@ The script automatically detects:
                         help='Directory where the archive HTML will be saved (default: current directory)')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='Enable verbose logging output')
+    parser.add_argument('--non-interactive', action='store_true',
+                        help='Run without prompts (requires divisions.csv in input directory)')
     args = parser.parse_args()
 
     # Setup logging
@@ -596,14 +690,55 @@ The script automatically detects:
     if len(clusters) != 3:
         logging.warning(f"Expected 3 divisions but detected {len(clusters)} team clusters.")
         logging.warning("This may indicate incomplete meet data or unusual division structure.")
-        response = input("\nDo you want to continue anyway? (y/n): ").strip().lower()
-        if response != 'y':
-            logging.info("Operation cancelled by user.")
-            sys.exit(0)
+        if not args.non_interactive:
+            response = input("\nDo you want to continue anyway? (y/n): ").strip().lower()
+            if response != 'y':
+                logging.info("Operation cancelled by user.")
+                sys.exit(0)
 
-    # Step 3: Prompt user for division assignments
-    logging.info("\nStep 3: Assigning team clusters to divisions...")
-    division_assignments = prompt_division_assignment(clusters, TEAM_NAME_MAP)
+    # Step 3: Load or prompt for division assignments
+    logging.info("\nStep 3: Determining division assignments...")
+
+    csv_path = os.path.join(args.input_dir, 'divisions.csv')
+    division_assignments = None
+
+    # Try to load from CSV first
+    if os.path.exists(csv_path):
+        logging.info(f"Found divisions.csv at: {csv_path}")
+        division_assignments = load_divisions_from_csv(csv_path, FILENAME_ABBR_MAP)
+
+        if division_assignments:
+            # Validate against detected teams
+            all_detected = set()
+            for cluster in clusters:
+                all_detected.update(cluster)
+
+            is_valid, missing, extra = validate_divisions_against_teams(
+                division_assignments, all_detected
+            )
+
+            if missing:
+                logging.error(f"Teams in results but not in divisions.csv: {missing}")
+                if args.non_interactive:
+                    logging.error("Cannot proceed in non-interactive mode with missing team assignments.")
+                    sys.exit(1)
+                # In interactive mode, fall through to prompt
+                logging.info("Falling back to interactive division assignment...")
+                division_assignments = None
+
+            if extra:
+                logging.warning(f"Teams in divisions.csv but not in results: {extra}")
+                logging.warning("These teams will appear in standings with 0-0 records.")
+
+    # Fall back to interactive prompt if needed
+    if division_assignments is None:
+        if args.non_interactive:
+            logging.error("No valid divisions.csv found and --non-interactive specified.")
+            logging.error(f"Create a divisions.csv file at: {csv_path}")
+            sys.exit(1)
+
+        # Use interactive prompt
+        division_assignments = prompt_division_assignment(clusters, TEAM_NAME_MAP)
 
     # Create reverse lookup: team -> division
     team_to_division = {team: division for division, teams in division_assignments.items() for team in teams}

@@ -16,7 +16,9 @@ This directory contains Python scripts that automate the generation of GPSA webs
 
 - ✅ **Automatic year detection** from meet filenames
 - ✅ **Automatic division detection** by analyzing opponent relationships
-- ✅ **Interactive division assignment** (Red, White, Blue)
+- ✅ **CSV-based division assignment** for automated workflows
+- ✅ **Interactive fallback** when CSV not available
+- ✅ **GitHub Actions integration** for automatic archive generation
 - ✅ **No hardcoded configuration** - adapts year-to-year
 - ✅ **Self-contained HTML** - embedded styling for portability
 - ✅ **Fully responsive design** - optimized for all screen sizes
@@ -28,6 +30,7 @@ This directory contains Python scripts that automate the generation of GPSA webs
 Generated archives are fully responsive with mobile-first design:
 
 **Mobile (< 640px):**
+
 - Compact padding (4px-8px)
 - Abbreviated dates: "MON JUN 16"
 - Smaller fonts (12px-14px)
@@ -35,11 +38,13 @@ Generated archives are fully responsive with mobile-first design:
 - Horizontal scroll for wide tables
 
 **Tablet (640px - 767px):**
+
 - Medium padding (8px)
 - Full dates: "MONDAY JUNE 16"
 - Standard fonts (14px-16px)
 
 **Desktop (768px+):**
+
 - Spacious padding (12px+)
 - Large fonts (16px-18px)
 - Optimal readability
@@ -56,21 +61,25 @@ pip install beautifulsoup4
 #### Usage
 
 **Basic usage:**
+
 ```bash
 python dev-tools/build_archive.py -i results/2025
 ```
 
 **Specify output directory:**
+
 ```bash
 python dev-tools/build_archive.py -i results/2025 -o results/2025
 ```
 
 **Enable verbose logging:**
+
 ```bash
 python dev-tools/build_archive.py -i results/2025 -o results/2025 --verbose
 ```
 
 **View help:**
+
 ```bash
 python dev-tools/build_archive.py --help
 ```
@@ -78,10 +87,11 @@ python dev-tools/build_archive.py --help
 #### Command-Line Arguments
 
 | Argument | Short | Description | Required |
-|----------|-------|-------------|----------|
+| ---------- | ------- | ------------- | ---------- |
 | `--input` | `-i` | Directory containing meet result HTML files | Yes |
 | `--output` | `-o` | Output directory for archive (default: current directory) | No |
 | `--verbose` | `-v` | Enable detailed debug logging | No |
+| `--non-interactive` | | Run without prompts (requires `divisions.csv`) | No |
 
 #### Input Requirements
 
@@ -97,7 +107,60 @@ python dev-tools/build_archive.py --help
    - Group 1: Select Red (1), White (2), or Blue (3)
    - Group 2: Select from remaining two divisions
    - Group 3: Automatically assigned to final division
-4. **HTML Generation** - Creates `gpsa_YYYY_season_archive.html`
+4. **HTML Generation** - Creates `index.html` archive
+
+#### Automated Mode (GitHub Actions)
+
+For CI/CD pipelines and automated builds, use the `--non-interactive` flag with a `divisions.csv` file.
+
+**Command:**
+```bash
+python dev-tools/build_archive.py -i results/2025 -o results/2025 --non-interactive
+```
+
+**Requirements:**
+- `divisions.csv` must exist in the input directory
+- All teams in result files must have division assignments in CSV
+
+**divisions.csv Format:**
+```csv
+season,team_code,division
+2025,WPPI,red
+2025,WO,red
+2025,MBKM,red
+2025,COL,red
+2025,RMMR,red
+2025,POQ,red
+2025,CV,white
+2025,WYCC,white
+2025,GG,white
+2025,HW,white
+2025,WW,white
+2025,GWRA,white
+2025,KCD,blue
+2025,JRCC,blue
+2025,RRST,blue
+2025,BLMA,blue
+2025,EL,blue
+```
+
+**Team Codes:**
+- Use filename abbreviations (WPPI, MBKM, BLMA, etc.)
+- Script automatically translates to official codes (WPPIR, MBKMT, BLMAR)
+- Division names are lowercase: `red`, `white`, `blue`
+
+**GitHub Actions Integration:**
+When results are pushed to `results/YYYY/` directories:
+1. GitHub Action detects changed years
+2. Runs `build_archive.py --non-interactive` for each year with `divisions.csv`
+3. Auto-commits generated `index.html` files
+
+See `.github/workflows/build-season-archive.yml` for workflow configuration.
+
+**Error Handling:**
+- Missing `divisions.csv`: Exits with error (non-interactive) or falls back to prompts (interactive)
+- Team in results but not in CSV: Exits with error in non-interactive mode
+- Team in CSV but not in results: Warning only (appears in standings with 0-0 record)
 
 #### Example Session
 
@@ -565,6 +628,13 @@ For questions or issues with these tools:
 ---
 
 ## Version History
+
+**build_archive.py v2.1 (January 2025)**
+- Added `--non-interactive` flag for CI/CD automation
+- CSV-based division assignment (`divisions.csv`)
+- GitHub Actions workflow integration
+- Validation of CSV divisions against detected teams
+- Fallback to interactive mode when CSV unavailable
 
 **build_archive.py v2.0 (2025)**
 - Added fully responsive design

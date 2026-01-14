@@ -1,0 +1,157 @@
+# .github/workflows/build-season-archive.yml
+name: Build Season Archive
+
+on:
+  push:
+    paths:
+      - 'results/**/*.html'
+      - 'results/**/divisions.csv'
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Specific year to rebuild (e.g., 2025). Leave empty to rebuild all years with divisions.csv.'
+        required: false
+        type: string
+
+jobs:
+  build-archive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit to detect changes
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install beautifulsoup4
+
+      - name: Detect affected years
+        id: detect-years
+        run: |
+          if [ -n "${{ github.event.inputs.year }}" ]; then
+            # Manual dispatch with specific year
+            echo "years=${{ github.event.inputs.year }}" >> $GITHUB_OUTPUT
+            echo "Manual dispatch for year: ${{ github.event.inputs.year }}"
+          else
+            # Detect years from changed files
+            YEARS=$(git diff --name-only HEAD~1 HEAD -- 'results/' 2>/dev/null | \
+                    grep -oE 'results/[0-9]{4}/' | \
+                    sed 's/results\///;s/\///' | \
+                    sort -u | tr '\n' ' ' | xargs)
+
+            if [ -z "$YEARS" ]; then
+              echo "No year directories detected from changes"
+              # For workflow_dispatch without year, find all years with divisions.csv
+              YEARS=$(find results -name "divisions.csv" -type f 2>/dev/null | \
+                      grep -oE 'results/[0-9]{4}/' | \
+                      sed 's/results\///;s/\///' | \
+                      sort -u | tr '\n' ' ' | xargs)
+            fi
+
+            echo "years=${YEARS}" >> $GITHUB_OUTPUT
+            echo "Detected years: ${YEARS:-none}"
+          fi
+
+      - name: Build archives for affected years
+        if: steps.detect-years.outputs.years != ''
+        run: |
+          YEARS="${{ steps.detect-years.outputs.years }}"
+
+          for YEAR in $YEARS; do
+            echo "::group::Building archive for ${YEAR}"
+
+            RESULTS_DIR="results/${YEAR}"
+            CSV_FILE="${RESULTS_DIR}/divisions.csv"
+
+            if [ ! -d "${RESULTS_DIR}" ]; then
+              echo "::warning::Results directory not found: ${RESULTS_DIR}"
+              echo "::endgroup::"
+              continue
+            fi
+
+            if [ ! -f "${CSV_FILE}" ]; then
+              echo "::warning::divisions.csv not found in ${RESULTS_DIR}, skipping"
+              echo "::endgroup::"
+              continue
+            fi
+
+            echo "Processing ${RESULTS_DIR}..."
+            python dev-tools/build_archive.py \
+              -i "${RESULTS_DIR}" \
+              -o "${RESULTS_DIR}" \
+              --non-interactive \
+              --verbose
+
+            echo "::endgroup::"
+          done
+
+      - name: Verify generated files
+        if: steps.detect-years.outputs.years != ''
+        run: |
+          echo "Verifying generated archive files..."
+          YEARS="${{ steps.detect-years.outputs.years }}"
+
+          for YEAR in $YEARS; do
+            INDEX_FILE="results/${YEAR}/index.html"
+            if [ -f "${INDEX_FILE}" ]; then
+              ls -lh "${INDEX_FILE}"
+              echo "✅ Generated: ${INDEX_FILE}"
+            else
+              echo "⚠️  Not generated: ${INDEX_FILE} (missing divisions.csv or no results)"
+            fi
+          done
+
+      - name: Commit generated archives
+        if: github.event_name == 'push'
+        run: |
+          echo "Configuring git..."
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          echo "Staging generated archive files..."
+          git add results/*/index.html 2>/dev/null || true
+
+          if git diff --staged --quiet; then
+            echo "✅ No changes to commit (archives unchanged)"
+          else
+            echo "📝 Committing updated season archives..."
+            git commit -m "Build season archives [skip ci]"
+
+            echo "⬆️  Pushing to repository..."
+            git push
+
+            echo "✅ Season archives committed and pushed successfully"
+          fi
+
+      - name: Summary
+        run: |
+          echo "### Season Archive Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          YEARS="${{ steps.detect-years.outputs.years }}"
+
+          if [ -z "$YEARS" ]; then
+            echo "No years detected for processing." >> $GITHUB_STEP_SUMMARY
+          else
+            for YEAR in $YEARS; do
+              if [ -f "results/${YEAR}/index.html" ]; then
+                echo "- **${YEAR}**: ✅ Archive generated successfully" >> $GITHUB_STEP_SUMMARY
+              else
+                echo "- **${YEAR}**: ⚠️ No archive generated (missing divisions.csv or results)" >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Triggered by: ${{ github.event_name }}*" >> $GITHUB_STEP_SUMMARY

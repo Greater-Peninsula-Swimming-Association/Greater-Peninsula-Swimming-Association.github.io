@@ -61,10 +61,12 @@ GPSA (Greater Peninsula Swimming Association) website hosted on GitHub Pages. Co
 
 ### dev-tools/build_archive.py
 - Intelligent season archive builder
-- Auto-detects year and divisions
-- Interactive division assignment
-- Outputs: `gpsa_YYYY_season_archive.html`
-- **See `DOCUMENTATION.md` for usage**
+- Auto-detects year from filenames
+- CSV-based division assignment (`divisions.csv`)
+- `--non-interactive` flag for CI/CD automation
+- GitHub Action auto-generates on result push
+- Outputs: `index.html` in results directory
+- **See `dev-tools/README.md` for usage**
 
 ### dev-tools/generate_index.py
 - Generates branded directory indexes
@@ -202,7 +204,8 @@ toc: true                # optional, auto-generates TOC
 ## File Naming Conventions
 
 - **Dual meet results:** `YYYY-MM-DD_TEAM1_v_TEAM2.html`
-- **Season archives:** `gpsa_YYYY_season_archive.html`
+- **Season archives:** `results/YYYY/index.html` (auto-generated)
+- **Division assignments:** `results/YYYY/divisions.csv`
 - **Directory indexes:** `index.html` within each directory
 
 ---
@@ -217,6 +220,13 @@ git add .
 git commit -m "Description of changes"
 git push origin main
 ```
+
+**Automated Season Archives:**
+When pushing meet results to `results/YYYY/`:
+1. Ensure `divisions.csv` exists with team assignments
+2. GitHub Action automatically regenerates `index.html`
+3. Auto-commit message: `"Build season archives [skip ci]"`
+4. See `wiki/season-archive-automation.md` for details
 
 **Current `.gitignore` excludes:**
 - macOS files (`.DS_Store`, `.fseventsd`)
@@ -238,10 +248,11 @@ git push origin main
 3. Ensure `escapeHtml()` used for all user input
 4. Test with checklist in `MAINTENANCE.md`
 
-**Generate season archive:**
+**Generate season archive (manual):**
 ```bash
-python dev-tools/build_archive.py -i results/2025 -o results/2025
+python dev-tools/build_archive.py -i results/2025 -o results/2025 --non-interactive
 ```
+*Note: Archives auto-generate via GitHub Action when results are pushed.*
 
 **Generate directory indexes:**
 ```bash
