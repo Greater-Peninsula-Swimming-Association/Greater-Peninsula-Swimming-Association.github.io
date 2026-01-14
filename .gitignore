@@ -10,6 +10,9 @@
 # Claude Code
 .claude/
 
+# VScode
+*.code-workspace
+
 # Thumbnail cache files
 Icon?
 ehthumbs.db
