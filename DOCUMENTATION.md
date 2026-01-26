@@ -4,6 +4,8 @@ Detailed documentation for tools, scripts, and workflows in the GPSA website rep
 
 ## Table of Contents
 - [Key Tools](#key-tools)
+- [Publicity API Server](#publicity-api-server)
+- [Shared Modules](#shared-modules)
 - [Dev Tools](#dev-tools)
 - [Wiki System](#wiki-system)
 - [File Formats](#file-formats)
@@ -53,6 +55,12 @@ Detailed documentation for tools, scripts, and workflows in the GPSA website rep
 - `prepareOverrideData()` validates winning team and reason inputs
 - Override banner uses inline styles for portability
 - All user inputs sanitized with `escapeHtml()` for XSS protection
+
+**Shared Module Architecture (2025):**
+- Core parsing logic extracted to `lib/publicity-core.js`
+- Browser tool imports from shared module via ES modules
+- Same code powers both browser tool and API server
+- See [Shared Modules](#shared-modules) section for details
 
 **Forfeit Workflow:**
 1. Upload SDIF file (.sd3, .txt, or .zip)
@@ -142,6 +150,188 @@ SwimTopia CSV exports must contain these headers:
 - Recursively crawls same-domain links
 - Finds all references to a specified div ID
 - Intended for development and maintenance purposes
+
+---
+
+## Publicity API Server
+
+### publicity-server/ - REST API for SDIF Processing
+
+**Purpose:** Node.js API server for processing SDIF files programmatically, designed for n8n and automation integration.
+
+**Location:** `publicity-server/`
+
+**Features:**
+- Express.js REST API
+- Multipart file upload support
+- Memory-only processing (no temp files)
+- Docker deployment with volume mounts
+- Shares parsing logic with browser tool via `lib/publicity-core.js`
+
+**Endpoints:**
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Health check with version info |
+| `/api` | GET | API information and limits |
+| `/api/process` | POST | Process SDIF file |
+
+**POST /api/process:**
+
+Request (multipart/form-data):
+- `file`: SDIF file (.sd3, .txt, or .zip) - required
+- `override`: JSON string with override config - optional
+
+Response:
+```json
+{
+  "success": true,
+  "filename": "2025-06-16_GG_v_WW.html",
+  "html": "<!DOCTYPE html>...",
+  "metadata": {
+    "meetName": "2025 Great Oaks v. Westfield",
+    "meetDate": "2025-06-16",
+    "teams": [
+      {"code": "GG", "name": "Great Oaks", "score": 245.0},
+      {"code": "WW", "name": "Westfield", "score": 198.0}
+    ],
+    "eventCount": 42
+  }
+}
+```
+
+**Error Responses:**
+
+| HTTP | Condition | Response |
+|------|-----------|----------|
+| 400 | No file uploaded | `{"success": false, "error": "No file uploaded"}` |
+| 400 | Invalid file type | `{"success": false, "error": "Invalid file type"}` |
+| 413 | File too large | `{"success": false, "error": "File too large"}` |
+| 422 | Invalid SDIF | `{"success": false, "error": "Invalid SDIF format"}` |
+| 500 | Server error | `{"success": false, "error": "Internal server error"}` |
+
+**Limits:**
+- Max file size: 256KB
+- Allowed extensions: .sd3, .txt, .zip
+
+**Local Development:**
+```bash
+cd publicity-server
+npm install
+npm start
+# Server runs at http://localhost:3000
+```
+
+**Docker Deployment:**
+```bash
+cd publicity-server
+docker-compose up
+```
+
+Docker uses volume mounts (no build step):
+- `./` → `/app` - Server code
+- `../lib` → `/app/lib` - Shared module
+
+Changes to `lib/publicity-core.js` sync instantly without rebuild.
+
+**n8n Integration Example:**
+```
+HTTP Request Node:
+- Method: POST
+- URL: http://your-server:3000/api/process
+- Body: Form-Data/Multipart
+- Fields:
+  - file: (Binary from trigger/previous node)
+  - override: {"enabled": false} (optional)
+```
+
+**cURL Examples:**
+```bash
+# Basic usage
+curl -X POST http://localhost:3000/api/process \
+  -F "file=@meet_results.sd3"
+
+# With override
+curl -X POST http://localhost:3000/api/process \
+  -F "file=@meet_results.sd3" \
+  -F 'override={"enabled":true,"winnerCode":"GG","reason":"Forfeit"}'
+```
+
+See `publicity-server/README.md` for complete documentation.
+
+---
+
+## Shared Modules
+
+### lib/publicity-core.js - SDIF Parsing Core
+
+**Purpose:** Shared ES module containing SDIF parsing and HTML generation logic used by both the browser tool and API server.
+
+**Location:** `lib/publicity-core.js`
+
+**Exports:**
+
+| Export | Type | Description |
+|--------|------|-------------|
+| `VERSION` | const | Tool version string |
+| `LOGO_URL` | const | GPSA logo URL |
+| `STROKE_MAP` | const | Stroke code to name mapping |
+| `GENDER_MAP` | const | Gender code to display name |
+| `escapeHtml(text)` | function | XSS-safe HTML escaping (regex-based) |
+| `parseAgeCode(code)` | function | Convert age code to display format |
+| `validateSdif(data)` | function | Validate SDIF has required B1 record |
+| `parseSdif(data)` | function | Parse SDIF content to structured data |
+| `applyForfeitScores(data, override)` | function | Apply forfeit scores to parsed data |
+| `generateFilename(data)` | function | Generate standardized filename |
+| `generateExportableHtml(data, logo, override)` | function | Generate standalone HTML document |
+| `extractMetadata(data)` | function | Extract metadata for API responses |
+
+**Usage in Browser (tools/publicity.html):**
+```javascript
+import {
+    escapeHtml,
+    parseSdif,
+    generateExportableHtml,
+    LOGO_URL,
+    VERSION
+} from '../lib/publicity-core.js';
+```
+
+**Usage in Node.js (publicity-server/server.mjs):**
+```javascript
+import {
+    parseSdif,
+    validateSdif,
+    generateExportableHtml,
+    LOGO_URL
+} from './lib/publicity-core.js';
+```
+
+**Key Design Decisions:**
+- **Node-compatible escapeHtml**: Uses regex instead of DOM for Node.js support
+- **Parameterized functions**: Override data passed as parameter (no globals)
+- **Pure functions**: No side effects, easy to test
+- **ES modules**: Native browser and Node.js support
+
+**Architecture Diagram:**
+```
+┌─────────────────────┐     ┌─────────────────────┐
+│  tools/publicity    │     │  publicity-server/  │
+│      .html          │     │     server.mjs      │
+│    (Browser)        │     │     (Node.js)       │
+└─────────┬───────────┘     └─────────┬───────────┘
+          │                           │
+          │  import from              │  import from
+          │                           │
+          └───────────┐   ┌───────────┘
+                      │   │
+                      ▼   ▼
+              ┌───────────────────┐
+              │  lib/publicity-   │
+              │    core.mjs       │
+              │  (Shared Logic)   │
+              └───────────────────┘
+```
 
 ---
 
