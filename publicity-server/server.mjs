@@ -14,6 +14,7 @@ import JSZip from 'jszip';
 import {
     parseSdif,
     validateSdif,
+    validateDualMeet,
     applyForfeitScores,
     generateExportableHtml,
     generateFilename,
@@ -191,6 +192,15 @@ app.post('/api/process', upload.single('file'), async (req, res) => {
 
         // Parse SDIF content
         let parsedData = parseSdif(sdifContent);
+
+        // Validate this is a dual meet (exactly 2 teams)
+        const dualMeetValidation = validateDualMeet(parsedData);
+        if (!dualMeetValidation.valid) {
+            return res.status(422).json({
+                success: false,
+                error: dualMeetValidation.error
+            });
+        }
 
         // Handle override configuration
         let overrideData = null;

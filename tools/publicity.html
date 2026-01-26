@@ -115,6 +115,7 @@
             escapeHtml,
             parseAgeCode,
             parseSdif,
+            validateDualMeet,
             applyForfeitScores,
             generateExportableHtml,
             generateFilename,
@@ -328,6 +329,14 @@
 
             setTimeout(() => {
                 parsedData = parseSdif(fileContent);
+
+                // Validate this is a dual meet (exactly 2 teams)
+                const dualMeetValidation = validateDualMeet(parsedData);
+                if (!dualMeetValidation.valid) {
+                    loadingDiv.classList.add('hidden');
+                    showToast(dualMeetValidation.error, 'error', 8000);
+                    return;
+                }
 
                 // Populate team dropdown for override functionality
                 populateTeamDropdown(parsedData);
