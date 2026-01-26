@@ -31,7 +31,7 @@
                      onerror="this.onerror=null; this.src='https://placehold.co/100x100/002366/FFFFFF?text=GPSA';">
                 <div>
                     <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">GPSA Meet Schedule Generator</h1>
-                    <p class="gpsa-header-subtitle">Generate formatted meet schedules for SwimTopia CMS</p>
+                    <p class="gpsa-header-subtitle">Generate meet schedules with links to results</p>
                 </div>
             </header>
 
@@ -89,7 +89,7 @@
             </div>
 
             <footer class="text-center mt-10 text-gray-500 text-sm">
-                <p>GPSA Meet Schedule Generator v1.0</p>
+                <p>GPSA Meet Schedule Generator v1.1</p>
             </footer>
         </div>
     </main>
@@ -200,6 +200,12 @@
             return `${dayOfWeek} ${monthName} ${dayNumber}`;
         }
 
+        // Get year from date string
+        function getYearFromDate(dateString) {
+            const [month, day, year] = dateString.split('/');
+            return year;
+        }
+
         // Get team schedule name
         function getTeamScheduleName(abbr) {
             return TEAM_SCHEDULE_NAME_MAP[abbr] || abbr;
@@ -303,12 +309,9 @@
 
             // Table headers
             html += '<tr>\n';
-            html += '\t<th style="width:20%">\n\t\t\t\tDATE\n\t</th>\n';
-            html += '\t<th style="width:20%">\n\t\t\t\tHOME\n\t</th>\n';
-            html += '\t<th style="width:10%">\n\t\t\t\tSCORE\n\t</th>\n';
-            html += '\t<th style="width:20%">\n\t\t\t\tVISITOR\n\t</th>\n';
-            html += '\t<th style="width:10%">\n\t\t\t\tSCORE\n\t</th>\n';
-            html += '\t<th style="width:20%">\n\t\t\t\tBEST TIMES\n\t</th>\n';
+            html += '\t<th style="width:33%">\n\t\t\t\tDATE\n\t</th>\n';
+            html += '\t<th style="width:33%">\n\t\t\t\tHOME\n\t</th>\n';
+            html += '\t<th style="width:34%">\n\t\t\t\tVISITOR\n\t</th>\n';
             html += '</tr>\n';
 
             // Generate rows
@@ -329,24 +332,22 @@
                     const homeTeamName = getTeamScheduleName(meet.HomeTeam);
                     html += `\t<td>\n\t\t\t\t${homeTeamName}\n\t</td>\n`;
 
-                    // Home score (empty)
-                    html += '\t<td>\n\t\t\n\t</td>\n';
-
                     // Visitor team
                     const visitorTeamName = getTeamScheduleName(meet.VisitingTeam);
                     html += `\t<td>\n\t\t\t\t${visitorTeamName}\n\t</td>\n`;
-
-                    // Visitor score (empty)
-                    html += '\t<td>\n\t\t\n\t</td>\n';
-
-                    // Best times (empty)
-                    html += '\t<td>\n\t\t\n\t</td>\n';
 
                     html += '</tr>\n';
                 });
             });
 
             html += '</tbody>\n</table>\n';
+
+            // Add link to results page
+            const firstDate = sortedDates[0];
+            const year = getYearFromDate(firstDate);
+            const resultsPageUrl = `https://publicity.gpsaswimming.org/results/${year}/`;
+            html += `<p style="margin-top: 1em;"><a href="${resultsPageUrl}" target="_blank">View Meet Results</a></p>\n`;
+
             html += '</div>';
 
             generatedHTML = html;
