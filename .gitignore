@@ -24,6 +24,10 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Node.js
+node_modules/
+package-lock.json
+
 # Bulk processor working directories
 incoming/
 preview/
