@@ -89,7 +89,7 @@
             </div>
 
             <footer class="text-center mt-10 text-gray-500 text-sm">
-                <p>GPSA Meet Schedule Generator v1.1</p>
+                <p>GPSA Meet Schedule Generator v1.2</p>
             </footer>
         </div>
     </main>
@@ -345,7 +345,7 @@
             // Add link to results page
             const firstDate = sortedDates[0];
             const year = getYearFromDate(firstDate);
-            const resultsPageUrl = `https://publicity.gpsaswimming.org/results/${year}/`;
+            const resultsPageUrl = `https://publicity.gpsaswimming.org/results/${year}/#${selectedDivision}`;
             html += `<p style="margin-top: 1em;"><a href="${resultsPageUrl}" target="_blank">View Meet Results</a></p>\n`;
 
             html += '</div>';
