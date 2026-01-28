@@ -7,7 +7,6 @@ Detailed documentation for tools, scripts, and workflows in the GPSA website rep
 - [Publicity API Server](#publicity-api-server)
 - [Shared Modules](#shared-modules)
 - [Dev Tools](#dev-tools)
-- [Wiki System](#wiki-system)
 - [File Formats](#file-formats)
 - [Workflows](#workflows)
 
@@ -512,64 +511,6 @@ FILENAME_ABBR_MAP = {
 **Purpose:** Bulk SDIF to HTML processor.
 
 See `dev-tools/README.md` for detailed usage.
-
----
-
-## Wiki System
-
-The GPSA Wiki uses **Jekyll** (built into GitHub Pages) to convert Markdown to styled HTML.
-
-**Features:**
-- Markdown authoring
-- Automatic GPSA styling (brand colors, fonts, layout)
-- Table of contents auto-generated (with `toc: true`)
-- Navigation sidebar with categories
-- Breadcrumb navigation
-- Version control with Git
-- Automatic GitHub Pages deployment
-
-**File Structure:**
-- `/wiki/*.md` - Page content files
-- `/_layouts/wiki.html` - Jekyll template
-- `/_includes/wiki-nav.html` - Sidebar navigation
-- `/_config.yml` - Jekyll configuration
-- `/css/wiki.css` - Wiki styles
-
-**Front Matter Format:**
-```yaml
----
-layout: wiki              # Always "wiki" for wiki pages
-title: Page Title         # Shown at top and browser tab
-category: Category Name   # Used in breadcrumbs (optional)
-toc: true                # Auto-generate TOC (optional)
-last_updated: Month YYYY # Display update date (optional)
----
-```
-
-**Current Wiki Pages:**
-
-| Page | Category | Purpose |
-|------|----------|---------|
-| index.md | Home | Wiki landing page |
-| about.md | About GPSA | League structure, history, mission |
-| faq.md | About GPSA | Frequently asked questions |
-| scorekeeper.md | Meet Management | Meet Maestro guide (time entry, DQs, labels) |
-| time-drops.md | Meet Management | Time Drops wireless timing system |
-| meet-schedule-generator.md | Web Tools | Division schedule formatter docs |
-| roster-formatter.md | Web Tools | Team roster generator docs |
-| publicity-processor.md | Web Tools | SDIF to HTML converter docs |
-
-**Adding New Wiki Pages:**
-1. Create `.md` file in `/wiki/` directory
-2. Add front matter (`layout: wiki`, `title`)
-3. Write content in Markdown
-4. Update `/wiki/index.md` with link
-5. Update `/_includes/wiki-nav.html` for sidebar (if needed)
-6. Commit and push (auto-publishes in 1-2 minutes)
-
-**Cross-References:**
-- See `wiki/README.md` for complete Markdown authoring guide
-- Wiki pages link to live tools (e.g., `/tools/publicity.html`)
 
 ---
 

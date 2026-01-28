@@ -26,7 +26,7 @@ GPSA (Greater Peninsula Swimming Association) website hosted on GitHub Pages. Co
 │   └── YYYY/               # Dual meet results as YYYY-MM-DD_TEAM1_v_TEAM2.html
 ├── invitationals/          # Event-specific content (CityMeet/, SummerSplashInvitational/, MiniMeet/)
 ├── documents/              # PDFs (GPSA Constitution, etc.)
-├── wiki/                   # Jekyll-powered documentation (Markdown → HTML)
+├── docs/                   # Quarto-managed documents (Constitution, Code of Conduct)
 ├── css/                    # Modular stylesheets
 │   └── gpsa-tools-common.css  # Shared styles for all tools (REQUIRED)
 ├── assets/                 # Logos, images, graphics
@@ -167,40 +167,6 @@ function showToast(message, type = 'info', duration = 4000) {
 
 ---
 
-## Wiki System
-
-Jekyll-powered documentation in `/wiki/` directory.
-
-**Front Matter:**
-```yaml
----
-layout: wiki
-title: Page Title
-category: Category Name  # optional
-toc: true                # optional, auto-generates TOC
----
-```
-
-**Current Pages:**
-- `index.md` - Wiki home
-- `about.md` - League info
-- `faq.md` - Frequently asked questions
-- `scorekeeper.md` - Meet Maestro guide
-- `time-drops.md` - Timing system docs
-- `meet-schedule-generator.md`, `roster-formatter.md`, `publicity-processor.md` - Tool docs
-
-**Adding Pages:**
-1. Create `.md` file in `/wiki/`
-2. Add front matter
-3. Write Markdown content
-4. Update `/wiki/index.md` with link
-5. Update `/_includes/wiki-nav.html` (if needed)
-6. Commit and push (auto-publishes in 1-2 minutes)
-
-**See `DOCUMENTATION.md` for detailed wiki info.**
-
----
-
 ## File Naming Conventions
 
 - **Dual meet results:** `YYYY-MM-DD_TEAM1_v_TEAM2.html`
@@ -226,7 +192,6 @@ When pushing meet results to `results/YYYY/`:
 1. Ensure `divisions.csv` exists with team assignments
 2. GitHub Action automatically regenerates `index.html`
 3. Auto-commit message: `"Build season archives [skip ci]"`
-4. See `wiki/season-archive-automation.md` for details
 
 **Current `.gitignore` excludes:**
 - macOS files (`.DS_Store`, `.fseventsd`)
@@ -258,12 +223,6 @@ python dev-tools/build_archive.py -i results/2025 -o results/2025 --non-interact
 ```bash
 python dev-tools/generate_index.py .
 ```
-
-**Add wiki page:**
-1. Create `wiki/page-name.md`
-2. Add front matter with `layout: wiki`
-3. Update `wiki/index.md`
-4. Commit and push
 
 ### Important Files
 - `DOCUMENTATION.md` - Detailed tool docs, workflows, examples
@@ -309,5 +268,4 @@ python dev-tools/generate_index.py .
 - **Detailed tool docs:** See `DOCUMENTATION.md`
 - **Testing & troubleshooting:** See `MAINTENANCE.md`
 - **Dev tools usage:** See `dev-tools/README.md`
-- **Wiki authoring:** See `wiki/README.md`
 - **Tool template:** See `templates/tool-template.html`

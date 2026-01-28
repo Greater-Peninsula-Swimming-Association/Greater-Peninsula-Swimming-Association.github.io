@@ -4,11 +4,10 @@ name: Build GPSA Documents
 on:
   push:
     paths:
-      - 'docs/rulebook/**'
       - 'docs/constitution/**'
+      - 'docs/code-of-conduct/**'
     branches:
       - main
-      - rulebook-development
   workflow_dispatch:
 
 jobs:
@@ -27,13 +26,6 @@ jobs:
       - name: Install TinyTeX
         run: quarto install tinytex
 
-      - name: Build GPSA Rulebook
-        run: |
-          echo "Building GPSA Rulebook with Quarto..."
-          cd docs/rulebook
-          quarto render
-          echo "✅ Rulebook build completed!"
-
       - name: Build GPSA Constitution
         run: |
           echo "Building GPSA Constitution with Quarto..."
@@ -41,25 +33,16 @@ jobs:
           quarto render
           echo "✅ Constitution build completed!"
 
+      - name: Build GPSA Code of Conduct
+        run: |
+          echo "Building GPSA Code of Conduct with Quarto..."
+          cd docs/code-of-conduct
+          quarto render
+          echo "✅ Code of Conduct build completed!"
+
       - name: Verify outputs were created
         run: |
           echo "Verifying generated files..."
-
-          if [ -f "docs/rulebook/public-html/index.html" ]; then
-            ls -lh docs/rulebook/public-html/index.html
-            echo "✅ Rulebook HTML successfully generated"
-          else
-            echo "❌ Error: Rulebook HTML was not created"
-            exit 1
-          fi
-
-          if [ -f "docs/rulebook/public-html/GPSA-Rulebook.pdf" ]; then
-            ls -lh docs/rulebook/public-html/GPSA-Rulebook.pdf
-            echo "✅ Rulebook PDF successfully generated"
-          else
-            echo "❌ Error: Rulebook PDF was not created"
-            exit 1
-          fi
 
           if [ -f "docs/constitution/public-html/index.html" ]; then
             ls -lh docs/constitution/public-html/index.html
@@ -77,18 +60,42 @@ jobs:
             exit 1
           fi
 
-      - name: Upload Rulebook artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: GPSA-Rulebook
-          path: docs/rulebook/public-html/
-          retention-days: 90
+          if [ -f "docs/code-of-conduct/public-html/index.html" ]; then
+            ls -lh docs/code-of-conduct/public-html/index.html
+            echo "✅ Code of Conduct HTML successfully generated"
+          else
+            echo "❌ Error: Code of Conduct HTML was not created"
+            exit 1
+          fi
+
+          if [ -f "docs/code-of-conduct/public-html/GPSA-Code-of-Conduct.pdf" ]; then
+            ls -lh docs/code-of-conduct/public-html/GPSA-Code-of-Conduct.pdf
+            echo "✅ Code of Conduct PDF successfully generated"
+          else
+            echo "❌ Error: Code of Conduct PDF was not created"
+            exit 1
+          fi
+
+      - name: Copy PDFs to documents directory
+        run: |
+          echo "Copying PDFs to documents directory..."
+          cp docs/constitution/public-html/GPSA-Constitution.pdf documents/Constitution.pdf
+          cp docs/code-of-conduct/public-html/GPSA-Code-of-Conduct.pdf "documents/Code of Conduct.pdf"
+          echo "✅ PDFs copied to documents/"
+          ls -lh documents/*.pdf
 
       - name: Upload Constitution artifacts
         uses: actions/upload-artifact@v4
         with:
           name: GPSA-Constitution
           path: docs/constitution/public-html/
+          retention-days: 90
+
+      - name: Upload Code of Conduct artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: GPSA-Code-of-Conduct
+          path: docs/code-of-conduct/public-html/
           retention-days: 90
 
       - name: Commit generated files to repository
@@ -99,8 +106,10 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           echo "Staging generated files..."
-          git add docs/rulebook/public-html/
           git add docs/constitution/public-html/
+          git add docs/code-of-conduct/public-html/
+          git add documents/Constitution.pdf
+          git add "documents/Code of Conduct.pdf"
 
           if git diff --staged --quiet; then
             echo "✅ No changes to commit (outputs unchanged)"

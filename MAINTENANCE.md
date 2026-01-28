@@ -339,21 +339,6 @@ FILENAME_ABBR_MAP = {...}       # Filename abbr → official abbr
 
 ---
 
-### Wiki System Maintenance
-
-**What to Maintain:**
-- Keep Jekyll compatible with GitHub Pages
-- Update wiki pages as tools change
-- Verify sidebar navigation stays current
-- Test responsive design
-
-**Update Schedule:**
-- **Monthly**: Review wiki pages for accuracy
-- **After Tool Updates**: Update corresponding wiki docs
-- **Annually**: Review entire wiki for outdated content
-
----
-
 ## Security Notes
 
 ### XSS Protection

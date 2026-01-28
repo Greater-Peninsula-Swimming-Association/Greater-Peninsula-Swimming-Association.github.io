@@ -53,5 +53,3 @@ temp_*/
 *.fdb_latexmk
 *.synctex.gz
 
-# Rulebook local builds (generated PDFs should not be committed)
-dev-docs/*.pdf
