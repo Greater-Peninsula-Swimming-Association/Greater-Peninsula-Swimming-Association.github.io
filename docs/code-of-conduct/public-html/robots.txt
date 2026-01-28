@@ -1,1 +1,1 @@
-Sitemap: https://draft.rulebook.gpsaswimming.org/code-of-conduct/sitemap.xml
+Sitemap: https://publicity.gpsaswimming.org/docs/code-of-conduct/sitemap.xml
