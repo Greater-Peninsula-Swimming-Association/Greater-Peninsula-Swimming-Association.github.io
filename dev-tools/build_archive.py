@@ -31,7 +31,8 @@ TEAM_NAME_MAP = {
     "Wendwood Wahoos": "WW",
     "Willow Oaks Stingrays": "WO",
     "Windy Point Piranhas": "WPPIR",
-    "WYCC Sea Turtles": "WYCC"
+    "WYCC Sea Turtles": "WYCC",
+    "WYCC Seaturtles": "WYCC"
 }
 
 # Maps full team names to the shorter names used in the schedule table.
@@ -54,11 +55,14 @@ TEAM_SCHEDULE_NAME_MAP = {
     "Wendwood Wahoos": "Wendwood",
     "Willow Oaks Stingrays": "Willow Oaks",
     "Windy Point Piranhas": "Windy Point",
-    "WYCC Sea Turtles": "Warwick Yacht"
+    "WYCC Sea Turtles": "Warwick Yacht",
+    "WYCC Seaturtles": "Warwick Yacht"
 }
 
 # Maps truncated filename abbreviations to their official, full-length counterparts.
 FILENAME_ABBR_MAP = {
+    "BBM": "BLMAR",
+    "GPWYCC": "WYCC",
     "MBKM": "MBKMT",
     "WPPI": "WPPIR",
     "BLMA": "BLMAR"
