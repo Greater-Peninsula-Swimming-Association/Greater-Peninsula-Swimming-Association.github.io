@@ -14,6 +14,7 @@ from datetime import datetime
 # This map is crucial for linking results to the correct team for standings.
 TEAM_NAME_MAP = {
     "Beaconsdale Blue Marlins": "BLMAR",
+    "Beechwood Sharks": "BW",
     "Colony Cudas": "COL",
     "Coventry Sailfish Swim Team": "CV",
     "Elizabeth Lake Tideriders": "EL",
@@ -36,6 +37,7 @@ TEAM_NAME_MAP = {
 # Maps full team names to the shorter names used in the schedule table.
 TEAM_SCHEDULE_NAME_MAP = {
     "Beaconsdale Blue Marlins": "Beaconsdale",
+    "Beechwood Sharks": "Beechwood",
     "Colony Cudas": "Colony",
     "Coventry Sailfish Swim Team": "Coventry",
     "Elizabeth Lake Tideriders": "Elizabeth Lake",
