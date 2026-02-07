@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPSA 2022 Season Archive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon Links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/apple-touch-icon.png?1651502524">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-32x32.png?1651502547">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://d1nmxxg9d5tdo.cloudfront.net/875/files/favicon-16x16.png?1651502535">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { 'gpsa-blue': '#002366', 'gpsa-blue-light': '#0033a0', 'gpsa-red': '#d9242b' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* GPSA Embedded Styles for Season Archive */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #1f2937;
+        }
+
+        .gpsa-header {
+            background-color: #002366;
+            color: white;
+        }
+
+        .gpsa-header img {
+            border-radius: 50%;
+        }
+
+        .gpsa-header-subtitle {
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+            text-align: center;
+            color: #d1d5db;
+        }
+
+        @media (min-width: 640px) {
+            .gpsa-header-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Responsive table text sizing */
+        .table-date {
+            font-size: 0.75rem; /* 12px on mobile */
+        }
+
+        .table-text {
+            font-size: 0.875rem; /* 14px on mobile */
+        }
+
+        .table-header {
+            font-size: 0.875rem; /* 14px on mobile */
+            padding: 0.25rem 0.5rem;
+        }
+
+        .table-cell {
+            padding: 0.25rem 0.5rem;
+        }
+
+        /* Date format responsive display */
+        .date-full {
+            display: none; /* Hide full date on mobile */
+        }
+
+        .date-abbr {
+            display: inline; /* Show abbreviated date on mobile */
+        }
+
+        @media (min-width: 640px) {
+            .table-date {
+                font-size: 0.875rem; /* 14px on tablet */
+            }
+
+            .table-text {
+                font-size: 1rem; /* 16px on tablet */
+            }
+
+            .table-header {
+                font-size: 1rem; /* 16px on tablet */
+                padding: 0.5rem;
+            }
+
+            .table-cell {
+                padding: 0.5rem;
+            }
+
+            /* Switch to full date format on tablet+ */
+            .date-full {
+                display: inline;
+            }
+
+            .date-abbr {
+                display: none;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .table-header {
+                font-size: 1.125rem; /* 18px on desktop */
+            }
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            body, .container {
+                margin: 0;
+                padding: 0;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto">
+            <header id="top" class="gpsa-header p-4 shadow-md flex items-center justify-center no-print mb-6 rounded-lg">
+                <img src="https://publicity.gpsaswimming.org/assets/gpsa_logo.png"
+                     alt="GPSA Logo"
+                     class="h-16 w-16 md:h-20 md:w-20 mr-4 rounded-full"
+                     onerror="this.onerror=null; this.src='https://placehold.co/100x100/002366/FFFFFF?text=GPSA';">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">GPSA 2022 Season Archive</h1>
+                    <p class="gpsa-header-subtitle">Season Results and Standings</p>
+                </div>
+            </header>
+
+            <div class="bg-white rounded-xl shadow-lg p-4 mb-8 flex flex-wrap justify-around gap-2 sm:gap-4">
+                <a href="#red" class="text-base sm:text-lg md:text-xl font-bold text-gpsa-red hover:text-gpsa-blue transition-colors duration-300">Red Division</a>
+                <a href="#white" class="text-base sm:text-lg md:text-xl font-bold text-gpsa-red hover:text-gpsa-blue transition-colors duration-300">White Division</a>
+                <a href="#blue" class="text-base sm:text-lg md:text-xl font-bold text-gpsa-red hover:text-gpsa-blue transition-colors duration-300">Blue Division</a>
+            </div>
+<div id="red" class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-8 overflow-x-auto"><h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-700">Red Division</h2><table class="w-full border-collapse min-w-full"><thead><tr class="border-b border-black"><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">DATE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">HOME</th><th class="w-1/12 table-header bg-gpsa-red text-white text-center align-middle">SCORE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">VISITOR</th><th class="w-1/12 table-header bg-gpsa-red text-white text-center align-middle">SCORE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">BEST TIMES</th></tr></thead><tbody><tr class="border-b border-black"><td class="table-cell table-date text-center align-middle" rowspan="1"><span class="date-abbr">THU JUN 23</span><span class="date-full">THURSDAY JUNE 23</span></td><td class='table-cell table-text text-center align-middle'>Running Man</td><td class='table-cell table-text text-center align-middle'><strong>307.0</strong></td><td class='table-cell table-text text-center align-middle'>Coventry</td><td class='table-cell table-text text-center align-middle'>153.0</td><td class='table-cell table-text text-center align-middle'><a href='2022-06-23_RMMR_v_CV.html' target='_blank' class='text-gpsa-blue-light underline font-medium hover:text-gpsa-red'>Results</a></td></tr></tbody></table><div class="my-8"></div><table class="w-full border-collapse min-w-full"><thead><tr class="border-b border-black"><th class="table-header bg-gpsa-red text-white text-center align-middle">Team</th><th class="table-header bg-gpsa-red text-white text-center align-middle">Win</th><th class="table-header bg-gpsa-red text-white text-center align-middle">Loss</th></tr></thead><tbody><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>RMMR &ndash; Running Man Manta Rays</td><td class='table-cell table-text text-center align-middle'>1</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>COL &ndash; Colony Cudas</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>HW &ndash; Hidenwood Tarpons</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>WPPIR &ndash; Windy Point Piranhas</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>MBKMT &ndash; Marlbank Mudtoads</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>CV &ndash; Coventry Sailfish Swim Team</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>1</td></tr></tbody></table><div class="mt-4 sm:mt-6 flex justify-end"><a href="#top" class="text-sm sm:text-base text-gpsa-blue-light hover:text-gpsa-red font-medium">Back to Top &uarr;</a></div></div><div id="white" class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-8 overflow-x-auto"><h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-700">White Division</h2><table class="w-full border-collapse min-w-full"><thead><tr class="border-b border-black"><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">DATE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">HOME</th><th class="w-1/12 table-header bg-gpsa-red text-white text-center align-middle">SCORE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">VISITOR</th><th class="w-1/12 table-header bg-gpsa-red text-white text-center align-middle">SCORE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">BEST TIMES</th></tr></thead><tbody><tr class="border-b border-black"><td class="table-cell table-date text-center align-middle" rowspan="1"><span class="date-abbr">THU JUN 30</span><span class="date-full">THURSDAY JUNE 30</span></td><td class='table-cell table-text text-center align-middle'>Willow Oaks</td><td class='table-cell table-text text-center align-middle'><strong>267.0</strong></td><td class='table-cell table-text text-center align-middle'>James River</td><td class='table-cell table-text text-center align-middle'>205.0</td><td class='table-cell table-text text-center align-middle'><a href='2022-06-30_WO_v_JRCC.html' target='_blank' class='text-gpsa-blue-light underline font-medium hover:text-gpsa-red'>Results</a></td></tr></tbody></table><div class="my-8"></div><table class="w-full border-collapse min-w-full"><thead><tr class="border-b border-black"><th class="table-header bg-gpsa-red text-white text-center align-middle">Team</th><th class="table-header bg-gpsa-red text-white text-center align-middle">Win</th><th class="table-header bg-gpsa-red text-white text-center align-middle">Loss</th></tr></thead><tbody><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>WO &ndash; Willow Oaks Stingrays</td><td class='table-cell table-text text-center align-middle'>1</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>POQ &ndash; Poquoson Barracudas</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>GWRA &ndash; George Wythe Wahoos</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>KCD &ndash; Kiln Creek Dolphins</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>WYCC &ndash; WYCC Sea Turtles</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>JRCC &ndash; James River Country Club</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>1</td></tr></tbody></table><div class="mt-4 sm:mt-6 flex justify-end"><a href="#top" class="text-sm sm:text-base text-gpsa-blue-light hover:text-gpsa-red font-medium">Back to Top &uarr;</a></div></div><div id="blue" class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-8 overflow-x-auto"><h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-700">Blue Division</h2><table class="w-full border-collapse min-w-full"><thead><tr class="border-b border-black"><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">DATE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">HOME</th><th class="w-1/12 table-header bg-gpsa-red text-white text-center align-middle">SCORE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">VISITOR</th><th class="w-1/12 table-header bg-gpsa-red text-white text-center align-middle">SCORE</th><th class="w-1/5 table-header bg-gpsa-red text-white text-center align-middle">BEST TIMES</th></tr></thead><tbody><tr class="border-b border-black"><td class="table-cell table-date text-center align-middle" rowspan="1"><span class="date-abbr">THU JUN 23</span><span class="date-full">THURSDAY JUNE 23</span></td><td class='table-cell table-text text-center align-middle'>Wendwood</td><td class='table-cell table-text text-center align-middle'><strong>252.0</strong></td><td class='table-cell table-text text-center align-middle'>Glendale</td><td class='table-cell table-text text-center align-middle'>229.0</td><td class='table-cell table-text text-center align-middle'><a href='2022-06-23_WW_v_GG.html' target='_blank' class='text-gpsa-blue-light underline font-medium hover:text-gpsa-red'>Results</a></td></tr></tbody></table><div class="my-8"></div><table class="w-full border-collapse min-w-full"><thead><tr class="border-b border-black"><th class="table-header bg-gpsa-red text-white text-center align-middle">Team</th><th class="table-header bg-gpsa-red text-white text-center align-middle">Win</th><th class="table-header bg-gpsa-red text-white text-center align-middle">Loss</th></tr></thead><tbody><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>WW &ndash; Wendwood Wahoos</td><td class='table-cell table-text text-center align-middle'>1</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>GG &ndash; Glendale Gators</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>1</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>RRST &ndash; Riverdale Rays</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>BW &ndash; Beechwood Sharks</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>BLMAR &ndash; Beaconsdale Blue Marlins</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>NHM &ndash; Northampton Marlins</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr><tr class='border-b border-black'><td class='table-cell table-text text-left align-middle'>EL &ndash; Elizabeth Lake Tideriders</td><td class='table-cell table-text text-center align-middle'>0</td><td class='table-cell table-text text-center align-middle'>0</td></tr></tbody></table><div class="mt-4 sm:mt-6 flex justify-end"><a href="#top" class="text-sm sm:text-base text-gpsa-blue-light hover:text-gpsa-red font-medium">Back to Top &uarr;</a></div></div></div></main></body></html>
