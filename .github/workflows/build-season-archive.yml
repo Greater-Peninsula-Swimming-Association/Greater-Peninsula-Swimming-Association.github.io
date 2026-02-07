@@ -6,6 +6,7 @@ on:
     paths:
       - 'results/**/*.html'
       - 'results/**/divisions.csv'
+      - 'results/**/last_updated.txt'
     branches:
       - main
   workflow_dispatch:
